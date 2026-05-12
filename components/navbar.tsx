@@ -5,6 +5,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import { Menu, X } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import Link from "next/link"
+import Image from "next/image"
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -46,8 +47,15 @@ export function Navbar() {
           "glass bg-black/40"
         )}
       >
-        <Link href="/" className="text-2xl font-bold tracking-tighter relative z-50">
-          Innovas<span className="text-blue-400">.</span>
+        <Link href="/" className="relative z-50 h-8 flex items-center">
+          <Image
+            src="/innovas-logo.png"
+            alt="Innovas"
+            height={32}
+            width={115}
+            priority
+            className="h-8 w-auto"
+          />
         </Link>
 
         {/* Desktop Menu */}
