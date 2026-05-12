@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div>
             <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 block">
-              Lumina<span className="text-blue-400">.</span>
+              Innovas<span className="text-blue-400">.</span>
             </Link>
             <p className="text-white/50 leading-relaxed">
               Crafting digital experiences that merge art, technology, and human connection.
@@ -40,17 +40,17 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-6">Let's Chat</h4>
             <p className="text-white/60 mb-4">Have a project in mind?</p>
-            <a 
-              href="mailto:hello@lumina.agency" 
+            <a
+              href="mailto:hello@innovas.ar"
               className="text-xl font-medium hover:text-blue-400 transition-colors"
             >
-              hello@lumina.agency
+              hello@innovas.ar
             </a>
           </div>
         </div>
         
         <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 text-sm text-white/40">
-          <p>&copy; 2025 Lumina Agency. All rights reserved.</p>
+          <p>&copy; 2025 Innovas. All rights reserved.</p>
           <div className="flex items-center gap-6 mt-4 md:mt-0">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>

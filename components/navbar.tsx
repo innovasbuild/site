@@ -39,7 +39,7 @@ export function Navbar() {
         )}
       >
         <Link href="/" className="text-2xl font-bold tracking-tighter relative z-50">
-          Lumina<span className="text-blue-400">.</span>
+          Innovas<span className="text-blue-400">.</span>
         </Link>
 
         {/* Desktop Menu */}

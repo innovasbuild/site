@@ -2,13 +2,13 @@
 
 import { GlassCard } from "@/components/ui/glass-card"
 import { motion } from "framer-motion"
-import { Code2, Palette, Rocket, Smartphone } from 'lucide-react'
+import { Code2, Brain, Rocket, Smartphone } from 'lucide-react'
 
 const services = [
   {
-    icon: <Palette className="w-8 h-8 text-blue-400" />,
-    title: "Brand Identity",
-    description: "Crafting visual systems that speak louder than words. We build brands that resonate and endure.",
+    icon: <Brain className="w-8 h-8 text-blue-400" />,
+    title: "AI Workflows",
+    description: "Intelligent automation that transforms your business. We design and implement AI-powered workflows that streamline operations and unlock new possibilities.",
   },
   {
     icon: <Smartphone className="w-8 h-8 text-purple-400" />,
