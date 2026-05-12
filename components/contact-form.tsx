@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { GlassCard } from "@/components/ui/glass-card"
+import { sendEmailViaGmail } from "@/lib/actions/email"
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -11,11 +12,28 @@ export function ContactForm() {
     company: "",
     message: "",
   })
+  const [isLoading, setIsLoading] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
-    // Handle form submission here
+    setIsLoading(true)
+    setSubmitStatus(null)
+
+    try {
+      const result = await sendEmailViaGmail(formData)
+
+      if (result.success) {
+        setSubmitStatus({ type: 'success', message: '¡Mensaje enviado exitosamente!' })
+        setFormData({ name: "", email: "", company: "", message: "" })
+      } else {
+        setSubmitStatus({ type: 'error', message: result.error || 'Error al enviar el mensaje' })
+      }
+    } catch (error) {
+      setSubmitStatus({ type: 'error', message: 'Error al enviar el mensaje' })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -95,10 +113,25 @@ export function ContactForm() {
 
               <button
                 type="submit"
-                className="w-full px-8 py-4 bg-white text-black rounded-full font-semibold text-lg hover:scale-105 transition-transform shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)]"
+                disabled={isLoading}
+                className="w-full px-8 py-4 bg-white text-black rounded-full font-semibold text-lg hover:scale-105 transition-transform shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isLoading ? 'Enviando...' : 'Send Message'}
               </button>
+
+              {submitStatus && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className={`p-4 rounded-lg text-center font-medium ${
+                    submitStatus.type === 'success'
+                      ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                      : 'bg-red-500/20 text-red-400 border border-red-500/30'
+                  }`}
+                >
+                  {submitStatus.message}
+                </motion.div>
+              )}
             </form>
           </GlassCard>
         </motion.div>
