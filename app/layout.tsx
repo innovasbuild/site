@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
 export const metadata: Metadata = {
-  title: "Innovas | Digital Agency",
+  title: "Innovas | Build Solutions",
   description: "Shaping the future of digital experiences with AI-powered solutions.",
     generator: 'v0.app'
 }

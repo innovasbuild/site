@@ -15,11 +15,19 @@ export function Navbar() {
     setIsScrolled(latest > 50)
   })
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    setIsMobileMenuOpen(false)
+  }
+
   const navLinks = [
-    { name: "Work", href: "#work" },
-    { name: "Services", href: "#services" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Work", href: "#work", id: "work" },
+    { name: "Services", href: "#services", id: "services" },
+    { name: "About", href: "#about", id: "about" },
+    { name: "Contact", href: "#contact-form", id: "contact-form" },
   ]
 
   return (
@@ -45,15 +53,17 @@ export function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <button
               key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-white/70 hover:text-white transition-colors"
+              onClick={() => scrollToSection(link.id)}
+              className="text-sm font-medium text-white/70 hover:text-white transition-colors cursor-pointer"
             >
               {link.name}
-            </Link>
+            </button>
           ))}
-          <button className="bg-white text-black px-5 py-2 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors">
+          <button
+            onClick={() => scrollToSection("contact-form")}
+            className="bg-white text-black px-5 py-2 rounded-full text-sm font-semibold hover:bg-white/90 transition-colors">
             Let's Talk
           </button>
         </div>
@@ -76,16 +86,17 @@ export function Navbar() {
           >
             <div className="flex flex-col items-center gap-8">
               {navLinks.map((link) => (
-                <Link
+                <button
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-3xl font-light text-white hover:text-blue-400 transition-colors"
+                  onClick={() => scrollToSection(link.id)}
+                  className="text-3xl font-light text-white hover:text-blue-400 transition-colors cursor-pointer"
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
-              <button className="mt-4 bg-white text-black px-8 py-3 rounded-full text-lg font-semibold">
+              <button
+                onClick={() => scrollToSection("contact-form")}
+                className="mt-4 bg-white text-black px-8 py-3 rounded-full text-lg font-semibold">
                 Let's Talk
               </button>
             </div>
