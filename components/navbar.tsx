@@ -47,14 +47,14 @@ export function Navbar() {
           "glass bg-black/40"
         )}
       >
-        <Link href="/" className="relative z-50 h-[26px] flex items-center">
+        <Link href="/" className="relative z-50 h-[34px] flex items-center">
           <Image
             src="/innovas-logo.png"
             alt="Innovas"
-            height={26}
+            height={34}
             width={172}
             priority
-            className="h-[26px] w-auto"
+            className="h-[34px] w-auto"
           />
         </Link>
 
