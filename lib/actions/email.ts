@@ -9,8 +9,24 @@ export async function sendEmailViaGmail(formData: {
   message: string
 }) {
   try {
+    if (!process.env.GOOGLE_SERVICE_ACCOUNT) {
+      throw new Error('GOOGLE_SERVICE_ACCOUNT no configurada')
+    }
+
+    if (!process.env.GMAIL_TO_EMAIL) {
+      throw new Error('GMAIL_TO_EMAIL no configurada')
+    }
+
+    let credentials
+    try {
+      credentials = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT)
+    } catch (parseError) {
+      console.error('Error parseando GOOGLE_SERVICE_ACCOUNT:', parseError)
+      throw new Error('Credenciales de Google inválidas')
+    }
+
     const auth = new google.auth.GoogleAuth({
-      credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT!),
+      credentials,
       scopes: ['https://www.googleapis.com/auth/gmail.send'],
     })
 
