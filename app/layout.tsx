@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Inter } from 'next/font/google'
+import Script from "next/script"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 
@@ -20,6 +21,11 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={cn("min-h-screen bg-black font-sans antialiased selection:bg-white/20", inter.variable)}>
         {children}
+        <Script
+          id="hs-script"
+          src={`//js.hs-scripts.com/${process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID}.js`}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )

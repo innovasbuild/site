@@ -3,7 +3,6 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { GlassCard } from "@/components/ui/glass-card"
-import { sendEmailViaGmail } from "@/lib/actions/email"
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -20,17 +19,40 @@ export function ContactForm() {
     setIsLoading(true)
     setSubmitStatus(null)
 
-    try {
-      const result = await sendEmailViaGmail(formData)
+    const portalId = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID
+    const formId = process.env.NEXT_PUBLIC_HUBSPOT_FORM_ID
 
-      if (result.success) {
+    try {
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fields: [
+              { name: 'firstname', value: formData.name },
+              { name: 'email', value: formData.email },
+              { name: 'company', value: formData.company },
+              { name: 'message', value: formData.message },
+            ],
+            context: {
+              pageUri: typeof window !== 'undefined' ? window.location.href : 'https://innov.as',
+              pageName: 'Innovas - Contact Form',
+            },
+          }),
+        }
+      )
+
+      if (response.ok) {
         setSubmitStatus({ type: 'success', message: '¡Mensaje enviado exitosamente!' })
         setFormData({ name: "", email: "", company: "", message: "" })
       } else {
-        setSubmitStatus({ type: 'error', message: result.error || 'Error al enviar el mensaje' })
+        const error = await response.json()
+        console.error('HubSpot error:', error)
+        setSubmitStatus({ type: 'error', message: 'Error al enviar el mensaje. Intentá de nuevo.' })
       }
-    } catch (error) {
-      setSubmitStatus({ type: 'error', message: 'Error al enviar el mensaje' })
+    } catch {
+      setSubmitStatus({ type: 'error', message: 'Error al enviar el mensaje. Intentá de nuevo.' })
     } finally {
       setIsLoading(false)
     }
