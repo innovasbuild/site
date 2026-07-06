@@ -5,11 +5,10 @@ import { cn } from "@/lib/utils"
 import { fraunces, inter, spaceMono } from "./fonts"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { seo } from "@/content/seo"
 
 export const metadata: Metadata = {
-  title: "INNOV.AS — Automatización agéntica y adopción de IA",
-  description:
-    "Soluciones de IA y datos para transformar tu operación, y el programa Desde Adentro para que tu equipo adopte el cambio. Años de proyectos con BM, BID y FAO.",
+  ...seo["/"],
   generator: "v0.app",
 }
 
