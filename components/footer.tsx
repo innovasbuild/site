@@ -1,61 +1,57 @@
 import Link from "next/link"
-import { Github, Twitter, Instagram, Linkedin } from 'lucide-react'
+import { Linkedin } from "lucide-react"
+import { footerColumns, footerInstitutional, footerContact, footerLegal } from "@/content/global"
 
 export function Footer() {
   return (
-    <footer className="relative pt-32 pb-12 overflow-hidden">
-      <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+    <footer className="border-t border-line bg-ink text-paper">
+      <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
-            <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 block">
-              Innovas<span className="text-blue-400">.</span>
+            <Link href="/" className="font-display text-xl font-semibold text-paper">
+              {footerInstitutional.name}
             </Link>
-            <p className="text-white/50 leading-relaxed">
-              Crafting digital experiences that merge art, technology, and human connection.
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/60">
+              {footerInstitutional.description}
             </p>
           </div>
-          
+
+          {footerColumns
+            .filter((col) => col.heading)
+            .map((col) => (
+              <div key={col.heading}>
+                <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">{col.heading}</h4>
+                <ul className="mt-4 space-y-3">
+                  {col.links?.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href} className="text-sm text-paper/70 hover:text-paper">
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+
           <div>
-            <h4 className="font-semibold mb-6">Sitemap</h4>
-            <ul className="space-y-4 text-white/60">
-              <li><Link href="#work" className="hover:text-white transition-colors">Work</Link></li>
-              <li><Link href="#services" className="hover:text-white transition-colors">Services</Link></li>
-              <li><Link href="#about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link href="#contact" className="hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-6">Socials</h4>
-            <ul className="space-y-4 text-white/60">
-              <li><Link href="#" className="hover:text-white transition-colors">Instagram</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Twitter</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">LinkedIn</Link></li>
-              <li><Link href="#" className="hover:text-white transition-colors">Dribbble</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h4 className="font-semibold mb-6">Let's Chat</h4>
-            <p className="text-white/60 mb-4">Have a project in mind?</p>
-            <a
-              href="mailto:hello@innovas.ar"
-              className="text-xl font-medium hover:text-blue-400 transition-colors"
-            >
-              hello@innovas.ar
-            </a>
+            <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">Contacto</h4>
+            <div className="mt-4 flex flex-col gap-3">
+              <a href={`mailto:${footerContact.email}`} className="text-sm text-paper/70 hover:text-paper">
+                {footerContact.email}
+              </a>
+              <a
+                href={footerContact.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 text-sm text-paper/70 hover:text-paper"
+              >
+                <Linkedin className="h-4 w-4" /> LinkedIn
+              </a>
+            </div>
           </div>
         </div>
-        
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/5 text-sm text-white/40">
-          <p>&copy; 2025 Innovas. All rights reserved.</p>
-          <div className="flex items-center gap-6 mt-4 md:mt-0">
-            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
-          </div>
-        </div>
+
+        <div className="mt-16 border-t border-paper/10 pt-8 text-xs text-paper/40">{footerLegal}</div>
       </div>
     </footer>
   )
