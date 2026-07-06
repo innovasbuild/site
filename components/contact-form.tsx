@@ -66,13 +66,13 @@ export function ContactForm() {
         type="single"
         value={intent}
         onValueChange={(value) => value && setValue("intent", value as FormValues["intent"])}
-        className="grid grid-cols-1 gap-2 sm:grid-cols-3"
+        className="grid w-full grid-cols-1 gap-2 sm:grid-cols-3"
       >
         {intents.map((item) => (
           <ToggleGroupItem
             key={item.value}
             value={item.value}
-            className="flex h-auto flex-col items-start gap-1 rounded border border-ink p-3 text-left data-[state=on]:bg-teal data-[state=on]:text-on-brand"
+            className="flex h-auto flex-col items-start justify-start gap-1 whitespace-normal rounded border border-ink p-3 text-left data-[state=on]:bg-teal data-[state=on]:text-on-brand"
           >
             <span className="font-mono text-xs uppercase">{item.label}</span>
             <span className="text-xs opacity-70">{item.description}</span>
