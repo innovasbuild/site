@@ -1,0 +1,71 @@
+/* ==========================================================================
+   INNOV.AS — Design Tokens (fuente única de verdad)
+   Entregable T3.2 · consumido por T3.3. Cero valores mágicos fuera de acá.
+   Fuentes self-host vía next/font (ver nota al pie). WCAG AA verificado.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: superficies ---- */
+  --color-paper:        #EDE8DC;   /* base cálida (oat) */
+  --color-paper-soft:   #E4DDCC;   /* tarjeta / bloque secundario */
+
+  /* ---- Color: tinta / texto ---- */
+  --color-ink:          #1F1B19;   /* texto y estructura — 13.98:1 sobre paper (AAA) */
+  --color-ink-70:       rgba(31, 27, 25, 0.68);  /* texto secundario */
+  --color-ink-40:       rgba(31, 27, 25, 0.40);  /* texto terciario / labels apagados */
+
+  /* ---- Color: marca + verticales ---- */
+  --color-teal:         #0F6B60;   /* MARCA · empresas · agéntico — 5.22:1 sobre paper (AA) */
+  --color-plum:         #8C3B5D;   /* personas · educación — 5.93:1 sobre paper (AA) */
+  --color-taupe:        #A79E8E;   /* DECORATIVO: bordes/ticks/meta. NO texto chico (2.17:1) */
+
+  /* ---- Color: semántico ---- */
+  --color-brand:        var(--color-teal);
+  --color-vertical-company: var(--color-teal);   /* empresas / transformación */
+  --color-vertical-people:  var(--color-plum);   /* personas / educación */
+  --color-line:         rgba(31, 27, 25, 0.18);  /* hairlines */
+  --color-on-brand:     #FFFFFF;   /* texto sobre teal (6.38:1) y plum (7.24:1) */
+
+  /* ---- Color: estados (funcional, fuera de marca) ---- */
+  --color-success:      var(--color-teal);
+  --color-danger:       #B23A48;
+  --color-focus:        var(--color-teal);
+
+  /* ---- Tipografía: familias ---- */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:    "Space Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Ajustes variables de Fraunces para display (calidez + peso) */
+  --fraunces-display: "opsz" 144, "SOFT" 45, "WONK" 1;
+  --fraunces-heading: "opsz" 80,  "SOFT" 40, "WONK" 0;
+
+  /* ---- Tipografía: escala (rem sobre 16px) ---- */
+  --text-xs:   0.75rem;    /* 12 */
+  --text-sm:   0.875rem;   /* 14 */
+  --text-base: 1rem;       /* 16 */
+  --text-md:   1.125rem;   /* 18 */
+  --text-lg:   1.375rem;   /* 22 */
+  --text-xl:   1.75rem;    /* 28 */
+  --text-2xl:  2.25rem;    /* 36 */
+  --text-3xl:  3rem;       /* 48 */
+  --text-hero: clamp(3.5rem, 6.6vw, 4.5rem);
+
+  /* ---- Radios ---- */
+  --radius-sm: 3px;
+  --radius:    4px;
+  --radius-md: 5px;
+
+  /* ---- Sombras (offset sólido, sin blur — coherente con la estética) ---- */
+  --shadow-teal: 0 6px 0 -2px rgba(15, 107, 96, 0.35);
+  --shadow-plum: 0 6px 0 -2px rgba(140, 59, 93, 0.40);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-draw: 1000ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 0ms; --dur-draw: 0ms; }
+}
