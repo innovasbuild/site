@@ -1,15 +1,14 @@
 import type { Metadata } from "next"
-import { Inter } from 'next/font/google'
 import Script from "next/script"
 import "./globals.css"
 import { cn } from "@/lib/utils"
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
+import { fraunces, inter, spaceMono } from "./fonts"
 
 export const metadata: Metadata = {
-  title: "Innovas | Build Solutions",
-  description: "Shaping the future of digital experiences with AI-powered solutions.",
-    generator: 'v0.app'
+  title: "INNOV.AS — Automatización agéntica y adopción de IA",
+  description:
+    "Soluciones de IA y datos para transformar tu operación, y el programa Desde Adentro para que tu equipo adopte el cambio. Años de proyectos con BM, BID y FAO.",
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -18,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={cn("min-h-screen bg-black font-sans antialiased selection:bg-white/20", inter.variable)}>
+    <html lang="es" className={cn(fraunces.variable, inter.variable, spaceMono.variable)}>
+      <body className="min-h-screen bg-paper text-ink font-sans antialiased selection:bg-teal/20">
         {children}
         <Script
           id="hs-script"

@@ -1,7 +1,127 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   INNOV.AS — Design tokens ("Cálido / Notación de Transición")
+   Fuente: .claude/skills/innov-design-system/assets/tokens/globals.css (T3.2)
+   Traducido a la sintaxis @theme inline de Tailwind v4. Cero valores mágicos
+   fuera de este bloque — ver skill innov-design-system para el contrato.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: superficies ---- */
+  --color-paper: #EDE8DC;
+  --color-paper-soft: #E4DDCC;
+
+  /* ---- Color: tinta / texto ---- */
+  --color-ink: #1F1B19;
+  --color-ink-70: rgba(31, 27, 25, 0.68);
+  --color-ink-40: rgba(31, 27, 25, 0.40);
+
+  /* ---- Color: marca + verticales ---- */
+  --color-teal: #0F6B60;
+  --color-plum: #8C3B5D;
+  --color-taupe: #A79E8E;
+
+  /* ---- Color: semántico ---- */
+  --color-brand: var(--color-teal);
+  --color-vertical-company: var(--color-teal);
+  --color-vertical-people: var(--color-plum);
+  --color-line: rgba(31, 27, 25, 0.18);
+  --color-on-brand: #FFFFFF;
+
+  /* ---- Color: estados ---- */
+  --color-success: var(--color-teal);
+  --color-danger: #B23A48;
+  --color-focus: var(--color-teal);
+
+  /* ---- Tipografía: familias ---- */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, "SF Mono", monospace;
+  --fraunces-display: "opsz" 144, "SOFT" 45, "WONK" 1;
+  --fraunces-heading: "opsz" 80, "SOFT" 40, "WONK" 0;
+
+  /* ---- Tipografía: escala (rem sobre 16px) ---- */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.375rem;
+  --text-xl: 1.75rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 3rem;
+  --text-hero: clamp(3.5rem, 6.6vw, 4.5rem);
+
+  /* ---- Radios ---- */
+  --radius-sm: 3px;
+  --radius: 4px;
+  --radius-md: 5px;
+
+  /* ---- Sombras (offset sólido, sin blur) ---- */
+  --shadow-teal: 0 6px 0 -2px rgba(15, 107, 96, 0.35);
+  --shadow-plum: 0 6px 0 -2px rgba(140, 59, 93, 0.40);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --dur-fast: 120ms;
+  --dur-draw: 1000ms;
+
+  /* ---- Alias shadcn/ui -> tokens de marca ----
+     /components/ui (~57 componentes Radix/shadcn) consume estos nombres
+     planos. Se remapean acá una sola vez para que todo el kit herede la
+     marca sin tocar cada archivo individual. */
+  --background: var(--color-paper);
+  --foreground: var(--color-ink);
+  --card: var(--color-paper-soft);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-paper);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-teal);
+  --primary-foreground: var(--color-on-brand);
+  --secondary: var(--color-plum);
+  --secondary-foreground: var(--color-on-brand);
+  --muted: var(--color-paper-soft);
+  --muted-foreground: var(--color-ink-70);
+  --accent: var(--color-paper-soft);
+  --accent-foreground: var(--color-ink);
+  --destructive: var(--color-danger);
+  --destructive-foreground: var(--color-on-brand);
+  --border: var(--color-line);
+  --input: var(--color-line);
+  --ring: var(--color-teal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-draw: 0ms;
+  }
+}
+
 @theme inline {
   --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+
+  /* tokens de marca expuestos como utilities Tailwind directas
+     (bg-paper, text-ink, text-teal, text-plum, border-taupe, etc.) */
+  --color-paper: var(--color-paper);
+  --color-paper-soft: var(--color-paper-soft);
+  --color-ink: var(--color-ink);
+  --color-ink-70: var(--color-ink-70);
+  --color-ink-40: var(--color-ink-40);
+  --color-teal: var(--color-teal);
+  --color-plum: var(--color-plum);
+  --color-taupe: var(--color-taupe);
+  --color-brand: var(--color-brand);
+  --color-vertical-company: var(--color-vertical-company);
+  --color-vertical-people: var(--color-vertical-people);
+  --color-line: var(--color-line);
+  --color-on-brand: var(--color-on-brand);
+  --color-success: var(--color-success);
+  --color-danger: var(--color-danger);
+
+  /* alias shadcn/ui remapeados (bg-primary, bg-background, border, etc.) */
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -21,49 +141,28 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  
-  --animate-blob: blob 7s infinite;
-  --animate-float: float 6s ease-in-out infinite;
-  
-  @keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-  }
-  
-  @keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-  }
-}
 
-:root {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-  --card: 0 0% 3%;
-  --card-foreground: 0 0% 100%;
-  --popover: 0 0% 3%;
-  --popover-foreground: 0 0% 100%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 0 0% 9%;
-  --secondary: 0 0% 14.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 0 0% 14.9%;
-  --muted-foreground: 0 0% 63.9%;
-  --accent: 0 0% 14.9%;
-  --accent-foreground: 0 0% 98%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 14.9%;
-  --input: 0 0% 14.9%;
-  --ring: 0 0% 83.1%;
-  --radius: 0.5rem;
+  --text-xs: var(--text-xs);
+  --text-sm: var(--text-sm);
+  --text-base: var(--text-base);
+  --text-md: var(--text-md);
+  --text-lg: var(--text-lg);
+  --text-xl: var(--text-xl);
+  --text-2xl: var(--text-2xl);
+  --text-3xl: var(--text-3xl);
+  --text-hero: var(--text-hero);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius-md);
+  --radius-xl: calc(var(--radius-md) + 2px);
+
+  --shadow-teal: var(--shadow-teal);
+  --shadow-plum: var(--shadow-plum);
+
+  --ease-brand: var(--ease);
+  --duration-fast: var(--dur-fast);
+  --duration-draw: var(--dur-draw);
 }
 
 @layer base {
@@ -72,17 +171,5 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@layer utilities {
-  .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.36)];
-  }
-  .glass-hover {
-    @apply hover:bg-white/10 hover:border-white/20 transition-all duration-300;
-  }
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white/80 to-white/50;
   }
 }
