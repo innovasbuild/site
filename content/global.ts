@@ -3,7 +3,6 @@ import type { Cta, FooterColumn, NavLink } from "./types"
 export const navLinks: NavLink[] = [
   { label: "Soluciones", href: "/soluciones" },
   { label: "Desde Adentro", href: "/desde-adentro" },
-  { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },
 ]
 
