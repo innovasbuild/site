@@ -18,7 +18,6 @@ export const footerColumns: FooterColumn[] = [
       { label: "Soluciones", href: "/soluciones" },
       { label: "Desde Adentro", href: "/desde-adentro" },
       { label: "Sé Trainer", href: "/desde-adentro/se-trainer" },
-      { label: "Nosotros", href: "/nosotros" },
       { label: "Contacto", href: "/contacto" },
     ],
   },
