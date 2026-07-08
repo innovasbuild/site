@@ -48,7 +48,7 @@ export function LevelPath({ items }: LevelPathProps) {
               className="absolute -right-4 top-1/2 hidden -translate-y-1/2 font-mono text-lg md:block"
               style={{ color: nodeColor[index + 1] }}
             >
-              ──→
+              →
             </span>
           )}
         </motion.div>

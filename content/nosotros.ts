@@ -1,7 +1,7 @@
 import type { Cta, Dato } from "./types"
 
 export const hero = {
-  eyebrow: "// nosotros ──→ terreno",
+  eyebrow: "// nosotros → terreno",
   title: "Ingeniería de transformación, probada en el terreno",
   subhead:
     "INNOV.AS nace de años de construir tecnología para quienes menos margen de error tienen: organismos internacionales, sector público y empresas en plena transformación.",
@@ -11,7 +11,7 @@ export const hero = {
 export const history = {
   kicker: { index: "01", label: "credenciales" },
   title: "Lo que hicimos nos define",
-  body: "Ejecutamos proyectos end-to-end — diseño, datos, IA y soporte — para el Banco Mundial, el BID y la FAO, y para instituciones como SAGyP, INTA y SENASA: plataformas de datos territoriales, análisis satelital, sistemas de trazabilidad y automatización de procesos." as Dato,
+  body: "Ejecutamos proyectos end-to-end — diseño, datos, IA y soporte — para bancos, gobierno, ONGs y empresas de consumo masivo en la región: plataformas de datos territoriales, análisis satelital, sistemas de trazabilidad y automatización de procesos." as Dato,
   bodyDato: "[DATO: N proyectos / N años / N países — confirmar cifras publicables]" as Dato,
   closing:
     "Esa experiencia formó nuestra manera de trabajar: arquitectura que escala, datos estructurados, trazabilidad total y cero tolerancia a los proyectos que quedan en piloto.",

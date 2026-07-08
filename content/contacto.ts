@@ -2,7 +2,7 @@ import { z } from "zod"
 import type { Cta } from "./types"
 
 export const hero = {
-  eyebrow: "// contacto ──→ próximo paso",
+  eyebrow: "// contacto → próximo paso",
   title: "Hablemos",
   subhead: "Contanos en qué estás y te respondemos dentro de las 48 horas hábiles.",
 }

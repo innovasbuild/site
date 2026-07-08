@@ -7,12 +7,12 @@ export interface SolutionCard {
 }
 
 export const hero = {
-  eyebrow: "// innov.as ──→ transformación",
+  eyebrow: "// innov.as → transformación",
   titlePrefix: "Automatización agéntica para transformar tu operación. ",
   titleHighlight: "Adopción real",
   titleSuffix: " para sostenerla.",
   subhead:
-    "Diseñamos y ejecutamos soluciones de datos e inteligencia artificial para empresas y organismos internacionales — con años de proyectos entregados para Banco Mundial, BID, FAO y compañías privadas de la región.",
+    "Diseñamos y ejecutamos soluciones de datos e inteligencia artificial para empresas y organismos internacionales — con años de proyectos entregados para bancos, gobierno, ONGs y empresas de consumo masivo en la región.",
   ctaPrimary: { label: "Hablemos de tu operación", href: "/contacto" } as Cta,
   ctaSecondary: { label: "Conocé Desde Adentro →", href: "/desde-adentro" } as Cta,
 }
@@ -78,7 +78,22 @@ export const credentials = {
   title: "Años de ejecución. Proyectos reales.",
   intro:
     "Trabajamos para organismos internacionales y empresas que no pueden darse el lujo de experimentar: [DATO: N] años de proyectos de transformación con tecnología en la región." as Dato,
-  logos: ["Banco Mundial", "BID", "FAO", "SAGyP", "INTA", "SENASA"],
+  logosLabel: "Organizaciones con las que hemos colaborado" as Dato,
+  logos: [
+    "Lenovo",
+    "Kimberly Clark",
+    "Pearson Education",
+    "McGraw Hill",
+    "Despegar.com",
+    "Falabella",
+    "BID",
+    "FAO",
+    "SAGyP",
+    "SENASA",
+    "Google Argentina",
+    "Grupo Don Mario",
+    "BASF",
+  ],
   projects: [
     "Plataforma de visualización territorial para organismo multilateral — datos geoespaciales, análisis satelital y arquitectura multi-tenant. [DATO: validar descripción publicable BID AR-T1401]",
     "[DATO: proyecto privado destacable]",

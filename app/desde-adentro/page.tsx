@@ -3,6 +3,7 @@ import Link from "next/link"
 import { Hero } from "@/components/hero"
 import { SectionKicker } from "@/components/section-kicker"
 import { LevelPath } from "@/components/level-path"
+import { LevelEvolutionDiagram } from "@/components/level-evolution-diagram"
 import { seo } from "@/content/seo"
 import { hero, notACourse, levels, executiveClose, whyInnovas, finalCta } from "@/content/desde-adentro"
 
@@ -36,6 +37,11 @@ export default function DesdeAdentroPage() {
         <div className="mx-auto max-w-6xl px-6 py-20">
           <SectionKicker index={levels.kicker.index} label={levels.kicker.label} />
           <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{levels.title}</h2>
+
+          <div className="mt-8 flex aspect-[21/9] items-center justify-center rounded border border-ink bg-paper p-6">
+            <LevelEvolutionDiagram className="h-full w-full" />
+          </div>
+
           <div className="mt-10">
             <LevelPath items={levels.items} />
           </div>

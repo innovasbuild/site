@@ -16,7 +16,7 @@ const verticalColor: Record<Vertical, string> = {
 export function SectionKicker({ index, label, vertical = "company", className }: SectionKickerProps) {
   return (
     <p className={cn("font-mono text-xs uppercase tracking-wider text-ink-40", className)}>
-      <span className={verticalColor[vertical]}>{`// ${index}`}</span> ──→ {label}
+      <span className={verticalColor[vertical]}>{`// ${index}`}</span> → {label}
     </p>
   )
 }

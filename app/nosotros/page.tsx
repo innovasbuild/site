@@ -28,7 +28,15 @@ export default function NosotrosPage() {
           <div className="mt-10 grid gap-6 sm:grid-cols-2">
             {team.members.map((member) => (
               <div key={member.name} className="rounded border border-ink bg-paper p-6">
-                <p className="font-display text-lg font-semibold text-ink">{member.name}</p>
+                {/* imagen: nosotros-{slug}.jpg — retrato editorial del integrante */}
+                <div className="relative aspect-square w-24 overflow-hidden rounded border border-dashed border-taupe bg-paper-soft">
+                  <div className="flex h-full w-full items-center justify-center p-1 text-center">
+                    <p className="font-mono text-[9px] uppercase leading-tight tracking-wider text-taupe">
+                      foto: {member.name}
+                    </p>
+                  </div>
+                </div>
+                <p className="mt-4 font-display text-lg font-semibold text-ink">{member.name}</p>
                 <p className="mt-2 text-sm text-ink-70">{member.bio}</p>
               </div>
             ))}

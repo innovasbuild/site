@@ -1,7 +1,7 @@
 import type { Cta } from "./types"
 
 export const hero = {
-  eyebrow: "// desde adentro ──→ adopción",
+  eyebrow: "// desde adentro → adopción",
   title: "La IA no se implementa. Se adopta desde adentro.",
   subhead:
     "Desde Adentro es el programa de adopción de IA de INNOV.AS: formamos a tus equipos en 4 niveles mientras tu propia gente releva las oportunidades de automatización de la empresa. No es un curso — al final tenés capacidades instaladas y un roadmap para actuar.",
@@ -37,7 +37,7 @@ export const levels = {
     },
     {
       label: "estado 02",
-      title: "Usuario Avanzado",
+      title: "Avanzado",
       duration: "4–5 semanas · analistas y mandos medios",
       outcome:
         "Prompting estructurado, asistentes configurados para su rol, IA integrada al flujo de trabajo real. Acá se multiplica la productividad individual.",
@@ -69,7 +69,7 @@ export const executiveClose = {
 export const whyInnovas = {
   kicker: { index: "04", label: "por qué innov.as" },
   title: "Formamos con la autoridad de quien ejecuta",
-  body: "No somos una academia que da cursos de herramientas. Somos una firma que lleva años construyendo plataformas y automatización para Banco Mundial, BID, FAO y empresas de la región — y esa experiencia es el programa. Los trainers se certifican en nuestra metodología y facilitan con control de calidad continuo.",
+  body: "No somos una academia que da cursos de herramientas. Somos una firma que lleva años construyendo plataformas y automatización para bancos, gobierno, ONGs y empresas de consumo masivo en la región. Los trainers se certifican en nuestra metodología y facilitan con control de calidad continuo.",
 }
 
 export const finalCta = {

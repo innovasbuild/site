@@ -1,7 +1,7 @@
 import type { Cta } from "./types"
 
 export const hero = {
-  eyebrow: "// sé trainer ──→ carrera",
+  eyebrow: "// sé trainer → carrera",
   title: "Aprendé IA al nivel de enseñarla",
   subhead:
     "Certificate en la metodología Desde Adentro y facilitá programas de adopción de IA en empresas — contratado por INNOV.AS, con contenidos, plataforma y respaldo de una firma que ejecuta proyectos reales.",

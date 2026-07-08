@@ -1,7 +1,7 @@
 import type { Cta } from "./types"
 
 export const hero = {
-  eyebrow: "// soluciones ──→ producción",
+  eyebrow: "// soluciones → producción",
   title: "Transformación con automatización agéntica",
   subhead:
     "Del diagnóstico a producción: sistemas que operan procesos reales, construidos por el equipo que después no desaparece.",
@@ -68,7 +68,7 @@ export const audience = {
   title: "Trabajamos con",
   items: [
     "Empresas medianas y grandes de agro, banca y seguros, retail e industria que necesitan pasar de pruebas sueltas de IA a sistemas que operan.",
-    "Organismos internacionales y sector público — Banco Mundial, BID, FAO, SAGyP — con proyectos de datos, plataformas territoriales y transformación institucional.",
+    "Organismos internacionales y sector público — bancos, gobierno, ONGs y empresas de consumo masivo en la región — con proyectos de datos, plataformas territoriales y transformación institucional.",
   ],
 }
 

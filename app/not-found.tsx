@@ -4,7 +4,7 @@ import { notFoundContent } from "@/content/global"
 export default function NotFound() {
   return (
     <main className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
-      <p className="font-mono text-xs uppercase tracking-wider text-teal">// 404 ──→ ?</p>
+      <p className="font-mono text-xs uppercase tracking-wider text-teal">// 404 → ?</p>
       <p className="mt-6 max-w-md text-lg text-ink-70">{notFoundContent.message}</p>
       <Link
         href={notFoundContent.cta.href}

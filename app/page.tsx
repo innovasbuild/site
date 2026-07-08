@@ -4,6 +4,7 @@ import { LevelCard } from "@/components/level-card"
 import { InstitutionalStrip } from "@/components/institutional-strip"
 import { DualCta } from "@/components/dual-cta"
 import { SectionKicker } from "@/components/section-kicker"
+import { TransitionDiagram } from "@/components/transition-diagram"
 import { hero, whatWeDo, thesis, credentials, finalCta } from "@/content/home"
 
 export default function Home() {
@@ -17,6 +18,8 @@ export default function Home() {
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
         ctaSecondary={hero.ctaSecondary}
+        variant="dark"
+        imageSlot={{ src: "/images/home-hero.png", alt: "Operación agéntica de noche, tratamiento duotono ink/teal" }}
       />
 
       {/* Bloque 2 — Qué hacemos */}
@@ -33,12 +36,21 @@ export default function Home() {
 
       {/* Bloque 3 — La tesis */}
       <section className="border-y border-line bg-paper-soft">
-        <div className="mx-auto max-w-4xl px-6 py-20">
-          <SectionKicker index={thesis.kicker.index} label={thesis.kicker.label} vertical="people" />
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{thesis.title}</h2>
-          <p className="mt-4 text-ink-70">{thesis.body}</p>
-          <p className="mt-6 font-medium text-ink">{thesis.intro}</p>
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="mx-auto max-w-5xl px-6 py-20">
+          <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
+            <div>
+              <SectionKicker index={thesis.kicker.index} label={thesis.kicker.label} vertical="people" />
+              <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{thesis.title}</h2>
+              <p className="mt-4 text-ink-70">{thesis.body}</p>
+              <p className="mt-6 font-medium text-ink">{thesis.intro}</p>
+            </div>
+
+            <div className="flex aspect-[4/3] items-center justify-center rounded border border-ink bg-paper p-6">
+              <TransitionDiagram className="h-full w-full" />
+            </div>
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
             {thesis.engines.map((engine) => (
               <div key={engine.name} className="rounded border border-ink bg-paper p-5">
                 <p className={`font-mono text-xs ${engine.vertical === "people" ? "text-plum" : "text-teal"}`}>
@@ -61,7 +73,7 @@ export default function Home() {
         <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{credentials.title}</h2>
         <p className="mt-4 max-w-2xl text-ink-70">{credentials.intro}</p>
       </section>
-      <InstitutionalStrip names={credentials.logos} />
+      <InstitutionalStrip names={credentials.logos} label={credentials.logosLabel} />
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-6 md:grid-cols-3">
           {credentials.projects.map((project) => (

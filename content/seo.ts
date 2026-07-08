@@ -24,7 +24,7 @@ export const seo: Record<string, SeoMeta> = {
   "/nosotros": {
     title: "Nosotros — INNOV.AS",
     description:
-      "Años de proyectos de transformación con tecnología para Banco Mundial, BID, FAO y empresas de la región. Conocé al equipo y cómo pensamos.",
+      "Años de proyectos de transformación con tecnología para bancos, gobierno, ONGs y empresas de consumo masivo en la región. Conocé al equipo y cómo pensamos.",
   },
   "/contacto": {
     title: "Contacto — INNOV.AS",

@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { Hero } from "@/components/hero"
 import { SectionKicker } from "@/components/section-kicker"
 import { LevelCard } from "@/components/level-card"
@@ -14,6 +15,15 @@ export default function SeTrainerPage() {
   return (
     <main>
       <Hero eyebrow={hero.eyebrow} title={hero.title} subhead={hero.subhead} ctaPrimary={hero.ctaPrimary} />
+
+      <div className="relative aspect-[16/7] overflow-hidden border-b border-line bg-paper-soft">
+        <Image
+          src="/images/se-trainer-banner.png"
+          alt="Trainer facilitando una sesión de trabajo con un grupo pequeño"
+          fill
+          className="object-cover"
+        />
+      </div>
 
       {/* La oportunidad */}
       <section className="mx-auto max-w-5xl px-6 py-20">

@@ -30,7 +30,7 @@ export function ArrowTransition({ from, to, vertical = "company", className }: A
         transition={{ duration: 0.6, ease: [0.2, 0.6, 0.2, 1] }}
         className={verticalColor[vertical]}
       >
-        ──→
+        →
       </motion.span>
       <span className="text-ink">{to}</span>
     </span>
