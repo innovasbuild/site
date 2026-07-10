@@ -81,12 +81,13 @@ export const profile = {
   ],
 }
 
-export const recovery = {
-  title: "Recuperás la inversión en ≈2 cohortes",
-  rows: [
-    { label: "Certificación (pago único)", value: "[DATO: precio]" },
-    { label: "Tarifa por cohorte facilitada", value: "[DATO: tarifa]" },
-    { label: "Cohortes para recuperar inversión", value: "≈ 2" },
+export const economics = {
+  title: "Cómo funciona la economía",
+  items: [
+    "Pagás una vez por la certificación.",
+    "Cobrás una tarifa fija por cada cohorte que facilités.",
+    "A partir de las primeras cohortes, es ingreso recurrente por proyecto.",
+    "Las condiciones se comunican al avanzar tu aplicación.",
   ],
 }
 
@@ -94,7 +95,7 @@ export const faq = [
   {
     question: "¿Cuánto cuesta la certificación?",
     answer:
-      "El precio se comunica al avanzar tu aplicación. La cohorte fundadora tiene condiciones especiales. [Decisión: no publicar precio — coherente con regla de pricing]",
+      "El precio se comunica al avanzar tu aplicación. La cohorte fundadora tiene condiciones especiales.",
   },
   {
     question: "¿Cuánto puedo facturar?",

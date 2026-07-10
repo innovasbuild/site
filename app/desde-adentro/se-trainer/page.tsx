@@ -3,11 +3,11 @@ import Image from "next/image"
 import { Hero } from "@/components/hero"
 import { SectionKicker } from "@/components/section-kicker"
 import { LevelCard } from "@/components/level-card"
-import { LevelRecoveryTable } from "@/components/level-recovery-table"
+import { EconomicsCard } from "@/components/economics-card"
 import { TrainerFaq } from "@/components/trainer-faq"
 import { CtaBanner } from "@/components/cta-banner"
 import { seo } from "@/content/seo"
-import { hero, opportunity, howItWorks, transparency, profile, recovery, faq, finalCta } from "@/content/se-trainer"
+import { hero, opportunity, howItWorks, transparency, profile, economics, faq, finalCta } from "@/content/se-trainer"
 
 export const metadata: Metadata = seo["/desde-adentro/se-trainer"]
 
@@ -69,7 +69,7 @@ export default function SeTrainerPage() {
         </div>
       </section>
 
-      {/* Perfil buscado + recuperación de inversión */}
+      {/* Perfil buscado + economía */}
       <section className="border-y border-line bg-paper-soft">
         <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 md:grid-cols-2">
           <div>
@@ -83,7 +83,7 @@ export default function SeTrainerPage() {
               ))}
             </ul>
           </div>
-          <LevelRecoveryTable title={recovery.title} rows={recovery.rows} />
+          <EconomicsCard title={economics.title} items={economics.items} />
         </div>
       </section>
 

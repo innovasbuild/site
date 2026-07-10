@@ -77,7 +77,7 @@ export const credentials = {
   kicker: { index: "03", label: "credenciales" },
   title: "Años de ejecución. Proyectos reales.",
   intro:
-    "Trabajamos para organismos internacionales y empresas que no pueden darse el lujo de experimentar: [DATO: N] años de proyectos de transformación con tecnología en la región." as Dato,
+    "Trabajamos para organismos internacionales y empresas que no pueden darse el lujo de experimentar: +25 años de proyectos de transformación con tecnología en la región." as Dato,
   logosLabel: "Organizaciones con las que hemos colaborado" as Dato,
   logos: [
     "Lenovo",
@@ -95,9 +95,9 @@ export const credentials = {
     "BASF",
   ],
   projects: [
-    "Plataforma de visualización territorial para organismo multilateral — datos geoespaciales, análisis satelital y arquitectura multi-tenant. [DATO: validar descripción publicable BID AR-T1401]",
-    "[DATO: proyecto privado destacable]",
-    "[DATO: proyecto agri-tech / datos destacable]",
+    "Plataforma de visualización territorial para organismo multilateral — datos geoespaciales, análisis satelital y arquitectura multi-tenant. ",
+    "Ecommerce para la venta de priductos de consumo masivo para la empresa Kimberly Clark en Argentina.",
+    "Múltiples plataformas educativas para Pearson y McGraw Hill en Estados unidos, con integración de contenidos, analítica y personalización.",
   ] as Dato[],
 }
 
