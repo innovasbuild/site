@@ -4,7 +4,7 @@ import { LevelCard } from "@/components/level-card"
 import { SectionKicker } from "@/components/section-kicker"
 import { CtaBanner } from "@/components/cta-banner"
 import { seo } from "@/content/seo"
-import { hero, solutionTypes, methodology, audience, finalCta } from "@/content/soluciones"
+import { hero, solutionTypes, methodology, operateInB, audience, finalCta } from "@/content/soluciones"
 
 export const metadata: Metadata = seo["/soluciones"]
 
@@ -42,6 +42,21 @@ export default function SolucionesPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 py-20">
+        <SectionKicker index={operateInB.kicker.index} label={operateInB.kicker.label} />
+        <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{operateInB.title}</h2>
+        <p className="mt-4 max-w-2xl text-ink-70">{operateInB.intro}</p>
+        <p className="mt-4 max-w-2xl font-medium text-ink">{operateInB.foundation}</p>
+        <div className="mt-10 grid gap-6 sm:grid-cols-2">
+          {operateInB.pillars.map((pillar) => (
+            <div key={pillar.title} className="rounded border border-ink bg-paper-soft p-6">
+              <p className="font-display text-lg font-semibold text-ink">{pillar.title}</p>
+              <p className="mt-2 text-sm text-ink-70">{pillar.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 

@@ -18,16 +18,22 @@ export const history = {
 }
 
 export const team = {
-  kicker: { index: "02", label: "quiénes somos" },
-  title: "Quiénes somos",
-  members: [
+  kicker: { index: "02", label: "misión y equipo" },
+  title: "Por qué existimos",
+  mission:
+    "Ejecutamos transformación con IA para organizaciones que no pueden darse el lujo de experimentar. Medimos el éxito por el resultado de negocio de nuestros clientes — no por horas facturadas ni por funcionalidades entregadas.",
+  intro:
+    "Somos un equipo chico y estable: arquitectos de producto e ingenieros con roles fijos, no consultores junior que rotan de proyecto en proyecto. Cada integrante responde por un tramo del sistema de punta a punta.",
+  focus: [
     {
-      name: "Matías — Co-founder & CEO.",
-      bio: "Ingeniero, arquitecto de producto y estratega técnico. Lidera la arquitectura de soluciones y la visión de plataforma: sistemas multi-tenant, agentes de IA y automatización con gobernanza. [DATO: 1-2 líneas de bio a validar por Mati]" as Dato,
+      title: "Arquitectura de soluciones",
+      description:
+        "Diseño de sistemas multi-tenant, agentes de IA y automatización con gobernanza — pensados para escalar, no para la próxima demo.",
     },
     {
-      name: "Marcos — Co-founder.",
-      bio: "[DATO: bio y rol a completar por Marcos]" as Dato,
+      title: "Datos y adopción",
+      description:
+        "Datos estructurados como contrato entre sistemas, y acompañamiento a los champions internos que sostienen el cambio adentro de la organización.",
     },
   ],
 }

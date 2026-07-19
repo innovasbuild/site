@@ -4,12 +4,12 @@ export const seo: Record<string, SeoMeta> = {
   "/": {
     title: "INNOV.AS — Automatización agéntica y adopción de IA",
     description:
-      "Soluciones de IA y datos para transformar tu operación, y el programa Desde Adentro para que tu equipo adopte el cambio. Años de proyectos con BM, BID y FAO.",
+      "La IA trabaja en paralelo a tu gente. Soluciones de datos y agentes para empresas medianas y grandes, y organismos internacionales. Años de proyectos entregados en la región.",
   },
   "/soluciones": {
     title: "Soluciones de automatización e IA — INNOV.AS",
     description:
-      "Agentes de procesos, plataformas de datos y automatización con gobernanza. Del diagnóstico a producción, con arquitectura que escala.",
+      "De Radar a Olas de transformación: agentes de procesos, plataformas de datos y operación continua con gobernanza. Sin pilotos eternos.",
   },
   "/desde-adentro": {
     title: "Desde Adentro — Programa de Adopción de IA",
@@ -28,7 +28,6 @@ export const seo: Record<string, SeoMeta> = {
   },
   "/contacto": {
     title: "Contacto — INNOV.AS",
-    description:
-      "Contanos tu proyecto de transformación, pedí el programa Desde Adentro para tu empresa o aplicá a la certificación de trainers.",
+    description: "Contanos tu proyecto de transformación con datos, agentes de IA y automatización.",
   },
 }

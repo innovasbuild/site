@@ -40,19 +40,24 @@ export const methodology = {
   title: "Cómo trabajamos",
   steps: [
     {
-      title: "1. Diagnóstico (2–4 semanas).",
+      title: "Radar.",
       description:
-        "Relevamos procesos, datos y sistemas. Salís con un roadmap priorizado por impacto y esfuerzo — no con un PowerPoint de tendencias.",
+        "Diagnóstico corto: entrevistas con varias áreas, mapa de oportunidades y cuellos de botella priorizados. Puerta de entrada de bajo compromiso — se acredita al paso siguiente.",
     },
     {
-      title: "2. Construcción por etapas.",
+      title: "Mapa del Método.",
       description:
-        "Cada etapa entrega algo que funciona en producción. Arquitectura multi-tenant, datos estructurados, estado persistente: los cimientos se ponen una sola vez.",
+        "Relevamiento profundo, business case y roadmap por olas, con alcance y precio cerrado por ola. El documento vale por sí mismo, y se acredita al paso siguiente.",
     },
     {
-      title: "3. Adopción y acompañamiento.",
+      title: "Olas de transformación.",
       description:
-        "Champions internos formados en Desde Adentro + retainer de evolución. El sistema mejora con el uso; tu equipo lo opera cada vez más solo.",
+        "Cada ola entrega un circuito operando: diseño, construcción, UAT, go-live e hipercuidado. Precio fijo contra entrega, sin anticipos, con gate de decisión entre olas.",
+    },
+    {
+      title: "Operar en B.",
+      description:
+        "Operación continua: optimización de modelos, ajuste de agentes, infraestructura y detección de nuevas olas. Champions internos formados durante el programa operan cada vez más solos.",
     },
   ],
   principles: [
@@ -63,8 +68,35 @@ export const methodology = {
   ],
 }
 
+export const operateInB = {
+  kicker: { index: "03", label: "operar en b" },
+  title: "Un sistema con IA no se termina, se opera",
+  intro:
+    "Sin operación continua, un sistema con IA se degrada: aparecen mejores modelos, cambian los procesos, se abren nuevas oportunidades. Operar en B es la capa que lo mantiene funcionando y mejorando.",
+  foundation:
+    "Todo esto corre sobre un cerebro vivo: interconectamos los flujos y el contexto de tu negocio para que cada cliente, empleado o agente de IA tenga la información y las herramientas que necesita, en el momento en que las necesita.",
+  pillars: [
+    {
+      title: "Optimización de modelos",
+      description: "El costo por operación baja solo cuando aparece un modelo mejor y lo migramos sin fricción.",
+    },
+    {
+      title: "Ajuste continuo de agentes",
+      description: "Los agentes se afinan contra el uso real: nuevos casos, excepciones, criterios que cambian.",
+    },
+    {
+      title: "Infraestructura y seguridad",
+      description: "La base que sostiene el sistema se mantiene, se monitorea y se asegura en el tiempo.",
+    },
+    {
+      title: "Detección de nuevas olas",
+      description: "La operación diaria revela los próximos procesos a transformar.",
+    },
+  ],
+}
+
 export const audience = {
-  kicker: { index: "03", label: "para quién" },
+  kicker: { index: "04", label: "para quién" },
   title: "Trabajamos con",
   items: [
     "Empresas medianas y grandes de agro, banca y seguros, retail e industria que necesitan pasar de pruebas sueltas de IA a sistemas que operan.",

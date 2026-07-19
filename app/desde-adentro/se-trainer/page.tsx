@@ -9,7 +9,7 @@ import { CtaBanner } from "@/components/cta-banner"
 import { seo } from "@/content/seo"
 import { hero, opportunity, howItWorks, transparency, profile, economics, faq, finalCta } from "@/content/se-trainer"
 
-export const metadata: Metadata = seo["/desde-adentro/se-trainer"]
+export const metadata: Metadata = { ...seo["/desde-adentro/se-trainer"], robots: { index: false, follow: false } }
 
 export default function SeTrainerPage() {
   return (

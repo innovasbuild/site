@@ -8,13 +8,13 @@ export interface SolutionCard {
 
 export const hero = {
   eyebrow: "// innov.as → transformación",
-  titlePrefix: "Automatización agéntica para transformar tu operación. ",
-  titleHighlight: "Adopción real",
-  titleSuffix: " para sostenerla.",
+  titlePrefix: "La IA trabaja en paralelo a tu gente. ",
+  titleHighlight: "Vos escalás",
+  titleSuffix: " sin multiplicar estructura.",
   subhead:
-    "Diseñamos y ejecutamos soluciones de datos e inteligencia artificial para empresas y organismos internacionales — con años de proyectos entregados para bancos, gobierno, ONGs y empresas de consumo masivo en la región.",
+    "Diseñamos y ejecutamos soluciones de datos e inteligencia artificial para empresas medianas y grandes, y para organismos internacionales — con años de proyectos entregados para bancos, gobierno, ONGs y empresas de consumo masivo en la región.",
   ctaPrimary: { label: "Hablemos de tu operación", href: "/contacto" } as Cta,
-  ctaSecondary: { label: "Conocé Desde Adentro →", href: "/desde-adentro" } as Cta,
+  ctaSecondary: { label: "Cómo trabajamos →", href: "/soluciones" } as Cta,
 }
 
 export const whatWeDo = {
@@ -54,23 +54,24 @@ export const thesis = {
   kicker: { index: "02", label: "la tesis" },
   title: "La tecnología sola no transforma nada",
   body: "Vimos demasiados proyectos de IA morir en el mismo lugar: la solución funciona, pero la organización no la adopta. La transformación profunda no se instala desde afuera — se adopta desde adentro, cuando tu propia gente entiende la tecnología, detecta las oportunidades y empuja el cambio.",
-  intro: "Por eso INNOV.AS trabaja con dos motores:",
+  intro: "Por eso pensamos la transformación como un solo movimiento, de A a B:",
   engines: [
     {
-      name: "Motor 1 — Soluciones.",
-      description: "Nuestro equipo construye los sistemas complejos: agentes, plataformas, integraciones.",
-      vertical: "company" as Vertical,
+      name: "A — Hoy.",
+      description:
+        "Todo pasa por tu gente: procesos manuales, decisiones concentradas en pocas personas, conocimiento tácito que no escala.",
+      vertical: "people" as Vertical,
     },
     {
-      name: "Motor 2 — Capacidades.",
+      name: "B — En paralelo.",
       description:
-        "Tu equipo se potencia con Desde Adentro, nuestro programa de adopción de IA: 4 niveles que llevan a tu gente de usuaria básica a orquestadora de agentes — trabajando sobre procesos reales de tu empresa desde la primera semana.",
-      vertical: "people" as Vertical,
+        "Tu gente decide y los agentes ejecutan. La IA trabaja al lado de tu equipo, no en su lugar — un estado operativo, no un destino final.",
+      vertical: "company" as Vertical,
     },
   ],
   closing:
-    "Cuando los dos motores giran juntos, el negocio acelera: nosotros resolvemos lo estructural mientras tu equipo multiplica lo cotidiano y sostiene el cambio.",
-  cta: { label: "Conocé el programa Desde Adentro →", href: "/desde-adentro" } as Cta,
+    "El programa forma champions internos sobre tus propios procesos desde la primera ola, para que el cambio se sostenga adentro y no dependa de nosotros para siempre.",
+  cta: { label: "Cómo trabajamos →", href: "/soluciones" } as Cta,
 }
 
 export const credentials = {
@@ -96,24 +97,23 @@ export const credentials = {
   ],
   projects: [
     "Plataforma de visualización territorial para organismo multilateral — datos geoespaciales, análisis satelital y arquitectura multi-tenant. ",
-    "Ecommerce para la venta de priductos de consumo masivo para la empresa Kimberly Clark en Argentina.",
-    "Múltiples plataformas educativas para Pearson y McGraw Hill en Estados unidos, con integración de contenidos, analítica y personalización.",
+    "Ecommerce para la venta de productos de consumo masivo para la empresa Kimberly Clark en Argentina.",
+    "Múltiples plataformas educativas para Pearson y McGraw Hill en Estados Unidos, con integración de contenidos, analítica y personalización.",
   ] as Dato[],
 }
 
 export const finalCta = {
   title: "¿Por dónde empezamos?",
   cardA: {
-    title: "Tengo un proyecto de transformación",
-    description: "Automatización, agentes, plataformas de datos. Contanos tu operación y armamos el camino.",
+    title: "Empresas",
+    description: "Tenemos procesos que no escalan. Automatización, agentes, plataformas de datos.",
     cta: { label: "Hablemos", href: "/contacto" } as Cta,
     vertical: "company" as Vertical,
   },
   cardB: {
-    title: "Quiero potenciar a mi equipo",
-    description:
-      "El programa Desde Adentro forma a tu gente y devuelve un mapa de oportunidades de tu propia empresa.",
-    cta: { label: "Ver el programa", href: "/desde-adentro" } as Cta,
+    title: "Organismos y sector público",
+    description: "Proyectos de datos, plataformas territoriales y transformación institucional.",
+    cta: { label: "Hablemos", href: "/contacto" } as Cta,
     vertical: "people" as Vertical,
   },
 }

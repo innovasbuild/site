@@ -7,7 +7,7 @@ import { LevelEvolutionDiagram } from "@/components/level-evolution-diagram"
 import { seo } from "@/content/seo"
 import { hero, notACourse, levels, executiveClose, whyInnovas, finalCta } from "@/content/desde-adentro"
 
-export const metadata: Metadata = seo["/desde-adentro"]
+export const metadata: Metadata = { ...seo["/desde-adentro"], robots: { index: false, follow: false } }
 
 export default function DesdeAdentroPage() {
   return (

@@ -2,30 +2,13 @@ import { NextResponse } from "next/server"
 import { contactFormSchema, type ContactFormValues } from "@/content/contacto"
 
 function toHubspotFields(data: ContactFormValues) {
-  const fields = [
+  return [
     { name: "firstname", value: data.nombre },
     { name: "email", value: data.email },
     { name: "company", value: data.empresa },
     { name: "country", value: data.pais },
-    { name: "intencion_contacto", value: data.intent },
+    { name: "consulta", value: data.consulta },
   ]
-
-  if (data.intent === "transformar") {
-    fields.push(
-      { name: "proceso_a_transformar", value: data.proceso },
-      { name: "tamano_empresa", value: data.tamanoEmpresa }
-    )
-  } else if (data.intent === "formar-equipo") {
-    fields.push({ name: "personas_a_formar", value: data.personas }, { name: "area_a_formar", value: data.area })
-  } else {
-    fields.push(
-      { name: "linkedin_cv", value: data.linkedinOrCv },
-      { name: "uso_ia_hoy", value: data.usoIA },
-      { name: "experiencia_facilitando", value: data.experiencia }
-    )
-  }
-
-  return fields
 }
 
 export async function POST(request: Request) {
