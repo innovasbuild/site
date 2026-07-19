@@ -3,9 +3,10 @@ import { Hero } from "@/components/hero"
 import { SectionKicker } from "@/components/section-kicker"
 import { CtaBanner } from "@/components/cta-banner"
 import { seo } from "@/content/seo"
+import { buildMetadata } from "@/lib/metadata"
 import { hero, history, team, principles, finalCta } from "@/content/nosotros"
 
-export const metadata: Metadata = seo["/nosotros"]
+export const metadata: Metadata = buildMetadata("/nosotros", seo["/nosotros"])
 
 export default function NosotrosPage() {
   return (

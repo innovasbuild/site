@@ -7,9 +7,12 @@ import { EconomicsCard } from "@/components/economics-card"
 import { TrainerFaq } from "@/components/trainer-faq"
 import { CtaBanner } from "@/components/cta-banner"
 import { seo } from "@/content/seo"
+import { buildMetadata } from "@/lib/metadata"
 import { hero, opportunity, howItWorks, transparency, profile, economics, faq, finalCta } from "@/content/se-trainer"
 
-export const metadata: Metadata = { ...seo["/desde-adentro/se-trainer"], robots: { index: false, follow: false } }
+export const metadata: Metadata = buildMetadata("/desde-adentro/se-trainer", seo["/desde-adentro/se-trainer"], {
+  noindex: true,
+})
 
 export default function SeTrainerPage() {
   return (

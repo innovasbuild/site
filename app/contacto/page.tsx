@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 import { ContactForm } from "@/components/contact-form"
 import { seo } from "@/content/seo"
+import { buildMetadata } from "@/lib/metadata"
 import { hero } from "@/content/contacto"
 
-export const metadata: Metadata = seo["/contacto"]
+export const metadata: Metadata = buildMetadata("/contacto", seo["/contacto"])
 
 export default function ContactoPage() {
   return (

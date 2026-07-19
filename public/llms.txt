@@ -1,0 +1,21 @@
+# INNOV.AS
+
+> Ejecutamos transformación con inteligencia artificial y datos para empresas medianas y grandes, y para organismos internacionales, en Latinoamérica. La IA trabaja en paralelo a tu gente: escalás sin multiplicar estructura.
+
+INNOV.AS es una consultora de ingeniería con base en Buenos Aires, Argentina, con más de 25 años de proyectos de transformación con tecnología en la región — bancos, gobierno, ONGs, organismos internacionales y empresas de consumo masivo.
+
+## Servicios
+
+- [Soluciones](https://innov.as/soluciones): agentes de IA que operan procesos end-to-end, plataformas de datos multi-tenant, automatización de workflows y analítica y visualización. Trabajamos con una escalera de compromiso creciente y sin precios públicos: Radar (diagnóstico corto de bajo compromiso) → Mapa del Método (relevamiento profundo, business case y roadmap por olas) → Olas de transformación (cada ola entrega un circuito operando en producción) → Operar en B (operación continua: modelos, agentes, infraestructura y detección de nuevas olas).
+- Cerebro vivo: interconectamos los flujos y el contexto del negocio para que cada cliente, empleado o agente de IA tenga la información y las herramientas que necesita, en el momento en que las necesita. Es la capa que sostiene "Operar en B".
+
+## Para quién
+
+- Empresas medianas y grandes de agro, banca y seguros, retail e industria que necesitan pasar de pruebas sueltas de IA a sistemas que operan.
+- Organismos internacionales y sector público, con proyectos de datos, plataformas territoriales y transformación institucional.
+
+## Más información
+
+- [Nosotros](https://innov.as/nosotros): misión, principios y foco del equipo.
+- [Contacto](https://innov.as/contacto): para hablar de tu operación.
+- Email: hola@innov.as

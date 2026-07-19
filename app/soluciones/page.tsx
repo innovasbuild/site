@@ -3,14 +3,18 @@ import { Hero } from "@/components/hero"
 import { LevelCard } from "@/components/level-card"
 import { SectionKicker } from "@/components/section-kicker"
 import { CtaBanner } from "@/components/cta-banner"
+import { JsonLd } from "@/components/json-ld"
 import { seo } from "@/content/seo"
+import { buildMetadata } from "@/lib/metadata"
+import { buildServiceCatalogSchema } from "@/lib/schema"
 import { hero, solutionTypes, methodology, operateInB, audience, finalCta } from "@/content/soluciones"
 
-export const metadata: Metadata = seo["/soluciones"]
+export const metadata: Metadata = buildMetadata("/soluciones", seo["/soluciones"])
 
 export default function SolucionesPage() {
   return (
     <main>
+      <JsonLd data={buildServiceCatalogSchema()} />
       <Hero eyebrow={hero.eyebrow} title={hero.title} subhead={hero.subhead} ctaPrimary={hero.ctaPrimary} />
 
       <section className="mx-auto max-w-6xl px-6 py-20">

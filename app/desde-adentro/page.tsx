@@ -5,9 +5,10 @@ import { SectionKicker } from "@/components/section-kicker"
 import { LevelPath } from "@/components/level-path"
 import { LevelEvolutionDiagram } from "@/components/level-evolution-diagram"
 import { seo } from "@/content/seo"
+import { buildMetadata } from "@/lib/metadata"
 import { hero, notACourse, levels, executiveClose, whyInnovas, finalCta } from "@/content/desde-adentro"
 
-export const metadata: Metadata = { ...seo["/desde-adentro"], robots: { index: false, follow: false } }
+export const metadata: Metadata = buildMetadata("/desde-adentro", seo["/desde-adentro"], { noindex: true })
 
 export default function DesdeAdentroPage() {
   return (

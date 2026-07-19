@@ -1,13 +1,14 @@
 import type { Metadata } from "next"
 import { Hero } from "@/components/hero"
 import { ResourceCard } from "@/components/resource-card"
+import { buildMetadata } from "@/lib/metadata"
 import { hero, resources } from "@/content/recursos"
 
-export const metadata: Metadata = {
-  title: "Recursos — INNOV.AS",
-  description: hero.subhead,
-  robots: { index: false, follow: false },
-}
+export const metadata: Metadata = buildMetadata(
+  "/recursos",
+  { title: "Recursos — INNOV.AS", description: hero.subhead },
+  { noindex: true }
+)
 
 export default function RecursosPage() {
   return (

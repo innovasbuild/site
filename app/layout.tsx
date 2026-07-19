@@ -5,10 +5,14 @@ import { cn } from "@/lib/utils"
 import { fraunces, inter, spaceMono } from "./fonts"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { JsonLd } from "@/components/json-ld"
 import { seo } from "@/content/seo"
+import { buildMetadata } from "@/lib/metadata"
+import { organizationSchema } from "@/lib/schema"
 
 export const metadata: Metadata = {
-  ...seo["/"],
+  metadataBase: new URL("https://innov.as"),
+  ...buildMetadata("/", seo["/"]),
   generator: "v0.app",
 }
 
@@ -20,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="es" className={cn(fraunces.variable, inter.variable, spaceMono.variable)}>
       <body className="min-h-screen bg-paper text-ink font-sans antialiased selection:bg-teal/20">
+        <JsonLd data={organizationSchema} />
         <Navbar />
         {children}
         <Footer />
