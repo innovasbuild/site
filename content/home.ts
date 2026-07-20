@@ -19,7 +19,7 @@ export const hero = {
 
 export const whatWeDo = {
   kicker: { index: "01", label: "qué hacemos" },
-  title: "Asistentes digitales, bots y brains — no experimentos",
+  title: "Asistentes digitales, agentes AI y company brains — no experimentos",
   intro:
     "Construimos los tres sistemas que necesita una organización para operar con IA: asistentes que atienden a tu gente y a tus clientes, bots que ejecutan procesos sin supervisión, y el brain que les da contexto y memoria. Arquitectura pensada para producción desde el día uno.",
   cards: [

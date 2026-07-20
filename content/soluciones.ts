@@ -10,7 +10,7 @@ export const hero = {
 
 export const solutionTypes = {
   kicker: { index: "01", label: "qué construimos" },
-  title: "Asistentes digitales, bots y brains",
+  title: "Asistentes digitales, agentes AI y company brain",
   items: [
     {
       title: "Asistentes digitales",
@@ -23,9 +23,9 @@ export const solutionTypes = {
         "Orquestación de procesos con n8n y herramientas de integración: aprobaciones, reportes, sincronización entre sistemas. Trazable, auditable, mantenible.",
     },
     {
-      title: "Company Brain — plataformas de datos e integración",
+      title: "Company Brain",
       description:
-        "Postgres como fuente de verdad, APIs, integraciones con tus sistemas existentes. Multi-tenant desde el día uno: lo que construimos para una unidad de negocio escala a las demás.",
+        "Plataforma integradora de la información, prácticas desiciones y acciones del negocio, lista para iterar la automatización de cada proceso de negocio. Escalable a nuevas unidades, verticales o países sin rehacer la base.",
     },
     {
       title: "Analítica y visualización",
