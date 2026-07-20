@@ -6,7 +6,7 @@ INNOV.AS es una consultora de ingeniería con base en Buenos Aires, Argentina, c
 
 ## Servicios
 
-- [Soluciones](https://innov.as/soluciones): agentes de IA que operan procesos end-to-end, plataformas de datos multi-tenant, automatización de workflows y analítica y visualización. Trabajamos con una escalera de compromiso creciente y sin precios públicos: Radar (diagnóstico corto de bajo compromiso) → Mapa del Método (relevamiento profundo, business case y roadmap por olas) → Olas de transformación (cada ola entrega un circuito operando en producción) → Operar en B (operación continua: modelos, agentes, infraestructura y detección de nuevas olas).
+- [Soluciones](https://innov.as/soluciones): agentes de IA que operan procesos end-to-end, plataformas de datos multi-tenant, automatización de workflows y analítica y visualización. Trabajamos con una escalera de compromiso creciente y sin precios públicos: Radar (diagnóstico corto de bajo compromiso) → Mapa del Método (relevamiento profundo, business case y roadmap por etapas) → Olas de transformación (cada ola entrega un circuito operando en producción) → Operar en B (operación continua: modelos, agentes, infraestructura y detección de nuevas etapas).
 - Cerebro vivo: interconectamos los flujos y el contexto del negocio para que cada cliente, empleado o agente de IA tenga la información y las herramientas que necesita, en el momento en que las necesita. Es la capa que sostiene "Operar en B".
 
 ## Para quién

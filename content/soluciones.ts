@@ -47,17 +47,17 @@ export const methodology = {
     {
       title: "Mapa del Método.",
       description:
-        "Relevamiento profundo, business case y roadmap por olas, con alcance y precio cerrado por ola. El documento vale por sí mismo, y se acredita al paso siguiente.",
+        "Relevamiento profundo, business case y roadmap por etapas, con alcance y precio cerrado por ola. El documento vale por sí mismo, y se acredita al paso siguiente.",
     },
     {
       title: "Olas de transformación.",
       description:
-        "Cada ola entrega un circuito operando: diseño, construcción, UAT, go-live e hipercuidado. Precio fijo contra entrega, sin anticipos, con gate de decisión entre olas.",
+        "Cada ola entrega un circuito operando: diseño, construcción, UAT, go-live e hipercuidado. Precio fijo contra entrega, sin anticipos, con gate de decisión entre etapas.",
     },
     {
       title: "Operar en B.",
       description:
-        "Operación continua: optimización de modelos, ajuste de agentes, infraestructura y detección de nuevas olas. Champions internos formados durante el programa operan cada vez más solos.",
+        "Operación continua: optimización de modelos, ajuste de agentes, infraestructura y detección de nuevas etapas. Champions internos formados durante el programa operan cada vez más solos.",
     },
   ],
   principles: [
@@ -89,7 +89,7 @@ export const operateInB = {
       description: "La base que sostiene el sistema se mantiene, se monitorea y se asegura en el tiempo.",
     },
     {
-      title: "Detección de nuevas olas",
+      title: "Entrega de valor por etapas",
       description: "La operación diaria revela los próximos procesos a transformar.",
     },
   ],
