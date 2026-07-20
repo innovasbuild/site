@@ -19,26 +19,26 @@ export const hero = {
 
 export const whatWeDo = {
   kicker: { index: "01", label: "qué hacemos" },
-  title: "Soluciones estructurales, no experimentos",
+  title: "Asistentes digitales, bots y brains — no experimentos",
   intro:
-    "Construimos sistemas que operan procesos de negocio de punta a punta. Sin pilotos eternos: arquitectura pensada para producción desde el día uno.",
+    "Construimos los tres sistemas que necesita una organización para operar con IA: asistentes que atienden a tu gente y a tus clientes, bots que ejecutan procesos sin supervisión, y el brain que les da contexto y memoria. Arquitectura pensada para producción desde el día uno.",
   cards: [
     {
-      title: "Agentes que operan procesos",
+      title: "Asistentes digitales",
       description:
-        "Agentes de IA que ejecutan flujos completos — atención, análisis, back-office — con lógica determinística donde hace falta precisión e IA donde hace falta criterio.",
+        "Agentes conversacionales que atienden, consultan y resuelven — atención, soporte, análisis de documentos — con IA donde hace falta criterio y lógica determinística donde hace falta precisión.",
       vertical: "company",
     },
     {
-      title: "Plataformas de datos",
+      title: "Bots de proceso",
       description:
-        "Plataformas multi-tenant que integran tus fuentes, estructuran la información y la convierten en decisiones. Diseñadas para escalar a nuevos países, unidades o verticales sin rehacer la base.",
+        "Automatización de workflows completos: integraciones, aprobaciones, orquestación entre sistemas, con trazabilidad de punta a punta.",
       vertical: "company",
     },
     {
-      title: "Automatización de procesos",
+      title: "Brains",
       description:
-        "Relevamos, priorizamos y automatizamos los procesos que más cuestan: integraciones, workflows y orquestación con trazabilidad completa.",
+        "La base de datos y conocimiento que le da contexto a cada asistente y bot. Plataformas multi-tenant que escalan a nuevos países, unidades o verticales sin rehacer la base.",
       vertical: "company",
     },
     {

@@ -10,22 +10,22 @@ export const hero = {
 
 export const solutionTypes = {
   kicker: { index: "01", label: "qué construimos" },
-  title: "Qué construimos",
+  title: "Asistentes digitales, bots y brains",
   items: [
     {
-      title: "Agentes de procesos end-to-end",
+      title: "Asistentes digitales",
       description:
         "Atención comercial, gestión de turnos, análisis de documentos, back-office. Agentes con estado persistente, salidas estructuradas y separación clara entre lo que decide la IA y lo que ejecuta la lógica determinística.",
     },
     {
-      title: "Plataformas de datos e integración",
-      description:
-        "Postgres como fuente de verdad, APIs, integraciones con tus sistemas existentes. Multi-tenant desde el día uno: lo que construimos para una unidad de negocio escala a las demás.",
-    },
-    {
-      title: "Automatización de workflows",
+      title: "Bots de automatización",
       description:
         "Orquestación de procesos con n8n y herramientas de integración: aprobaciones, reportes, sincronización entre sistemas. Trazable, auditable, mantenible.",
+    },
+    {
+      title: "Brains — plataformas de datos e integración",
+      description:
+        "Postgres como fuente de verdad, APIs, integraciones con tus sistemas existentes. Multi-tenant desde el día uno: lo que construimos para una unidad de negocio escala a las demás.",
     },
     {
       title: "Analítica y visualización",
@@ -74,7 +74,7 @@ export const operateInB = {
   intro:
     "Sin operación continua, un sistema con IA se degrada: aparecen mejores modelos, cambian los procesos, se abren nuevas oportunidades. Operar en B es la capa que lo mantiene funcionando y mejorando.",
   foundation:
-    "Todo esto corre sobre un cerebro vivo: interconectamos los flujos y el contexto de tu negocio para que cada cliente, empleado o agente de IA tenga la información y las herramientas que necesita, en el momento en que las necesita.",
+    "Todo esto corre sobre un brain vivo: interconectamos los flujos y el contexto de tu negocio para que cada cliente, empleado, asistente o bot tenga la información y las herramientas que necesita, en el momento en que las necesita.",
   pillars: [
     {
       title: "Optimización de modelos",
