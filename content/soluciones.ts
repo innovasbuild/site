@@ -23,7 +23,7 @@ export const solutionTypes = {
         "Orquestación de procesos con n8n y herramientas de integración: aprobaciones, reportes, sincronización entre sistemas. Trazable, auditable, mantenible.",
     },
     {
-      title: "Brains — plataformas de datos e integración",
+      title: "Company Brain — plataformas de datos e integración",
       description:
         "Postgres como fuente de verdad, APIs, integraciones con tus sistemas existentes. Multi-tenant desde el día uno: lo que construimos para una unidad de negocio escala a las demás.",
     },

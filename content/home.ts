@@ -36,7 +36,7 @@ export const whatWeDo = {
       vertical: "company",
     },
     {
-      title: "Brains",
+      title: "Company Brain",
       description:
         "La base de datos y conocimiento que le da contexto a cada asistente y bot. Plataformas multi-tenant que escalan a nuevos países, unidades o verticales sin rehacer la base.",
       vertical: "company",
