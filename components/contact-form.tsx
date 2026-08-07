@@ -33,20 +33,55 @@ export function ContactForm() {
 
   const onSubmit = async (data: FormValues) => {
     setStatus(null)
+
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const secret = process.env.NEXT_PUBLIC_CONTACT_FORM_SECRET
+
+    if (!supabaseUrl || !secret) {
+      console.error("Contact form no configurado: falta NEXT_PUBLIC_SUPABASE_URL o NEXT_PUBLIC_CONTACT_FORM_SECRET.")
+      setStatus({ type: "error", message: globalMicrocopy.submitError })
+      return
+    }
+
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch(`${supabaseUrl}/functions/v1/contact_form`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          "x-contact-form-secret": secret,
+        },
+        body: JSON.stringify({
+          name: data.nombre,
+          email: data.email,
+          phone: data.telefono || undefined,
+          company: data.empresa,
+          country: data.pais,
+          message: data.consulta,
+        }),
       })
 
       if (response.ok) {
         setStatus({ type: "success", message: globalMicrocopy.submitSuccess })
         reset()
-      } else {
-        setStatus({ type: "error", message: globalMicrocopy.submitError })
+        return
       }
-    } catch {
+
+      if (response.status === 400) {
+        const body = await response.json().catch(() => null)
+        setStatus({ type: "error", message: body?.message || globalMicrocopy.submitError })
+        return
+      }
+
+      if (response.status === 401) {
+        console.error("Contact form: header x-contact-form-secret ausente o incorrecto.")
+        setStatus({ type: "error", message: globalMicrocopy.submitError })
+        return
+      }
+
+      console.error(`Contact form: respuesta inesperada del servidor (${response.status}).`)
+      setStatus({ type: "error", message: globalMicrocopy.submitError })
+    } catch (error) {
+      console.error("Contact form submit failed:", error)
       setStatus({ type: "error", message: globalMicrocopy.submitError })
     }
   }
@@ -64,6 +99,11 @@ export function ContactForm() {
             <Label htmlFor="email">Email laboral</Label>
             <Input id="email" type="email" {...register("email")} className="mt-2" />
             {errors.email && <p className="mt-1 text-xs text-danger">{errors.email.message}</p>}
+          </div>
+          <div>
+            <Label htmlFor="telefono">Teléfono</Label>
+            <Input id="telefono" type="tel" {...register("telefono")} className="mt-2" />
+            {errors.telefono && <p className="mt-1 text-xs text-danger">{errors.telefono.message}</p>}
           </div>
           <div>
             <Label htmlFor="empresa">Empresa / Organización</Label>
