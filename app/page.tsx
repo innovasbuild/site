@@ -5,6 +5,9 @@ import { InstitutionalStrip } from "@/components/institutional-strip"
 import { DualCta } from "@/components/dual-cta"
 import { SectionKicker } from "@/components/section-kicker"
 import { TransitionDiagram } from "@/components/transition-diagram"
+import { PosterHeading } from "@/components/poster-heading"
+import { StatCounter } from "@/components/stat-counter"
+import { VerticalRail } from "@/components/vertical-rail"
 import { hero, whatWeDo, thesis, credentials, finalCta } from "@/content/home"
 
 export default function Home() {
@@ -12,20 +15,28 @@ export default function Home() {
     <main>
       <Hero
         eyebrow={hero.eyebrow}
-        titlePrefix={hero.titlePrefix}
-        titleHighlight={hero.titleHighlight}
-        titleSuffix={hero.titleSuffix}
+        posterTitle={hero.posterTitle}
+        posterAccent={hero.posterAccent}
+        posterSize="sm"
+        supportLine={hero.supportLine}
+        tapeLabel={hero.tapeLabel}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
         ctaSecondary={hero.ctaSecondary}
         variant="dark"
         imageSlot={{ src: "/images/home-hero.png", alt: "Operación agéntica de noche, tratamiento duotono ink/teal" }}
-      />
+      >
+        <div className="mt-10 max-w-xl">
+          <VerticalRail rails={hero.rails} surface="dark" />
+        </div>
+      </Hero>
 
       {/* Bloque 2 — Qué hacemos */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <SectionKicker index={whatWeDo.kicker.index} label={whatWeDo.kicker.label} />
-        <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{whatWeDo.title}</h2>
+        <div className="mt-3">
+          <PosterHeading size="sm">{whatWeDo.posterTitle}</PosterHeading>
+        </div>
         <p className="mt-4 max-w-2xl text-ink-70">{whatWeDo.intro}</p>
         <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {whatWeDo.cards.map((card) => (
@@ -40,7 +51,9 @@ export default function Home() {
           <div className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-start">
             <div>
               <SectionKicker index={thesis.kicker.index} label={thesis.kicker.label} vertical="people" />
-              <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{thesis.title}</h2>
+              <div className="mt-3">
+                <PosterHeading size="sm" tone="people" accent={thesis.posterAccent}>{thesis.posterTitle}</PosterHeading>
+              </div>
               <p className="mt-4 text-ink-70">{thesis.body}</p>
               <p className="mt-6 font-medium text-ink">{thesis.intro}</p>
             </div>
@@ -61,7 +74,7 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-6 text-ink-70">{thesis.closing}</p>
-          <Link href={thesis.cta.href} className="mt-6 inline-block font-semibold text-teal hover:underline">
+          <Link href={thesis.cta.href} className="mt-6 inline-block font-bold text-teal hover:underline">
             {thesis.cta.label}
           </Link>
         </div>
@@ -70,8 +83,13 @@ export default function Home() {
       {/* Bloque 4 — Credenciales */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <SectionKicker index={credentials.kicker.index} label={credentials.kicker.label} />
-        <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{credentials.title}</h2>
-        <p className="mt-4 max-w-2xl text-ink-70">{credentials.intro}</p>
+        <div className="mt-3">
+          <PosterHeading size="sm">{credentials.posterTitle}</PosterHeading>
+        </div>
+        <div className="mt-8 flex flex-wrap items-start gap-14 border-t border-line pt-8">
+          <StatCounter value={credentials.stat.value} suffix={credentials.stat.suffix} label={credentials.stat.label} />
+          <p className="max-w-md self-center text-ink-70">{credentials.intro}</p>
+        </div>
       </section>
       <InstitutionalStrip names={credentials.logos} label={credentials.logosLabel} />
       <section className="mx-auto max-w-6xl px-6 py-16">
@@ -85,7 +103,12 @@ export default function Home() {
       </section>
 
       {/* Bloque 5 — CTA final */}
-      <DualCta title={finalCta.title} cardA={finalCta.cardA} cardB={finalCta.cardB} />
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <PosterHeading size="sm" align="center">{finalCta.posterTitle}</PosterHeading>
+        <div className="mt-10">
+          <DualCta title="" cardA={finalCta.cardA} cardB={finalCta.cardB} />
+        </div>
+      </section>
     </main>
   )
 }

@@ -39,7 +39,7 @@ Por qué importa: los tokens son el contrato entre diseño e implementación (`i
 
 Reglas de uso: `teal` manda como color de marca. `plum` entra solo para codificar la vertical personas (kickers, barras, íconos) — nunca como relleno masivo, y nunca junto a `teal` con igual peso en un mismo componente.
 
-**Tipografía:** Fraunces (display — H1-H3, wordmark, `opsz`/`SOFT` variables para calidez) · Inter (texto/UI) · Space Mono (notación: firma `A→B`, estados, datos — nunca párrafos).
+**Tipografía:** Fraunces (display — H1-H3, wordmark, números grandes, capa editorial póster/contador; lock `SOFT 100 / WONK 0` en los cuatro registros, solo `opsz` varía) · Inter (texto/UI) · Space Mono (notación: firma `A→B`, estados, datos — nunca párrafos).
 
 Tabla completa de tokens (escala tipográfica, radios, sombras, motion) en `assets/tokens/globals.css` — es la fuente ejecutable, no la reescribas de memoria.
 

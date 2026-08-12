@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
-            <Link href="/" className="font-display text-xl font-semibold text-paper">
+            <Link href="/" className="font-display text-xl font-bold text-paper">
               {footerInstitutional.name}
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/60">
@@ -51,7 +51,17 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 border-t border-paper/10 pt-8 text-xs text-paper/40">{footerLegal}</div>
+        <div className="mt-16 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
+          <p>{footerLegal}</p>
+          <div className="flex gap-4">
+            <Link href="/privacidad" className="hover:text-paper/70">
+              Privacidad
+            </Link>
+            <Link href="/terminos" className="hover:text-paper/70">
+              Términos y Condiciones
+            </Link>
+          </div>
+        </div>
       </div>
     </footer>
   )

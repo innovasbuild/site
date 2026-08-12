@@ -30,7 +30,7 @@ export function LevelCard({ title, description, vertical = "company", kicker, cl
       <div className="flex items-center justify-between">
         <span className={cn("font-mono text-xs", verticalText[vertical])}>{kicker ?? "A→B"}</span>
       </div>
-      <h3 className="mt-4 font-display text-xl font-semibold text-ink">{title}</h3>
+      <h3 className="mt-4 font-display text-xl font-bold text-ink">{title}</h3>
       <p className="mt-2 text-sm leading-relaxed text-ink-70">{description}</p>
       <span className={cn("absolute inset-x-0 bottom-0 h-[3px] rounded-b", verticalBar[vertical])} />
     </div>

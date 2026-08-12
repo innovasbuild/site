@@ -18,7 +18,7 @@ export default function DesdeAdentroPage() {
       {/* Por qué no es un curso */}
       <section className="mx-auto max-w-4xl px-6 py-20">
         <SectionKicker index={notACourse.kicker.index} label={notACourse.kicker.label} vertical="people" />
-        <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{notACourse.title}</h2>
+        <h2 className="mt-3 font-display text-3xl font-bold text-ink md:text-4xl">{notACourse.title}</h2>
         <p className="mt-4 text-ink-70">{notACourse.body}</p>
         <p className="mt-4 text-ink-70">{notACourse.closing}</p>
 
@@ -26,7 +26,7 @@ export default function DesdeAdentroPage() {
           {notACourse.cycle.map((item, index) => (
             <div key={item.step} className="rounded border border-ink bg-paper-soft p-5">
               <span className="font-mono text-xs text-plum">{`0${index + 1}`}</span>
-              <p className="mt-2 font-display text-lg font-semibold text-ink">{item.step}</p>
+              <p className="mt-2 font-display text-lg font-bold text-ink">{item.step}</p>
               <p className="mt-1 text-sm text-ink-70">{item.description}</p>
             </div>
           ))}
@@ -37,7 +37,7 @@ export default function DesdeAdentroPage() {
       <section className="border-y border-line bg-paper-soft">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <SectionKicker index={levels.kicker.index} label={levels.kicker.label} />
-          <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{levels.title}</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold text-ink md:text-4xl">{levels.title}</h2>
 
           <div className="mt-8 flex aspect-[21/9] items-center justify-center rounded border border-ink bg-paper p-6">
             <LevelEvolutionDiagram className="h-full w-full" />
@@ -53,7 +53,7 @@ export default function DesdeAdentroPage() {
       {/* Cierre ejecutivo */}
       <section className="mx-auto max-w-4xl px-6 py-20">
         <SectionKicker index={executiveClose.kicker.index} label={executiveClose.kicker.label} />
-        <h2 className="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl">{executiveClose.title}</h2>
+        <h2 className="mt-3 font-display text-3xl font-bold text-ink md:text-4xl">{executiveClose.title}</h2>
         <p className="mt-4 text-ink-70">{executiveClose.body}</p>
       </section>
 
@@ -61,7 +61,7 @@ export default function DesdeAdentroPage() {
       <section className="border-y border-line bg-ink text-paper">
         <div className="mx-auto max-w-4xl px-6 py-20">
           <SectionKicker index={whyInnovas.kicker.index} label={whyInnovas.kicker.label} className="text-paper/40" />
-          <h2 className="mt-3 font-display text-3xl font-semibold text-paper md:text-4xl">{whyInnovas.title}</h2>
+          <h2 className="mt-3 font-display text-3xl font-bold text-paper md:text-4xl">{whyInnovas.title}</h2>
           <p className="mt-4 text-paper/70">{whyInnovas.body}</p>
         </div>
       </section>
@@ -70,11 +70,11 @@ export default function DesdeAdentroPage() {
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href={finalCta.ctaPrimary.href}
-            className="rounded bg-teal px-6 py-3 text-base font-semibold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
+            className="rounded bg-teal px-6 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
           >
             {finalCta.ctaPrimary.label}
           </Link>
-          <Link href={finalCta.ctaSecondary.href} className="text-sm font-semibold text-plum hover:underline">
+          <Link href={finalCta.ctaSecondary.href} className="text-sm font-bold text-plum hover:underline">
             {finalCta.ctaSecondary.label}
           </Link>
         </div>

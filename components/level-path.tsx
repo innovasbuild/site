@@ -39,7 +39,7 @@ export function LevelPath({ items }: LevelPathProps) {
             style={{ backgroundColor: nodeColor[index] }}
           />
           <span className="font-mono text-xs text-ink-40">{item.label}</span>
-          <h3 className="mt-3 font-display text-xl font-semibold text-ink">{item.title}</h3>
+          <h3 className="mt-3 font-display text-xl font-bold text-ink">{item.title}</h3>
           <p className="mt-1 font-mono text-xs text-ink-40">{item.duration}</p>
           <p className="mt-3 text-sm leading-relaxed text-ink-70">{item.outcome}</p>
           {index < items.length - 1 && (

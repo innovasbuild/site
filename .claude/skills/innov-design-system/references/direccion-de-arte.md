@@ -4,6 +4,8 @@
 > acceso a ninguna conversación previa. Consumido por T3.3 (implementación) y por
 > cualquier agente futuro (deck, one-pager, branding del LMS).
 > Estado: v1 — dirección recomendada, lista para implementar. Revisión: Mati (aprobada).
+> **Update 2026-07-05:** agregado token `paper-print` (`#FAF8F5`) — fondo específico para .docx/.pdf, ver sección 2.
+> **Update 2026-08-10:** lock tipográfico fijado a `SOFT 100 / WONK 0` en los cuatro registros de Fraunces (antes `SOFT` 40–45 / `WONK` 0–1) — ver sección 3. Se agregan `--fraunces-poster` y `--fraunces-small`, y la capa editorial póster/cinta/contador (`--text-poster*`, `--tape-*`, `--text-counter`) que ya corre en el sitio.
 
 ---
 
@@ -27,8 +29,9 @@ Se evaluaron 5 familias con personalidad: minimalismo cálido, neo-brutalismo, e
 
 | Token | Hex | Rol | Contraste sobre papel |
 |---|---|---|---|
-| `paper` | `#EDE8DC` | Superficie base (oat cálido, no crema-blanco) | — |
-| `paper-soft` | `#E4DDCC` | Superficie de tarjeta / bloque secundario | — |
+| `paper` | `#EDE8DC` | Superficie base (oat cálido, no crema-blanco) — pantalla/digital (web, slides, LMS) | — |
+| `paper-print` | `#FAF8F5` | Superficie base para **documentos .docx y .pdf**: variante más clara que `paper`, pensada para lectura larga e impresión (el oat `#EDE8DC` pesa demasiado como fondo de página completa) | — |
+| `paper-soft` | `#E4DDCC` | Superficie de tarjeta / bloque secundario (funciona sobre `paper` y sobre `paper-print`) | — |
 | `ink` | `#1F1B19` | Texto y estructura (negro cálido, no puro) | **13.98:1 (AAA)** |
 | `teal` | `#0F6B60` | **Marca** · empresas · agéntico · sistema | 5.22:1 (AA) |
 | `plum` | `#8C3B5D` | Personas · educación · lado humano | 5.93:1 (AA) |
@@ -42,6 +45,42 @@ Se evaluaron 5 familias con personalidad: minimalismo cálido, neo-brutalismo, e
 - Ningún componente usa teal y ciruela juntos con igual peso: uno manda, el otro acenta.
 - Estados: éxito = teal; error/alerta = derivar un rojo cálido `#B23A48` (fuera de paleta de marca, solo funcional); foco = teal con `outline-offset`.
 
+### 2.1 Fondos oscuros (secciones puntuales, slides) — agregado 2026-07-06
+
+> Esto NO es un "modo oscuro" en el sentido de preferencia de usuario / toggle de
+> sistema operativo. Es la variante de la paleta para **secciones o piezas puntuales
+> que se diseñan sobre fondo oscuro a propósito** — la sección "Transformación" del
+> sitio, una slide de cierre de deck, un bloque de cita destacada — tal como ya
+> preveía la sección 1 de este documento ("Dirección alternativa considerada... se
+> reserva como tratamiento posible para secciones puntuales"). No se implementa con
+> `prefers-color-scheme` ni un toggle: se aplica explícitamente a los componentes que
+> lo necesiten.
+
+**Por qué hace falta una variante y no alcanza con invertir fondo/texto:** `teal` y
+`plum` están calibrados para leerse sobre `paper` (fondo claro). Sobre `ink` como
+fondo, esos mismos hex **no pasan contraste accesible** — se ven apagados y quedan
+por debajo del mínimo de WCAG. Se verificó con la fórmula de contraste de WCAG
+(relative luminance) y se derivaron variantes más claras que sí cumplen:
+
+| Token | Hex | Rol | Contraste vs. `ink` (fondo) |
+|---|---|---|---|
+| `ink` (reutilizado) | `#1F1B19` | Fondo base de la sección oscura | — |
+| `ink-soft` | `#2A2522` | Superficie elevada / card sobre fondo oscuro (equivalente a `paper-soft` en el modo claro) | 1.13:1 — diferenciación sutil de superficie, no de texto |
+| `paper` (reutilizado) | `#EDE8DC` | Texto principal sobre fondo oscuro | **13.98:1 (AAA)** |
+| `teal-dark` | `#159384` | Texto/íconos en teal directamente sobre `ink` (párrafos, links, iconografía chica) | **4.51:1 (AA)** |
+| `teal-ui-dark` | `#107468` | Fill de botones/CTA y texto grande (≥18px) en teal sobre `ink` | 3.03:1 (AA large-text/UI) |
+| `plum-dark` | `#C0688D` | Texto/íconos en plum directamente sobre `ink` | **4.56:1 (AA)** |
+| `plum-ui-dark` | `#A5466E` | Fill de botones/CTA y texto grande en plum sobre `ink` | 3.01:1 (AA large-text/UI) |
+| `danger-dark` | `#CC626F` | Estado de error/alerta sobre `ink` | 4.52:1 (AA) |
+| `taupe` (reutilizado, sin cambios) | `#A79E8E` | Bordes/metadatos sobre `ink` — mejora a 6.45:1, pero se mantiene la misma regla de uso (nunca texto esencial) por consistencia entre modos | 6.45:1 |
+
+**Botones/CTA sobre fondo oscuro (contraste ya verificado en ambas direcciones):**
+- Primario (empresas/teal): fill `teal-ui-dark` (#107468) + texto blanco → 5.65:1 en el texto, y el botón en sí tiene 3.03:1 contra el fondo `ink` (cumple el mínimo de componente de UI de WCAG 1.4.11 — si se usara el `teal` original de #0F6B60, dan 2.68:1 contra `ink` y el botón "desaparece" visualmente del fondo).
+- Secundario (personas/plum): fill `plum-ui-dark` (#A5466E) + texto blanco.
+- Ghost/outline sobre oscuro: borde `paper`, hover invierte a fill sólido `paper` con texto `ink` — es la misma lógica del ghost en modo claro (invierte a `ink`), reflejada.
+
+**Regla dura:** nunca usar `teal` o `plum` "originales" (los de la sección 2, calibrados para `paper`) directamente sobre `ink` u otro fondo oscuro — usar siempre las variantes `-dark`/`-ui-dark`. Esto es literalmente lo mismo error que "hex hardcodeado fuera de contrato": son colores de marca, pero calibrados para la superficie equivocada.
+
 ---
 
 ## 3. Tipografía
@@ -50,7 +89,7 @@ Tres roles, tres familias. La personalidad la cargan display y mono; el cuerpo e
 
 | Rol | Familia | Uso | Notas técnicas |
 |---|---|---|---|
-| Display | **Fraunces** (variable) | H1–H3, wordmark, números grandes | `opsz` 144 y `SOFT` 40–45 en tamaños grandes (calidez); pesos 600–900 para títulos. Bajar `opsz` a 9–20 si se usa chica. |
+| Display | **Fraunces** (variable) | H1–H3, wordmark, números grandes, capa editorial (póster/contador) | Lock `SOFT` 100 / `WONK` 0 en los cuatro registros (`display`/`heading`/`poster`/`small`); solo varía `opsz` por registro (144/80/144/14). Pesos 600–900 para títulos. Bajar `opsz` a 9–20 si se usa chica. |
 | Texto / UI | **Inter** | Cuerpo, labels, navegación, formularios | Pesos 400/500/600. Neutro, alta legibilidad. |
 | Notación | **Space Mono** | Firma A→B, etiquetas de estado, datos, ticks, código de vertical | 400/700. Es el elemento "sistema". No usar para párrafos. |
 

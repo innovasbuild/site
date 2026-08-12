@@ -2,6 +2,7 @@ import type { Cta } from "./types"
 
 export const hero = {
   eyebrow: "// soluciones → producción",
+  posterTitle: "Transformación en producción",
   title: "Transformación con automatización agéntica",
   subhead:
     "Del diagnóstico a producción: sistemas que operan procesos reales, construidos por el equipo que después no desaparece.",
@@ -10,6 +11,7 @@ export const hero = {
 
 export const solutionTypes = {
   kicker: { index: "01", label: "qué construimos" },
+  posterTitle: "Qué construimos",
   title: "Asistentes digitales, agentes AI y company brain",
   items: [
     {
@@ -37,6 +39,7 @@ export const solutionTypes = {
 
 export const methodology = {
   kicker: { index: "02", label: "cómo trabajamos" },
+  posterTitle: "Cómo trabajamos",
   title: "Cómo trabajamos",
   steps: [
     {
@@ -70,6 +73,8 @@ export const methodology = {
 
 export const operateInB = {
   kicker: { index: "03", label: "operar en b" },
+  posterTitle: "No se termina, se opera",
+  posterAccent: "opera",
   title: "Un sistema con IA no se termina, se opera",
   intro:
     "Sin operación continua, un sistema con IA se degrada: aparecen mejores modelos, cambian los procesos, se abren nuevas oportunidades. Operar en B es la capa que lo mantiene funcionando y mejorando.",
@@ -97,6 +102,7 @@ export const operateInB = {
 
 export const audience = {
   kicker: { index: "04", label: "para quién" },
+  posterTitle: "Trabajamos con",
   title: "Trabajamos con",
   items: [
     "Empresas medianas y grandes de agro, banca y seguros, retail e industria que necesitan pasar de pruebas sueltas de IA a sistemas que operan.",

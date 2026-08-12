@@ -30,4 +30,12 @@ export const seo: Record<string, SeoMeta> = {
     title: "Contacto — INNOV.AS",
     description: "Contanos tu proyecto de transformación con datos, agentes de IA y automatización.",
   },
+  "/privacidad": {
+    title: "Política de Privacidad — INNOV.AS",
+    description: "Cómo INNOV.AS recopila, usa y protege los datos personales de clientes y usuarios de sus servicios.",
+  },
+  "/terminos": {
+    title: "Términos y Condiciones — INNOV.AS",
+    description: "Términos y condiciones de uso de los servicios de INNOV.AS. Condiciones de contratación, responsabilidades y obligaciones de las partes.",
+  },
 }

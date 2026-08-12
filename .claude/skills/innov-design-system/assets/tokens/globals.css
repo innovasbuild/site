@@ -31,14 +31,29 @@
   --color-danger:       #B23A48;
   --color-focus:        var(--color-teal);
 
+  /* ---- Color: fondos oscuros (secciones puntuales, NO es dark-mode de usuario) ----
+     teal/plum "originales" están calibrados para leerse sobre paper y NO pasan
+     contraste WCAG sobre ink. Estas variantes sí — contraste verificado, ver T3.2
+     sección 2.1. Regla dura: nunca usar --color-teal/--color-plum directo sobre
+     --color-ink u otro fondo oscuro; usar siempre las variantes de acá. */
+  --color-ink-soft:        #2A2522;  /* superficie elevada/card sobre fondo oscuro — equivalente a paper-soft */
+  --color-teal-dark:       #159384;  /* texto/íconos en teal sobre ink — 4.51:1 (AA) */
+  --color-teal-ui-dark:    #107468;  /* fill de botones/CTA y texto grande en teal sobre ink — 3.03:1, texto blanco encima da 5.65:1 */
+  --color-plum-dark:       #C0688D;  /* texto/íconos en plum sobre ink — 4.56:1 (AA) */
+  --color-plum-ui-dark:    #A5466E;  /* fill de botones/CTA y texto grande en plum sobre ink — 3.01:1 */
+  --color-danger-dark:     #CC626F;  /* error/alerta sobre ink — 4.52:1 (AA) */
+
   /* ---- Tipografía: familias ---- */
   --font-display: "Fraunces", Georgia, serif;
   --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
   --font-mono:    "Space Mono", ui-monospace, "SF Mono", monospace;
 
-  /* Ajustes variables de Fraunces para display (calidez + peso) */
-  --fraunces-display: "opsz" 144, "SOFT" 45, "WONK" 1;
-  --fraunces-heading: "opsz" 80,  "SOFT" 40, "WONK" 0;
+  /* Ajustes variables de Fraunces — lock SOFT 100 / WONK 0 en todos los registros
+     (actualizado 2026-08-10, ver T3.2 nota al pie). opsz varía por registro. */
+  --fraunces-display: "opsz" 144, "SOFT" 100, "WONK" 0;
+  --fraunces-heading: "opsz" 80,  "SOFT" 100, "WONK" 0;
+  --fraunces-poster:  "opsz" 144, "SOFT" 100, "WONK" 0;
+  --fraunces-small:   "opsz" 14,  "SOFT" 100, "WONK" 0;
 
   /* ---- Tipografía: escala (rem sobre 16px) ---- */
   --text-xs:   0.75rem;    /* 12 */
@@ -51,21 +66,54 @@
   --text-3xl:  3rem;       /* 48 */
   --text-hero: clamp(3.5rem, 6.6vw, 4.5rem);
 
+  /* ---- Tipografía: capa editorial — escala póster (Fraunces estirada al máximo,
+     1–4 palabras), agregada 2026-08 junto al lock SOFT 100 / WONK 0. Mide contra
+     el viewport (web). ---- */
+  --text-poster-sm: clamp(2.75rem, 8vw, 6rem);
+  --text-poster:    clamp(3.5rem, 13vw, 11rem);
+  --text-poster-xl: clamp(4.5rem, 18vw, 16rem);
+  --lh-poster:        0.84;
+  --lh-poster-tight:  0.78;
+  --track-poster:     -0.028em;
+  --track-poster-xl:  -0.038em;
+  --text-counter: clamp(3.5rem, 10vw, 9rem);
+  --lh-counter:   0.82;
+
+  /* ---- Cintas rotadas (TapeLabel) — máx 2 por composición, 1–2 palabras ---- */
+  --tape-rot:   -6.5deg;
+  --tape-pad:   0.34em 0.85em 0.28em;
+  --tape-track: 0.12em;
+
   /* ---- Radios ---- */
-  --radius-sm: 3px;
-  --radius:    4px;
-  --radius-md: 5px;
+  --radius-sm:   3px;
+  --radius:      4px;
+  --radius-md:   5px;
+  --radius-tape: 2px;
 
   /* ---- Sombras (offset sólido, sin blur — coherente con la estética) ---- */
   --shadow-teal: 0 6px 0 -2px rgba(15, 107, 96, 0.35);
   --shadow-plum: 0 6px 0 -2px rgba(140, 59, 93, 0.40);
+  --shadow-tape: 2px 2px 0 0 rgba(31, 27, 25, 0.22);
 
   /* ---- Motion ---- */
-  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
-  --dur-fast: 120ms;
-  --dur-draw: 1000ms;
+  --ease:           cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-tape:      cubic-bezier(0.34, 1.4, 0.5, 1);
+  --dur-fast:   120ms;
+  --dur-draw:   1000ms;
+  --dur-reveal: 620ms;
+  --dur-tape:   420ms;
+  --dur-count:  1200ms;
+  --stagger:    70ms;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root { --dur-fast: 0ms; --dur-draw: 0ms; }
+  :root {
+    --dur-fast: 0ms;
+    --dur-draw: 0ms;
+    --dur-reveal: 0ms;
+    --dur-tape: 0ms;
+    --dur-count: 0ms;
+    --stagger: 0ms;
+  }
 }

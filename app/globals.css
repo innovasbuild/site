@@ -2,9 +2,8 @@
 
 /* ==========================================================================
    INNOV.AS — Design tokens ("Cálido / Notación de Transición")
-   Fuente: .claude/skills/innov-design-system/assets/tokens/globals.css (T3.2)
-   Traducido a la sintaxis @theme inline de Tailwind v4. Cero valores mágicos
-   fuera de este bloque — ver skill innov-design-system para el contrato.
+   + capa editorial agosto 2026 (poster/tape/interlock/counter).
+   Cero valores mágicos fuera de este bloque.
    ========================================================================== */
 
 :root {
@@ -34,12 +33,23 @@
   --color-danger: #B23A48;
   --color-focus: var(--color-teal);
 
+  /* ---- Color: superficies oscuras — secciones/slides puntuales, NO dark-mode de usuario.
+     Regla dura: sobre fondo oscuro nunca --color-teal / --color-plum "a secas". ---- */
+  --color-ink-soft: #2A2522;
+  --color-teal-dark: #159384;
+  --color-teal-ui-dark: #107468;
+  --color-plum-dark: #C0688D;
+  --color-plum-ui-dark: #A5466E;
+  --color-danger-dark: #CC626F;
+
   /* ---- Tipografía: familias ---- */
   --font-display: "Fraunces", Georgia, serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "Space Mono", ui-monospace, "SF Mono", monospace;
-  --fraunces-display: "opsz" 144, "SOFT" 45, "WONK" 1;
-  --fraunces-heading: "opsz" 80, "SOFT" 40, "WONK" 0;
+  --fraunces-display: "opsz" 144, "SOFT" 100, "WONK" 0;
+  --fraunces-heading: "opsz" 80, "SOFT" 100, "WONK" 0;
+  --fraunces-poster: "opsz" 144, "SOFT" 100, "WONK" 0;
+  --fraunces-small: "opsz" 14, "SOFT" 100, "WONK" 0;
 
   /* ---- Tipografía: escala (rem sobre 16px) ---- */
   --text-xs: 0.75rem;
@@ -52,24 +62,46 @@
   --text-3xl: 3rem;
   --text-hero: clamp(3.5rem, 6.6vw, 4.5rem);
 
+  /* ---- Tipografía: capa editorial — escala póster (Fraunces estirada al máximo,
+     1–4 palabras). Mide contra el viewport (web). ---- */
+  --text-poster-sm: clamp(2.75rem, 8vw, 6rem);
+  --text-poster: clamp(3.5rem, 13vw, 11rem);
+  --text-poster-xl: clamp(4.5rem, 18vw, 16rem);
+  --lh-poster: 0.84;
+  --lh-poster-tight: 0.78;
+  --track-poster: -0.028em;
+  --track-poster-xl: -0.038em;
+  --text-counter: clamp(3.5rem, 10vw, 9rem);
+  --lh-counter: 0.82;
+
+  /* ---- Cintas rotadas (TapeLabel) — máx 2 por composición, 1–2 palabras ---- */
+  --tape-rot: -6.5deg;
+  --tape-pad: 0.34em 0.85em 0.28em;
+  --tape-track: 0.12em;
+
   /* ---- Radios ---- */
   --radius-sm: 3px;
   --radius: 4px;
   --radius-md: 5px;
+  --radius-tape: 2px;
 
   /* ---- Sombras (offset sólido, sin blur) ---- */
   --shadow-teal: 0 6px 0 -2px rgba(15, 107, 96, 0.35);
   --shadow-plum: 0 6px 0 -2px rgba(140, 59, 93, 0.40);
+  --shadow-tape: 2px 2px 0 0 rgba(31, 27, 25, 0.22);
 
   /* ---- Motion ---- */
   --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-tape: cubic-bezier(0.34, 1.4, 0.5, 1);
   --dur-fast: 120ms;
   --dur-draw: 1000ms;
+  --dur-reveal: 620ms;
+  --dur-tape: 420ms;
+  --dur-count: 1200ms;
+  --stagger: 70ms;
 
-  /* ---- Alias shadcn/ui -> tokens de marca ----
-     /components/ui (~57 componentes Radix/shadcn) consume estos nombres
-     planos. Se remapean acá una sola vez para que todo el kit herede la
-     marca sin tocar cada archivo individual. */
+  /* ---- Alias shadcn/ui -> tokens de marca ---- */
   --background: var(--color-paper);
   --foreground: var(--color-ink);
   --card: var(--color-paper-soft);
@@ -95,6 +127,10 @@
   :root {
     --dur-fast: 0ms;
     --dur-draw: 0ms;
+    --dur-reveal: 0ms;
+    --dur-tape: 0ms;
+    --dur-count: 0ms;
+    --stagger: 0ms;
   }
 }
 
@@ -103,15 +139,18 @@
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
 
-  /* tokens de marca expuestos como utilities Tailwind directas
-     (bg-paper, text-ink, text-teal, text-plum, border-taupe, etc.) */
   --color-paper: var(--color-paper);
   --color-paper-soft: var(--color-paper-soft);
   --color-ink: var(--color-ink);
   --color-ink-70: var(--color-ink-70);
   --color-ink-40: var(--color-ink-40);
+  --color-ink-soft: var(--color-ink-soft);
   --color-teal: var(--color-teal);
+  --color-teal-dark: var(--color-teal-dark);
+  --color-teal-ui-dark: var(--color-teal-ui-dark);
   --color-plum: var(--color-plum);
+  --color-plum-dark: var(--color-plum-dark);
+  --color-plum-ui-dark: var(--color-plum-ui-dark);
   --color-taupe: var(--color-taupe);
   --color-brand: var(--color-brand);
   --color-vertical-company: var(--color-vertical-company);
@@ -121,7 +160,6 @@
   --color-success: var(--color-success);
   --color-danger: var(--color-danger);
 
-  /* alias shadcn/ui remapeados (bg-primary, bg-background, border, etc.) */
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
@@ -151,14 +189,20 @@
   --text-2xl: var(--text-2xl);
   --text-3xl: var(--text-3xl);
   --text-hero: var(--text-hero);
+  --text-poster-sm: var(--text-poster-sm);
+  --text-poster: var(--text-poster);
+  --text-poster-xl: var(--text-poster-xl);
+  --text-counter: var(--text-counter);
 
   --radius-sm: var(--radius-sm);
   --radius-md: var(--radius);
   --radius-lg: var(--radius-md);
   --radius-xl: calc(var(--radius-md) + 2px);
+  --radius-tape: var(--radius-tape);
 
   --shadow-teal: var(--shadow-teal);
   --shadow-plum: var(--shadow-plum);
+  --shadow-tape: var(--shadow-tape);
 
   --ease-brand: var(--ease);
   --duration-fast: var(--dur-fast);
@@ -175,88 +219,61 @@
 }
 
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
-
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
-
 @keyframes draw-path {
-  to {
-    stroke-dashoffset: 0;
-  }
+  to { stroke-dashoffset: 0; }
 }
-
 @keyframes travel-dot {
-  0%,
-  100% {
-    opacity: 0;
-  }
-  4%,
-  92% {
-    opacity: 1;
-  }
-  0% {
-    offset-distance: 0%;
-  }
-  100% {
-    offset-distance: 100%;
-  }
+  0%, 100% { opacity: 0; }
+  4%, 92% { opacity: 1; }
+  0% { offset-distance: 0%; }
+  100% { offset-distance: 100%; }
 }
-
 @keyframes orbit {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+/* ---- capa editorial: reveal por palabra/línea + entrada de cintas ---- */
+@keyframes innov-word-up {
+  from { transform: translateY(0.5em); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes innov-line-up {
+  from { transform: translateY(105%) rotate(1.2deg); opacity: 0; }
+  to { transform: none; opacity: 1; }
+}
+@keyframes innov-tape-in {
+  from { transform: rotate(0deg) scale(0.86); opacity: 0; }
+  to { transform: rotate(var(--tape-r, var(--tape-rot))) scale(1); opacity: 1; }
 }
 
 @layer utilities {
   .animate-marquee {
     animation: marquee 32s linear infinite;
   }
-
   .animate-draw {
     stroke-dasharray: 1;
     stroke-dashoffset: 1;
     animation: draw-path var(--dur-draw) var(--ease) forwards;
   }
-
   .animate-travel-dot {
     offset-rotate: 0deg;
     animation: travel-dot 2.6s var(--ease) infinite;
     animation-delay: var(--dur-draw);
   }
-
   .animate-orbit {
     animation: orbit 8s linear infinite;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
-    animation: none;
-  }
-
-  .animate-travel-dot {
-    animation: none;
-    opacity: 0;
-  }
-
-  .animate-orbit {
-    animation: none;
-  }
+  .animate-marquee { animation: none; }
+  .animate-travel-dot { animation: none; opacity: 0; }
+  .animate-orbit { animation: none; }
 }

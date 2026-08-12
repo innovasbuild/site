@@ -127,7 +127,7 @@ export function ContactForm() {
           type="submit"
           disabled={isSubmitting}
           className={cn(
-            "w-full rounded bg-teal px-6 py-3 text-base font-semibold text-on-brand transition-transform",
+            "w-full rounded bg-teal px-6 py-3 text-base font-bold text-on-brand transition-transform",
             "hover:-translate-y-0.5 hover:shadow-teal disabled:opacity-50"
           )}
         >
@@ -149,7 +149,7 @@ export function ContactForm() {
 
       <p className="mt-6 text-center text-sm text-ink-70">
         {directEmailNote}{" "}
-        <a href={`mailto:${directEmail}`} className="font-semibold text-teal hover:underline">
+        <a href={`mailto:${directEmail}`} className="font-bold text-teal hover:underline">
           {directEmail}
         </a>
       </p>

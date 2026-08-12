@@ -8,6 +8,11 @@ export interface SolutionCard {
 
 export const hero = {
   eyebrow: "// innov.as → transformación",
+  // Escala póster: 1–4 palabras. La frase larga original vive en supportLine/subhead.
+  posterTitle: "Vos escalás",
+  posterAccent: "escalás",
+  supportLine: "La IA trabaja en paralelo a tu gente, sin multiplicar estructura.",
+  tapeLabel: "diagnóstico",
   titlePrefix: "La IA trabaja en paralelo a tu gente. ",
   titleHighlight: "Vos escalás",
   titleSuffix: " sin multiplicar estructura.",
@@ -15,10 +20,15 @@ export const hero = {
     "Diseñamos y ejecutamos soluciones de datos e inteligencia artificial para empresas medianas y grandes, y para organismos internacionales — con años de proyectos entregados para bancos, gobierno, ONGs y empresas de consumo masivo en la región.",
   ctaPrimary: { label: "Hablemos de tu operación", href: "/contacto" } as Cta,
   ctaSecondary: { label: "Cómo trabajamos →", href: "/soluciones" } as Cta,
+  rails: [
+    { from: "tu equipo hoy", to: "tu equipo con agentes", vertical: "company" as Vertical, note: "empresas" },
+    { from: "un alumno", to: "un builder", vertical: "people" as Vertical, note: "educación" },
+  ],
 }
 
 export const whatWeDo = {
   kicker: { index: "01", label: "qué hacemos" },
+  posterTitle: "Asistentes y brains",
   title: "Asistentes digitales, agentes AI y company brains — no experimentos",
   intro:
     "Construimos los tres sistemas que necesita una organización para operar con IA: asistentes que atienden a tu gente y a tus clientes, bots que ejecutan procesos sin supervisión, y el brain que les da contexto y memoria. Arquitectura pensada para producción desde el día uno.",
@@ -52,6 +62,8 @@ export const whatWeDo = {
 
 export const thesis = {
   kicker: { index: "02", label: "la tesis" },
+  posterTitle: "No se instala, se adopta",
+  posterAccent: "instala",
   title: "La tecnología sola no transforma nada",
   body: "Vimos demasiados proyectos de IA morir en el mismo lugar: la solución funciona, pero la organización no la adopta. La transformación profunda no se instala desde afuera — se adopta desde adentro, cuando tu propia gente entiende la tecnología, detecta las oportunidades y empuja el cambio.",
   intro: "Por eso pensamos la transformación como un solo movimiento, de A a B:",
@@ -76,9 +88,11 @@ export const thesis = {
 
 export const credentials = {
   kicker: { index: "03", label: "credenciales" },
+  posterTitle: "Años de ejecución",
   title: "Años de ejecución. Proyectos reales.",
   intro:
     "Trabajamos para organismos internacionales y empresas que no pueden darse el lujo de experimentar: +25 años de proyectos de transformación con tecnología en la región." as Dato,
+  stat: { value: 25, suffix: "+", label: "años de proyectos" },
   logosLabel: "Organizaciones con las que hemos colaborado" as Dato,
   logos: [
     "Lenovo",
@@ -103,6 +117,7 @@ export const credentials = {
 }
 
 export const finalCta = {
+  posterTitle: "Por dónde empezamos",
   title: "¿Por dónde empezamos?",
   cardA: {
     title: "Empresas",

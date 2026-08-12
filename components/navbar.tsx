@@ -14,7 +14,7 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-baseline gap-1.5 font-display text-xl font-semibold text-ink">
+        <Link href="/" className="flex items-baseline gap-1.5 font-display text-xl font-bold text-ink">
           innov.as
           <span className="font-mono text-xs font-normal text-teal">[A→B]</span>
         </Link>
@@ -38,7 +38,7 @@ export function Navbar() {
           })}
           <Link
             href={navCta.href}
-            className="rounded bg-teal px-5 py-2 text-sm font-semibold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
+            className="rounded bg-teal px-5 py-2 text-sm font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
           >
             {navCta.label}
           </Link>
@@ -70,7 +70,7 @@ export function Navbar() {
             <Link
               href={navCta.href}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="w-fit rounded bg-teal px-5 py-2 text-sm font-semibold text-on-brand"
+              className="w-fit rounded bg-teal px-5 py-2 text-sm font-bold text-on-brand"
             >
               {navCta.label}
             </Link>
