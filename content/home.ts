@@ -21,7 +21,7 @@ export const hero = {
   ctaSecondary: { label: "Cómo trabajamos →", href: "/soluciones" } as Cta,
   rails: [
     { from: "tu equipo hoy", to: "tu equipo con agentes", vertical: "company" as Vertical, note: "empresas" },
-    { from: "un alumno", to: "un builder", vertical: "people" as Vertical, note: "educación" },
+    { from: "horas repetitivas", to: "procesos automatizados", vertical: "people" as Vertical, note: "tareas" },
   ],
 }
 
