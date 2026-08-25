@@ -19,12 +19,11 @@ export default function Home() {
         posterAccent={hero.posterAccent}
         posterSize="sm"
         supportLine={hero.supportLine}
-        tapeLabel={hero.tapeLabel}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
         ctaSecondary={hero.ctaSecondary}
         variant="dark"
-        imageSlot={{ src: "/images/home-hero.png", alt: "Operación agéntica de noche, tratamiento duotono ink/teal" }}
+        backdrop="network"
       >
         <div className="mt-10 max-w-xl">
           <VerticalRail rails={hero.rails} surface="dark" />

@@ -1,7 +1,7 @@
-import Image from "next/image"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import type { Cta } from "@/content/types"
+import { HeroNetwork } from "@/components/hero-network"
 import { PosterHeading } from "@/components/poster-heading"
 import { TapeLabel } from "@/components/tape-label"
 
@@ -22,7 +22,8 @@ interface HeroProps {
   tapeLabel?: string
   children?: React.ReactNode
   variant?: "light" | "dark"
-  imageSlot?: { src: string; alt: string }
+  /** Backdrop generativo (canvas) en lugar de imagen — solo en variant "dark". */
+  backdrop?: "network"
 }
 
 export function Hero({
@@ -38,17 +39,14 @@ export function Hero({
   tapeLabel,
   children,
   variant = "light",
-  imageSlot,
+  backdrop,
 }: HeroProps) {
   const isDark = variant === "dark"
 
   return (
     <section className={cn("relative overflow-hidden border-b", isDark ? "border-paper/10 bg-ink" : "border-line bg-paper")}>
-      {isDark && imageSlot && (
-        <div className="absolute inset-0 z-0">
-          <Image src={imageSlot.src} alt={imageSlot.alt} fill priority className="object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/40" />
-        </div>
+      {isDark && backdrop === "network" && (
+        <HeroNetwork className="absolute inset-0 z-0 block h-full w-full" />
       )}
       <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 md:py-32">
         <p className={cn("font-mono text-xs uppercase tracking-wider", isDark ? "text-paper/70" : "text-teal")}>{eyebrow}</p>

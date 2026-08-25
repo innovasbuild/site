@@ -9,10 +9,9 @@ export interface SolutionCard {
 export const hero = {
   eyebrow: "// innov.as → transformación",
   // Escala póster: 1–4 palabras. La frase larga original vive en supportLine/subhead.
-  posterTitle: "Vos escalás",
-  posterAccent: "escalás",
-  supportLine: "La IA trabaja en paralelo a tu gente, sin multiplicar estructura.",
-  tapeLabel: "diagnóstico",
+  posterTitle: "IA en paralelo",
+  posterAccent: "paralelo",
+  supportLine: "Crece tu negocio sin aumentar estructura.",
   titlePrefix: "La IA trabaja en paralelo a tu gente. ",
   titleHighlight: "Vos escalás",
   titleSuffix: " sin multiplicar estructura.",
