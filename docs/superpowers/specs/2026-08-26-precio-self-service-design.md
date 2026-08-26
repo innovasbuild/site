@@ -83,8 +83,12 @@ real por partes a medida que se completan los datos operativos que hoy no existe
 
 ```
 { diagValue, olaStarterBruto, creditApplied, totalPrograma,
-  montoPrimerPago, cuotas, mensualDesdeMes5 }
+  montoPrimerPago, cuotasRestantes, mensualDesdeMes5 }
 ```
+
+Donde `cuotasRestantes` es la cantidad de cuotas que quedan después del primer pago
+(3 sólo en el caso Radar + Ola Starter, 0 en el resto) y `mensualDesdeMes5` es el abono
+mensual, o `null` cuando no hay suscripción (los casos sin Ola Starter).
 
 Reglas, preservadas exactamente de la maqueta HTML:
 
@@ -230,9 +234,23 @@ Mismo modelo que `contact_form`, por las razones que documenta
 Un solo mecanismo, sin ramas ni código temporal: la config declara qué falta y todo se
 deriva de eso.
 
-`lib/precio-readiness.ts` lee `content/precio.ts` y devuelve el estado de cinco
-capacidades — `mercadoPago`, `transferencia`, `calendly`, `backend`, `mailVisitante` —
-y un `launchReady` global.
+`lib/precio-readiness.ts` devuelve el estado de cinco capacidades y un `launchReady`
+global. Cómo se determina cada una:
+
+| Capacidad | Se considera lista cuando |
+|---|---|
+| `mercadoPago` | `content/precio.ts` tiene un link no vacío para el monto en cuestión. Se evalúa **por monto**, no global |
+| `transferencia` | `content/precio.ts` tiene titular, CUIT, CBU y alias, todos no vacíos |
+| `calendly` | Las dos URLs (1 reunión y 4 reuniones) están seteadas y son distintas entre sí |
+| `backend` | `NEXT_PUBLIC_SUPABASE_URL` y `NEXT_PUBLIC_PRECIO_FORM_SECRET` están presentes en el entorno |
+| `mailVisitante` | El flag manual `visitorEmailSenderVerified` en `content/precio.ts` está en `true` |
+
+`mailVisitante` es un flag manual a propósito: el sitio no tiene forma de consultar si
+`hola@innov.as` está verificado en Postmark, y no se puede inferir. Se pone en `true` a
+mano una vez confirmada la verificación.
+
+`launchReady` es la conjunción de las cinco, con `mercadoPago` exigido para los dos
+montos posibles.
 
 | Capacidad | Falta (modo maqueta) | Falta (producción) | Lista |
 |---|---|---|---|
