@@ -197,10 +197,24 @@ Ambos por Postmark, reusando `POSTMARK_SERVER_TOKEN`.
 **Interno**, a `NOTIFICATION_RECIPIENT_EMAILS` (var que ya existe): lead, cotización
 elegida, montos, CUIT, web, y link al deal en el CRM.
 
-**Al visitante**, desde `hola@innov.as`: resumen de la cotización en USD con la
-referencia en ARS y la fecha del cambio BNA, link de pago de Mercado Pago, datos de
-transferencia, y qué pasa después. Requiere que `hola@innov.as` esté verificado como
-sender signature en Postmark.
+**Al visitante**, desde `hola@innov.as`: resumen de la cotización **en USD**, link de
+pago de Mercado Pago, datos de transferencia, y qué pasa después. Requiere que
+`hola@innov.as` esté verificado como sender signature en Postmark.
+
+El mail **no lleva el importe en ARS**, a diferencia de la página. Es deliberado: un
+número en pesos dentro de un mail queda desactualizado en el momento en que se envía e
+invita a la disputa ("me habían dicho tal monto"). En la página la referencia sirve
+porque el visitante está decidiendo en ese momento; en el mail es un pasivo. El mail
+dice el USD y aclara que el importe final en pesos lo confirma Mercado Pago al abrir el
+link, o el equipo en el caso de la transferencia.
+
+Consecuencia operativa: los links de Mercado Pago y los datos de transferencia tienen
+que estar configurados **también** en la Edge Function, por variables de entorno
+(`PRECIO_MP_LINKS` como JSON monto→URL, y `PRECIO_TRANSFER_*`), porque el mail se arma
+del lado del servidor y no puede confiar en datos que mande el browser. Es una segunda
+copia de esa configuración y puede driftear contra `content/precio.ts`: se mitiga
+listándola en el panel de pendientes y verificándola en el chequeo manual de punta a
+punta.
 
 ### Manejo de errores
 
