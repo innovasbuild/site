@@ -2,14 +2,19 @@ import type { SeoMeta } from "./types"
 
 export const seo: Record<string, SeoMeta> = {
   "/": {
-    title: "INNOV.AS — Automatización agéntica y adopción de IA en Latinoamérica",
+    title: "INNOV.AS — Ingeniería de transformación digital con IA nativa",
     description:
-      "La IA trabaja en paralelo a tu gente. Soluciones de datos y agentes de IA para empresas medianas y grandes, y organismos internacionales en Latinoamérica. Años de proyectos entregados en la región.",
+      "Diseñamos, construimos y operamos plataformas de datos, software a medida y procesos con IA para organismos internacionales y empresas en Latinoamérica. El mismo equipo senior de la arquitectura a la operación.",
   },
   "/soluciones": {
-    title: "Soluciones de automatización e IA en Latinoamérica — INNOV.AS",
+    title: "Soluciones — Proyectos end-to-end de datos e IA | INNOV.AS",
     description:
-      "De Radar a Olas de transformación: agentes de procesos, plataformas de datos y operación continua con gobernanza, para empresas y organismos en Latinoamérica. Sin pilotos eternos.",
+      "Plataformas a medida, datos y GIS, procesos con IA e integraciones: proyectos de transformación por fases verificables, del descubrimiento a la operación continua.",
+  },
+  "/en-paralelo": {
+    title: "En Paralelo — IA trabajando junto a tu equipo | INNOV.AS",
+    description:
+      "La línea de INNOV.AS para pymes: cerebro digital y agentes educados con tu método, por olas verificables a precio cerrado. La IA trabaja en paralelo a tu gente, vos escalás sin multiplicar estructura.",
   },
   "/desde-adentro": {
     title: "Desde Adentro — Programa de Adopción de IA",

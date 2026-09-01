@@ -7,7 +7,7 @@ export const organizationSchema = {
   url: "https://innov.as",
   logo: "https://innov.as/innovas-logo.png",
   description:
-    "Automatización agéntica y plataformas de datos para transformar la operación de empresas medianas y grandes, y organismos internacionales en Latinoamérica.",
+    "Diseñamos, construimos y operamos plataformas de datos, software a medida y procesos con IA para organismos internacionales y empresas en Latinoamérica.",
   areaServed: { "@type": "Place", name: "Latinoamérica" },
   sameAs: ["https://www.linkedin.com/company/innov-as"],
 }

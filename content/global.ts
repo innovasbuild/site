@@ -2,6 +2,7 @@ import type { Cta, FooterColumn, NavLink } from "./types"
 
 export const navLinks: NavLink[] = [
   { label: "Soluciones", href: "/soluciones" },
+  { label: "En Paralelo", href: "/en-paralelo" },
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },
 ]
@@ -16,6 +17,7 @@ export const footerColumns: FooterColumn[] = [
     heading: "Sitemap",
     links: [
       { label: "Soluciones", href: "/soluciones" },
+      { label: "En Paralelo", href: "/en-paralelo" },
       { label: "Nosotros", href: "/nosotros" },
       { label: "Contacto", href: "/contacto" },
     ],
@@ -24,7 +26,7 @@ export const footerColumns: FooterColumn[] = [
 
 export const footerInstitutional = {
   name: "INNOV.AS",
-  description: "Soluciones tecnológicas end-to-end para transformación de empresas. Buenos Aires, Argentina.",
+  description: "Ingeniería de transformación digital. Diseñamos, construimos y operamos plataformas de datos e IA. Buenos Aires, Argentina.",
 }
 
 export const footerContact = {

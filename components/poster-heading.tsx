@@ -12,6 +12,8 @@ interface PosterHeadingProps {
   align?: "left" | "center" | "right"
   as?: "h1" | "h2" | "h3"
   className?: string
+  /** Superficie donde vive el titular. En "dark" (sobre bg-ink) el accent usa los tokens -dark. */
+  surface?: "light" | "dark"
 }
 
 const sizeClass: Record<string, string> = {
@@ -24,11 +26,18 @@ const sizeClass: Record<string, string> = {
  * Titular escala póster: Fraunces estirada al máximo, 1–4 palabras, reveal por palabra.
  * Máximo un PosterHeading por pantalla/sección.
  */
-export function PosterHeading({ children, size = "md", tone = "company", accent, align = "left", as = "h2", className }: PosterHeadingProps) {
+export function PosterHeading({ children, size = "md", tone = "company", accent, align = "left", as = "h2", className, surface = "light" }: PosterHeadingProps) {
   const Tag = as
   const reduce = useReducedMotion()
   const words = children.trim().split(/\s+/)
-  const accentColor = tone === "people" ? "var(--color-plum)" : "var(--color-teal)"
+  const accentColor =
+    surface === "dark"
+      ? tone === "people"
+        ? "var(--color-plum-dark)"
+        : "var(--color-teal-dark)"
+      : tone === "people"
+        ? "var(--color-plum)"
+        : "var(--color-teal)"
 
   return (
     <Tag

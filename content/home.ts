@@ -7,86 +7,88 @@ export interface SolutionCard {
 }
 
 export const hero = {
-  eyebrow: "// innov.as → transformación",
-  // Escala póster: 1–4 palabras. La frase larga original vive en supportLine/subhead.
-  posterTitle: "IA en paralelo",
-  posterAccent: "paralelo",
-  supportLine: "Crece tu negocio sin aumentar estructura.",
-  titlePrefix: "La IA trabaja en paralelo a tu gente. ",
-  titleHighlight: "Vos escalás",
-  titleSuffix: " sin multiplicar estructura.",
+  eyebrow: "// diseño → operación",
+  posterTitle: "Ingeniería de transformación",
+  posterAccent: "transformación",
+  supportLine: "Diseñamos, construimos y operamos la solución completa.",
+  titlePrefix: "Diseñamos, construimos y operamos ",
+  titleHighlight: "la solución completa",
+  titleSuffix: ".",
   subhead:
-    "Diseñamos y ejecutamos soluciones de datos e inteligencia artificial para empresas medianas y grandes, y para organismos internacionales — con años de proyectos entregados para bancos, gobierno, ONGs y empresas de consumo masivo en la región.",
-  ctaPrimary: { label: "Hablemos de tu operación", href: "/contacto" } as Cta,
+    "Plataformas de datos, software a medida y procesos con IA para organismos internacionales y empresas. El mismo equipo senior de la arquitectura a la operación, con IA nativa en el delivery.",
+  ctaPrimary: { label: "Hablemos de tu proyecto", href: "/contacto" } as Cta,
   ctaSecondary: { label: "Cómo trabajamos →", href: "/soluciones" } as Cta,
   rails: [
-    { from: "tu equipo hoy", to: "tu equipo con agentes", vertical: "company" as Vertical, note: "empresas" },
-    { from: "horas repetitivas", to: "procesos automatizados", vertical: "people" as Vertical, note: "tareas" },
+    { from: "diagnóstico", to: "producción", vertical: "company" as Vertical, note: "proyectos" },
+    { from: "equipo senior", to: "equipo + agentes", vertical: "company" as Vertical, note: "delivery" },
   ],
 }
 
 export const whatWeDo = {
-  kicker: { index: "01", label: "qué hacemos" },
-  posterTitle: "Asistentes y brains",
-  title: "Asistentes digitales, agentes AI y company brains — no experimentos",
+  kicker: { index: "01", label: "qué construimos" },
+  posterTitle: "Qué construimos",
+  title: "Plataformas, datos y procesos con IA, de punta a punta",
   intro:
-    "Construimos los tres sistemas que necesita una organización para operar con IA: asistentes que atienden a tu gente y a tus clientes, bots que ejecutan procesos sin supervisión, y el brain que les da contexto y memoria. Arquitectura pensada para producción desde el día uno.",
+    "Ejecutamos el ciclo completo de un proyecto de transformación: arquitectura, desarrollo, datos y operación. IA embebida donde hace falta criterio, lógica determinística donde hace falta precisión.",
   cards: [
     {
-      title: "Asistentes digitales",
+      title: "Plataformas a medida",
       description:
-        "Agentes conversacionales que atienden, consultan y resuelven — atención, soporte, análisis de documentos — con IA donde hace falta criterio y lógica determinística donde hace falta precisión.",
+        "Software y productos digitales sobre arquitectura multi-tenant: escalan a nuevas unidades, verticales o países sin rehacer la base.",
       vertical: "company",
     },
     {
-      title: "Bots de proceso",
+      title: "Datos, GIS y analítica",
       description:
-        "Automatización de workflows completos: integraciones, aprobaciones, orquestación entre sistemas, con trazabilidad de punta a punta.",
+        "Pipelines de datos, tableros y plataformas territoriales, con experiencia en datos satelitales para proyectos de organismos internacionales.",
       vertical: "company",
     },
     {
-      title: "Company Brain",
+      title: "Procesos con IA",
       description:
-        "La base de datos y conocimiento que le da contexto a cada asistente y bot. Plataformas multi-tenant que escalan a nuevos países, unidades o verticales sin rehacer la base.",
+        "Agentes y automatización embebidos en la solución: asistentes, bots de proceso y el brain que les da contexto y memoria.",
       vertical: "company",
     },
     {
-      title: "IA con gobernanza",
+      title: "Operación continua",
       description:
-        "Implementaciones con evaluación, guardrails y métricas de adopción. Para que el directorio sepa qué hace la IA, por qué y con qué resultado.",
+        "La plataforma entregada se opera: modelos que se optimizan, agentes que se ajustan, infraestructura monitoreada y asegurada.",
       vertical: "company",
     },
   ] as SolutionCard[],
 }
 
-export const thesis = {
-  kicker: { index: "02", label: "la tesis" },
-  posterTitle: "No se instala, se adopta",
-  posterAccent: "instala",
-  title: "La tecnología sola no transforma nada",
-  body: "Vimos demasiados proyectos de IA morir en el mismo lugar: la solución funciona, pero la organización no la adopta. La transformación profunda no se instala desde afuera — se adopta desde adentro, cuando tu propia gente entiende la tecnología, detecta las oportunidades y empuja el cambio.",
-  intro: "Por eso pensamos la transformación como un solo movimiento, de A a B:",
-  engines: [
+export const howWeExecute = {
+  kicker: { index: "02", label: "cómo ejecutamos" },
+  posterTitle: "Sin capas",
+  posterAccent: "capas",
+  title: "Dos diferenciales, verificables en la primera reunión",
+  items: [
     {
-      name: "A — Hoy.",
+      title: "Seniority directo",
       description:
-        "Todo pasa por tu gente: procesos manuales, decisiones concentradas en pocas personas, conocimiento tácito que no escala.",
-      vertical: "people" as Vertical,
+        "Los que diseñan son los que construyen y operan. Decisiones de arquitectura con el negocio en la mesa, agilidad de boutique con gobierno de programa de firma grande.",
     },
     {
-      name: "B — En paralelo.",
+      title: "IA nativa en el delivery",
       description:
-        "Tu gente decide y los agentes ejecutan. La IA trabaja al lado de tu equipo, no en su lugar — un estado operativo, no un destino final.",
-      vertical: "company" as Vertical,
+        "Nuestros equipos trabajan aumentados con agentes. Eso entrega a una velocidad y un costo por entregable fuera del alcance de una estructura tradicional.",
     },
   ],
-  closing:
-    "El programa forma champions internos sobre tus propios procesos desde la primera ola, para que el cambio se sostenga adentro y no dependa de nosotros para siempre.",
+}
+
+export const thesis = {
+  kicker: { index: "03", label: "la tesis" },
+  posterTitle: "De A a B",
+  posterAccent: "B",
+  title: "Toda transformación es un cambio de estado",
+  body:
+    "Trabajamos con una notación simple: A es cómo opera hoy tu organización, B es cómo opera con la tecnología adoptada. Nuestro trabajo es el trayecto completo, y un sistema está terminado recién cuando tu gente lo adoptó y lo opera.",
   cta: { label: "Cómo trabajamos →", href: "/soluciones" } as Cta,
 }
 
 export const credentials = {
-  kicker: { index: "03", label: "credenciales" },
+  kicker: { index: "04", label: "credenciales" },
   posterTitle: "Años de ejecución",
   title: "Años de ejecución. Proyectos reales.",
   intro:
@@ -115,19 +117,28 @@ export const credentials = {
   ] as Dato[],
 }
 
+export const enParaleloBlock = {
+  kicker: { index: "05", label: "para pymes" },
+  posterTitle: "En Paralelo",
+  title: "La IA trabaja en paralelo a tu gente. Vos escalás sin multiplicar estructura.",
+  body:
+    "Para pymes y empresas de alto valor por persona: implementamos el cerebro digital de tu empresa y agentes educados con tu método, por olas con precio cerrado. Arranca con un diagnóstico corto y sigue solo si ves valor.",
+  cta: { label: "Conocé En Paralelo →", href: "/en-paralelo" } as Cta,
+}
+
 export const finalCta = {
   posterTitle: "Por dónde empezamos",
-  title: "¿Por dónde empezamos?",
+  title: "Por dónde empezamos?",
   cardA: {
-    title: "Empresas",
-    description: "Tenemos procesos que no escalan. Automatización, agentes, plataformas de datos.",
+    title: "Proyectos",
+    description: "Organismos y empresas con un proyecto de plataforma, datos o IA. Ejecución end-to-end.",
     cta: { label: "Hablemos", href: "/contacto" } as Cta,
     vertical: "company" as Vertical,
   },
   cardB: {
-    title: "Organismos y sector público",
-    description: "Proyectos de datos, plataformas territoriales y transformación institucional.",
-    cta: { label: "Hablemos", href: "/contacto" } as Cta,
+    title: "Pymes: En Paralelo",
+    description: "Un cerebro digital y agentes trabajando junto a tu equipo, empezando por un diagnóstico corto.",
+    cta: { label: "Conocé En Paralelo", href: "/en-paralelo" } as Cta,
     vertical: "people" as Vertical,
   },
 }

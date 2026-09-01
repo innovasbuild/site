@@ -2,37 +2,38 @@ import type { Cta } from "./types"
 
 export const hero = {
   eyebrow: "// soluciones → producción",
-  posterTitle: "Transformación en producción",
-  title: "Transformación con automatización agéntica",
+  posterTitle: "De punta a punta",
+  posterAccent: "punta",
+  title: "Diseñamos, construimos y operamos",
   subhead:
-    "Del diagnóstico a producción: sistemas que operan procesos reales, construidos por el equipo que después no desaparece.",
-  ctaPrimary: { label: "Hablemos de tu operación", href: "/contacto" } as Cta,
+    "Proyectos de transformación para organismos internacionales y empresas: de la arquitectura a producción, con el mismo equipo senior en cada fase y IA nativa en el delivery.",
+  ctaPrimary: { label: "Hablemos de tu proyecto", href: "/contacto" } as Cta,
 }
 
 export const solutionTypes = {
   kicker: { index: "01", label: "qué construimos" },
   posterTitle: "Qué construimos",
-  title: "Asistentes digitales, agentes AI y company brain",
+  title: "Plataformas, datos y procesos con IA",
   items: [
     {
-      title: "Asistentes digitales",
+      title: "Plataformas y productos a medida",
       description:
-        "Atención comercial, gestión de turnos, análisis de documentos, back-office. Agentes con estado persistente, salidas estructuradas y separación clara entre lo que decide la IA y lo que ejecuta la lógica determinística.",
+        "Aplicaciones web y productos digitales sobre Next.js, Node y Postgres, con arquitectura multi-tenant: escalan a nuevas unidades, verticales o países sin rehacer la base.",
     },
     {
-      title: "Bots de automatización",
+      title: "Datos, GIS y analítica",
       description:
-        "Orquestación de procesos con n8n y herramientas de integración: aprobaciones, reportes, sincronización entre sistemas. Trazable, auditable, mantenible.",
+        "Pipelines de datos, dashboards y plataformas territoriales para decisiones operativas, con experiencia en datos satelitales y análisis geoespacial para organismos internacionales.",
     },
     {
-      title: "Company Brain",
+      title: "Procesos con IA",
       description:
-        "Plataforma integradora de la información, prácticas desiciones y acciones del negocio, lista para iterar la automatización de cada proceso de negocio. Escalable a nuevas unidades, verticales o países sin rehacer la base.",
+        "Asistentes, agentes de proceso y el brain que les da contexto, embebidos en la solución. IA donde hace falta criterio, lógica determinística donde hace falta precisión, y gobernanza para que el directorio sepa qué hace la IA y con qué resultado.",
     },
     {
-      title: "Analítica y visualización",
+      title: "Integraciones y APIs",
       description:
-        "Dashboards y plataformas GIS para decisiones operativas — incluida experiencia en datos satelitales y territoriales para proyectos de organismos internacionales.",
+        "Orquestación entre sistemas existentes: aprobaciones, reportes, sincronización. Trazable, auditable, mantenible.",
     },
   ],
 }
@@ -40,27 +41,26 @@ export const solutionTypes = {
 export const methodology = {
   kicker: { index: "02", label: "cómo trabajamos" },
   posterTitle: "Cómo trabajamos",
-  title: "Cómo trabajamos",
   steps: [
     {
-      title: "Radar.",
+      title: "Descubrimiento y arquitectura.",
       description:
-        "Diagnóstico corto: entrevistas con varias áreas, mapa de oportunidades y cuellos de botella priorizados. Puerta de entrada de bajo compromiso — se acredita al paso siguiente.",
+        "Relevamiento con las áreas involucradas, arquitectura de solución y alcance cerrado por fase. Las decisiones estructurales se toman con el negocio en la mesa.",
     },
     {
-      title: "Mapa del Método.",
+      title: "Construcción por fases.",
       description:
-        "Relevamiento profundo, business case y roadmap por etapas, con alcance y precio cerrado por ola. El documento vale por sí mismo, y se acredita al paso siguiente.",
+        "Cada fase entrega un tramo del sistema verificable: diseño, desarrollo, pruebas de aceptación. Entregables definidos por contrato, gate de decisión entre fases.",
     },
     {
-      title: "Olas de transformación.",
+      title: "Go-live e hipercuidado.",
       description:
-        "Cada ola entrega un circuito operando: diseño, construcción, UAT, go-live e hipercuidado. Precio fijo contra entrega, sin anticipos, con gate de decisión entre etapas.",
+        "Puesta en producción acompañada: monitoreo intensivo, ajustes finos y transferencia a los equipos del cliente.",
     },
     {
-      title: "Operar en B.",
+      title: "Operación continua.",
       description:
-        "Operación continua: optimización de modelos, ajuste de agentes, infraestructura y detección de nuevas etapas. Champions internos formados durante el programa operan cada vez más solos.",
+        "La plataforma se opera y evoluciona: optimización de modelos y costos, ajuste de agentes, infraestructura monitoreada y asegurada, y detección de las próximas etapas.",
     },
   ],
   principles: [
@@ -105,13 +105,15 @@ export const audience = {
   posterTitle: "Trabajamos con",
   title: "Trabajamos con",
   items: [
-    "Empresas medianas y grandes de agro, banca y seguros, retail e industria que necesitan pasar de pruebas sueltas de IA a sistemas que operan.",
-    "Organismos internacionales y sector público — bancos, gobierno, ONGs y empresas de consumo masivo en la región — con proyectos de datos, plataformas territoriales y transformación institucional.",
+    "Organismos internacionales y sector público: proyectos de datos, plataformas territoriales y transformación institucional, vía licitación o contratación directa.",
+    "Empresas medianas y grandes con un proyecto concreto de plataforma, producto digital o procesos con IA, y un sponsor en dirección o gerencia general.",
   ],
+  note: "Sos una pyme y querés empezar por tu operación diaria? Mirá En Paralelo.",
+  noteCta: { label: "En Paralelo →", href: "/en-paralelo" } as Cta,
 }
 
 export const finalCta = {
-  title: "¿Tu operación tiene procesos que duelen?",
+  title: "Contanos tu proyecto",
   cta: { label: "Hablemos", href: "/contacto" } as Cta,
-  note: "El diagnóstico inicial no compromete a nada.",
+  note: "La primera conversación es con el equipo que después ejecuta.",
 }

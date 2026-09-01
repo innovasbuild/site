@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Linkedin } from "lucide-react"
+import { Logo } from "@/components/logo"
 import { footerColumns, footerInstitutional, footerContact, footerLegal } from "@/content/global"
 
 export function Footer() {
@@ -8,8 +9,8 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
-            <Link href="/" className="font-display text-xl font-bold text-paper">
-              {footerInstitutional.name}
+            <Link href="/" aria-label={footerInstitutional.name}>
+              <Logo className="h-8 w-auto" surface="dark" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/60">
               {footerInstitutional.description}

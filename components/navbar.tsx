@@ -5,6 +5,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { Logo } from "@/components/logo"
 import { navLinks, navCta } from "@/content/global"
 
 export function Navbar() {
@@ -14,9 +15,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-baseline gap-1.5 font-display text-xl font-bold text-ink">
-          innov.as
-          <span className="font-mono text-xs font-normal text-teal">[A→B]</span>
+        <Link href="/" aria-label="INNOV.AS">
+          <Logo className="h-8 w-auto" />
         </Link>
 
         {/* Desktop Menu */}

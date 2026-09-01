@@ -5,7 +5,7 @@
 > cualquier agente futuro (deck, one-pager, branding del LMS).
 > Estado: v1 — dirección recomendada, lista para implementar. Revisión: Mati (aprobada).
 > **Update 2026-07-05:** agregado token `paper-print` (`#FAF8F5`) — fondo específico para .docx/.pdf, ver sección 2.
-> **Update 2026-08-10:** lock tipográfico fijado a `SOFT 100 / WONK 0` en los cuatro registros de Fraunces (antes `SOFT` 40–45 / `WONK` 0–1) — ver sección 3. Se agregan `--fraunces-poster` y `--fraunces-small`, y la capa editorial póster/cinta/contador (`--text-poster*`, `--tape-*`, `--text-counter`) que ya corre en el sitio.
+> **Update 2026-08:** agregada la capa editorial de escala póster — ver addendum al final de este documento.
 
 ---
 
@@ -89,7 +89,7 @@ Tres roles, tres familias. La personalidad la cargan display y mono; el cuerpo e
 
 | Rol | Familia | Uso | Notas técnicas |
 |---|---|---|---|
-| Display | **Fraunces** (variable) | H1–H3, wordmark, números grandes, capa editorial (póster/contador) | Lock `SOFT` 100 / `WONK` 0 en los cuatro registros (`display`/`heading`/`poster`/`small`); solo varía `opsz` por registro (144/80/144/14). Pesos 600–900 para títulos. Bajar `opsz` a 9–20 si se usa chica. |
+| Display | **Fraunces** (variable) | H1–H3, wordmark, números grandes | `opsz` 144 y `SOFT` 40–45 en tamaños grandes (calidez); pesos 600–900 para títulos. Bajar `opsz` a 9–20 si se usa chica. |
 | Texto / UI | **Inter** | Cuerpo, labels, navegación, formularios | Pesos 400/500/600. Neutro, alta legibilidad. |
 | Notación | **Space Mono** | Firma A→B, etiquetas de estado, datos, ticks, código de vertical | 400/700. Es el elemento "sistema". No usar para párrafos. |
 
@@ -105,7 +105,7 @@ Escala tipográfica (rem, base 16px): 0.75 / 0.875 / 1 / 1.125 / 1.375 / 1.75 / 
 
 ### 4.1 Elemento firma — la flecha de transición `A ──→ B`
 Es el activo de marca. No es decoración: es la tesis del negocio hecha glifo. Usos canónicos:
-- **Wordmark:** `innovas` en Fraunces + superíndice mono `[A→B]` en teal.
+- **Wordmark:** ~~`innovas` en Fraunces + superíndice mono `[A→B]` en teal~~ — **deprecado (agosto 2026).** El wordmark ahora es lettering vectorizado dentro del logo: ver la sección Logo del `SKILL.md` y `assets/logo/`. La flecha sigue viva en los marcadores de sección, el código de vertical y el progreso — pero no en el wordmark.
 - **Marcadores de sección:** `// 01 ──→ estado`.
 - **Código de vertical:** `personas→` (ciruela) · `empresas→` (teal).
 - **Progreso de curso/lección:** `[▪▪▪▪░░] 4/6 ──→`.
@@ -163,7 +163,31 @@ Regla de implementación (de T3.3): **cero valores mágicos** de color/tipograf�
 - [ ] Ningún texto esencial usa `taupe`.
 - [ ] Ningún H1/CTA depende de faux-bold (usar pesos reales de Fraunces).
 - [ ] `plum` aparece solo codificando la vertical personas, nunca como relleno masivo.
-- [ ] La flecha `A→B` aparece en: wordmark, marcadores de sección y camino de 4 niveles.
+- [ ] La flecha `A→B` aparece en: marcadores de sección, códigos de vertical y camino de 4 niveles (ya no en el wordmark — ver sección Logo del `SKILL.md`).
+- [ ] El logo usa la variante correcta para su fondo y respeta tamaño mínimo y área de resguardo.
 - [ ] Franja institucional sobria, monocromo, sin motion.
 - [ ] `prefers-reduced-motion` respetado en todas las animaciones.
 - [ ] Fuentes self-hosted vía `next/font` (sin CLS, sin request a Google en runtime).
+
+---
+
+## 8. Addendum agosto 2026 — capa editorial de escala póster
+
+Extensión aprobada por Mati sobre esta dirección de arte, no un reemplazo. Mecanismo tomado de referencias editoriales de agencia (inspiración de mecanismo, no de paleta: cero colores nuevos, sigue siendo `teal`/`plum`/`ink`/`taupe`/`paper`).
+
+**Componentes nuevos:**
+
+| Componente | Spec |
+|---|---|
+| `PosterHeading` | Fraunces estirada al máximo (no una condensada), 1–4 palabras, `SOFT 0`/`WONK 0`, peso 900, caja alta, `line-height` 0.84 (0.78 en `xl`), `letter-spacing` −0.028em (−0.038em en `xl`). Prop `scale="slide"` fuerza los tamaños px fijos (`--text-poster-slide-*`) para lienzos de tamaño fijo — la escala clamp (`--text-poster-*`) es solo para web, mide contra el viewport. Máximo un titular póster por pantalla/slide. |
+| `TapeLabel` | Cinta rotada en Space Mono caja alta, tracking 0.12em, ángulo `--tape-rot` (−6.5°) o `--tape-rot-alt` (5.5°), sombra `--shadow-tape` (2px 2px 0, sin blur), entra con `innov-tape-in` (0°→ángulo, escala 0.86→1, 420ms, `--ease-tape` con leve overshoot). Máximo 2 por composición, 1–2 palabras cada una. |
+| `InterlockHeadline` | Interlock texto/imagen: un bloque de imagen (`--interlock-h` 0.78em de alto) incrustado dentro de una línea de `PosterHeading`, separado por `--interlock-gap` (0.06em). |
+| `StatCounter` | Cifra en Fraunces a `--text-counter` (clamp 3.5rem→9rem), `line-height` 0.82, cuenta desde 0 al entrar en viewport (IntersectionObserver al 40%, 1200ms, ease cúbico de salida). Siempre acompañada de unidad y contexto en una línea secundaria en Inter — nunca un número solo. |
+| `IllustrationSlot` | Andamio, no un componente de marca: sostiene el layout y publica esta spec en pantalla mientras el hueco está vacío. Trazo a mano alzada 1.6px en `ink`, sin relleno, fondo transparente, un único acento plano (`teal` o `plum` si la pieza es de personas) de 28–46px rotado ~7°. Registro diagramático (flujos, procesos, mapas de estado), nunca personajes/escenas/isométrico/3D. Proporción 4:3 o 16:9. **No se dibuja a mano por el agente — se encarga aparte.** |
+
+**Bloque de color a sangre lateral:** franja vertical `--colorblock-w-narrow` (14vw) en teal, tocando los cuatro bordes de su lado — portada y cierre de deck/página, único elemento full-bleed de color del sistema.
+
+**Checklist adicional:**
+- [ ] Titulares póster en slides/print usan `scale="slide"`, nunca la escala clamp ni un `fontSize` inline.
+- [ ] Máximo un titular póster por pantalla/slide, y máximo 2 cintas por composición.
+- [ ] Ningún `IllustrationSlot` fue reemplazado por un ícono o clipart genérico dibujado ad-hoc — se encarga aparte.

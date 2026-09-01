@@ -6,7 +6,7 @@ export const hero = {
   posterAccent: "terreno",
   title: "Ingeniería de transformación, probada en el terreno",
   subhead:
-    "INNOV.AS nace de años de construir tecnología para quienes menos margen de error tienen: organismos internacionales, sector público y empresas en plena transformación.",
+    "INNOV.AS nace de años de construir tecnología para quienes menos margen de error tienen: organismos internacionales, sector público y empresas en plena transformación. Hoy ejecutamos esa experiencia como firma: el mismo equipo senior diseña, construye y opera.",
   ctaPrimary: { label: "Hablemos", href: "/contacto" } as Cta,
 }
 
@@ -32,7 +32,7 @@ export const team = {
   mission:
     "Ejecutamos transformación con IA para organizaciones que no pueden darse el lujo de experimentar. Medimos el éxito por el resultado de negocio de nuestros clientes — no por horas facturadas ni por funcionalidades entregadas.",
   intro:
-    "Somos un equipo chico y estable: arquitectos de producto e ingenieros con roles fijos, no consultores junior que rotan de proyecto en proyecto. Cada integrante responde por un tramo del sistema de punta a punta.",
+    "Somos un equipo chico y estable: arquitectos de producto e ingenieros con roles fijos. Cada integrante responde por un tramo del sistema de punta a punta.",
   focus: [
     {
       title: "Arquitectura de soluciones",

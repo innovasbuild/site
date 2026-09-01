@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Link from "next/link"
 import { Hero } from "@/components/hero"
 import { LevelCard } from "@/components/level-card"
 import { SectionKicker } from "@/components/section-kicker"
@@ -39,7 +40,7 @@ export default function SolucionesPage() {
         <div className="mx-auto max-w-5xl px-6 py-20">
           <SectionKicker index={methodology.kicker.index} label={methodology.kicker.label} />
           <div className="mt-3"><PosterHeading size="sm">{methodology.posterTitle}</PosterHeading></div>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
             {methodology.steps.map((step) => (
               <div key={step.title} className="rounded border border-ink bg-paper p-6">
                 <p className="font-display text-lg font-bold text-ink">{step.title}</p>
@@ -82,6 +83,12 @@ export default function SolucionesPage() {
             </li>
           ))}
         </ul>
+        <p className="mt-6 text-sm text-ink-70">
+          {audience.note}{" "}
+          <Link href={audience.noteCta.href} className="font-bold text-teal hover:underline">
+            {audience.noteCta.label}
+          </Link>
+        </p>
       </section>
 
       <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />

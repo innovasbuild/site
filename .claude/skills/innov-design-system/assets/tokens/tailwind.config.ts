@@ -14,6 +14,7 @@ const config: Config = {
         paper: {
           DEFAULT: "var(--color-paper)",
           soft: "var(--color-paper-soft)",
+          print: "var(--color-paper-print)",
         },
         ink: {
           DEFAULT: "var(--color-ink)",
@@ -55,10 +56,15 @@ const config: Config = {
         "2xl": "var(--text-2xl)",
         "3xl": "var(--text-3xl)",
         hero: "var(--text-hero)",
+        // capa editorial — escala póster (web, clamp) y contador
         "poster-sm": "var(--text-poster-sm)",
         poster: "var(--text-poster)",
         "poster-xl": "var(--text-poster-xl)",
         counter: "var(--text-counter)",
+        // escala póster en px fijo — lienzos de tamaño fijo (slides/print), pedir con scale="slide"
+        "poster-slide-sm": "var(--text-poster-slide-sm)",
+        "poster-slide": "var(--text-poster-slide)",
+        "poster-slide-xl": "var(--text-poster-slide-xl)",
       },
       borderRadius: {
         sm: "var(--radius-sm)",
@@ -69,6 +75,7 @@ const config: Config = {
       boxShadow: {
         teal: "var(--shadow-teal)",
         plum: "var(--shadow-plum)",
+        ink: "var(--shadow-ink)",
         tape: "var(--shadow-tape)",
       },
       transitionTimingFunction: {
