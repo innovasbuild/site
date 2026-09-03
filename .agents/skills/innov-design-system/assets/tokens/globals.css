@@ -1,0 +1,142 @@
+/* ==========================================================================
+   INNOV.AS — Design Tokens (fuente única de verdad)
+   Entregable T3.2 · consumido por T3.3. Cero valores mágicos fuera de acá.
+   Fuentes self-host vía next/font (ver nota al pie). WCAG AA verificado.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: superficies ---- */
+  --color-paper:        #EDE8DC;   /* base cálida (oat) */
+  --color-paper-soft:   #E4DDCC;   /* tarjeta / bloque secundario */
+
+  /* ---- Color: tinta / texto ---- */
+  --color-ink:          #1F1B19;   /* texto y estructura — 13.98:1 sobre paper (AAA) */
+  --color-ink-70:       rgba(31, 27, 25, 0.68);  /* texto secundario */
+  --color-ink-40:       rgba(31, 27, 25, 0.40);  /* texto terciario / labels apagados */
+
+  /* ---- Color: marca + verticales ---- */
+  --color-teal:         #0F6B60;   /* MARCA · empresas · agéntico — 5.22:1 sobre paper (AA) */
+  --color-plum:         #8C3B5D;   /* personas · educación — 5.93:1 sobre paper (AA) */
+  --color-taupe:        #A79E8E;   /* DECORATIVO: bordes/ticks/meta. NO texto chico (2.17:1) */
+
+  /* ---- Color: semántico ---- */
+  --color-brand:        var(--color-teal);
+  --color-vertical-company: var(--color-teal);   /* empresas / transformación */
+  --color-vertical-people:  var(--color-plum);   /* personas / educación */
+  --color-line:         rgba(31, 27, 25, 0.18);  /* hairlines */
+  --color-on-brand:     #FFFFFF;   /* texto sobre teal (6.38:1) y plum (7.24:1) */
+
+  /* ---- Color: estados (funcional, fuera de marca) ---- */
+  --color-success:      var(--color-teal);
+  --color-danger:       #B23A48;
+  --color-focus:        var(--color-teal);
+
+  /* ---- Color: fondos oscuros (secciones puntuales, NO es dark-mode de usuario) ----
+     teal/plum "originales" están calibrados para leerse sobre paper y NO pasan
+     contraste WCAG sobre ink. Estas variantes sí — contraste verificado, ver T3.2
+     sección 2.1. Regla dura: nunca usar --color-teal/--color-plum directo sobre
+     --color-ink u otro fondo oscuro; usar siempre las variantes de acá. */
+  --color-ink-soft:        #2A2522;  /* superficie elevada/card sobre fondo oscuro — equivalente a paper-soft */
+  --color-teal-dark:       #159384;  /* texto/íconos en teal sobre ink — 4.51:1 (AA) */
+  --color-teal-ui-dark:    #107468;  /* fill de botones/CTA y texto grande en teal sobre ink — 3.03:1, texto blanco encima da 5.65:1 */
+  --color-plum-dark:       #C0688D;  /* texto/íconos en plum sobre ink — 4.56:1 (AA) */
+  --color-plum-ui-dark:    #A5466E;  /* fill de botones/CTA y texto grande en plum sobre ink — 3.01:1 */
+  --color-danger-dark:     #CC626F;  /* error/alerta sobre ink — 4.52:1 (AA) */
+
+  /* ---- Tipografía: familias ---- */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono:    "Space Mono", ui-monospace, "SF Mono", monospace;
+
+  /* Lock 2026-08: SOFT 100 / WONK 0 en todos los registros, único ajuste variable aprobado. */
+  --fraunces-display: "opsz" 144, "SOFT" 100, "WONK" 0;
+  --fraunces-heading: "opsz" 80,  "SOFT" 100, "WONK" 0;
+  --fraunces-poster:  "opsz" 144, "SOFT" 100, "WONK" 0;
+  --fraunces-small:   "opsz" 14,  "SOFT" 100, "WONK" 0;
+
+  /* ---- Tipografía: escala (rem sobre 16px) ---- */
+  --text-xs:   0.75rem;    /* 12 */
+  --text-sm:   0.875rem;   /* 14 */
+  --text-base: 1rem;       /* 16 */
+  --text-md:   1.125rem;   /* 18 */
+  --text-lg:   1.375rem;   /* 22 */
+  --text-xl:   1.75rem;    /* 28 */
+  --text-2xl:  2.25rem;    /* 36 */
+  --text-3xl:  3rem;       /* 48 */
+  --text-hero: clamp(3.5rem, 6.6vw, 4.5rem);
+
+  /* ---- Color: superficie base para .docx/.pdf (el oat pesa en lectura larga) ---- */
+  --color-paper-print:  #FAF8F5;
+
+  /* ---- Radios ---- */
+  --radius-sm: 3px;
+  --radius:    4px;
+  --radius-md: 5px;
+  --radius-tape: 2px;
+
+  /* ---- Sombras (offset sólido, sin blur — coherente con la estética) ---- */
+  --shadow-teal: 0 6px 0 -2px rgba(15, 107, 96, 0.35);
+  --shadow-plum: 0 6px 0 -2px rgba(140, 59, 93, 0.40);
+  --shadow-ink:  4px 4px 0 0 var(--color-ink);
+  --shadow-tape: 2px 2px 0 0 rgba(31, 27, 25, 0.22);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-tape: cubic-bezier(0.34, 1.4, 0.5, 1);
+  --dur-fast: 120ms;
+  --dur: 280ms;
+  --dur-reveal: 620ms;
+  --dur-tape: 420ms;
+  --dur-count: 1200ms;
+  --dur-draw: 1000ms;
+  --stagger: 70ms;
+
+  /* ==== Capa editorial (agregado 2026-08) ====
+     Escala póster, cintas, interlock, contadores, ilustración.
+     Cero colores nuevos: reutiliza teal/plum/ink/taupe. */
+
+  /* escala póster — Fraunces estirada al máximo. Titulares de 1–4 palabras. Mide contra el viewport (web). */
+  --text-poster-sm: clamp(2.75rem, 8vw, 6rem);
+  --text-poster: clamp(3.5rem, 13vw, 11rem);
+  --text-poster-xl: clamp(4.5rem, 18vw, 16rem);
+  --lh-poster: 0.84;
+  --lh-poster-tight: 0.78;
+  --track-poster: -0.028em;
+  --track-poster-xl: -0.038em;
+
+  /* escala póster en px absolutos — lienzos de tamaño fijo (slides 1280×720, print). Pedir con scale="slide". */
+  --text-poster-slide-sm: 84px;
+  --text-poster-slide: 96px;
+  --text-poster-slide-xl: 104px;
+
+  /* interlock texto/imagen */
+  --interlock-h: 0.78em;
+  --interlock-gap: 0.06em;
+
+  /* cintas rotadas (TapeLabel) */
+  --tape-rot: -6.5deg;
+  --tape-rot-alt: 5.5deg;
+  --tape-pad: 0.34em 0.85em 0.28em;
+  --tape-size: var(--text-sm);
+  --tape-track: 0.12em;
+
+  /* bloque de color a sangre lateral */
+  --colorblock-w: 24vw;
+  --colorblock-w-narrow: 14vw;
+
+  /* contadores / cifras grandes */
+  --text-counter: clamp(3.5rem, 10vw, 9rem);
+  --lh-counter: 0.82;
+
+  /* slots de ilustración — trazo a mano alzada, ver readme del design system § Ilustración */
+  --illus-stroke: 1.6px;
+  --illus-accent-size: clamp(28px, 3vw, 46px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms; --dur: 0ms; --dur-reveal: 0ms; --dur-tape: 0ms;
+    --dur-count: 0ms; --dur-draw: 0ms; --stagger: 0ms;
+  }
+}
