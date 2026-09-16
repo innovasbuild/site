@@ -10,7 +10,6 @@ export const hero = {
   eyebrow: "// diseño → operación",
   posterTitle: "Ingeniería de transformación",
   posterAccent: "transformación",
-  supportLine: "Diseñamos, construimos y operamos la solución completa.",
   titlePrefix: "Diseñamos, construimos y operamos ",
   titleHighlight: "la solución completa",
   titleSuffix: ".",

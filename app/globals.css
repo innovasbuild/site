@@ -89,6 +89,8 @@
   --shadow-teal: 0 6px 0 -2px rgba(15, 107, 96, 0.35);
   --shadow-plum: 0 6px 0 -2px rgba(140, 59, 93, 0.40);
   --shadow-tape: 2px 2px 0 0 rgba(31, 27, 25, 0.22);
+  /* Halo simétrico (sin offset direccional) para separar el titular póster del backdrop de canvas */
+  --shadow-poster-glow: 0 0 8px var(--color-ink), 0 0 28px var(--color-ink-70), 0 0 56px var(--color-ink-40);
 
   /* ---- Motion ---- */
   --ease: cubic-bezier(0.2, 0.6, 0.2, 1);

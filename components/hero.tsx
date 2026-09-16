@@ -53,7 +53,13 @@ export function Hero({
 
         <div className="relative mt-6">
           {posterTitle ? (
-            <PosterHeading as="h1" size={posterSize} accent={posterAccent} surface={isDark ? "dark" : "light"} className={isDark ? "text-paper" : "text-ink"}>
+            <PosterHeading
+              as="h1"
+              size={posterSize}
+              accent={posterAccent}
+              surface={isDark ? "dark" : "light"}
+              className={cn(isDark ? "text-paper" : "text-ink", isDark && "text-shadow-(--shadow-poster-glow)")}
+            >
               {posterTitle}
             </PosterHeading>
           ) : (

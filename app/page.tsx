@@ -18,7 +18,6 @@ export default function Home() {
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}
         posterSize="sm"
-        supportLine={hero.supportLine}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
         ctaSecondary={hero.ctaSecondary}
