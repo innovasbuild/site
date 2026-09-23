@@ -23,17 +23,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={cn(fraunces.variable, inter.variable, spaceMono.variable)}>
-      <Script
-        id="ga-script"
-        src="https://www.googletagmanager.com/gtag/js?id=G-K7MEG32VYH"
-        strategy="beforeInteractive"
-      />
-      <Script id="ga-init" strategy="beforeInteractive">
-        {`window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-K7MEG32VYH');`}
-      </Script>
+      <head>
+        <Script
+          id="ga-script"
+          src="https://www.googletagmanager.com/gtag/js?id=G-K7MEG32VYH"
+          strategy="beforeInteractive"
+        />
+        <Script id="ga-init" strategy="beforeInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-K7MEG32VYH');`}
+        </Script>
+      </head>
       <body className="min-h-screen bg-paper text-ink font-sans antialiased selection:bg-teal/20">
         <JsonLd data={organizationSchema} />
         <Navbar />
