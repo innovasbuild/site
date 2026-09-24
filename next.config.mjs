@@ -18,6 +18,16 @@ const nextConfig = {
       },
     ]
   },
+  async rewrites() {
+    return [
+      // Las presentaciones estáticas viven en public/cuentas/<slug>/index.html;
+      // Next no resuelve el index.html de un directorio sin barra final.
+      {
+        source: '/cuentas/:slug',
+        destination: '/cuentas/:slug/index.html',
+      },
+    ]
+  },
 }
 
 export default nextConfig
