@@ -19,9 +19,9 @@ export default function ContactoPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-16">
         <div>
-          <h2 className="mb-6 font-display text-2xl font-bold text-ink">{formTitle}</h2>
+          <h2 className="mb-8 font-display text-2xl font-bold text-ink">{formTitle}</h2>
           <ContactForm />
         </div>
         <OrientationCard />

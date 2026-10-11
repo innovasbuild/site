@@ -6,7 +6,7 @@ export const navLinks: NavLink[] = [
   { label: "Nosotros", href: "/nosotros" },
 ]
 
-export const navCta: Cta = { label: "Agendá una conversación", href: "/contacto" }
+export const navCta: Cta = { label: "Contactanos", href: "/contacto" }
 
 /** CTA principal del sitio: la primera conversación. */
 export const primaryCta: Cta = { label: "Agendá una primera conversación", href: "/contacto" }
