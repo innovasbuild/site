@@ -13,6 +13,7 @@ import {
   directEmail,
   tamanos,
   usosIA,
+  hubspotForm,
   type ContactFormValues,
 } from "@/content/contacto"
 import { globalMicrocopy } from "@/content/global"
@@ -35,33 +36,39 @@ export function ContactForm() {
   const onSubmit = async (data: ContactFormValues) => {
     setStatus(null)
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-    const secret = process.env.NEXT_PUBLIC_CONTACT_FORM_SECRET
+    // El formulario de HubSpot guarda email, nombre y mensaje. Empresa, país, tamaño y uso de IA
+    // viajan dentro del mensaje: mandar la empresa como campo renombra la compañía ya asociada
+    // al dominio del contacto en el CRM.
+    const message = [
+      `Empresa: ${data.empresa}`,
+      `País: ${data.pais}`,
+      `Tamaño: ${data.tamano}`,
+      `IA que usan hoy: ${data.usoIA}`,
+      data.consulta,
+    ]
+      .filter(Boolean)
+      .join("\n")
+    const fields = Object.entries({ email: data.email, firstname: data.nombre, message }).map(([name, value]) => ({
+      objectTypeId: "0-1",
+      name,
+      value,
+    }))
 
-    if (!supabaseUrl || !secret) {
-      console.error("Contact form no configurado: falta NEXT_PUBLIC_SUPABASE_URL o NEXT_PUBLIC_CONTACT_FORM_SECRET.")
-      setStatus({ type: "error", message: globalMicrocopy.submitError })
-      return
-    }
-
-    // La función contact_form recibe un mensaje libre: tamaño y uso de IA viajan ahí adentro.
-    const message = [`Tamaño: ${data.tamano}`, `IA que usan hoy: ${data.usoIA}`, data.consulta].filter(Boolean).join("\n")
+    // Cookie de seguimiento de HubSpot: une el envío con las visitas previas del contacto.
+    const hutk = document.cookie.match(/(?:^|; )hubspotutk=([^;]+)/)?.[1]
 
     try {
-      const response = await fetch(`${supabaseUrl}/functions/v1/contact_form`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-contact-form-secret": secret,
-        },
-        body: JSON.stringify({
-          name: data.nombre,
-          email: data.email,
-          company: data.empresa,
-          country: data.pais,
-          message,
-        }),
-      })
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${hubspotForm.portalId}/${hubspotForm.formId}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fields,
+            context: { ...(hutk ? { hutk } : {}), pageUri: window.location.href, pageName: document.title },
+          }),
+        }
+      )
 
       if (response.ok) {
         window.gtag?.("event", "generate_lead", { method: "formulario" })
@@ -70,13 +77,8 @@ export function ContactForm() {
         return
       }
 
-      if (response.status === 400) {
-        const body = await response.json().catch(() => null)
-        setStatus({ type: "error", message: body?.message || globalMicrocopy.submitError })
-        return
-      }
-
-      console.error(`Contact form: respuesta inesperada del servidor (${response.status}).`)
+      const body = await response.json().catch(() => null)
+      console.error(`Contact form: HubSpot respondió ${response.status}.`, body)
       setStatus({ type: "error", message: globalMicrocopy.submitError })
     } catch (error) {
       console.error("Contact form submit failed:", error)

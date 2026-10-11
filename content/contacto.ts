@@ -16,6 +16,12 @@ export const nextSteps = [
 /** Página de reservas de HubSpot Meetings. Se puede pisar por entorno. */
 export const meetingsUrl = process.env.NEXT_PUBLIC_HUBSPOT_MEETINGS_URL ?? "https://meetings.hubspot.com/matias122"
 
+/** Formulario "Contact Form del Sitio" de HubSpot: el sitio le envía directo, sin backend propio. */
+export const hubspotForm = {
+  portalId: process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID ?? "51464889",
+  formId: "1f6b4869-1b14-47eb-b033-b3f3e16a0e15",
+}
+
 export const formIntro = { withAgenda: "Preferís que te escribamos?", alone: "Dejanos tus datos y coordinamos un horario." }
 
 export const tamanos = ["Hasta 50 personas", "50 a 200", "200 a 500", "Más de 500"]
