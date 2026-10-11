@@ -84,11 +84,16 @@ Aplica igual en decks, one-pagers y LMS: no es un tratamiento exclusivo de códi
 
 ## Spec de ilustración (para encargar las piezas, no para dibujarlas ad-hoc)
 
-- Trazo a mano alzada, ~1.6px, en `#1F1B19` (ink). Una sola pasada continua, con irregularidad visible — no vector geométrico perfecto.
-- Sin relleno. Un único acento de color plano por pieza: un cuadradito o punto de ~28-46px en teal (`#0F6B60`) o plum (`#8C3B5D`) si la pieza habla de personas, rotado ~7°.
+Spec v1.2 (octubre 2026):
+
+- Trazo tipo marcador, ~3.2px, en `#1F1B19` (ink), con extremos redondeados e irregularidad de mano visible.
+- Sin relleno en el trazo. Dos acentos planos por pieza: teal (`#0F6B60`) como principal, un bloque de 38 a 54px rotado ~7°; y plum (`#8C3B5D`) como detalle, de hasta 30px, que lleva el guiño. Plum siempre pesa menos que teal.
 - Fondo transparente, pensado para apoyarse sobre `paper` o `paper-soft`.
-- Registro diagramático (flujos, procesos, mapas de estado) — nunca personajes, escenas, isométrico ni 3D.
-- Proporción habitual 4:3 o 16:9.
+- Registro de objetos y diagramas: ventanas, notas, carpetas, llaves, candados, flechas, nodos. Sin personas, escenas, isométrico ni 3D.
+- Tono claro, con un solo guiño por pieza.
+- Proporción 4:3 (lienzo 400x300).
+- Titulares póster en web: un escalón menos desde la v1.2 (tope de 64px en el tamaño chico). En slides y documentos la escala no cambió.
+- Fondo del hero en piezas fijas: una captura quieta de la trama de puntos, puntos en `#EDE8DC` apagados sobre `#1F1B19` con un foco en `#159384`.
 
 ## Qué evitar
 

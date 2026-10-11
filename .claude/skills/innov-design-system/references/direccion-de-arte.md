@@ -191,3 +191,26 @@ Extensión aprobada por Mati sobre esta dirección de arte, no un reemplazo. Mec
 - [ ] Titulares póster en slides/print usan `scale="slide"`, nunca la escala clamp ni un `fontSize` inline.
 - [ ] Máximo un titular póster por pantalla/slide, y máximo 2 cintas por composición.
 - [ ] Ningún `IllustrationSlot` fue reemplazado por un ícono o clipart genérico dibujado ad-hoc — se encarga aparte.
+
+
+---
+
+## 9. Addendum octubre 2026 — v1.2
+
+Decidido por Mati el 2026-10-10, al replantear el sitio con Central IA adelante. Paleta, tipografías y logo no cambian. La spec operativa completa vive en `SKILL.md`; acá queda el registro de qué cambió y por qué.
+
+| Tema | Antes | v1.2 | Por qué |
+|---|---|---|---|
+| Escala póster web | sm 44→96 · md 56→176 · xl 72→256 | sm 40→64 · md 44→96 · xl 56→176 | Los titulares pesaban demasiado; la jerarquía la dan el aire y las ilustraciones |
+| Hero del home | Red de nodos en canvas 2D | Trama de puntos en WebGPU (`HeroDots`), puntos `paper` con foco `teal-dark`, reacción sutil al cursor | La red quedaba cargada. El hero pasa a ser atmósfera y el relato queda en el titular |
+| Registro de ilustración (§4.3) | Solo diagramas | Objetos y diagramas, sin personas | Los dolores del cliente se entienden mejor con objetos reconocibles |
+| Trazo de ilustración | 1.6px, luego 3.2px con hachurado | 3.2px tipo marcador, sin hachurado | Aguanta tamaños chicos y se lee como dibujo a mano |
+| Color de ilustración | Un acento | Teal principal más un detalle plum | Más vida sin ampliar la paleta. Plum siempre pesa menos |
+| Tono de ilustración | Técnico | Claro, con un guiño por pieza | Cercanía con quien conduce una empresa mediana |
+| Motion (§4.4) | Sin bucles ni auto-play | Se suman el dibujo progresivo de ilustraciones, una vez al entrar en pantalla, y el fondo animado del hero como único bucle | Es el gesto de dibujo a mano que más aporta, y queda acotado |
+
+**Checklist adicional v1.2:**
+- [ ] Cada ilustración tiene un acento teal de 38 a 54px y, como mucho, un detalle plum de hasta 30px.
+- [ ] Ninguna ilustración incluye personas, texto ni hachurado.
+- [ ] `HeroDots` aparece una sola vez por página, tiene alternativa estática sin WebGPU y queda quieto con `prefers-reduced-motion`.
+- [ ] El texto del hero se lee sobre la trama en escritorio y en celular.

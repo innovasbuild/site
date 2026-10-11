@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/arrow"
 interface EconomicsCardProps {
   title: string
   items: string[]
@@ -10,7 +11,7 @@ export function EconomicsCard({ title, items }: EconomicsCardProps) {
       <ul className="mt-4 space-y-3">
         {items.map((item) => (
           <li key={item} className="flex gap-2 text-sm text-ink-70">
-            <span className="font-mono text-teal">→</span> {item}
+            <Arrow className="mt-[0.45em] text-teal" /> <span>{item}</span>
           </li>
         ))}
       </ul>

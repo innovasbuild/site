@@ -1,24 +1,26 @@
 import type { Cta, FooterColumn, NavLink } from "./types"
 
 export const navLinks: NavLink[] = [
-  { label: "Soluciones", href: "/soluciones" },
-  { label: "En Paralelo", href: "/en-paralelo" },
+  { label: "Central IA", href: "/central-ia" },
+  { label: "Cómo implementamos", href: "/como-implementamos" },
   { label: "Nosotros", href: "/nosotros" },
-  { label: "Contacto", href: "/contacto" },
 ]
 
-export const navCta: Cta = { label: "Hablemos", href: "/contacto" }
+export const navCta: Cta = { label: "Agendá una conversación", href: "/contacto" }
+
+/** CTA principal del sitio: la primera conversación. */
+export const primaryCta: Cta = { label: "Agendá una primera conversación", href: "/contacto" }
+export const primaryCtaNote = "30 minutos, sin costo, con el equipo que después implementa."
 
 export const footerColumns: FooterColumn[] = [
-  {
-    // Columna 1 — institucional, sin heading (ver t3.1-copy-sitio-innovas.md #footer)
-  },
+  {},
   {
     heading: "Sitemap",
     links: [
-      { label: "Soluciones", href: "/soluciones" },
-      { label: "En Paralelo", href: "/en-paralelo" },
+      { label: "Central IA", href: "/central-ia" },
+      { label: "Cómo implementamos", href: "/como-implementamos" },
       { label: "Nosotros", href: "/nosotros" },
+      { label: "Proyectos a medida", href: "/proyectos" },
       { label: "Contacto", href: "/contacto" },
     ],
   },
@@ -26,7 +28,8 @@ export const footerColumns: FooterColumn[] = [
 
 export const footerInstitutional = {
   name: "INNOV.AS",
-  description: "Ingeniería de transformación digital. Diseñamos, construimos y operamos plataformas de datos e IA. Buenos Aires, Argentina.",
+  description:
+    "INNOV.AS ofrece Central IA, la plataforma que ordena la adopción de IA en la empresa, y el equipo que la implementa. Buenos Aires, Argentina.",
 }
 
 export const footerContact = {
@@ -37,8 +40,8 @@ export const footerContact = {
 export const footerLegal = "© 2026 INNOV.AS. Todos los derechos reservados."
 
 export const globalMicrocopy = {
-  submitButton: "Enviar consulta",
-  submitSuccess: "Recibimos tu consulta. Te respondemos dentro de las próximas 48 horas hábiles.",
+  submitButton: "Enviar",
+  submitSuccess: "Recibimos tus datos. Te escribimos dentro de las próximas 24 horas hábiles para coordinar la conversación.",
   submitError: "No pudimos enviar el formulario. Probá de nuevo o escribinos a hola@innov.as.",
 }
 

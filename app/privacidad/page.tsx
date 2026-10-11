@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/arrow"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { seo } from "@/content/seo"
@@ -165,7 +166,7 @@ export default function PrivacidadPage() {
         </Section>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-line pt-8 text-sm text-ink-70 sm:flex-row">
-          <Link href="/terminos" className="text-teal hover:underline">Ver Términos y Condiciones →</Link>
+          <Link href="/terminos" className="text-teal hover:underline">Ver Términos y Condiciones <Arrow /></Link>
           <Link href="/" className="hover:text-teal transition-colors">← Volver al inicio</Link>
         </div>
       </div>

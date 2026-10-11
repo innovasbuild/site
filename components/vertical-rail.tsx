@@ -1,5 +1,6 @@
 "use client"
 
+import { Arrow } from "@/components/arrow"
 import { motion, useReducedMotion } from "framer-motion"
 import type { Vertical } from "@/content/types"
 
@@ -48,7 +49,7 @@ export function VerticalRail({ rails, surface = "light" }: VerticalRailProps) {
               transition={{ duration: 0.6, delay: i * 0.1, ease: [0.2, 0.6, 0.2, 1] }}
               style={{ color: c }}
             >
-              →
+              <Arrow />
             </motion.span>
             <span className={surface === "dark" ? "text-paper" : "text-ink"} style={{ fontWeight: 700 }}>{rail.to}</span>
           </div>

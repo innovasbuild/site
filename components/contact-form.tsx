@@ -8,16 +8,18 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import {
   contactFormSchema,
-  submitButtonLabel,
   submitNote,
   directEmailNote,
   directEmail,
-  type ContactFormFieldValues,
+  tamanos,
+  usosIA,
+  hubspotForm,
+  type ContactFormValues,
 } from "@/content/contacto"
 import { globalMicrocopy } from "@/content/global"
 import { cn } from "@/lib/utils"
 
-type FormValues = ContactFormFieldValues
+const selectClass = "mt-2 block h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm text-ink"
 
 export function ContactForm() {
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null)
@@ -27,58 +29,56 @@ export function ContactForm() {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<FormValues>({
+  } = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
   })
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (data: ContactFormValues) => {
     setStatus(null)
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
-    const secret = process.env.NEXT_PUBLIC_CONTACT_FORM_SECRET
+    // El formulario de HubSpot guarda email, nombre y mensaje. Empresa, país, tamaño y uso de IA
+    // viajan dentro del mensaje: mandar la empresa como campo renombra la compañía ya asociada
+    // al dominio del contacto en el CRM.
+    const message = [
+      `Empresa: ${data.empresa}`,
+      `País: ${data.pais}`,
+      `Tamaño: ${data.tamano}`,
+      `IA que usan hoy: ${data.usoIA}`,
+      data.consulta,
+    ]
+      .filter(Boolean)
+      .join("\n")
+    const fields = Object.entries({ email: data.email, firstname: data.nombre, message }).map(([name, value]) => ({
+      objectTypeId: "0-1",
+      name,
+      value,
+    }))
 
-    if (!supabaseUrl || !secret) {
-      console.error("Contact form no configurado: falta NEXT_PUBLIC_SUPABASE_URL o NEXT_PUBLIC_CONTACT_FORM_SECRET.")
-      setStatus({ type: "error", message: globalMicrocopy.submitError })
-      return
-    }
+    // Cookie de seguimiento de HubSpot: une el envío con las visitas previas del contacto.
+    const hutk = document.cookie.match(/(?:^|; )hubspotutk=([^;]+)/)?.[1]
 
     try {
-      const response = await fetch(`${supabaseUrl}/functions/v1/contact_form`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "x-contact-form-secret": secret,
-        },
-        body: JSON.stringify({
-          name: data.nombre,
-          email: data.email,
-          phone: data.telefono || undefined,
-          company: data.empresa,
-          country: data.pais,
-          message: data.consulta,
-        }),
-      })
+      const response = await fetch(
+        `https://api.hsforms.com/submissions/v3/integration/submit/${hubspotForm.portalId}/${hubspotForm.formId}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            fields,
+            context: { ...(hutk ? { hutk } : {}), pageUri: window.location.href, pageName: document.title },
+          }),
+        }
+      )
 
       if (response.ok) {
+        window.gtag?.("event", "generate_lead", { method: "formulario" })
         setStatus({ type: "success", message: globalMicrocopy.submitSuccess })
         reset()
         return
       }
 
-      if (response.status === 400) {
-        const body = await response.json().catch(() => null)
-        setStatus({ type: "error", message: body?.message || globalMicrocopy.submitError })
-        return
-      }
-
-      if (response.status === 401) {
-        console.error("Contact form: header x-contact-form-secret ausente o incorrecto.")
-        setStatus({ type: "error", message: globalMicrocopy.submitError })
-        return
-      }
-
-      console.error(`Contact form: respuesta inesperada del servidor (${response.status}).`)
+      const body = await response.json().catch(() => null)
+      console.error(`Contact form: HubSpot respondió ${response.status}.`, body)
       setStatus({ type: "error", message: globalMicrocopy.submitError })
     } catch (error) {
       console.error("Contact form submit failed:", error)
@@ -101,12 +101,7 @@ export function ContactForm() {
             {errors.email && <p className="mt-1 text-xs text-danger">{errors.email.message}</p>}
           </div>
           <div>
-            <Label htmlFor="telefono">Teléfono</Label>
-            <Input id="telefono" type="tel" {...register("telefono")} className="mt-2" />
-            {errors.telefono && <p className="mt-1 text-xs text-danger">{errors.telefono.message}</p>}
-          </div>
-          <div>
-            <Label htmlFor="empresa">Empresa / Organización</Label>
+            <Label htmlFor="empresa">Empresa</Label>
             <Input id="empresa" {...register("empresa")} className="mt-2" />
             {errors.empresa && <p className="mt-1 text-xs text-danger">{errors.empresa.message}</p>}
           </div>
@@ -115,11 +110,31 @@ export function ContactForm() {
             <Input id="pais" {...register("pais")} className="mt-2" />
             {errors.pais && <p className="mt-1 text-xs text-danger">{errors.pais.message}</p>}
           </div>
+          <div>
+            <Label htmlFor="tamano">Cuántas personas son</Label>
+            <select id="tamano" defaultValue="" {...register("tamano")} className={selectClass}>
+              <option value="" disabled>Elegí una opción</option>
+              {tamanos.map((option) => (
+                <option key={option}>{option}</option>
+              ))}
+            </select>
+            {errors.tamano && <p className="mt-1 text-xs text-danger">{errors.tamano.message}</p>}
+          </div>
+          <div>
+            <Label htmlFor="usoIA">Qué IA usan hoy</Label>
+            <select id="usoIA" defaultValue="" {...register("usoIA")} className={selectClass}>
+              <option value="" disabled>Elegí una opción</option>
+              {usosIA.map((option) => (
+                <option key={option}>{option}</option>
+              ))}
+            </select>
+            {errors.usoIA && <p className="mt-1 text-xs text-danger">{errors.usoIA.message}</p>}
+          </div>
         </div>
 
         <div>
-          <Label htmlFor="consulta">¿En qué podemos ayudarte?</Label>
-          <Textarea id="consulta" {...register("consulta")} className="mt-2" rows={4} />
+          <Label htmlFor="consulta">Algo que quieras contarnos antes (opcional)</Label>
+          <Textarea id="consulta" {...register("consulta")} className="mt-2" rows={3} />
           {errors.consulta && <p className="mt-1 text-xs text-danger">{errors.consulta.message}</p>}
         </div>
 
@@ -131,7 +146,7 @@ export function ContactForm() {
             "hover:-translate-y-0.5 hover:shadow-teal disabled:opacity-50"
           )}
         >
-          {isSubmitting ? "Enviando..." : submitButtonLabel}
+          {isSubmitting ? "Enviando..." : globalMicrocopy.submitButton}
         </button>
         <p className="text-center text-xs text-ink-40">{submitNote}</p>
 
