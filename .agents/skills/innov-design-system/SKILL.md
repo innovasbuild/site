@@ -1,6 +1,6 @@
 ---
 name: "innov-design-system"
-description: "Sistema de identidad visual de INNOV.AS (\"Cálido / Notación de Transición\" — paper/ink/teal/plum + Fraunces/Inter/Space Mono — más capa editorial de escala póster agregada en agosto 2026: PosterHeading, TapeLabel, InterlockHeadline, StatCounter, IllustrationSlot). Usar SIEMPRE al construir, editar o revisar cualquier pieza de marca de INNOV.AS: sitio institucional, decks, one-pagers, LMS, o cualquier UI/documento que deba verse \"de INNOV.AS\". Activar también si se mencionan colores, paleta, tipografías, tokens, logo, isotipo, wordmark, favicon, avatar, titulares póster, cintas, o pedidos de diseño para innov.as. Incluye el logo canónico (isotipo circuito + wordmark INNOV.AS) con sus variantes en assets/logo/. Regla dura: cero hex/fuentes hardcodeados, todo vía var(--...) o Tailwind; el logo nunca se recompone tipeando, siempre se usa el SVG; fuentes self-host con next/font; titulares póster con escala correcta según lienzo (clamp en web, px fijo en slides/print)."
+description: "Sistema de identidad visual de INNOV.AS (\"Cálido / Notación de Transición\": paper/ink/teal/plum + Fraunces/Inter/Space Mono, capa editorial de escala póster y, desde la v1.2 de octubre 2026, hero con trama de puntos e ilustraciones a mano con procedimiento obligatorio). Usar SIEMPRE al construir, editar o revisar cualquier pieza de marca de INNOV.AS: sitio, decks, one-pagers, LMS o cualquier UI o documento que deba verse \"de INNOV.AS\". Activar también si se piden ilustraciones, dibujos a mano, diagramas, spots o un hero para INNOV.AS, o si se mencionan colores, paleta, tipografías, tokens, logo, isotipo, favicon, titulares póster o cintas. Incluye el logo canónico en assets/logo/ y las seis ilustraciones de referencia en assets/illustrations/. Regla dura: cero hex o fuentes hardcodeados, todo vía var(--...) o Tailwind; el logo siempre es el SVG; toda ilustración sigue los ocho pasos del procedimiento y se renderiza con HandDrawn."
 ---
 
 # INNOV.AS — Design System
@@ -10,6 +10,8 @@ description: "Sistema de identidad visual de INNOV.AS (\"Cálido / Notación de 
 "Sistema Cálido / Notación de Transición": editorial cálido (papel tostado, serif humanista) + anotación técnica (mono, ticks, flecha) sobre neutros. La marca vive en la flecha de transición `A ──→ B` — codifica la tesis del negocio (toda transformación es un cambio de estado) y las dos verticales de INNOV.AS: `teal` (empresas / agéntico) y `plum` (personas / educación).
 
 **Actualización agosto 2026:** se agregó una capa editorial de escala póster (inspirada en el *mecanismo* de referencias editoriales de agencia, no en su paleta) — titulares gigantes en Fraunces, cintas rotadas en mono, interlock texto/imagen, contadores animados y slots de ilustración a mano alzada. No es una paleta ni tipografía nueva: son componentes y tokens de escala que se suman al mismo contrato de 3 colores.
+
+**Actualización octubre 2026 (v1.2):** decidida por Mati el 2026-10-10 al replantear el sitio con Central IA adelante. Paleta, tipografías y logo no cambian. Cambian cuatro cosas: la escala póster web baja un escalón, el hero oscuro lleva una trama de puntos en WebGPU (`HeroDots`), la ilustración pasa de diagrama puro a objetos y diagramas con dos acentos (`HandDrawn`), y las reglas de movimiento admiten el dibujo progresivo de ilustraciones y el fondo animado del hero.
 
 Esto no es una preferencia estética a discutir en cada tarea — ya fue definido, aprobado por Mati, y tiene tokens de código listos (`assets/tokens/`). El trabajo de cualquier pieza nueva es **aplicar** este sistema, no reinventar paleta, tipografía o mecanismos editoriales.
 
@@ -35,7 +37,7 @@ Reglas de uso: `teal` manda como color de marca. `plum` entra solo para codifica
 
 **Tipografía:** Fraunces (display — H1-H3, wordmark, titulares póster, cifras; `opsz`/`SOFT` variables para calidez, `SOFT 0`/`WONK 0`/peso 900 en escala póster) · Inter (texto/UI) · Space Mono (notación: firma `A→B`, estados, datos, cintas — nunca párrafos).
 
-**Escala póster (web, clamp):** `--text-poster-sm` clamp(44→96) · `--text-poster` clamp(56→176) · `--text-poster-xl` clamp(72→256). **Escala póster (slide/print, px fijo):** `--text-poster-slide-sm` 84px · `--text-poster-slide` 96px · `--text-poster-slide-xl` 104px. Los titulares póster van de **1 a 4 palabras** (Fraunces estirada, no condensada — una frase larga no entra y pierde el golpe). Máximo **un** titular póster por pantalla o slide.
+**Escala póster (web, clamp, v1.2: un escalón menos):** `--text-poster-sm` clamp(40→64) · `--text-poster` clamp(44→96) · `--text-poster-xl` clamp(56→176). La escala de slide/print no cambió. **Escala póster (slide/print, px fijo):** `--text-poster-slide-sm` 84px · `--text-poster-slide` 96px · `--text-poster-slide-xl` 104px. Los titulares póster van de **1 a 4 palabras** (Fraunces estirada, no condensada — una frase larga no entra y pierde el golpe). Máximo **un** titular póster por pantalla o slide.
 
 Tabla completa de tokens en `assets/tokens/globals.css` — es la fuente ejecutable, no la reescribas de memoria.
 
@@ -101,9 +103,49 @@ Cuatro adiciones que no reemplazan nada del sistema previo, lo escalan:
 | **PosterHeading** | Titular a escala póster | 1–4 palabras, `scale="slide"` en lienzos fijos, `SOFT 0`/`WONK 0`/peso 900, `line-height` 0.84 (0.78 en xl) |
 | **InterlockHeadline** | Interlock texto/imagen: un bloque de imagen incrustado dentro de una línea de titular póster | Alto del bloque `--interlock-h` (0.78em), gap `--interlock-gap` |
 | **StatCounter** | Cifra grande en Fraunces que cuenta desde 0 al entrar en viewport (IntersectionObserver 40%, 1200ms) | Cifra siempre con unidad y contexto en una línea secundaria — nunca un número suelto |
-| **IllustrationSlot** | Andamio que sostiene el layout y publica la spec de dibujo mientras no hay ilustración encargada | Trazo a mano alzada **3.2px** en `ink` (v1.0 — antes 1.6px). Superficies con color: **hachurado a mano en el mismo color pedido, nunca relleno sólido**; grosor de la línea de hachura = 50% del trazo principal (**1.6px**). Único acento plano (teal/plum, relleno sólido sin hachurar) de **38–54px** rotado **7°**. Irregularidad de trazo marcada — más gestual que la calibración anterior, pero sigue siendo diagrama técnico reconocible, no garabato. **No se dibuja a mano por el agente** — se encarga aparte |
+| **IllustrationSlot** | Andamio que sostiene el layout mientras una ilustración no está hecha | Se reemplaza por una pieza `HandDrawn` que cumpla la spec de ilustración v1.2, nunca por un ícono o clipart genérico |
+| **HandDrawn** (v1.2) | Ilustración a mano en SVG que se dibuja al entrar en pantalla | Spec completa en "Ilustración (v1.2)" más abajo. En el sitio: `components/illustrations/hand-drawn.tsx` más un archivo de trazos por conjunto |
+| **HeroDots** (v1.2) | Fondo del hero oscuro: trama de puntos tipo semitono en WebGPU | Spec en "Hero con trama de puntos (v1.2)". Un solo uso por página, solo en el hero. En el sitio: `components/hero-dots.tsx` |
 
-**Nota de sincronización (v1.0, agosto 2026):** la fila de IllustrationSlot de arriba es la spec vigente. `references/prompt-gema-ilustraciones.md`, `references/direccion-de-arte.md`, `references/non-code-usage.md` y `assets/tokens/globals.css` (`--illus-stroke`, `--illus-accent-size`) todavía muestran la calibración anterior (trazo 1.6px, acento 28–46px, sin hachurado). Actualizalos junto con `innov/diseno/` y el brain de INNOV.AS en la próxima sincronización completa del paquete, siguiendo el orden que marca la sección Mantenimiento — mientras tanto, esta tabla manda sobre esos archivos.
+## Ilustración (v1.2)
+
+Reemplaza la spec de trazo fino, acento único y registro solo diagramático.
+
+- **Registro:** objetos y diagramas. Objetos reconocibles de trabajo (ventana de asistente, nota, carpeta, fichero, cuaderno, lápiz, llave, candado, enchufe, burbuja de chat, planilla) combinados con flechas y nodos. **Sin personas**, caras ni manos. Sin isométrico, 3D, degradé ni sombra difusa.
+- **Trazo:** tipo marcador, **3.2px** en `ink`, extremos y uniones redondeados, sin relleno. Irregularidad de mano visible y pareja en toda la pieza.
+- **Color:** dos acentos planos por pieza, con pesos distintos. **Teal** es el principal: un bloque de **38 a 54px** de lado, rotado unos **7°**, sobre el elemento que importa. **Plum** es un detalle: un bloque de hasta **30px**, rotado en sentido contrario, que lleva el guiño. Encima de un acento puede ir una marca corta en `paper` (un tilde, una cruz, un signo). Es la única excepción a la regla de no juntar teal y plum en un componente, y vale porque plum siempre pesa menos.
+- **Hachurado:** fuera en v1.2. Las superficies de color son planas.
+- **Tono:** claro y con un guiño. La idea se entiende a primera vista y hay un solo detalle con humor (un candado que quedó abierto, un renglón tachado). Un guiño por pieza.
+- **Complejidad:** una idea por ilustración, hasta unos 45 trazos. Lienzo `viewBox 0 0 400 300`, fondo transparente, pensada para apoyarse sobre `paper` o `paper-soft`.
+- **Texto:** ninguno dentro del dibujo. Va `aria-label` con la descripción.
+- **Movimiento:** cada trazo se dibuja una vez cuando la pieza entra en pantalla (ver Motion).
+
+### Procedimiento de ilustración (obligatorio)
+
+Decisión de Mati del 2026-10-10: toda ilustración de INNOV.AS se hace siguiendo estos pasos, que son los que produjeron las seis del home. El objetivo es consistencia total entre piezas hechas en sesiones distintas.
+
+1. **Concepto antes de dibujar.** Por cada pieza, escribir en una línea qué situación concreta muestra, con qué objetos, y cuál es el guiño. Presentárselo a quien la pidió y esperar el visto bueno. Una idea y un guiño por pieza.
+2. **Mirar las existentes.** Abrir `assets/illustrations/home.ts` (en el repo del sitio, `components/illustrations/home.ts`) y los SVG ya renderizados de `assets/illustrations/svg/`, y usar esas seis como referencia de vocabulario, densidad y proporciones. Reutilizar los objetos que ya existen (ventana, nota, carpeta, llave, candado, burbuja, lápiz) con la misma construcción.
+3. **Dibujar como lista de trazos.** Lienzo 400x300. Un `path` por trazo, escrito a mano: rectángulos con esquinas en curva, coordenadas apenas desparejas, líneas que no cierran perfecto. Hasta unos 45 trazos. Sin texto.
+4. **Poner los acentos.** Un bloque teal de 38 a 54px rotado unos 7° sobre lo que importa, y un detalle plum de hasta 30px rotado en sentido contrario con el guiño. Marca en `paper` encima solo si aporta.
+5. **Renderizar con `HandDrawn`.** Nunca un SVG suelto con otros valores: el componente fija el grosor de 3.2px, los extremos redondeados, el filtro de temblor (`feTurbulence` 0.035, dos octavas, semilla 7, desplazamiento 3.4), los colores por token y el dibujo al entrar en pantalla. El componente viaja en este skill (`assets/illustrations/hand-drawn.tsx`): en un proyecto que no lo tenga, se copia tal cual. Para una pieza fuera de código (deck, documento) o una sesión sin navegador, se arma el SVG estático con la misma estructura que los de `assets/illustrations/svg/`: mismo filtro, mismo grosor, colores en hex de la paleta.
+6. **Verla en contexto.** Montarla en una tarjeta real junto a su título y su texto (en el sitio, `/lab/ilustraciones`), capturar la pantalla y mirarla al tamaño en que se va a usar.
+7. **Revisarla con honestidad.** Se entiende sin leer el texto? El guiño se ve a ese tamaño? Parece de la misma familia que las otras? Algún objeto se confunde con otra cosa? Lo que no pase se redibuja antes de mostrarlo, y lo que quede flojo se dice.
+8. **Mostrar y ajustar.** Presentar la captura con una línea por pieza sobre cómo quedó, y redibujar lo que se pida.
+
+`references/prompt-gema-ilustraciones.md` está actualizado a la v1.2 y queda solo como brief de estilo si alguna vez se encarga una pieza afuera.
+
+## Hero con trama de puntos (v1.2)
+
+Reemplaza la red de nodos del hero del home, que quedaba cargada. Es atmósfera: no cuenta el producto, eso lo hace el titular.
+
+- **Qué es:** una grilla de puntos tipo semitono sobre `ink`. El radio de cada punto respira con un campo lento. Puntos en tono `paper`, apagados, con una zona que se enciende en `teal-dark` y deriva despacio.
+- **Cursor:** la trama se abre apenas alrededor del cursor. Sutil: se descubre sin competir con el titular ni con el botón.
+- **Texto primero:** la trama se apaga detrás de la columna de texto y gana presencia hacia la derecha. En pantallas angostas se atenúa entera.
+- **Tecnología:** WebGPU con la librería `vgpu`, shader WGSL en un componente cliente. Los colores se leen de los tokens CSS en tiempo de ejecución.
+- **Obligatorio:** sin WebGPU cae a una trama estática en CSS; con `prefers-reduced-motion` queda quieta y sin reacción al cursor.
+- **Límites:** solo en el hero oscuro, una vez por página. Cuenta como una de las dos secciones oscuras que admite una pieza. En slides y documentos se usa una captura fija del mismo shader.
+- **Valores de partida** (ajustables en `/lab/hero`, pendientes de cierre por Mati): paso de grilla 18px, punto 0.62, velocidad 0.12, radio del cursor 190px, foco 0.9.
 
 Ya existían del inventario original (`direccion-de-arte.md` § 4-5) y siguen vigentes sin cambios: `Wordmark`, `TransitionArrow`, `SectionMarker`, `Button`, `LevelCard`, `InstitutionalStrip`, `LevelPath` (camino de 4 niveles, gradiente `plum → teal` en pasos discretos 0/34/67/100%), `VerticalRail`, `SegmentedIntent`.
 
@@ -113,9 +155,21 @@ Ya existían del inventario original (`direccion-de-arte.md` § 4-5) y siguen vi
 
 **No hay set de íconos.** El sistema resuelve glifos con **notación mono en caracteres Unicode**, no con un icon set: `──→`/`→` (elemento firma), `//` (prefijo de marcador), `▪`/`░` (bullets y barra de progreso `[▪▪▪▪░░] 4/6`), `·` (separador de metadatos), `[ ]` (encierra superíndices/códigos). Todos en Space Mono, heredan el tamaño de la línea, color de la vertical cuando corresponde. Si algún día hace falta un set real: trazo lineal 1.5px, radio 2px — **Lucide** es la sustitución candidata, pero no está aplicada en ninguna pieza; confirmar antes de usar.
 
-## Motion (nivel "medio")
+## Motion (nivel "medio", actualizado en v1.2)
 
-Ease por defecto `--ease` `cubic-bezier(0.2,0.6,0.2,1)`; revelados `--ease-out-quint`; cintas `--ease-tape` (con overshoot). Se anima: reveal de titular por palabra/línea (stagger 70ms, 620ms) · cintas entrando 0°→ángulo final con escala 0.86→1 (420ms) · contadores (1200ms) · camino de 4 niveles (fade-up 80ms/nodo) · flecha A→B (`stroke-dashoffset`, 1000ms) · hover de CTA (`translateY(-1px)` + sombra sólida). No se anima: texto de cuerpo, logos institucionales, nada parallax/scroll-driven/marquee/auto-play. `prefers-reduced-motion`: todas las duraciones a 0ms — obligatorio, no opcional.
+Ease por defecto `--ease` `cubic-bezier(0.2,0.6,0.2,1)`; revelados `--ease-out-quint`; cintas `--ease-tape` (con overshoot).
+
+**Se anima:** reveal de titular por palabra/línea (stagger 70ms, 620ms) · cintas entrando 0°→ángulo final con escala 0.86→1 (420ms) · contadores (1200ms) · camino de 4 niveles (fade-up 80ms/nodo) · flecha A→B (`stroke-dashoffset`, 1000ms) · hover de CTA (`translateY(-1px)` + sombra sólida).
+
+**Nuevo en v1.2:**
+- **Dibujo de ilustraciones.** Cada trazo se dibuja con `stroke-dashoffset` (620ms, `--ease-out-quint`, 40ms de escalonado entre trazos) y los acentos entran con escala 0.86→1 (420ms, `--ease-tape`). Se dispara una sola vez, cuando el 40% de la pieza entra en pantalla, y queda quieta.
+- **Fondo del hero.** `HeroDots` se mueve solo y en continuo. Es la única animación en bucle del sistema.
+
+**No se anima:** texto de cuerpo, logos institucionales, nada parallax ni atado a la posición del scroll, y ningún otro bucle o auto-play fuera del fondo del hero. Las entradas al aparecer en pantalla (titulares, contadores, ilustraciones) se disparan una vez y no siguen al scroll.
+
+`prefers-reduced-motion`: todas las duraciones a 0ms, ilustraciones ya dibujadas y fondo del hero quieto. Obligatorio, no opcional.
+
+> ⚠️ Sin resolver: la franja institucional del sitio (`InstitutionalStrip`) corre como marquesina, y esta sección la excluye desde antes de la v1.2. Queda por decidir si se detiene o se suma como excepción.
 
 ## Workflow — implementación en código (Next.js/Tailwind)
 
@@ -174,6 +228,8 @@ Estas piezas no consumen `var(--...)` — necesitan los valores literales. Usá 
 - `references/non-code-usage.md` — cheat sheet de marca para piezas sin código, con capa editorial incluida.
 - `assets/tokens/globals.css` + `assets/tokens/tailwind.config.ts` — fuente de verdad ejecutable, incluye tokens de escala póster, cintas, interlock, contadores e ilustración.
 - `assets/logo/` — logo canónico en SVG: horizontal (`-ink` / `-dark` / `-paper` / mono), badges cuadrados sobre teal (lockup e isotipo) e isotipo suelto (teal / ink / paper).
+- `assets/illustrations/` — componente `hand-drawn.tsx`, los trazos de las seis ilustraciones del home (`home.ts`) y sus SVG ya renderizados (`svg/`). Son la referencia de estilo de toda ilustración nueva.
+- `assets/components/hero-dots.tsx` — el fondo de trama de puntos del hero, con su shader (requiere la librería `vgpu`).
 - `assets/style-tile.html` — referencia visual navegable de la paleta/tipografía/componentes base (pendiente de actualización con la capa editorial).
 - `scripts/audit_tokens.py` — detecta hex y fuentes hardcodeadas fuera de los archivos de tokens.
 
@@ -181,6 +237,8 @@ Estas piezas no consumen `var(--...)` — necesitan los valores literales. Usá 
 
 Este skill empaqueta una copia de `innov/diseno/` (carpeta local de Mati, fuente original) para que funcione de forma autocontenida en cualquier sesión. Si la dirección de arte cambia, actualizá primero `innov/diseno/` y el brain (`marketing/identidad-visual-innovas.md`), y después sincronizá este skill — no al revés.
 
-**Versión:** 1.1 (agosto 2026) — incorpora el **logo canónico** (isotipo circuito + wordmark `INNOV.AS`) con sus siete variantes en `assets/logo/`, reglas de superficie con contraste calculado, tamaños mínimos medidos y área de resguardo; depreca el wordmark tipográfico anterior y el set con tagline BUILD SOLUTIONS / N invertida.
+**Versión:** 1.2 (octubre 2026) — decidida por Mati el 2026-10-10. Escala póster web un escalón menos; hero oscuro con trama de puntos en WebGPU (`HeroDots`, con `vgpu`); ilustración de objetos y diagramas con trazo marcador de 3.2px, acento teal y detalle plum (`HandDrawn`), sin hachurado; dibujo progresivo de ilustraciones y fondo animado del hero admitidos en Motion. Actualizados en esta versión: este archivo, `references/prompt-gema-ilustraciones.md`, `assets/tokens/globals.css` y los addendum de `references/direccion-de-arte.md` y `references/non-code-usage.md`. El camino de producción de ilustraciones es el procedimiento de la sección "Ilustración (v1.2)". Pendiente: refrescar `assets/style-tile.html`, cerrar los valores del hero y resolver la marquesina de la franja institucional.
+
+**1.1** (agosto 2026) — incorpora el **logo canónico** (isotipo circuito + wordmark `INNOV.AS`) con sus siete variantes en `assets/logo/`, reglas de superficie con contraste calculado, tamaños mínimos medidos y área de resguardo; depreca el wordmark tipográfico anterior y el set con tagline BUILD SOLUTIONS / N invertida.
 
 **1.0** (agosto 2026) — incorpora la capa editorial de escala póster (PosterHeading, TapeLabel, InterlockHeadline, StatCounter, IllustrationSlot) sobre el sistema base "Cálido / Notación de Transición", más la recalibración v1.0 de la spec de ilustración a mano alzada: trazo 3.2px (antes 1.6px), acento 38–54px rotado 7° (antes 28–46px), e incorporación del hachurado a mano para superficies con color (grosor de hachura = 50% del trazo principal), con irregularidad de trazo más marcada. Pendiente para una próxima sincronización: propagar esta recalibración a `references/prompt-gema-ilustraciones.md`, `references/direccion-de-arte.md`, `references/non-code-usage.md` y `assets/tokens/globals.css` (`--illus-stroke`, `--illus-accent-size`, sumar `--illus-accent-rot` y `--illus-fill-stroke`), refrescar `assets/style-tile.html` con ejemplos de la capa editorial, y sumar los **logos institucionales** (BM, BID, FAO, SAGyP) en monocromo para la franja de credibilidad — el logo propio ya quedó incorporado en 1.1.

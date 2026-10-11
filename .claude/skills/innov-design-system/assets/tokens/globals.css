@@ -97,9 +97,9 @@
      Cero colores nuevos: reutiliza teal/plum/ink/taupe. */
 
   /* escala póster — Fraunces estirada al máximo. Titulares de 1–4 palabras. Mide contra el viewport (web). */
-  --text-poster-sm: clamp(2.75rem, 8vw, 6rem);
-  --text-poster: clamp(3.5rem, 13vw, 11rem);
-  --text-poster-xl: clamp(4.5rem, 18vw, 16rem);
+  --text-poster-sm: clamp(2.5rem, 6vw, 4rem);
+  --text-poster: clamp(2.75rem, 8vw, 6rem);
+  --text-poster-xl: clamp(3.5rem, 13vw, 11rem);
   --lh-poster: 0.84;
   --lh-poster-tight: 0.78;
   --track-poster: -0.028em;
@@ -130,8 +130,11 @@
   --lh-counter: 0.82;
 
   /* slots de ilustración — trazo a mano alzada, ver readme del design system § Ilustración */
-  --illus-stroke: 1.6px;
-  --illus-accent-size: clamp(28px, 3vw, 46px);
+  /* v1.2: trazo marcador, acento teal principal y detalle plum */
+  --illus-stroke: 3.2px;
+  --illus-accent-size: clamp(38px, 4vw, 54px);
+  --illus-accent-rot: 7deg;
+  --illus-detail-size: 30px;
 }
 
 @media (prefers-reduced-motion: reduce) {
