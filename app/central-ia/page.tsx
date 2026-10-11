@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/arrow"
 import type { Metadata } from "next"
 import { Hero } from "@/components/hero"
 import { PageSection } from "@/components/page-section"
@@ -80,7 +81,7 @@ export default function CentralIaPage() {
         <ol className="mt-8 grid gap-4 sm:grid-cols-2">
           {puertas.steps.map((step, index) => (
             <li key={step} className="rounded border border-ink bg-paper-soft p-5 text-sm text-ink-70">
-              <span className="block font-mono text-xs text-teal">{`0${index + 1} ──→`}</span>
+              <span className="block font-mono text-xs text-teal">{`0${index + 1}`} <Arrow long /></span>
               <span className="mt-2 block">{step}</span>
             </li>
           ))}

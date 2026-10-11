@@ -1,3 +1,4 @@
+import { ArrowText } from "@/components/arrow"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import type { Cta } from "@/content/types"
@@ -55,7 +56,7 @@ export function Hero({
         <HeroDots className="absolute inset-0 z-0 h-full w-full" params={dotsParams} />
       )}
       <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 md:py-32">
-        <p className={cn("font-mono text-xs uppercase tracking-wider", isDark ? "text-paper/70" : "text-teal")}>{eyebrow}</p>
+        <p className={cn("font-mono text-xs uppercase tracking-wider", isDark ? "text-paper/70" : "text-teal")}><ArrowText>{eyebrow}</ArrowText></p>
 
         <div className="relative mt-6">
           {posterTitle ? (
@@ -94,7 +95,7 @@ export function Hero({
               "hover:-translate-y-0.5 hover:shadow-teal"
             )}
           >
-            {ctaPrimary.label}
+            <ArrowText>{ctaPrimary.label}</ArrowText>
           </Link>
           {ctaSecondary && (
             <Link
@@ -106,7 +107,7 @@ export function Hero({
                   : "border-ink text-ink hover:bg-ink hover:text-paper"
               )}
             >
-              {ctaSecondary.label}
+              <ArrowText>{ctaSecondary.label}</ArrowText>
             </Link>
           )}
         </div>

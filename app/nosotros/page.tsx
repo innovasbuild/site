@@ -1,3 +1,4 @@
+import { ArrowText } from "@/components/arrow"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Hero } from "@/components/hero"
@@ -39,7 +40,7 @@ export default function NosotrosPage() {
         </div>
         <p className="mt-8 text-ink-70">{history.closing}</p>
         <Link href={history.link.href} className="mt-6 inline-block font-bold text-teal hover:underline">
-          {history.link.label}
+          <ArrowText>{history.link.label}</ArrowText>
         </Link>
       </PageSection>
       <InstitutionalStrip names={trayectoria.logos} label={trayectoria.logosLabel} />

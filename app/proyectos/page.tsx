@@ -1,3 +1,4 @@
+import { ArrowText } from "@/components/arrow"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Hero } from "@/components/hero"
@@ -53,7 +54,7 @@ export default function ProyectosPage() {
         <p className="mt-6 text-sm text-ink-70">
           {audience.note}{" "}
           <Link href={audience.noteCta.href} className="font-bold text-teal hover:underline">
-            {audience.noteCta.label}
+            <ArrowText>{audience.noteCta.label}</ArrowText>
           </Link>
         </p>
       </PageSection>

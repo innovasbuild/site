@@ -1,3 +1,4 @@
+import { Arrow, ArrowText } from "@/components/arrow"
 import Link from "next/link"
 import { Hero } from "@/components/hero"
 import { InstitutionalStrip } from "@/components/institutional-strip"
@@ -75,7 +76,7 @@ export default function Home() {
             <IllustratedCards cards={piezas.cards} />
           </div>
           <Link href={piezas.cta.href} className="mt-8 inline-block font-bold text-teal hover:underline">
-            {piezas.cta.label}
+            <ArrowText>{piezas.cta.label}</ArrowText>
           </Link>
         </div>
       </section>
@@ -91,7 +92,7 @@ export default function Home() {
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {gobierno.items.map((item) => (
             <div key={item.title} className="rounded border border-ink bg-paper p-6">
-              <span className="font-mono text-sm text-teal">──→</span>
+              <Arrow long className="text-sm text-teal" />
               <h3 className="mt-3 font-display text-xl font-bold text-ink">{item.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-70">{item.description}</p>
             </div>
@@ -128,7 +129,7 @@ export default function Home() {
         </div>
         <p className="mt-6 max-w-3xl text-sm text-ink-70">{implementacion.note}</p>
         <Link href={implementacion.cta.href} className="mt-6 inline-block font-bold text-teal hover:underline">
-          {implementacion.cta.label}
+          <ArrowText>{implementacion.cta.label}</ArrowText>
         </Link>
       </section>
 
@@ -162,7 +163,7 @@ export default function Home() {
         </div>
         <p className="mt-8 max-w-3xl text-ink-70">{quienesSomos.body2}</p>
         <Link href={quienesSomos.cta.href} className="mt-6 inline-block font-bold text-teal hover:underline">
-          {quienesSomos.cta.label}
+          <ArrowText>{quienesSomos.cta.label}</ArrowText>
         </Link>
       </section>
       <InstitutionalStrip names={trayectoria.logos} label={trayectoria.logosLabel} />

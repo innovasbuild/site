@@ -1,3 +1,4 @@
+import { Arrow } from "@/components/arrow"
 import { cn } from "@/lib/utils"
 import type { Vertical } from "@/content/types"
 
@@ -16,7 +17,7 @@ const verticalColor: Record<Vertical, string> = {
 export function SectionKicker({ index, label, vertical = "company", className }: SectionKickerProps) {
   return (
     <p className={cn("font-mono text-xs uppercase tracking-wider text-ink-40", className)}>
-      <span className={verticalColor[vertical]}>{`// ${index}`}</span> → {label}
+      <span className={verticalColor[vertical]}>{`// ${index}`}</span> <Arrow /> {label}
     </p>
   )
 }
