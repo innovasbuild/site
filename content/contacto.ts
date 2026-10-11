@@ -13,7 +13,8 @@ export const nextSteps = [
   "Si tiene sentido, agendamos el Radar.",
 ]
 
-export const meetingsUrl = process.env.NEXT_PUBLIC_HUBSPOT_MEETINGS_URL ?? ""
+/** Página de reservas de HubSpot Meetings. Se puede pisar por entorno. */
+export const meetingsUrl = process.env.NEXT_PUBLIC_HUBSPOT_MEETINGS_URL ?? "https://meetings.hubspot.com/matias122"
 
 export const formIntro = { withAgenda: "Preferís que te escribamos?", alone: "Dejanos tus datos y coordinamos un horario." }
 

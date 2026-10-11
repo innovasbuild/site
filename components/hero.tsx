@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import type { Cta } from "@/content/types"
-import { HeroNetwork } from "@/components/hero-network"
 import { HeroDots, type HeroDotsParams } from "@/components/hero-dots"
 import { PosterHeading } from "@/components/poster-heading"
 import { TapeLabel } from "@/components/tape-label"
@@ -26,7 +25,7 @@ interface HeroProps {
   children?: React.ReactNode
   variant?: "light" | "dark"
   /** Backdrop generativo (canvas) en lugar de imagen — solo en variant "dark". */
-  backdrop?: "network" | "dots"
+  backdrop?: "dots"
   /** Parámetros de la trama cuando backdrop es "dots". */
   dotsParams?: HeroDotsParams
 }
@@ -52,9 +51,6 @@ export function Hero({
 
   return (
     <section className={cn("relative overflow-hidden border-b", isDark ? "border-paper/10 bg-ink" : "border-line bg-paper")}>
-      {isDark && backdrop === "network" && (
-        <HeroNetwork className="absolute inset-0 z-0 block h-full w-full" />
-      )}
       {isDark && backdrop === "dots" && (
         <HeroDots className="absolute inset-0 z-0 h-full w-full" params={dotsParams} />
       )}
