@@ -5,11 +5,11 @@ interface FaqItem {
   answer: string
 }
 
-interface TrainerFaqProps {
+interface FaqProps {
   items: FaqItem[]
 }
 
-export function TrainerFaq({ items }: TrainerFaqProps) {
+export function Faq({ items }: FaqProps) {
   return (
     <Accordion type="single" collapsible className="w-full">
       {items.map((item, index) => (

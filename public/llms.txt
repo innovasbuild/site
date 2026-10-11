@@ -1,21 +1,22 @@
 # INNOV.AS
 
-> Ejecutamos transformación con inteligencia artificial y datos para empresas medianas y grandes, y para organismos internacionales, en Latinoamérica. La IA trabaja en paralelo a tu gente: escalás sin multiplicar estructura.
+> INNOV.AS ofrece Central IA, la plataforma que ordena la adopción de IA en la empresa, con gobernanza sobre la información, los agentes y las herramientas, y el equipo que la implementa.
 
-INNOV.AS es una consultora de ingeniería con base en Buenos Aires, Argentina, con más de 25 años de proyectos de transformación con tecnología en la región — bancos, gobierno, ONGs, organismos internacionales y empresas de consumo masivo.
+Para empresas que ya tienen IA entrando por todos lados y necesitan ordenarla. En Central IA viven el conocimiento de la empresa (Brain), sus agentes y sus herramientas, con permisos sobre quién accede a qué. Cada persona trabaja desde la plataforma o desde el asistente que ya usa, como Claude o ChatGPT, conectado por MCP. INNOV.AS implementa sobre esa plataforma: releva el método de la empresa, arma el Brain y prepara los agentes que la empresa necesita.
 
-## Servicios
+INNOV.AS tiene base en Buenos Aires, Argentina, y trabaja con empresas pequeñas, medianas y grandes de Latinoamérica. Su equipo lleva 25 años transformando más de 150 organizaciones en 14 países.
 
-- [Soluciones](https://innov.as/soluciones): agentes de IA que operan procesos end-to-end, plataformas de datos multi-tenant, automatización de workflows y analítica y visualización. Trabajamos con una escalera de compromiso creciente y sin precios públicos: Radar (diagnóstico corto de bajo compromiso) → Mapa del Método (relevamiento profundo, business case y roadmap por etapas) → Olas de transformación (cada ola entrega un circuito operando en producción) → Operar en B (operación continua: modelos, agentes, infraestructura y detección de nuevas etapas).
-- Cerebro vivo: interconectamos los flujos y el contexto del negocio para que cada cliente, empleado o agente de IA tenga la información y las herramientas que necesita, en el momento en que las necesita. Es la capa que sostiene "Operar en B".
+## Central IA
 
-## Para quién
+- [Central IA](https://innov.as/central-ia): las tres piezas (Brain, agentes y herramientas), los permisos por carpeta y por página, las reglas de control con aprobación humana de todo lo que sale hacia afuera, y las dos puertas de entrada: la plataforma y el asistente de cada persona.
 
-- Empresas medianas y grandes de agro, banca y seguros, retail e industria que necesitan pasar de pruebas sueltas de IA a sistemas que operan.
-- Organismos internacionales y sector público, con proyectos de datos, plataformas territoriales y transformación institucional.
+## Cómo se implementa
+
+- [Cómo implementamos](https://innov.as/como-implementamos): una primera conversación sin costo; el Radar (USD 1.500, tres a cuatro horas con el equipo directivo, informe con un plan a dos años, bonificado al implementar la ola cero); una ola cero de tres meses que deja funcionando el Brain, los permisos y un primer circuito de negocio; y olas siguientes de tres meses, cada una con algo operando. Para planificar toda la empresa existe el Mapa del Método.
 
 ## Más información
 
-- [Nosotros](https://innov.as/nosotros): misión, principios y foco del equipo.
-- [Contacto](https://innov.as/contacto): para hablar de tu operación.
+- [Proyectos a medida](https://innov.as/proyectos): el mismo equipo construye plataformas de datos y software a medida.
+- [Nosotros](https://innov.as/nosotros): de dónde viene el equipo y cómo piensa.
+- [Contacto](https://innov.as/contacto): para agendar una primera conversación de 30 minutos.
 - Email: hola@innov.as

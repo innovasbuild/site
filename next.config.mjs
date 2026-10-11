@@ -8,14 +8,14 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      {
-        // Short link de la presentación institucional.
-        // Si cambia el deck, se actualiza solo esta URL.
-        source: '/empresa',
-        destination:
-          'https://docs.google.com/presentation/d/e/2PACX-1vRmPmero7rjtTi3egDUQeircg4BnfMXTTq4H6Z7iIynnV4ejUqVLLNkpKlEbPbgQavmJXIQhNGnOr2F/pub?start=true&loop=false&delayms=3000',
-        permanent: false,
-      },
+      { source: '/en-paralelo', destination: '/como-implementamos', permanent: true },
+      { source: '/soluciones', destination: '/proyectos', permanent: true },
+    ]
+  },
+  async headers() {
+    return [
+      // Material comercial por cuenta: accesible por link, fuera de los buscadores.
+      { source: '/cuentas/:path*', headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }] },
     ]
   },
   async rewrites() {

@@ -171,7 +171,7 @@ function startDots(canvas: HTMLCanvasElement, paramsRef: { current: HeroDotsPara
         frame.pass(canvasSurface, dots)
       })
     } catch (error) {
-      console.error("HeroDots: WebGPU no disponible, se usa la trama estática.", error)
+      console.warn("HeroDots: WebGPU no disponible, se usa la trama estática.", error)
       onFail()
     }
   })()

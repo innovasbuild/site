@@ -20,6 +20,8 @@ interface HeroProps {
   subhead: string
   ctaPrimary: Cta
   ctaSecondary?: Cta
+  /** Línea chica debajo de los botones. */
+  note?: string
   tapeLabel?: string
   children?: React.ReactNode
   variant?: "light" | "dark"
@@ -39,6 +41,7 @@ export function Hero({
   subhead,
   ctaPrimary,
   ctaSecondary,
+  note,
   tapeLabel,
   children,
   variant = "light",
@@ -111,6 +114,8 @@ export function Hero({
             </Link>
           )}
         </div>
+
+        {note && <p className={cn("mt-4 font-mono text-xs", isDark ? "text-paper/70" : "text-ink-70")}>{note}</p>}
 
         {children}
       </div>
