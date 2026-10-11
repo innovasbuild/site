@@ -37,7 +37,7 @@ export const dolores = {
     },
     {
       illustration: "dolorFuga",
-      title: "Información confidencial en cuentas personales",
+      title: "Lo confidencial en cuentas personales",
       description:
         "Hay gente procesando datos de clientes y números de la empresa con su cuenta personal de IA, y aplicaciones hechas adentro, cada una con su base y su ingreso.",
     },
