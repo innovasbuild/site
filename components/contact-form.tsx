@@ -19,6 +19,12 @@ import {
 import { globalMicrocopy } from "@/content/global"
 import { cn } from "@/lib/utils"
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void
+  }
+}
+
 const selectClass = "mt-2 block h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm text-ink"
 
 export function ContactForm() {
@@ -87,7 +93,7 @@ export function ContactForm() {
   }
 
   return (
-    <div className="mx-auto max-w-2xl rounded border border-ink bg-paper-soft p-8 md:p-10">
+    <div className="rounded border border-ink bg-paper-soft p-8 md:p-10">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div className="grid gap-5 sm:grid-cols-2">
           <div>

@@ -27,8 +27,9 @@ export const seo: Record<string, SeoMeta> = {
       "25 años transformando más de 150 organizaciones en 14 países. De esa experiencia sale Central IA y el equipo que la implementa.",
   },
   "/contacto": {
-    title: "Agendá una primera conversación | INNOV.AS",
-    description: "30 minutos, sin costo, con el equipo que implementa Central IA. Vemos qué IA ya usa tu empresa y cuál sería el primer paso.",
+    title: "Contacto: empecemos por conversar | INNOV.AS",
+    description:
+      "Escribinos o agendá una charla de orientación de 30 minutos, sin costo: cómo es trabajar con IA coordinada y con gobernanza, con ejemplos de tu empresa.",
   },
   "/privacidad": {
     title: "Política de Privacidad | INNOV.AS",

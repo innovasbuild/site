@@ -1,10 +1,10 @@
-import { Arrow, ArrowText } from "@/components/arrow"
 import type { Metadata } from "next"
+import { ArrowText } from "@/components/arrow"
 import { ContactForm } from "@/components/contact-form"
-import { MeetingsEmbed } from "@/components/meetings-embed"
+import { OrientationCard } from "@/components/orientation-card"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
-import { hero, nextSteps, meetingsUrl, formIntro } from "@/content/contacto"
+import { hero, formTitle } from "@/content/contacto"
 
 export const metadata: Metadata = buildMetadata("/contacto", seo["/contacto"])
 
@@ -16,26 +16,15 @@ export default function ContactoPage() {
           <p className="font-mono text-xs uppercase tracking-wider text-teal"><ArrowText>{hero.eyebrow}</ArrowText></p>
           <h1 className="mt-6 text-balance font-display text-4xl font-bold text-ink md:text-5xl">{hero.title}</h1>
           <p className="mt-4 text-balance text-lg text-ink-70">{hero.subhead}</p>
-          <ol className="mt-10 grid gap-4 text-left sm:grid-cols-3">
-            {nextSteps.map((step, index) => (
-              <li key={step} className="rounded border border-ink bg-paper-soft p-4 text-sm text-ink-70">
-                <span className="block font-mono text-xs text-teal">{`0${index + 1}`} <Arrow long /></span>
-                <span className="mt-2 block">{step}</span>
-              </li>
-            ))}
-          </ol>
         </div>
       </section>
 
-      {meetingsUrl && (
-        <section className="mx-auto max-w-4xl px-6 pt-16">
-          <MeetingsEmbed url={meetingsUrl} />
-        </section>
-      )}
-
-      <section className="px-6 py-16">
-        <p className="mb-6 text-center font-display text-xl text-ink">{meetingsUrl ? formIntro.withAgenda : formIntro.alone}</p>
-        <ContactForm />
+      <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+        <div>
+          <h2 className="mb-6 font-display text-2xl font-bold text-ink">{formTitle}</h2>
+          <ContactForm />
+        </div>
+        <OrientationCard />
       </section>
     </main>
   )

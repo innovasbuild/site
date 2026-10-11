@@ -2,27 +2,30 @@ import { z } from "zod"
 
 export const hero = {
   eyebrow: "// contacto → primera conversación",
-  title: "Agendá una primera conversación",
-  subhead:
-    "30 minutos con el equipo que después implementa. Vemos qué IA ya usa tu empresa, dónde quedó trabada y cuál sería el primer paso. Sin costo.",
+  title: "Empecemos por conversar",
+  subhead: "Dejanos tus datos y te escribimos, o agendá directo una charla de orientación con nuestro equipo.",
 }
 
-export const nextSteps = [
-  "Elegís un horario.",
-  "En la reunión te mostramos Central IA funcionando.",
-  "Si tiene sentido, agendamos el Radar.",
-]
+/** Charla de orientación: se agenda en la página de reservas de HubSpot Meetings. Se puede pisar por entorno. */
+export const orientacion = {
+  kicker: "charla de orientación",
+  title: "Agendá una charla de orientación",
+  lead: "30 minutos, sin costo, con el equipo que después implementa.",
+  items: [
+    "Repasamos cómo es para una empresa trabajar con IA coordinada y con gobernanza.",
+    "Vemos con ejemplos prácticos de tu empresa cómo funcionaría.",
+  ],
+  cta: "Agendar una charla de orientación",
+  url: process.env.NEXT_PUBLIC_HUBSPOT_MEETINGS_URL ?? "https://meetings.hubspot.com/matias122",
+}
 
-/** Página de reservas de HubSpot Meetings. Se puede pisar por entorno. */
-export const meetingsUrl = process.env.NEXT_PUBLIC_HUBSPOT_MEETINGS_URL ?? "https://meetings.hubspot.com/matias122"
+export const formTitle = "Escribinos"
 
 /** Formulario "Contact Form del Sitio" de HubSpot: el sitio le envía directo, sin backend propio. */
 export const hubspotForm = {
   portalId: process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID ?? "51464889",
   formId: "1f6b4869-1b14-47eb-b033-b3f3e16a0e15",
 }
-
-export const formIntro = { withAgenda: "Preferís que te escribamos?", alone: "Dejanos tus datos y coordinamos un horario." }
 
 export const tamanos = ["Hasta 50 personas", "50 a 200", "200 a 500", "Más de 500"]
 export const usosIA = ["Licencias de ChatGPT", "Licencias de Claude", "Copilot u otra", "Cuentas personales", "Todavía nada"]
