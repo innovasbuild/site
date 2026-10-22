@@ -1,17 +1,19 @@
 ---
 name: "innov-design-system"
-description: "Sistema de identidad visual de INNOV.AS (\"Cálido / Notación de Transición\": paper/ink/teal/plum + Fraunces/Inter/Space Mono, capa editorial de escala póster y, desde la v1.2 de octubre 2026, hero con trama de puntos e ilustraciones a mano con procedimiento obligatorio). Usar SIEMPRE al construir, editar o revisar cualquier pieza de marca de INNOV.AS: sitio, decks, one-pagers, LMS o cualquier UI o documento que deba verse \"de INNOV.AS\". Activar también si se piden ilustraciones, dibujos a mano, diagramas, spots o un hero para INNOV.AS, o si se mencionan colores, paleta, tipografías, tokens, logo, isotipo, favicon, titulares póster o cintas. Incluye el logo canónico en assets/logo/ y las seis ilustraciones de referencia en assets/illustrations/. Regla dura: cero hex o fuentes hardcodeados, todo vía var(--...) o Tailwind; el logo siempre es el SVG; toda ilustración sigue los ocho pasos del procedimiento y se renderiza con HandDrawn."
+description: "Sistema de identidad visual de INNOV.AS y de Central IA, su plataforma (\"Cálido / Notación de Transición\": paper/ink/teal/plum + Fraunces/Inter/Space Mono, escala póster, hero con trama de puntos, ilustraciones a mano con procedimiento obligatorio). Usar SIEMPRE al construir, editar o revisar cualquier pieza de marca de INNOV.AS: sitio, decks, one-pagers, documentos Word (.docx, fondo blanco), PDF o cualquier UI o documento que deba verse \"de INNOV.AS\". Activar también con ilustraciones, dibujos a mano, diagramas, hero, colores, paleta, tipografías, tokens, logo, isotipo, favicon, titulares póster, cintas, camino del cliente o voz de marca. Incluye logo canónico, seis ilustraciones de referencia y reglas de contenido. Regla dura: cero hex o fuentes hardcodeados (var(--...) o Tailwind); el logo siempre es el SVG; toda ilustración sigue los ocho pasos y se renderiza con HandDrawn; los Word llevan fondo blanco."
 ---
 
 # INNOV.AS — Design System
 
 ## Qué es
 
-"Sistema Cálido / Notación de Transición": editorial cálido (papel tostado, serif humanista) + anotación técnica (mono, ticks, flecha) sobre neutros. La marca vive en la flecha de transición `A ──→ B` — codifica la tesis del negocio (toda transformación es un cambio de estado) y las dos verticales de INNOV.AS: `teal` (empresas / agéntico) y `plum` (personas / educación).
+"Sistema Cálido / Notación de Transición": editorial cálido (papel tostado, serif humanista) + anotación técnica (mono, ticks, flecha) sobre neutros. Es la identidad de INNOV.AS, la empresa que ofrece servicios sobre su plataforma, Central IA. La marca vive en la flecha de transición `A ──→ B`, que codifica la tesis del negocio: la empresa pasa de IA suelta (A) a IA con gobierno (B). Los dos acentos tienen rol semántico: `teal` es la plataforma (sistema, agentes, herramientas) y `plum` es la gente de la empresa (quién decide, quién aprueba, el guiño), la misma idea de "tu gente decide, los agentes ejecutan".
 
 **Actualización agosto 2026:** se agregó una capa editorial de escala póster (inspirada en el *mecanismo* de referencias editoriales de agencia, no en su paleta) — titulares gigantes en Fraunces, cintas rotadas en mono, interlock texto/imagen, contadores animados y slots de ilustración a mano alzada. No es una paleta ni tipografía nueva: son componentes y tokens de escala que se suman al mismo contrato de 3 colores.
 
 **Actualización octubre 2026 (v1.2):** decidida por Mati el 2026-10-10 al replantear el sitio con Central IA adelante. Paleta, tipografías y logo no cambian. Cambian cuatro cosas: la escala póster web baja un escalón, el hero oscuro lleva una trama de puntos en WebGPU (`HeroDots`), la ilustración pasa de diagrama puro a objetos y diagramas con dos acentos (`HandDrawn`), y las reglas de movimiento admiten el dibujo progresivo de ilustraciones y el fondo animado del hero.
+
+**Actualización octubre 2026 (v1.3):** decidida el 2026-10-20 para alinear la identidad con el reposicionamiento del 2026-10-09 (Central IA adelante, En Paralelo a un costado, Desde Adentro despublicada). Paleta, tipografías, logo y todo lo de la v1.2 no cambian. Cambian cinco cosas: `teal` y `plum` pasan a codificar plataforma y gente en lugar de empresas y personas; el camino de 4 niveles educativo pasa a ser el camino del cliente; las piezas de marca siguen reglas de contenido y voz (sección propia); los documentos Word llevan fondo blanco; y se suma una guía para decks.
 
 Esto no es una preferencia estética a discutir en cada tarea — ya fue definido, aprobado por Mati, y tiene tokens de código listos (`assets/tokens/`). El trabajo de cualquier pieza nueva es **aplicar** este sistema, no reinventar paleta, tipografía o mecanismos editoriales.
 
@@ -27,13 +29,13 @@ Esto no es una preferencia estética a discutir en cada tarea — ya fue definid
 |---|---|---|---|
 | `paper` | `#EDE8DC` | Superficie base | — |
 | `paper-soft` | `#E4DDCC` | Tarjeta / bloque secundario | — |
-| `paper-print` | `#FAF8F5` | Superficie base **solo .docx/.pdf** — el oat pesa en lectura larga | — |
+| `paper-print` | `#FAF8F5` | Superficie base **solo .pdf**. Los **.docx llevan fondo blanco `#FFFFFF`** (ver "Piezas sin código") | — |
 | `ink` | `#1F1B19` | Texto y estructura | 13.98:1 (AAA) |
-| `teal` | `#0F6B60` | **Marca** · empresas · agéntico | 5.22:1 (AA) |
-| `plum` | `#8C3B5D` | Personas · educación | 5.93:1 (AA) |
+| `teal` | `#0F6B60` | **Marca** · plataforma · sistema · agentes | 5.22:1 (AA) |
+| `plum` | `#8C3B5D` | La gente de la empresa · decisión humana · guiño | 5.93:1 (AA) |
 | `taupe` | `#A79E8E` | Bordes/ticks/metadatos — **nunca texto esencial chico** | 2.17:1, no pasa AA |
 
-Reglas de uso: `teal` manda como color de marca. `plum` entra solo para codificar la vertical personas (kickers, barras, íconos, cintas de esa vertical) — nunca como relleno masivo, y nunca junto a `teal` con igual peso en un mismo componente. En una pieza de vertical empresas, `plum` puede aparecer puntualmente en slides/secciones de equipo o transferencia de capacidades — la restricción es por sección, no "la pieza entera es teal".
+Reglas de uso: `teal` manda como color de marca. `plum` entra para marcar a la gente de la empresa y la decisión humana (permisos, aprobaciones, quién responde) y como detalle con guiño en las ilustraciones. Nunca como relleno masivo, y nunca junto a `teal` con igual peso en un mismo componente: teal manda, plum acenta. La excepción de la ilustración v1.2 (teal principal más detalle plum) sigue vigente.
 
 **Tipografía:** Fraunces (display — H1-H3, wordmark, titulares póster, cifras; `opsz`/`SOFT` variables para calidez, `SOFT 0`/`WONK 0`/peso 900 en escala póster) · Inter (texto/UI) · Space Mono (notación: firma `A→B`, estados, datos, cintas — nunca párrafos).
 
@@ -106,6 +108,7 @@ Cuatro adiciones que no reemplazan nada del sistema previo, lo escalan:
 | **IllustrationSlot** | Andamio que sostiene el layout mientras una ilustración no está hecha | Se reemplaza por una pieza `HandDrawn` que cumpla la spec de ilustración v1.2, nunca por un ícono o clipart genérico |
 | **HandDrawn** (v1.2) | Ilustración a mano en SVG que se dibuja al entrar en pantalla | Spec completa en "Ilustración (v1.2)" más abajo. En el sitio: `components/illustrations/hand-drawn.tsx` más un archivo de trazos por conjunto |
 | **HeroDots** (v1.2) | Fondo del hero oscuro: trama de puntos tipo semitono en WebGPU | Spec en "Hero con trama de puntos (v1.2)". Un solo uso por página, solo en el hero. En el sitio: `components/hero-dots.tsx` |
+| **HeroField** (v1.3.1) | Fondo animado del hero claro de cada página interna, con un patrón propio por página | Spec en "Fondos de hero de páginas internas (v1.3.1)". Un patrón por página, solo en el hero, nunca dos páginas con el mismo. En el sitio: `components/hero-field.tsx` |
 
 ## Ilustración (v1.2)
 
@@ -147,9 +150,43 @@ Reemplaza la red de nodos del hero del home, que quedaba cargada. Es atmósfera:
 - **Límites:** solo en el hero oscuro, una vez por página. Cuenta como una de las dos secciones oscuras que admite una pieza. En slides y documentos se usa una captura fija del mismo shader.
 - **Valores** (aprobados por Mati el 2026-10-11): paso de grilla 18px, punto 0.62, velocidad 0.12, radio del cursor 190px, foco 0.9.
 
-Ya existían del inventario original (`direccion-de-arte.md` § 4-5) y siguen vigentes sin cambios: `Wordmark`, `TransitionArrow`, `SectionMarker`, `Button`, `LevelCard`, `InstitutionalStrip`, `LevelPath` (camino de 4 niveles, gradiente `plum → teal` en pasos discretos 0/34/67/100%), `VerticalRail`, `SegmentedIntent`.
+Ya existían del inventario original (`direccion-de-arte.md` § 4-5) y siguen vigentes, con el uso que se les da desde la v1.3: `TransitionArrow`, `SectionMarker`, `Button`, `InstitutionalStrip`, `LevelCard` (card de pieza o etapa), `VerticalRail` (rieles de mensaje) y `LevelPath` (ahora camino del cliente). `Wordmark` está deprecado y lo reemplaza el logo. `SegmentedIntent` queda sin uso: `/contacto` tiene un formulario único.
 
 **Bloque de color a sangre lateral:** franja vertical de `--colorblock-w-narrow` (14vw) o `--colorblock-w` (24vw) en teal, tocando los cuatro bordes de su lado. Único elemento full-bleed de color del sistema — portada y cierre.
+
+## Fondos de hero de páginas internas (v1.3.1)
+
+Decidido por Mati el 2026-10-22. El home tiene la trama de puntos oscura; cada página interna lleva en su hero claro un fondo de la misma familia con personalidad propia. El patrón cuenta en abstracto lo que dice la página, no lo ilustra.
+
+| Página | Patrón | Qué cuenta | Acento teal | Cursor |
+|---|---|---|---|---|
+| `/central-ia` | `flow`: guiones que siguen un flujo | La plataforma ordena | Foco que deriva | Los guiones se alinean hacia → |
+| `/como-implementamos` | `waves`: olas concéntricas de puntos | Las olas del método | La ola más cercana al origen (ola cero) | Larga su propia onda |
+| `/proyectos` | `blocks`: bloques que se arman y desarman | Piezas en construcción | Algunos bloques armados | Completa los bloques |
+| `/nosotros` | `contours`: curvas de nivel | Trayectoria, terreno | Una de cada cinco curvas | Levanta un cerro |
+| `/precios` | `meter`: columnas de puntos tipo medidor | El consumo | El punto superior de cada columna | Sube las columnas cercanas |
+| `/contacto` | `signal`: pulsos que viajan por filas | Un mensaje de A a B | La punta del pulso | Agranda los puntos cercanos |
+
+- **Superficie:** sobre `paper`, con trazos en `ink` tenue y acento `teal`. No suman secciones oscuras. Si alguna vez van sobre `ink`, el componente usa `paper` y `teal-dark` (`surface="dark"`).
+- **Texto primero:** la trama casi desaparece detrás de la columna de texto (izquierda, o centro en `/contacto` con `align="center"`) y gana presencia hacia el lado libre. En pantallas angostas se atenúa entera. Los patrones llenos (`blocks`, `meter`) bajan más su intensidad.
+- **Tecnología y respaldo:** igual que `HeroDots`. WebGPU con `vgpu`, colores leídos de los tokens, trama estática en CSS sin WebGPU, quieto y sin cursor con `prefers-reduced-motion`.
+- **Límites:** un patrón por página, solo en el hero, y ninguno se repite entre páginas. Las páginas legales (`/terminos`, `/privacidad`) no llevan. Una página nueva que quiera fondo necesita un patrón nuevo con su propia idea. Si no, va sin fondo.
+- **Componente:** `HeroField` (`components/hero-field.tsx`; copia en `assets/components/hero-field.tsx`), con la prop `field` del `Hero` o directo en un hero propio.
+
+## Camino del cliente (v1.3)
+
+Reemplaza al camino de 4 niveles del programa educativo (Fundamentos, Usuario Avanzado, Builder, Orquestador), que sale del sistema junto con Desde Adentro. El componente (`LevelPath`) es el mismo con otro contenido: una escalera de estados unidos por la flecha `A ──→ B`, horizontal en escritorio y vertical en celular.
+
+```
+[ Primera conversación ] ──→ [ Radar ] ──→ [ Ola cero ] ──→ [ Olas ] ──→ [ Operación continua ]
+      estado 01              estado 02     estado 03       estado 04       estado 05
+```
+
+- Cada nodo: etiqueta mono de estado, título en Fraunces y una línea de resultado en Inter. Los cinco nombres son los del método vigente y no se renombran por pieza.
+- Color: nodos con borde `ink`; el nodo que la pieza quiere destacar va en `teal`. El gradiente `plum → teal` del camino anterior queda fuera. `plum` entra solo si el nodo implica una decisión humana (por ejemplo, la aprobación del directorio).
+- Una pieza que muestra el camino completo usa los cinco estados. Una pieza que muestra una parte deja el resto con borde `taupe` como contexto.
+- Movimiento: el mismo revelado en scroll (fade-up, 80ms por nodo).
+- ⚠️ Spec propuesta en la v1.3, a confirmar al implementarla en el sitio.
 
 ## Iconografía
 
@@ -159,17 +196,36 @@ Ya existían del inventario original (`direccion-de-arte.md` § 4-5) y siguen vi
 
 Ease por defecto `--ease` `cubic-bezier(0.2,0.6,0.2,1)`; revelados `--ease-out-quint`; cintas `--ease-tape` (con overshoot).
 
-**Se anima:** reveal de titular por palabra/línea (stagger 70ms, 620ms) · cintas entrando 0°→ángulo final con escala 0.86→1 (420ms) · contadores (1200ms) · camino de 4 niveles (fade-up 80ms/nodo) · flecha A→B (`stroke-dashoffset`, 1000ms) · hover de CTA (`translateY(-1px)` + sombra sólida).
+**Se anima:** reveal de titular por palabra/línea (stagger 70ms, 620ms) · cintas entrando 0°→ángulo final con escala 0.86→1 (420ms) · contadores (1200ms) · camino del cliente (fade-up 80ms/nodo) · flecha A→B (`stroke-dashoffset`, 1000ms) · hover de CTA (`translateY(-1px)` + sombra sólida).
 
 **Nuevo en v1.2:**
 - **Dibujo de ilustraciones.** Cada trazo se dibuja con `stroke-dashoffset` (620ms, `--ease-out-quint`, 40ms de escalonado entre trazos) y los acentos entran con escala 0.86→1 (420ms, `--ease-tape`). Se dispara una sola vez, cuando el 40% de la pieza entra en pantalla, y queda quieta.
-- **Fondo del hero.** `HeroDots` se mueve solo y en continuo. Es la única animación en bucle del sistema.
+- **Fondo del hero.** `HeroDots` en el home y `HeroField` en las páginas internas se mueven solos y en continuo. Junto a la marquesina de la franja institucional, son las únicas animaciones en bucle del sistema.
 
-**No se anima:** texto de cuerpo, logos institucionales, nada parallax ni atado a la posición del scroll, y ningún otro bucle o auto-play fuera del fondo del hero. Las entradas al aparecer en pantalla (titulares, contadores, ilustraciones) se disparan una vez y no siguen al scroll.
+**No se anima:** texto de cuerpo, logos institucionales (salvo el desplazamiento de la franja, ver la excepción más abajo), nada parallax ni atado a la posición del scroll, y ningún otro bucle o auto-play fuera del fondo del hero (uno por página) y de la franja. Las entradas al aparecer en pantalla (titulares, contadores, ilustraciones) se disparan una vez y no siguen al scroll.
 
-`prefers-reduced-motion`: todas las duraciones a 0ms, ilustraciones ya dibujadas y fondo del hero quieto. Obligatorio, no opcional.
+`prefers-reduced-motion`: todas las duraciones a 0ms, ilustraciones ya dibujadas, fondo del hero y franja institucional quietos. Obligatorio, no opcional.
 
-> ⚠️ Sin resolver: la franja institucional del sitio (`InstitutionalStrip`) corre como marquesina, y esta sección la excluye desde antes de la v1.2. Queda por decidir si se detiene o se suma como excepción.
+> **Excepción de motion (decidida el 2026-10-21):** la franja institucional (`InstitutionalStrip`) sigue corriendo como marquesina lenta (32s, pausa al pasar el cursor) y queda quieta con `prefers-reduced-motion`. Es la segunda animación en bucle del sistema, junto al fondo del hero. En decks, documentos y PDF los logos son siempre estáticos.
+
+> **Excepción de motion (decidida el 2026-10-22):** el fondo animado del hero deja de ser exclusivo del hero oscuro del home. Cada página interna lleva el suyo (`HeroField`) sobre el hero claro, con las reglas de "Fondos de hero de páginas internas (v1.3.1)". Sigue valiendo uno por página. En decks y documentos se usa una captura fija.
+
+## Contenido y voz en piezas de marca (v1.3)
+
+La identidad visual no alcanza si el mensaje es el anterior. Antes de escribir el copy de una pieza (sitio, deck, one-pager, Word), leé `marketing/mensajes-innovas` en el brain: ahí vive el canon y, si contradice esta sección, gana el brain. Resumen operativo:
+
+- **Plataforma adelante.** Se presenta primero Central IA, la plataforma que ordena la adopción de IA en la empresa con gobernanza sobre permisos y acceso. Los servicios (relevar el método, armar el brain, preparar agentes, operar) se cuentan como lo que INNOV.AS hace sobre ella.
+- **Sin la marca En Paralelo ni Desde Adentro.** Del método se conservan las olas, los nombres Radar y Mapa del Método y la frase "tu gente decide, los agentes ejecutan". La última etapa se llama "operación continua".
+- **Afirmativo.** "Ofrecemos servicios sobre una plataforma" en lugar de definirse por lo que la empresa no es. Sin guion largo ni signos de apertura (¿ ¡) en ninguna pieza.
+- **A y B explícitos.** El glifo firma y el copy explica. Cada pieza define su par concreto, por ejemplo A: la IA quedó en una o dos personas, B: toda la empresa trabaja con IA y con permisos. B es un estado de operación continua, no un destino al que se llega.
+- **Plataforma completa.** Se comunica sin etiquetas de "próximamente" ni "en el plan".
+- **Tamaño de cliente.** Empresas pequeñas, medianas y grandes. El rango de empleados del foco comercial es interno y no figura.
+- **Experiencia.** "25 años transformando más de 150 organizaciones en 14 países", en conjunto y sin desglosar por tecnología. Sin cantidades de clientes ni casos atribuidos a Central IA.
+- **Organizaciones.** La franja "Organizaciones para las que trabajó nuestro equipo" lista la trayectoria del equipo; la lista vigente vive en `content/home.ts` del sitio. Banco Mundial no figura mientras sea oferta en curso. "Ejecutamos para" se habilita recién con contrato firmado.
+- **Sin nombres de personas.** Ni founders ni bios en material que circule.
+- **Precio.** El único número público es el del Radar, USD 1.500, bonificado al implementar la ola cero.
+- **Competencia.** No se nombra en piezas públicas.
+- **Imagen.** Solo ilustraciones a mano por ahora. Sin fotografía de talleres ni capturas del producto.
 
 ## Workflow — implementación en código (Next.js/Tailwind)
 
@@ -212,32 +268,37 @@ Ease por defecto `--ease` `cubic-bezier(0.2,0.6,0.2,1)`; revelados `--ease-out-q
    python3 scripts/audit_tokens.py <archivos-o-carpeta-tocados>
    ```
 
-5. **Specs de componentes** (elemento firma, camino de 4 niveles, hero, card de nivel, franja institucional, CTA, motion) en `references/direccion-de-arte.md` §4-5; **capa editorial** (PosterHeading, TapeLabel, InterlockHeadline, StatCounter, IllustrationSlot) en el addendum al final del mismo archivo. No reinventes estos componentes desde cero: ya están especificados.
+5. **Specs de componentes** (elemento firma, camino del cliente, hero, card de pieza o etapa, franja institucional, CTA, motion) en `references/direccion-de-arte.md` §4-5; **capa editorial** (PosterHeading, TapeLabel, InterlockHeadline, StatCounter, IllustrationSlot) en el addendum al final del mismo archivo. No reinventes estos componentes desde cero: ya están especificados.
 
 6. **Referencia visual navegable:** `assets/style-tile.html` — cubre paleta/tipografía/componentes base. **No incluye aún la capa editorial** (titulares póster, cintas, interlock, contadores) — para eso, revisar el addendum de `direccion-de-arte.md` o los templates del design system vivo hasta que se actualice.
 
-## Workflow — piezas sin código (decks, one-pagers, branding del LMS)
+## Workflow — piezas sin código (decks, one-pagers, documentos Word)
 
 Estas piezas no consumen `var(--...)` — necesitan los valores literales. Usá `references/non-code-usage.md`: paleta/tipografía en hex directo, la capa editorial en valores literales (tamaños de titular póster para slide/print, ángulos y specs de cinta, spec de ilustración, formato de contador), y las mismas reglas de uso. No inventes una paleta o mecanismo "similar" — es la misma marca.
 
-**Excepción de fondo para .docx y .pdf:** el fondo/superficie base es `#FAF8F5` (`paper-print`), no `#EDE8DC`. El resto de la paleta no cambia.
+**Fondo por formato.** Presentaciones y web usan `paper` `#EDE8DC`, sin cambios. Los **documentos Word (.docx) llevan fondo blanco `#FFFFFF`** para simplificar la impresión: sin color de página ni sombreado de fondo, y los bloques secundarios en `paper-soft` `#E4DDCC`. Los .pdf mantienen `paper-print` `#FAF8F5`. El resto de la paleta no cambia. Las reglas de Word y la guía de decks (agnóstica del formato: se arman en formato nativo de Claude y se exportan a .pptx) están en `references/non-code-usage.md`.
 
 ## Recursos del skill
 
 - `references/direccion-de-arte.md` — guía de dirección de arte (T3.2) + addendum agosto 2026 con la capa editorial.
-- `references/non-code-usage.md` — cheat sheet de marca para piezas sin código, con capa editorial incluida.
+- `references/non-code-usage.md` — cheat sheet de marca para piezas sin código, con capa editorial, reglas de Word (fondo blanco) y guía de decks.
 - `assets/tokens/globals.css` + `assets/tokens/tailwind.config.ts` — fuente de verdad ejecutable, incluye tokens de escala póster, cintas, interlock, contadores e ilustración.
 - `assets/logo/` — logo canónico en SVG: horizontal (`-ink` / `-dark` / `-paper` / mono), badges cuadrados sobre teal (lockup e isotipo) e isotipo suelto (teal / ink / paper).
 - `assets/illustrations/` — componente `hand-drawn.tsx`, los trazos de las seis ilustraciones del home (`home.ts`) y sus SVG ya renderizados (`svg/`). Son la referencia de estilo de toda ilustración nueva.
 - `assets/components/hero-dots.tsx` — el fondo de trama de puntos del hero, con su shader (requiere la librería `vgpu`).
+- `assets/components/hero-field.tsx` — los fondos de hero de las páginas internas, seis patrones (requiere la librería `vgpu`).
 - `assets/style-tile.html` — referencia visual navegable de la paleta/tipografía/componentes base (pendiente de actualización con la capa editorial).
 - `scripts/audit_tokens.py` — detecta hex y fuentes hardcodeadas fuera de los archivos de tokens.
 
 ## Mantenimiento
 
-Este skill empaqueta una copia de `innov/diseno/` (carpeta local de Mati, fuente original) para que funcione de forma autocontenida en cualquier sesión. Si la dirección de arte cambia, actualizá primero `innov/diseno/` y el brain (`marketing/identidad-visual-innovas.md`), y después sincronizá este skill — no al revés.
+Fuente de verdad desde la v1.3: `.agents/skills/innov-design-system/` del repo del sitio (la copia de `.claude/skills/` es idéntica). Después de editar se carga al brain (borrador del skill, un administrador lo publica) y se actualiza `innov/diseno/`. Si cambia la dirección de arte, se actualiza también `marketing/identidad-visual-innovas` en el brain.
 
-**Versión:** 1.2 (octubre 2026) — decidida por Mati el 2026-10-10. Escala póster web un escalón menos; hero oscuro con trama de puntos en WebGPU (`HeroDots`, con `vgpu`); ilustración de objetos y diagramas con trazo marcador de 3.2px, acento teal y detalle plum (`HandDrawn`), sin hachurado; dibujo progresivo de ilustraciones y fondo animado del hero admitidos en Motion. Actualizados en esta versión: este archivo, `references/prompt-gema-ilustraciones.md`, `assets/tokens/globals.css` y los addendum de `references/direccion-de-arte.md` y `references/non-code-usage.md`. El camino de producción de ilustraciones es el procedimiento de la sección "Ilustración (v1.2)". Pendiente: refrescar `assets/style-tile.html` y resolver la marquesina de la franja institucional.
+**Versión:** 1.3.1 (octubre 2026) — decidida el 2026-10-22. Fondos animados en el hero claro de las páginas internas (`HeroField`, seis patrones, uno por página) y excepción de motion que los admite. Actualizados: este archivo y `assets/components/hero-field.tsx`.
+
+**1.3** (octubre 2026) — decidida el 2026-10-20 por el reposicionamiento con Central IA adelante. `teal` y `plum` pasan a plataforma y gente (tokens nuevos `--color-accent-system/people`, los `vertical-*` quedan como alias deprecados); el camino de 4 niveles pasa a camino del cliente; sección de contenido y voz; documentos Word con fondo blanco `#FFFFFF`; guía de decks; style tile y brief de ilustración al día. Pendiente: implementar el camino del cliente en el sitio y migrar las clases `vertical-*` del sitio (`app/globals.css`, `lib/utils.ts`).
+
+**1.2** (octubre 2026) — decidida por Mati el 2026-10-10. Escala póster web un escalón menos; hero oscuro con trama de puntos en WebGPU (`HeroDots`, con `vgpu`); ilustración de objetos y diagramas con trazo marcador de 3.2px, acento teal y detalle plum (`HandDrawn`), sin hachurado; dibujo progresivo de ilustraciones y fondo animado del hero admitidos en Motion. Actualizados en esta versión: este archivo, `references/prompt-gema-ilustraciones.md`, `assets/tokens/globals.css` y los addendum de `references/direccion-de-arte.md` y `references/non-code-usage.md`. El camino de producción de ilustraciones es el procedimiento de la sección "Ilustración (v1.2)". Pendiente: refrescar `assets/style-tile.html` y resolver la marquesina de la franja institucional.
 
 **1.1** (agosto 2026) — incorpora el **logo canónico** (isotipo circuito + wordmark `INNOV.AS`) con sus siete variantes en `assets/logo/`, reglas de superficie con contraste calculado, tamaños mínimos medidos y área de resguardo; depreca el wordmark tipográfico anterior y el set con tagline BUILD SOLUTIONS / N invertida.
 

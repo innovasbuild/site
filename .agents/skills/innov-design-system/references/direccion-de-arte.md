@@ -2,16 +2,17 @@
 
 > Fuente de verdad de la identidad visual del sitio. Autocontenido: no requiere
 > acceso a ninguna conversación previa. Consumido por T3.3 (implementación) y por
-> cualquier agente futuro (deck, one-pager, branding del LMS).
+> cualquier agente futuro (deck, one-pager, documento Word).
 > Estado: v1 — dirección recomendada, lista para implementar. Revisión: Mati (aprobada).
-> **Update 2026-07-05:** agregado token `paper-print` (`#FAF8F5`) — fondo específico para .docx/.pdf, ver sección 2.
+> **Update 2026-07-05:** agregado token `paper-print` (`#FAF8F5`) — fondo específico para .docx/.pdf, ver sección 2. Desde la v1.3 los .docx llevan blanco y solo el .pdf conserva este token.
 > **Update 2026-08:** agregada la capa editorial de escala póster — ver addendum al final de este documento.
+> **Update 2026-10-20 (v1.3):** reposicionamiento con Central IA adelante: nuevos roles de `teal` y `plum`, camino del cliente, hero oscuro, fondo blanco en Word. Ver addendum al final (§10).
 
 ---
 
 ## 0. Resumen en una línea
 
-**"Sistema Cálido / Notación de Transición":** editorial cálido + anotación técnica sobre neutros tostados, donde la marca vive en la **flecha entre un estado A y un estado B**. El sistema encarna la tesis del negocio (toda transformación —persona o empresa— es una transición de estado) y codifica por color las dos verticales.
+**"Sistema Cálido / Notación de Transición":** editorial cálido + anotación técnica sobre neutros tostados, donde la marca vive en la **flecha entre un estado A y un estado B**. El sistema encarna la tesis del negocio (la empresa pasa de IA suelta a IA con gobierno) y codifica por color dos roles: la plataforma (`teal`) y la gente de la empresa (`plum`).
 
 ---
 
@@ -20,8 +21,8 @@
 Se evaluaron 5 familias con personalidad: minimalismo cálido, neo-brutalismo, editorial/Swiss, geometría orgánica y color-block audaz. Conclusión y decisiones:
 
 - **Rechazado a propósito el default de AI 2026**: fondo crema + serif alto contraste + acento terracota. Es el look que satura al sector *y* la terracota es casi el coral de la interfaz de Claude → habría hecho ver a INNOV.AS genérico y derivativo.
-- **El desafío real** es tender un puente entre dos temperaturas: transformación de *personas* (educación → calidez, humanidad) y de *empresas* (procesos agénticos → credibilidad técnica, sistema). La dirección elegida resuelve esa tensión: papel cálido + serif humanista dan el lado humano; la notación mono, los ticks y la grilla dan el lado sistema.
-- **Dirección alternativa considerada y descartada**: versión fondo-tinta (dark) con papel como acento y un único señal. Más audaz pero más fría y menos apta para decisores institucionales (BM, BID) en la home. Se reserva como tratamiento posible para secciones puntuales (ej. Transformación), no como esqueleto global.
+- **El desafío real** es tender un puente entre dos temperaturas: la gente de la empresa (calidez, decisión humana) y la plataforma (credibilidad técnica, sistema, gobernanza). La dirección elegida resuelve esa tensión: papel cálido + serif humanista dan el lado humano; la notación mono, los ticks y la grilla dan el lado sistema.
+- **Dirección alternativa considerada y descartada**: versión fondo-tinta (dark) con papel como acento y un único señal. Más audaz pero más fría para el cuerpo del sitio. Se reserva como tratamiento para secciones puntuales (hoy el hero del home), no como esqueleto global.
 
 ---
 
@@ -29,19 +30,19 @@ Se evaluaron 5 familias con personalidad: minimalismo cálido, neo-brutalismo, e
 
 | Token | Hex | Rol | Contraste sobre papel |
 |---|---|---|---|
-| `paper` | `#EDE8DC` | Superficie base (oat cálido, no crema-blanco) — pantalla/digital (web, slides, LMS) | — |
-| `paper-print` | `#FAF8F5` | Superficie base para **documentos .docx y .pdf**: variante más clara que `paper`, pensada para lectura larga e impresión (el oat `#EDE8DC` pesa demasiado como fondo de página completa) | — |
-| `paper-soft` | `#E4DDCC` | Superficie de tarjeta / bloque secundario (funciona sobre `paper` y sobre `paper-print`) | — |
+| `paper` | `#EDE8DC` | Superficie base (oat cálido, no crema-blanco) — pantalla/digital (web, slides) | — |
+| `paper-print` | `#FAF8F5` | Superficie base para **.pdf**: variante más clara que `paper`, pensada para lectura larga e impresión. Los **.docx llevan blanco `#FFFFFF`** desde la v1.3 | — |
+| `paper-soft` | `#E4DDCC` | Superficie de tarjeta / bloque secundario (funciona sobre `paper`, `paper-print` y blanco) | — |
 | `ink` | `#1F1B19` | Texto y estructura (negro cálido, no puro) | **13.98:1 (AAA)** |
-| `teal` | `#0F6B60` | **Marca** · empresas · agéntico · sistema | 5.22:1 (AA) |
-| `plum` | `#8C3B5D` | Personas · educación · lado humano | 5.93:1 (AA) |
+| `teal` | `#0F6B60` | **Marca** · plataforma · sistema · agentes | 5.22:1 (AA) |
+| `plum` | `#8C3B5D` | La gente de la empresa · decisión humana · guiño | 5.93:1 (AA) |
 | `taupe` | `#A79E8E` | Bordes, metadatos, notación | 2.17:1 — **decorativo** |
 
 **Ratios en botones:** texto blanco sobre teal 6.38:1 (AA), sobre ciruela 7.24:1 (AAA). Ambos válidos.
 
 **Reglas de uso (obligatorias):**
 - `taupe` **nunca** para texto esencial chico (no pasa AA). Solo bordes, ticks, metadatos ≥18px o decorativo.
-- `teal` es el color de marca dominante. `plum` entra con **restricción**: solo para codificar el lado personas/educación (kickers, barras, íconos de esa vertical). No pintar bloques enteros de ciruela.
+- `teal` es el color de marca dominante. `plum` entra con **restricción**: marca a la gente de la empresa y la decisión humana (permisos, aprobaciones) y el detalle con guiño de las ilustraciones. No pintar bloques enteros de ciruela.
 - Ningún componente usa teal y ciruela juntos con igual peso: uno manda, el otro acenta.
 - Estados: éxito = teal; error/alerta = derivar un rojo cálido `#B23A48` (fuera de paleta de marca, solo funcional); foco = teal con `outline-offset`.
 
@@ -49,8 +50,8 @@ Se evaluaron 5 familias con personalidad: minimalismo cálido, neo-brutalismo, e
 
 > Esto NO es un "modo oscuro" en el sentido de preferencia de usuario / toggle de
 > sistema operativo. Es la variante de la paleta para **secciones o piezas puntuales
-> que se diseñan sobre fondo oscuro a propósito** — la sección "Transformación" del
-> sitio, una slide de cierre de deck, un bloque de cita destacada — tal como ya
+> que se diseñan sobre fondo oscuro a propósito** — el hero del
+> home, una slide de cierre de deck, un bloque de cita destacada — tal como ya
 > preveía la sección 1 de este documento ("Dirección alternativa considerada... se
 > reserva como tratamiento posible para secciones puntuales"). No se implementa con
 > `prefers-color-scheme` ni un toggle: se aplica explícitamente a los componentes que
@@ -75,8 +76,8 @@ por debajo del mínimo de WCAG. Se verificó con la fórmula de contraste de WCA
 | `taupe` (reutilizado, sin cambios) | `#A79E8E` | Bordes/metadatos sobre `ink` — mejora a 6.45:1, pero se mantiene la misma regla de uso (nunca texto esencial) por consistencia entre modos | 6.45:1 |
 
 **Botones/CTA sobre fondo oscuro (contraste ya verificado en ambas direcciones):**
-- Primario (empresas/teal): fill `teal-ui-dark` (#107468) + texto blanco → 5.65:1 en el texto, y el botón en sí tiene 3.03:1 contra el fondo `ink` (cumple el mínimo de componente de UI de WCAG 1.4.11 — si se usara el `teal` original de #0F6B60, dan 2.68:1 contra `ink` y el botón "desaparece" visualmente del fondo).
-- Secundario (personas/plum): fill `plum-ui-dark` (#A5466E) + texto blanco.
+- Primario (plataforma/teal): fill `teal-ui-dark` (#107468) + texto blanco → 5.65:1 en el texto, y el botón en sí tiene 3.03:1 contra el fondo `ink` (cumple el mínimo de componente de UI de WCAG 1.4.11 — si se usara el `teal` original de #0F6B60, dan 2.68:1 contra `ink` y el botón "desaparece" visualmente del fondo).
+- Secundario (gente/plum): fill `plum-ui-dark` (#A5466E) + texto blanco.
 - Ghost/outline sobre oscuro: borde `paper`, hover invierte a fill sólido `paper` con texto `ink` — es la misma lógica del ghost en modo claro (invierte a `ink`), reflejada.
 
 **Regla dura:** nunca usar `teal` o `plum` "originales" (los de la sección 2, calibrados para `paper`) directamente sobre `ink` u otro fondo oscuro — usar siempre las variantes `-dark`/`-ui-dark`. Esto es literalmente lo mismo error que "hex hardcodeado fuera de contrato": son colores de marca, pero calibrados para la superficie equivocada.
@@ -89,9 +90,9 @@ Tres roles, tres familias. La personalidad la cargan display y mono; el cuerpo e
 
 | Rol | Familia | Uso | Notas técnicas |
 |---|---|---|---|
-| Display | **Fraunces** (variable) | H1–H3, wordmark, números grandes | `opsz` 144 y `SOFT` 40–45 en tamaños grandes (calidez); pesos 600–900 para títulos. Bajar `opsz` a 9–20 si se usa chica. |
+| Display | **Fraunces** (variable) | H1–H3, titulares póster, números grandes | `opsz` 144 y `SOFT` 40–45 en tamaños grandes (calidez); pesos 600–900 para títulos. Bajar `opsz` a 9–20 si se usa chica. |
 | Texto / UI | **Inter** | Cuerpo, labels, navegación, formularios | Pesos 400/500/600. Neutro, alta legibilidad. |
-| Notación | **Space Mono** | Firma A→B, etiquetas de estado, datos, ticks, código de vertical | 400/700. Es el elemento "sistema". No usar para párrafos. |
+| Notación | **Space Mono** | Firma A→B, etiquetas de estado, datos, ticks | 400/700. Es el elemento "sistema". No usar para párrafos. |
 
 - **Por qué Fraunces y no un serif literario:** se descartó Instrument Serif (rígido, un solo peso percibido) y Hedvig Letters Serif (un solo peso real, sin bold → títulos flojos). Fraunces conserva la calidez humanista buscada pero tiene rango completo 100–900 + eje `SOFT`, así que los títulos pesan de verdad.
 - **Licencia:** las tres son open source (Google Fonts / SIL OFL), self-host recomendado (`next/font`) para performance y evitar CLS.
@@ -107,30 +108,30 @@ Escala tipográfica (rem, base 16px): 0.75 / 0.875 / 1 / 1.125 / 1.375 / 1.75 / 
 Es el activo de marca. No es decoración: es la tesis del negocio hecha glifo. Usos canónicos:
 - **Wordmark:** ~~`innovas` en Fraunces + superíndice mono `[A→B]` en teal~~ — **deprecado (agosto 2026).** El wordmark ahora es lettering vectorizado dentro del logo: ver la sección Logo del `SKILL.md` y `assets/logo/`. La flecha sigue viva en los marcadores de sección, el código de vertical y el progreso — pero no en el wordmark.
 - **Marcadores de sección:** `// 01 ──→ estado`.
-- **Código de vertical:** `personas→` (ciruela) · `empresas→` (teal).
-- **Progreso de curso/lección:** `[▪▪▪▪░░] 4/6 ──→`.
+- **Rieles de mensaje:** `A ──→ B` con A y B explícitos, por ejemplo `IA suelta ──→ IA con gobierno`.
+- **Progreso:** `[▪▪▪▪░░] 4/6 ──→` para las etapas del camino del cliente.
 Regla: la flecha y la notación mandan en **estructura**; el papel cálido y el serif mandan en **superficie**. Si una vista se carga de mono+color, se enfría → recortar.
 
-### 4.2 Visualización propietaria: "El camino de 4 niveles"
-El recorrido educativo ES una transición de estado en 4 etapas. Se visualiza como una escalera de estados horizontal (vertical en mobile), reutilizando la flecha:
+### 4.2 Visualización propietaria: "El camino del cliente"
+El recorrido del cliente ES una transición de estado en 5 etapas (desde la v1.3; antes era el camino de 4 niveles del programa educativo). Se visualiza como una escalera de estados horizontal (vertical en mobile), reutilizando la flecha:
 
 ```
-[ Fundamentos ] ──→ [ Usuario Avanzado ] ──→ [ Builder ] ──→ [ Orquestador ]
-   estado 01            estado 02              estado 03        estado 04
+[ Primera conversación ] ──→ [ Radar ] ──→ [ Ola cero ] ──→ [ Olas ] ──→ [ Operación continua ]
+      estado 01              estado 02     estado 03       estado 04       estado 05
 ```
 
-- **Gradiente conceptual de color:** el nivel 1 arranca en `plum` (personas/entrada humana) y progresa hacia `teal` en el nivel 4 (empresas/dominio agéntico). El aprendiz literalmente "se transforma" del color personas al color empresas. Interpolar 2 pasos intermedios entre plum→teal.
-- Cada nodo: label mono de estado + título Fraunces + outcome de una línea (Inter).
+- Nodos con borde `ink`; el nodo destacado va en `teal`. `plum` solo si el nodo implica una decisión humana. El gradiente `plum → teal` del camino anterior queda fuera.
+- Cada nodo: label mono de estado + título Fraunces + resultado de una línea (Inter).
 - Es el componente más reconocible del sitio; merece animación de revelado en scroll (ver 4.4).
 
 ### 4.3 Iconografía e imagen
 - **Íconos:** trazo lineal 1.5px, esquinas apenas redondeadas (radio 2px), mismo peso visual que los ticks mono. Nada de íconos rellenos 3D ni degradés.
-- **Imagen:** fotografía real de talleres/personas con un tratamiento consistente (leve calidez, no stock azulado corporativo). Duotono opcional en teal/ink para franjas. Evitar ilustración "blob" genérica de startup.
+- **Imagen:** ilustraciones a mano (ver addendum v1.2 y `SKILL.md`). Sin fotografía de stock ni capturas del producto por ahora. Evitar ilustración "blob" genérica de startup.
 - **Datos y diagramas:** estética blueprint — ticks de coordenada mono, líneas hairline `ink@18%`, sin sombras dramáticas.
 
 ### 4.4 Motion (sobriedad institucional)
-- **Sí se anima:** dibujo de la flecha `A→B` al cargar el hero (stroke-dashoffset ~1s); revelado en scroll de la escalera de 4 niveles (stagger 80ms por nodo); micro-interacción hover en botones (translateY -1px + sombra sólida offset, sin blur).
-- **No se anima:** texto de cuerpo, logos institucionales, nada parallax, nada de auto-play llamativo.
+- **Sí se anima:** dibujo de la flecha `A→B` al cargar el hero (stroke-dashoffset ~1s); revelado en scroll del camino del cliente (stagger 80ms por nodo); micro-interacción hover en botones (translateY -1px + sombra sólida offset, sin blur).
+- **No se anima:** texto de cuerpo, logos institucionales (salvo la marquesina de la franja, ver §10), nada parallax, nada de auto-play llamativo.
 - **Obligatorio:** respetar `prefers-reduced-motion` (sin excepción).
 
 ---
@@ -139,12 +140,12 @@ El recorrido educativo ES una transición de estado en 4 etapas. Se visualiza co
 
 | Componente | Spec |
 |---|---|
-| **Hero (Home)** | Fondo `paper`. Eyebrow mono `// [posicionamiento]`. H1 Fraunces 660, con la palabra clave en `teal`. Debajo: las dos rieles `persona ──→ persona capaz` / `empresa ──→ empresa agéntica`. CTA primario teal ("Agendar diagnóstico"). Sin imagen de fondo compitiendo con el H1. |
-| **Card de nivel/programa** | Borde `ink` 1px, radio 5px, fondo `paper-soft`. Esquina mono `A→B`. Kicker de vertical (plum o teal). Título Fraunces 620. Barra inferior 3px del color de la vertical. |
-| **Sección "Sé Trainer"** | Registro más cálido (puede apoyarse en `plum`). Tono: oportunidad de carrera seria, no pirámide. Tabla de "recuperás la inversión en ≈2 cohortes" con notación mono para las cifras. |
-| **Franja institucional (BM, BID, FAO, SAGyP…)** | Fondo `ink` o `paper-soft`, logos en monocromo (`ink` o `paper`), alineados a grilla, hairline separadora. Cero animación. Es la prueba de credibilidad: sobria. |
-| **CTA** | Primario: sólido `teal`, texto blanco, radio 4px, hover translateY + sombra sólida. Secundario (personas): sólido `plum`. Ghost: borde `ink`, hover invierte a fondo `ink`. |
-| **Formulario de contacto segmentado** | 3 intenciones ("Formar a mi equipo" / "Ser trainer" / "Proyecto de transformación") como toggle mono; cada una ajusta campos. Foco visible teal. |
+| **Hero (Home)** | Fondo `ink` con trama de puntos (`HeroDots`, ver `SKILL.md`). Eyebrow mono `// [posicionamiento]`. H1 Fraunces con la palabra clave en `teal-dark`. Debajo, los rieles de mensaje con A y B explícitos. CTA primario `teal-ui-dark` ("Agendá una conversación"). La trama se apaga detrás del texto. |
+| **Card de pieza o etapa** | Borde `ink` 1px, radio 5px, fondo `paper-soft`. Esquina mono `A→B` o número de estado. Título Fraunces 620. Ilustración a mano cuando la pieza la tiene. Barra inferior 3px en `teal` (`plum` si el contenido es de decisión humana). |
+| **Tarjeta de charla de orientación** | Junto al formulario en `/contacto`. Borde `ink`, fondo `paper-soft`, 30 minutos sin costo. Botón secundario que abre la agenda en una pestaña nueva. |
+| **Franja institucional** | Rótulo "Organizaciones para las que trabajó nuestro equipo", con la lista de la trayectoria del equipo (`content/home.ts`). Fondo `ink` o `paper-soft`, nombres o logos en monocromo, hairline separadora. Corre como marquesina lenta, excepción de motion documentada en §10; quieta con `prefers-reduced-motion`. |
+| **CTA** | Primario: sólido `teal`, texto blanco, radio 4px, hover translateY + sombra sólida. Secundario: sólido `plum` cuando el destino habla de la gente o de la decisión humana. Ghost: borde `ink`, hover invierte a fondo `ink`. |
+| **Formulario de contacto** | Un solo formulario (nombre, email, empresa, país, tamaño, qué IA usan, mensaje). Acción principal de `/contacto`; se envía directo a HubSpot. Foco visible teal. |
 
 ---
 
@@ -162,10 +163,10 @@ Regla de implementación (de T3.3): **cero valores mágicos** de color/tipograf�
 
 - [ ] Ningún texto esencial usa `taupe`.
 - [ ] Ningún H1/CTA depende de faux-bold (usar pesos reales de Fraunces).
-- [ ] `plum` aparece solo codificando la vertical personas, nunca como relleno masivo.
-- [ ] La flecha `A→B` aparece en: marcadores de sección, códigos de vertical y camino de 4 niveles (ya no en el wordmark — ver sección Logo del `SKILL.md`).
+- [ ] `plum` aparece solo marcando a la gente de la empresa, la decisión humana o el guiño de una ilustración, nunca como relleno masivo.
+- [ ] La flecha `A→B` aparece en: marcadores de sección, rieles de mensaje y camino del cliente (ya no en el wordmark — ver sección Logo del `SKILL.md`).
 - [ ] El logo usa la variante correcta para su fondo y respeta tamaño mínimo y área de resguardo.
-- [ ] Franja institucional sobria, monocromo, sin motion.
+- [ ] Franja institucional sobria y monocromo; su único movimiento es la marquesina lenta, quieta con `prefers-reduced-motion`.
 - [ ] `prefers-reduced-motion` respetado en todas las animaciones.
 - [ ] Fuentes self-hosted vía `next/font` (sin CLS, sin request a Google en runtime).
 
@@ -214,3 +215,29 @@ Decidido por Mati el 2026-10-10, al replantear el sitio con Central IA adelante.
 - [ ] Ninguna ilustración incluye personas, texto ni hachurado.
 - [ ] `HeroDots` aparece una sola vez por página, tiene alternativa estática sin WebGPU y queda quieto con `prefers-reduced-motion`.
 - [ ] El texto del hero se lee sobre la trama en escritorio y en celular.
+
+
+---
+
+## 10. Addendum octubre 2026 — v1.3
+
+Decidido el 2026-10-20 para alinear la identidad con el reposicionamiento del 2026-10-09: INNOV.AS ofrece servicios sobre su plataforma, Central IA. Paleta, tipografías, logo y todo lo de la v1.2 no cambian.
+
+| Tema | Antes | v1.3 | Por qué |
+|---|---|---|---|
+| Rol de `teal` | Empresas, agéntico | Plataforma, sistema, agentes | Ya no hay dos verticales de negocio |
+| Rol de `plum` | Personas, educación | La gente de la empresa, decisión humana, guiño | Desde Adentro está despublicada. El rol nuevo calza con "tu gente decide, los agentes ejecutan" y con el detalle plum de la ilustración |
+| Tokens de acento | `--color-vertical-company/people` | `--color-accent-system/people`; los `vertical-*` quedan como alias deprecados | Evita romper el sitio mientras migra |
+| Visualización propietaria | Camino de 4 niveles educativo | Camino del cliente de 5 estados | El recorrido vigente es el del cliente |
+| Componentes | Card de nivel, Sé Trainer, formulario segmentado | Card de pieza o etapa y tarjeta de charla; se retiran los otros dos | `/contacto` tiene un formulario y la charla de orientación |
+| Hero (§5) | Fondo `paper` con dos rieles | Hero oscuro con `HeroDots` | Ya estaba decidido en la v1.2 y el §5 no lo reflejaba |
+| Imagen | Fotografía de talleres | Solo ilustraciones | Decisión del sitio nuevo |
+| Fondo en Word | `paper-print` `#FAF8F5` | Blanco `#FFFFFF` | Simplifica la impresión. El .pdf mantiene `paper-print` |
+| Franja institucional | Marquesina sin resolver frente a la regla de motion | Excepción documentada: sigue como marquesina lenta, quieta con reduced-motion | Decisión del 2026-10-21: se deja como está en el sitio |
+| Contenido | Sin reglas en el skill | Sección "Contenido y voz" en `SKILL.md` | La identidad viaja con su mensaje |
+
+**Checklist adicional v1.3:**
+- [ ] Ninguna pieza nueva menciona En Paralelo, Desde Adentro, Sé Trainer ni el programa de niveles.
+- [ ] `teal` se lee como plataforma y `plum` como gente o decisión humana.
+- [ ] Los .docx tienen fondo blanco, sin color de página ni bloques de color a sangre.
+- [ ] El copy sigue la sección "Contenido y voz" de `SKILL.md`.

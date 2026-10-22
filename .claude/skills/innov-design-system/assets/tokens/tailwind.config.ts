@@ -26,8 +26,10 @@ const config: Config = {
         taupe: "var(--color-taupe)",
         // semánticos
         brand: "var(--color-brand)",
-        "vertical-company": "var(--color-vertical-company)",
-        "vertical-people": "var(--color-vertical-people)",
+        "accent-system": "var(--color-accent-system)",
+        "accent-people": "var(--color-accent-people)",
+        "vertical-company": "var(--color-vertical-company)", // deprecado v1.3
+        "vertical-people": "var(--color-vertical-people)", // deprecado v1.3
         line: "var(--color-line)",
         "on-brand": "var(--color-on-brand)",
         success: "var(--color-success)",
