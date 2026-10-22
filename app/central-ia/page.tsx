@@ -5,6 +5,7 @@ import { PageSection } from "@/components/page-section"
 import { ArrowList } from "@/components/arrow-list"
 import { CtaBanner } from "@/components/cta-banner"
 import { JsonLd } from "@/components/json-ld"
+import { AgentScene } from "@/components/animated/agent-scene"
 import { HandDrawn } from "@/components/illustrations/hand-drawn"
 import { homeIllustrations as il } from "@/components/illustrations/home"
 import { seo } from "@/content/seo"
@@ -36,7 +37,14 @@ export default function CentralIaPage() {
             <p className="text-ink-70">{brain.body}</p>
             <ArrowList items={brain.features} className="mt-6" />
           </div>
-          <HandDrawn illustration={il.piezaBrain} className="w-full" />
+          <AgentScene
+            scene="piezaBrain"
+            look="volumen"
+            bg="--color-paper"
+            label={il.piezaBrain.label}
+            className="aspect-[4/3] w-full"
+            fallback={<HandDrawn illustration={il.piezaBrain} className="w-full" />}
+          />
         </div>
       </PageSection>
 
@@ -62,7 +70,14 @@ export default function CentralIaPage() {
             </div>
             <p className="mt-6 font-medium text-ink">{agentes.closing}</p>
           </div>
-          <HandDrawn illustration={il.piezaAgentes} className="w-full" />
+          <AgentScene
+            scene="piezaAgentes"
+            look="volumen"
+            bg="--color-paper"
+            label={il.piezaAgentes.label}
+            className="aspect-[4/3] w-full"
+            fallback={<HandDrawn illustration={il.piezaAgentes} className="w-full" />}
+          />
         </div>
       </PageSection>
 
@@ -96,7 +111,14 @@ export default function CentralIaPage() {
             <p className="text-ink-70">{herramientas.body}</p>
             <p className="mt-4 font-medium text-ink">{herramientas.panel}</p>
           </div>
-          <HandDrawn illustration={il.piezaHerramientas} className="w-full" />
+          <AgentScene
+            scene="piezaHerramientas"
+            look="volumen"
+            bg="--color-paper-soft"
+            label={il.piezaHerramientas.label}
+            className="aspect-[4/3] w-full"
+            fallback={<HandDrawn illustration={il.piezaHerramientas} className="w-full" />}
+          />
         </div>
       </PageSection>
 
