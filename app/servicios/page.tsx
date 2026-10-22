@@ -9,12 +9,11 @@ import { CtaBanner } from "@/components/cta-banner"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { faqProducto, faqMetodo } from "@/content/faq"
-import { primerPaso } from "@/content/home"
-import { hero, camino, diagnosticos, olaCero, principios, roles, finalCta } from "@/content/como-implementamos"
+import { hero, camino, diagnosticos, olaCero, principios, roles, primerPaso, finalCta } from "@/content/servicios"
 
-export const metadata: Metadata = buildMetadata("/como-implementamos", seo["/como-implementamos"])
+export const metadata: Metadata = buildMetadata("/servicios", seo["/servicios"])
 
-export default function ComoImplementamosPage() {
+export default function ServiciosPage() {
   return (
     <main>
       <Hero
@@ -64,7 +63,7 @@ export default function ComoImplementamosPage() {
         </div>
       </PageSection>
 
-      <PageSection kicker={{ index: "06", label: primerPaso.kicker.label }} posterTitle={primerPaso.posterTitle} soft width="lg">
+      <PageSection kicker={primerPaso.kicker} posterTitle={primerPaso.posterTitle} soft width="lg">
         <p className="mt-4 max-w-2xl text-ink-70">{primerPaso.intro}</p>
         <div className="mt-10 grid gap-6 md:grid-cols-2 [&>div]:bg-paper">
           {primerPaso.cards.map((card) => (

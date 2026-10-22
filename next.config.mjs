@@ -8,7 +8,8 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: '/en-paralelo', destination: '/como-implementamos', permanent: true },
+      { source: '/en-paralelo', destination: '/servicios', permanent: true },
+      { source: '/como-implementamos', destination: '/servicios', permanent: true },
       { source: '/soluciones', destination: '/proyectos', permanent: true },
     ]
   },

@@ -84,7 +84,7 @@ export const planes = {
         "Acompañamiento para que tu gente la adopte.",
       ],
       cta: talkCta,
-      link: { label: "Cómo implementamos →", href: "/como-implementamos" },
+      link: { label: "Ver servicios →", href: "/servicios" },
       note: "Arranca con una evaluación completa del método de tu empresa.",
     },
   ] satisfies Plan[],

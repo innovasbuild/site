@@ -1,14 +1,14 @@
 import { primaryCta, conversationCta, conversationCtaNote } from "./global"
 
 export const hero = {
-  eyebrow: "// método → por olas",
-  posterTitle: "Por olas",
-  posterAccent: "olas",
-  supportLine: "Cada tres meses, algo nuevo operando.",
+  eyebrow: "// servicios → plan empresa",
+  posterTitle: "Con nuestro equipo",
+  posterAccent: "equipo",
+  supportLine: "Central IA se usa sola. Si querés ir más rápido, la implementamos con vos.",
   subhead:
-    "Implementamos Central IA adentro de tu empresa con un método de etapas cortas. Cada una tiene alcance cerrado y un resultado que queda funcionando.",
-  ctaPrimary: primaryCta,
-  ctaSecondary: conversationCta,
+    "Es el plan Empresa. Relevamos el método de tu empresa, armamos el Brain y las skills, preparamos los agentes y operamos la plataforma con vos, por olas de tres meses con alcance cerrado y algo funcionando al final de cada una.",
+  ctaPrimary: conversationCta,
+  ctaSecondary: primaryCta,
 }
 
 export const camino = {
@@ -108,6 +108,32 @@ export const roles = {
         "Arquitectura y conducción técnica.",
         "Construcción de agentes.",
         "Procesos y adopción.",
+      ],
+    },
+  ],
+}
+
+export const primerPaso = {
+  kicker: { index: "06", label: "el primer paso" },
+  posterTitle: "Un paso acotado",
+  intro: "El primer compromiso es chico, tiene precio fijo y deja un informe que sirve aunque la decisión sea frenar ahí.",
+  cards: [
+    {
+      title: "Qué se aprueba",
+      items: [
+        "Un Radar: tres a cuatro horas de tu equipo directivo.",
+        "Un informe escrito que queda en la empresa: método relevado, puntos de dolor, oportunidades y plan a dos años.",
+        "El Radar se bonifica completo al implementar la ola cero.",
+        "Entre ola y ola hay un punto de decisión para seguir, reordenar o frenar.",
+      ],
+    },
+    {
+      title: "Qué riesgo baja",
+      items: [
+        "La información de la empresa pasa a trabajarse en un espacio con usuarios corporativos y permisos.",
+        "La empresa define quién lee y quién escribe en cada tema.",
+        "Se aprovechan las licencias de IA que ya se pagan.",
+        "Todo lo que llega a un cliente pasa antes por una persona.",
       ],
     },
   ],

@@ -12,7 +12,7 @@ export const signupHref = (plan: "gratis" | "equipo") =>
 
 export const navLinks: NavLink[] = [
   { label: "Central IA", href: "/central-ia" },
-  { label: "Cómo implementamos", href: "/como-implementamos" },
+  { label: "Servicios", href: "/servicios" },
   { label: "Nosotros", href: "/nosotros" },
 ]
 
@@ -32,7 +32,7 @@ export const footerColumns: FooterColumn[] = [
     heading: "Sitemap",
     links: [
       { label: "Central IA", href: "/central-ia" },
-      { label: "Cómo implementamos", href: "/como-implementamos" },
+      { label: "Servicios", href: "/servicios" },
       { label: "Nosotros", href: "/nosotros" },
       { label: "Proyectos a medida", href: "/proyectos" },
       { label: "Contacto", href: "/contacto" },
