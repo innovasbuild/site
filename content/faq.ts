@@ -27,7 +27,7 @@ export const faqProducto: FaqItem[] = [
   {
     question: "Cuánto cuesta?",
     answer:
-      "Podés empezar gratis, con hasta 3 usuarios y 5 skills. Cuando se suma más gente, se paga por usuario, y el uso de IA dentro de la plataforma se paga por consumo. Si la implementamos con vos, cada ola se cotiza con alcance cerrado antes de empezar.",
+      "Podés empezar gratis por tres meses, con hasta 3 usuarios y 5 skills. Después, o cuando se suma más gente, se paga por usuario, y el uso de IA dentro de la plataforma se paga por consumo. Si la implementamos con vos, cada ola se cotiza con alcance cerrado antes de empezar.",
   },
 ]
 

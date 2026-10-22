@@ -18,7 +18,7 @@ export const navLinks: NavLink[] = [
 
 /** CTA principal del sitio: el alta gratis en la app. */
 export const primaryCta: Cta = { label: "Empezá gratis", href: signupHref("gratis") }
-export const primaryCtaNote = "Gratis hasta 3 usuarios y 5 skills. El uso de IA se paga por consumo."
+export const primaryCtaNote = "Gratis por tres meses, hasta 3 usuarios y 5 skills. El uso de IA se paga por consumo."
 
 export const navCta: Cta = primaryCta
 
