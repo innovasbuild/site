@@ -16,6 +16,11 @@ export const seo: Record<string, SeoMeta> = {
     description:
       "Primera conversación, Radar y una ola cero de tres meses que deja funcionando el Brain, los permisos y un primer circuito de negocio. Cada ola siguiente entrega algo operando.",
   },
+  "/precios": {
+    title: "Precios de Central IA: gratis hasta 3 usuarios | INNOV.AS",
+    description:
+      "Central IA es gratis hasta 3 usuarios y 5 skills. El plan Equipo cuesta USD 10 por usuario por mes, y el plan Empresa se implementa a medida con nuestro equipo.",
+  },
   "/proyectos": {
     title: "Proyectos a medida: plataformas, datos y software | INNOV.AS",
     description:

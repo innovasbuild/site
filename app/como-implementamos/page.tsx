@@ -25,6 +25,7 @@ export default function ComoImplementamosPage() {
         supportLine={hero.supportLine}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
+        ctaSecondary={hero.ctaSecondary}
       />
 
       <PageSection kicker={camino.kicker} posterTitle={camino.posterTitle} width="lg">
@@ -77,7 +78,7 @@ export default function ComoImplementamosPage() {
         </div>
       </PageSection>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
     </main>
   )
 }

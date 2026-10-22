@@ -1,4 +1,5 @@
 import type { Cta } from "./types"
+import { primaryCta, primaryCtaNote } from "./global"
 
 const demoCta: Cta = { label: "Pedí una demo", href: "/contacto" }
 
@@ -9,7 +10,8 @@ export const hero = {
   supportLine: "Tu gente, tus agentes y tus herramientas, con permisos.",
   subhead:
     "Una plataforma donde la empresa entra con sus usuarios y encuentra lo que sabe, los agentes que la ayudan y las herramientas que ya usa. Cada empresa en su espacio, aislada de las demás.",
-  ctaPrimary: demoCta,
+  ctaPrimary: primaryCta,
+  ctaSecondary: demoCta,
 }
 
 export const brain = {
@@ -98,7 +100,8 @@ export const sistemas = {
 }
 
 export const finalCta = {
-  title: "Mirala funcionando",
-  cta: demoCta,
-  note: "En 30 minutos te mostramos Central IA con nuestro propio Brain.",
+  title: "Probala con tu equipo",
+  cta: primaryCta,
+  secondary: demoCta,
+  note: primaryCtaNote,
 }

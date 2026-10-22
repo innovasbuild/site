@@ -179,7 +179,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
     </main>
   )
 }

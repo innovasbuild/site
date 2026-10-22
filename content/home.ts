@@ -1,5 +1,5 @@
 import type { Cta, Vertical } from "./types"
-import { primaryCta, primaryCtaNote } from "./global"
+import { primaryCta, primaryCtaNote, conversationCta } from "./global"
 
 export const hero = {
   eyebrow: "// IA suelta → IA ordenada",
@@ -9,8 +9,8 @@ export const hero = {
   subhead:
     "El conocimiento de tu empresa, sus agentes y sus herramientas en un solo lugar, con permisos sobre quién accede a qué. Tu gente trabaja desde la plataforma o desde el asistente que ya usa, y nuestro equipo la implementa con vos.",
   ctaPrimary: primaryCta,
-  ctaSecondary: { label: "Conocé Central IA →", href: "/central-ia" } as Cta,
-  note: "30 minutos con quien conduce la empresa, sin costo.",
+  ctaSecondary: conversationCta,
+  note: primaryCtaNote,
   rails: [
     { from: "licencias sueltas", to: "IA de toda la empresa", vertical: "company" as Vertical, note: "adopción" },
     { from: "cada uno por su cuenta", to: "permisos por persona", vertical: "company" as Vertical, note: "gobierno" },
@@ -212,7 +212,8 @@ export const faqSection = {
 }
 
 export const finalCta = {
-  title: "Contanos cómo está la IA en tu empresa hoy",
+  title: "Ordená la IA de tu empresa",
   cta: primaryCta,
+  secondary: conversationCta,
   note: primaryCtaNote,
 }

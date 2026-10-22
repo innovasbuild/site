@@ -26,6 +26,7 @@ export default function CentralIaPage() {
         supportLine={hero.supportLine}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
+        ctaSecondary={hero.ctaSecondary}
       />
 
       <PageSection kicker={brain.kicker} posterTitle={brain.posterTitle} width="lg">
@@ -102,7 +103,7 @@ export default function CentralIaPage() {
         <ArrowList items={sistemas.items} className="mt-8" />
       </PageSection>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
     </main>
   )
 }

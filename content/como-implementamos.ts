@@ -1,4 +1,4 @@
-import { primaryCta, primaryCtaNote } from "./global"
+import { primaryCta, conversationCta, conversationCtaNote } from "./global"
 
 export const hero = {
   eyebrow: "// método → por olas",
@@ -8,6 +8,7 @@ export const hero = {
   subhead:
     "Implementamos Central IA adentro de tu empresa con un método de etapas cortas. Cada una tiene alcance cerrado y un resultado que queda funcionando.",
   ctaPrimary: primaryCta,
+  ctaSecondary: conversationCta,
 }
 
 export const camino = {
@@ -114,6 +115,7 @@ export const roles = {
 
 export const finalCta = {
   title: "Empecemos por conversar",
-  cta: primaryCta,
-  note: primaryCtaNote,
+  cta: conversationCta,
+  secondary: primaryCta,
+  note: conversationCtaNote,
 }

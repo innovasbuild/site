@@ -1,16 +1,27 @@
 import type { Cta, FooterColumn, NavLink } from "./types"
 
+/** App de Central IA: ahí viven el alta, el onboarding y los pagos. */
+export const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.innov.as"
+
+/** Link al alta en la app con el plan elegido. */
+export const signupHref = (plan: "gratis" | "equipo") => `${appUrl}/signup?plan=${plan}`
+
 export const navLinks: NavLink[] = [
   { label: "Central IA", href: "/central-ia" },
   { label: "Cómo implementamos", href: "/como-implementamos" },
+  { label: "Precios", href: "/precios" },
   { label: "Nosotros", href: "/nosotros" },
 ]
 
-export const navCta: Cta = { label: "Contactanos", href: "/contacto" }
+/** CTA principal del sitio: el alta gratis en la app. */
+export const primaryCta: Cta = { label: "Empezá gratis", href: signupHref("gratis") }
+export const primaryCtaNote = "Gratis hasta 3 usuarios y 5 skills. El uso de IA se paga por consumo."
 
-/** CTA principal del sitio: la primera conversación. */
-export const primaryCta: Cta = { label: "Agendá una primera conversación", href: "/contacto" }
-export const primaryCtaNote = "30 minutos, sin costo, con el equipo que después implementa."
+export const navCta: Cta = primaryCta
+
+/** CTA secundario: la primera conversación con el equipo. */
+export const conversationCta: Cta = { label: "Agendá una primera conversación", href: "/contacto" }
+export const conversationCtaNote = "30 minutos, sin costo, con el equipo que después implementa."
 
 export const footerColumns: FooterColumn[] = [
   {},
@@ -19,6 +30,7 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: "Central IA", href: "/central-ia" },
       { label: "Cómo implementamos", href: "/como-implementamos" },
+      { label: "Precios", href: "/precios" },
       { label: "Nosotros", href: "/nosotros" },
       { label: "Proyectos a medida", href: "/proyectos" },
       { label: "Contacto", href: "/contacto" },
