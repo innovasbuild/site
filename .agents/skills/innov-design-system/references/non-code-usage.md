@@ -137,7 +137,7 @@ Guía agnóstica del formato. Los decks de INNOV.AS se arman en el formato nativ
 **Esqueleto sugerido** (el del sitio; se adapta a la audiencia)
 1. Portada con el logo y el titular.
 2. Los tres dolores, con sus ilustraciones.
-3. Las tres piezas de Central IA: Brain, agentes y herramientas.
+3. Las tres piezas de Central IA: Brain, agentes y herramientas, con la captura de sus escenas en volumen.
 4. Gobierno: "tu gente decide, los agentes ejecutan".
 5. Dos puertas: la plataforma y el asistente que la persona ya usa.
 6. Camino del cliente: primera conversación, Radar, ola cero, olas y operación continua.
@@ -152,12 +152,16 @@ Guía agnóstica del formato. Los decks de INNOV.AS se arman en el formato nativ
 - Sin guion largo ni signos de apertura (¿ ¡) en ningún texto.
 - Máximo 2 slides oscuras, un titular póster y 2 cintas por slide.
 
+## Escenas en volumen (v1.4)
+
+Las piezas del producto (Brain, Agentes, Herramientas) tienen escenas animadas en volumen en el sitio. En una pieza fija se usa una captura del render a 2x, tomada sobre el mismo fondo de la slide o página (`#EDE8DC` o `#E4DDCC`), sin recorte ni sombra agregada. No se rearman a mano en otra herramienta ni se recolorean. Los agentes llevan visor y ojos: es la única figura con cara del sistema. Si hace falta una escena que no existe, se pide siguiendo el procedimiento de escena animada del `SKILL.md`.
+
 ## Contenido y voz
 
 Antes de escribir el copy de cualquier pieza, aplicá la sección "Contenido y voz en piezas de marca" del `SKILL.md` (canon en `marketing/mensajes-innovas` del brain).
 
 ## Qué evitar
 
-- No uses degradés, sombras difusas (blur) o íconos 3D rellenos — el sistema usa trazo lineal fino y sombras sólidas con offset, no blur.
+- No uses degradés, sombras difusas (blur) o íconos 3D rellenos — el sistema usa trazo lineal fino y sombras sólidas con offset, no blur. La única excepción son las capturas de las escenas en volumen de las piezas del producto.
 - No pintes una slide o página entera de plum.
 - No uses taupe para texto que alguien tiene que leer con atención (cuerpo, CTAs, datos clave).
