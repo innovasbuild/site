@@ -46,7 +46,7 @@ export const planes = {
         "Permisos por carpeta y por página.",
         "Hasta 5 skills.",
         "Conexión a Claude y ChatGPT por MCP.",
-        "Ingreso con Google o con link por mail.",
+        "Ingreso restringible al dominio de tu empresa.",
       ],
       cta: { label: "Empezá gratis", href: signupHref("gratis") },
       note: "El uso de IA dentro de la plataforma se paga por consumo.",
@@ -85,7 +85,7 @@ export const planes = {
       ],
       cta: talkCta,
       link: { label: "Cómo implementamos →", href: "/como-implementamos" },
-      note: "Arranca con el Radar: USD 1.500, bonificado al implementar la ola cero.",
+      note: "Arranca con una evaluación completa del método de tu empresa.",
     },
   ] satisfies Plan[],
 }

@@ -8,7 +8,8 @@ import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { hero, planes, consumo, faqSection, faqPrecios, finalCta } from "@/content/precios"
 
-export const metadata: Metadata = buildMetadata("/precios", seo["/precios"])
+// Fuera del menú y sin indexar hasta que el portal de pagos esté listo.
+export const metadata: Metadata = buildMetadata("/precios", seo["/precios"], { noindex: true })
 
 export default function PreciosPage() {
   return (
