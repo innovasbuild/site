@@ -14,15 +14,17 @@
   --color-ink-70:       rgba(31, 27, 25, 0.68);  /* texto secundario */
   --color-ink-40:       rgba(31, 27, 25, 0.40);  /* texto terciario / labels apagados */
 
-  /* ---- Color: marca + verticales ---- */
-  --color-teal:         #0F6B60;   /* MARCA · empresas · agéntico — 5.22:1 sobre paper (AA) */
-  --color-plum:         #8C3B5D;   /* personas · educación — 5.93:1 sobre paper (AA) */
+  /* ---- Color: marca + roles de acento ---- */
+  --color-teal:         #0F6B60;   /* MARCA · plataforma · sistema · agentes — 5.22:1 sobre paper (AA) */
+  --color-plum:         #8C3B5D;   /* la gente de la empresa · decisión humana · guiño — 5.93:1 sobre paper (AA) */
   --color-taupe:        #A79E8E;   /* DECORATIVO: bordes/ticks/meta. NO texto chico (2.17:1) */
 
   /* ---- Color: semántico ---- */
   --color-brand:        var(--color-teal);
-  --color-vertical-company: var(--color-teal);   /* empresas / transformación */
-  --color-vertical-people:  var(--color-plum);   /* personas / educación */
+  --color-accent-system: var(--color-teal);   /* plataforma / sistema / agentes (v1.3) */
+  --color-accent-people: var(--color-plum);   /* la gente de la empresa (v1.3) */
+  --color-vertical-company: var(--color-teal);   /* DEPRECADO v1.3: usar --color-accent-system */
+  --color-vertical-people:  var(--color-plum);   /* DEPRECADO v1.3: usar --color-accent-people */
   --color-line:         rgba(31, 27, 25, 0.18);  /* hairlines */
   --color-on-brand:     #FFFFFF;   /* texto sobre teal (6.38:1) y plum (7.24:1) */
 
@@ -65,8 +67,8 @@
   --text-3xl:  3rem;       /* 48 */
   --text-hero: clamp(3.5rem, 6.6vw, 4.5rem);
 
-  /* ---- Color: superficie base para .docx/.pdf (el oat pesa en lectura larga) ---- */
-  --color-paper-print:  #FAF8F5;
+  /* ---- Color: superficie base para .pdf (el oat pesa en lectura larga; los .docx llevan #FFFFFF) ---- */
+  --color-paper-print:  #FAF8F5;   /* solo .pdf desde la v1.3; los .docx llevan #FFFFFF */
 
   /* ---- Radios ---- */
   --radius-sm: 3px;

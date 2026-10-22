@@ -73,7 +73,7 @@ export default function Home() {
           </div>
           <p className="mt-4 max-w-2xl text-ink-70">{piezas.intro}</p>
           <div className="mt-10 [&>div>div]:bg-paper">
-            <IllustratedCards cards={piezas.cards} />
+            <IllustratedCards cards={piezas.cards} animated sceneBg="--color-paper" />
           </div>
           <Link href={piezas.cta.href} className="mt-8 inline-block font-bold text-teal hover:underline">
             <ArrowText>{piezas.cta.label}</ArrowText>
