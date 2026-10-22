@@ -18,12 +18,14 @@ export default function NosotrosPage() {
   return (
     <main>
       <Hero
+        field="contours"
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}
         posterSize="sm"
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
+        ctaSecondary={hero.ctaSecondary}
       />
 
       <PageSection kicker={why.kicker} posterTitle={why.posterTitle}>
@@ -61,7 +63,7 @@ export default function NosotrosPage() {
         <ArrowList items={principles.items} className="mt-8" />
       </PageSection>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} />
     </main>
   )
 }

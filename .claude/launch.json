@@ -1,6 +1,7 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "site", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 3300 }
+    { "name": "site", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev"], "port": 3300 },
+    { "name": "lab", "runtimeExecutable": "bash", "runtimeArgs": ["-c", "cd ../site-lab && npx next dev -p ${PORT:-3310}"], "port": 3310 }
   ]
 }

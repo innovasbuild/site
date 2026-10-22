@@ -7,9 +7,9 @@ import { PosterHeading } from "@/components/poster-heading"
 import { StatCounter } from "@/components/stat-counter"
 import { VerticalRail } from "@/components/vertical-rail"
 import { CtaBanner } from "@/components/cta-banner"
-import { EconomicsCard } from "@/components/economics-card"
 import { Faq } from "@/components/faq"
 import { StepCards } from "@/components/step-cards"
+import { ArrowList } from "@/components/arrow-list"
 import { IllustratedCards } from "@/components/illustrated-cards"
 import { JsonLd } from "@/components/json-ld"
 import { productSchema } from "@/lib/schema"
@@ -21,8 +21,8 @@ import {
   gobierno,
   dosPuertas,
   pasos,
-  implementacion,
-  primerPaso,
+  empezar,
+  servicios,
   trayectoria,
   quienesSomos,
   faqSection,
@@ -117,35 +117,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 05 — Cómo implementamos */}
+      {/* 05 — Cómo empezar: alta propia */}
       <section className="mx-auto max-w-6xl px-6 py-20">
-        <SectionKicker index={implementacion.kicker.index} label={implementacion.kicker.label} />
+        <SectionKicker index={empezar.kicker.index} label={empezar.kicker.label} />
         <div className="mt-3">
-          <PosterHeading size="sm">{implementacion.posterTitle}</PosterHeading>
+          <PosterHeading size="sm" accent={empezar.posterAccent}>{empezar.posterTitle}</PosterHeading>
         </div>
-        <p className="mt-4 max-w-2xl text-ink-70">{implementacion.intro}</p>
+        <p className="mt-4 max-w-2xl text-ink-70">{empezar.intro}</p>
         <div className="mt-10">
           <StepCards steps={pasos} />
         </div>
-        <p className="mt-6 max-w-3xl text-sm text-ink-70">{implementacion.note}</p>
-        <Link href={implementacion.cta.href} className="mt-6 inline-block font-bold text-teal hover:underline">
-          <ArrowText>{implementacion.cta.label}</ArrowText>
+        <Link
+          href={empezar.cta.href}
+          className="mt-8 inline-block rounded bg-teal px-6 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
+        >
+          <ArrowText>{empezar.cta.label}</ArrowText>
         </Link>
       </section>
 
-      {/* 06 — El primer paso, puertas adentro */}
+      {/* 06 — Servicios: la implementación como opción */}
       <section className="border-y border-line bg-paper-soft">
         <div className="mx-auto max-w-6xl px-6 py-20">
-          <SectionKicker index={primerPaso.kicker.index} label={primerPaso.kicker.label} />
+          <SectionKicker index={servicios.kicker.index} label={servicios.kicker.label} />
           <div className="mt-3">
-            <PosterHeading size="sm">{primerPaso.posterTitle}</PosterHeading>
+            <PosterHeading size="sm" accent={servicios.posterAccent}>{servicios.posterTitle}</PosterHeading>
           </div>
-          <p className="mt-4 max-w-2xl text-ink-70">{primerPaso.intro}</p>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 [&>div]:bg-paper">
-            {primerPaso.cards.map((card) => (
-              <EconomicsCard key={card.title} title={card.title} items={card.items} />
-            ))}
-          </div>
+          <p className="mt-4 max-w-3xl text-ink-70">{servicios.intro}</p>
+          <ArrowList items={servicios.items} className="mt-6 max-w-3xl" />
+          <Link href={servicios.cta.href} className="mt-8 inline-block font-bold text-teal hover:underline">
+            <ArrowText>{servicios.cta.label}</ArrowText>
+          </Link>
         </div>
       </section>
 
@@ -179,7 +180,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
     </main>
   )
 }

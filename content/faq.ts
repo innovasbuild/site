@@ -10,9 +10,9 @@ export const faqProducto: FaqItem[] = [
       "Las aprovecha. La licencia le da un asistente a cada persona. Central IA le da a la empresa un conocimiento compartido, permisos y agentes, y cada persona los usa desde el asistente que ya tiene.",
   },
   {
-    question: "Cuánto tarda en verse algo?",
+    question: "Necesito contratarlos para usar Central IA?",
     answer:
-      "La ola cero dura tres meses y se concentra en un solo caso de negocio. En las primeras semanas ya hay algo andando.",
+      "No. Creás la cuenta de tu empresa y la usan solos. Si querés que la implementemos con vos, es el plan Empresa: relevamos tu método, armamos el Brain y los agentes, y la operamos con tu equipo.",
   },
   {
     question: "Dónde queda la información de mi empresa?",
@@ -25,23 +25,23 @@ export const faqProducto: FaqItem[] = [
       "Con el correo de la empresa: por invitación, o abierto a quien tenga un correo verificado de tu dominio. El ingreso es con la cuenta de Microsoft o de Google de la empresa, o con un link que llega por mail.",
   },
   {
-    question: "Qué necesitamos de nuestro lado?",
-    answer:
-      "Quien conduce la empresa en la mesa, una persona de sistemas como interlocutor y un grupo chico del área por la que se empieza.",
-  },
-  {
     question: "Cuánto cuesta?",
     answer:
-      "El primer paso es el Radar: USD 1.500, bonificado si implementás la ola cero. Cada ola se cotiza con alcance cerrado antes de empezar. La plataforma tiene un mantenimiento mensual más el consumo de modelos, que te informamos.",
+      "Podés empezar gratis, con hasta 3 usuarios y 5 skills. Cuando se suma más gente, se paga por usuario, y el uso de IA dentro de la plataforma se paga por consumo. Si la implementamos con vos, cada ola se cotiza con alcance cerrado antes de empezar.",
+  },
+]
+
+export const faqMetodo: FaqItem[] = [
+  {
+    question: "Qué necesitamos de nuestro lado para implementar?",
+    answer:
+      "Quien conduce la empresa en la mesa, una persona de sistemas como interlocutor y un grupo chico del área por la que se empieza.",
   },
   {
     question: "Qué diferencia hay entre el Radar y el Mapa del Método?",
     answer:
       "El Radar dimensiona la ola cero y traza un plan a dos años en pocas horas de tu equipo directivo. El Mapa del Método entra en cada área del negocio y define en detalle el alcance de las olas trimestrales para toda la empresa. Se bonifica al implementar la ola cero y la ola uno.",
   },
-]
-
-export const faqMetodo: FaqItem[] = [
   {
     question: "Qué pasa si frenamos después del Radar?",
     answer:

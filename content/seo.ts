@@ -11,10 +11,15 @@ export const seo: Record<string, SeoMeta> = {
     description:
       "El conocimiento de la empresa, sus agentes y sus herramientas en un solo lugar, con permisos por persona. Se usa desde la plataforma o desde Claude y ChatGPT.",
   },
-  "/como-implementamos": {
-    title: "Cómo implementamos Central IA: por olas de tres meses | INNOV.AS",
+  "/servicios": {
+    title: "Servicios: implementamos Central IA con tu equipo | INNOV.AS",
     description:
-      "Primera conversación, Radar y una ola cero de tres meses que deja funcionando el Brain, los permisos y un primer circuito de negocio. Cada ola siguiente entrega algo operando.",
+      "El plan Empresa de Central IA: relevamos el método de tu empresa, armamos el Brain y las skills, preparamos los agentes y operamos la plataforma con vos, por olas de tres meses.",
+  },
+  "/precios": {
+    title: "Precios de Central IA: gratis hasta 3 usuarios | INNOV.AS",
+    description:
+      "Central IA es gratis hasta 3 usuarios y 5 skills. El plan Equipo cuesta USD 10 por usuario por mes, y el plan Empresa se implementa a medida con nuestro equipo.",
   },
   "/proyectos": {
     title: "Proyectos a medida: plataformas, datos y software | INNOV.AS",

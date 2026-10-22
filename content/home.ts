@@ -1,5 +1,5 @@
 import type { Cta, Vertical } from "./types"
-import { primaryCta, primaryCtaNote } from "./global"
+import { primaryCta, primaryCtaNote, conversationCta } from "./global"
 
 export const hero = {
   eyebrow: "// IA suelta → IA ordenada",
@@ -7,10 +7,10 @@ export const hero = {
   posterAccent: "IA",
   supportLine: "La plataforma que ordena la adopción de IA en tu empresa.",
   subhead:
-    "El conocimiento de tu empresa, sus agentes y sus herramientas en un solo lugar, con permisos sobre quién accede a qué. Tu gente trabaja desde la plataforma o desde el asistente que ya usa, y nuestro equipo la implementa con vos.",
+    "El conocimiento de tu empresa, sus agentes y sus herramientas en un solo lugar, con permisos sobre quién accede a qué. Tu gente trabaja desde la plataforma o desde el asistente que ya usa. Si querés, nuestro equipo la implementa con vos.",
   ctaPrimary: primaryCta,
-  ctaSecondary: { label: "Conocé Central IA →", href: "/central-ia" } as Cta,
-  note: "30 minutos con quien conduce la empresa, sin costo.",
+  ctaSecondary: conversationCta,
+  note: primaryCtaNote,
   rails: [
     { from: "licencias sueltas", to: "IA de toda la empresa", vertical: "company" as Vertical, note: "adopción" },
     { from: "cada uno por su cuenta", to: "permisos por persona", vertical: "company" as Vertical, note: "gobierno" },
@@ -116,60 +116,47 @@ export const dosPuertas = {
 
 export const pasos = [
   {
-    title: "Primera conversación.",
+    title: "Creás la cuenta.",
     description:
-      "30 minutos con quien conduce la empresa. Vemos qué IA ya usan, dónde quedó trabada y si tiene sentido seguir. Sin costo.",
+      "Con el correo de tu empresa, en minutos. Es gratis hasta 3 usuarios y 5 skills.",
   },
   {
-    title: "Radar.",
+    title: "Invitás a tu equipo.",
     description:
-      "Tres a cuatro horas de reuniones con tu equipo directivo. Te llevás un informe con el método de tu empresa relevado, los puntos de dolor y las oportunidades, ordenados en un plan a dos años con datos, habilidades, agentes y herramientas. USD 1.500, bonificado si implementás la ola cero.",
+      "Definís quién lee y quién escribe en cada carpeta, o abrís el ingreso a todo el dominio de tu empresa.",
   },
   {
-    title: "Ola cero, tres meses.",
+    title: "Cargás el Brain.",
     description:
-      "Deja funcionando el Brain, los permisos y un primer circuito de negocio, con un grupo chico de tu equipo y una reunión de trabajo por semana. Vas a ver algo andando en las primeras semanas.",
+      "Procesos, criterios y las skills que tu equipo repite todos los días, ordenados en carpetas y con responsables.",
   },
   {
-    title: "Olas siguientes y operación.",
+    title: "Conectás tu asistente.",
     description:
-      "Cada ola dura tres meses y termina con algo operando. Entre una ola y la siguiente decidís si seguís, cambiás el orden o frenás. La velocidad la elegís vos.",
+      "Cada persona suma Central IA a su Claude o su ChatGPT, o entra directo desde el navegador, con sus permisos.",
   },
 ]
 
-export const implementacion = {
-  kicker: { index: "05", label: "cómo implementamos" },
-  posterTitle: "Por olas",
-  intro:
-    "Central IA llega con el equipo que la implementa. Relevamos cómo trabaja tu empresa, armamos el Brain y preparamos cada agente con vos.",
-  note: "Para planificar la mejora de toda la empresa existe el Mapa del Método, un relevamiento más profundo que define el alcance de cada ola trimestral, área por área.",
-  cta: { label: "Ver el método completo →", href: "/como-implementamos" } as Cta,
+export const empezar = {
+  kicker: { index: "05", label: "cómo empezar" },
+  posterTitle: "Empezá hoy",
+  posterAccent: "hoy",
+  intro: "Central IA se usa sola. Tu equipo arranca en una tarde, sin instalar nada.",
+  cta: primaryCta,
 }
 
-export const primerPaso = {
-  kicker: { index: "06", label: "el primer paso" },
-  posterTitle: "Un paso acotado",
-  intro: "El primer compromiso es chico, tiene precio fijo y deja un informe que sirve aunque la decisión sea frenar ahí.",
-  cards: [
-    {
-      title: "Qué se aprueba",
-      items: [
-        "Un Radar de USD 1.500: tres a cuatro horas de tu equipo directivo.",
-        "Un informe escrito que queda en la empresa: método relevado, puntos de dolor, oportunidades y plan a dos años.",
-        "El Radar se bonifica completo al implementar la ola cero.",
-        "Entre ola y ola hay un punto de decisión para seguir, reordenar o frenar.",
-      ],
-    },
-    {
-      title: "Qué riesgo baja",
-      items: [
-        "La información de la empresa pasa a trabajarse en un espacio con usuarios corporativos y permisos.",
-        "La empresa define quién lee y quién escribe en cada tema.",
-        "Se aprovechan las licencias de IA que ya se pagan.",
-        "Todo lo que llega a un cliente pasa antes por una persona.",
-      ],
-    },
+export const servicios = {
+  kicker: { index: "06", label: "servicios" },
+  posterTitle: "Con nuestro equipo",
+  posterAccent: "equipo",
+  intro:
+    "Si querés ir más rápido, implementamos Central IA con vos. Es el plan Empresa: relevamos el método de tu empresa, armamos el Brain y las skills, preparamos los agentes y operamos la plataforma por olas de tres meses, cada una con algo funcionando al final.",
+  items: [
+    "Arranca con el Radar: unas horas con tu equipo directivo y un plan a dos años.",
+    "Cada ola tiene alcance cerrado y se cotiza antes de empezar.",
+    "Entre una ola y la siguiente decidís si seguís, cambiás el orden o frenás.",
   ],
+  cta: { label: "Ver servicios →", href: "/servicios" } as Cta,
 }
 
 export const trayectoria = {
@@ -212,7 +199,8 @@ export const faqSection = {
 }
 
 export const finalCta = {
-  title: "Contanos cómo está la IA en tu empresa hoy",
+  title: "Ordená la IA de tu empresa",
   cta: primaryCta,
+  secondary: conversationCta,
   note: primaryCtaNote,
 }

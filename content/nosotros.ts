@@ -1,5 +1,5 @@
 import type { Cta } from "./types"
-import { primaryCta } from "./global"
+import { primaryCta, conversationCta } from "./global"
 
 export const hero = {
   eyebrow: "// nosotros → terreno",
@@ -8,6 +8,7 @@ export const hero = {
   subhead:
     "INNOV.AS nace de años de construir tecnología para organizaciones con poco margen de error. De esa experiencia sale Central IA: la plataforma que ordena la adopción de IA en la empresa, y el equipo que la implementa.",
   ctaPrimary: primaryCta,
+  ctaSecondary: conversationCta,
 }
 
 export const why = {
@@ -58,6 +59,7 @@ export const principles = {
 }
 
 export const finalCta = {
-  title: "Conversemos",
+  title: "Empezá con tu equipo",
   cta: primaryCta,
+  secondary: conversationCta,
 }
