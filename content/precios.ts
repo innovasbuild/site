@@ -141,7 +141,7 @@ export const faqPrecios: FaqItem[] = [
   {
     question: "Cómo se cotiza el plan Empresa?",
     answer:
-      "Empieza con una primera conversación sin costo. Si tiene sentido seguir, el Radar releva tu empresa en tres a cuatro horas con el equipo directivo y dimensiona la implementación. Cuesta USD 1.500 y se bonifica al implementar la ola cero.",
+      "Empieza con una primera conversación sin costo. Si tiene sentido seguir, el Radar releva tu empresa en tres a cuatro horas con el equipo directivo y dimensiona la implementación. Se bonifica al implementar la ola cero.",
   },
 ]
 

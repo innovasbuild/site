@@ -43,7 +43,7 @@ export const diagnosticos = {
   posterTitle: "Dos formas de empezar",
   cards: [
     {
-      title: "Radar · USD 1.500",
+      title: "Radar",
       lead: "Para dimensionar la ola cero.",
       items: [
         "Tres a cuatro horas de reuniones con el equipo directivo.",

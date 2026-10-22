@@ -32,7 +32,7 @@ export const faqProducto: FaqItem[] = [
   {
     question: "Cuánto cuesta?",
     answer:
-      "El primer paso es el Radar: USD 1.500, bonificado si implementás la ola cero. Cada ola se cotiza con alcance cerrado antes de empezar. La plataforma tiene un mantenimiento mensual más el consumo de modelos, que te informamos.",
+      "El primer paso es el Radar, que se bonifica si implementás la ola cero. Cada ola se cotiza con alcance cerrado antes de empezar. La plataforma tiene un mantenimiento mensual más el consumo de modelos, que te informamos.",
   },
   {
     question: "Qué diferencia hay entre el Radar y el Mapa del Método?",

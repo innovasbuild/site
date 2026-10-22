@@ -12,7 +12,7 @@ INNOV.AS tiene base en Buenos Aires, Argentina, y trabaja con empresas pequeñas
 
 ## Cómo se implementa
 
-- [Cómo implementamos](https://innov.as/como-implementamos): una primera conversación sin costo; el Radar (USD 1.500, tres a cuatro horas con el equipo directivo, informe con un plan a dos años, bonificado al implementar la ola cero); una ola cero de tres meses que deja funcionando el Brain, los permisos y un primer circuito de negocio; y olas siguientes de tres meses, cada una con algo operando. Para planificar toda la empresa existe el Mapa del Método.
+- [Cómo implementamos](https://innov.as/como-implementamos): una primera conversación sin costo; el Radar (tres a cuatro horas con el equipo directivo, informe con un plan a dos años, bonificado al implementar la ola cero); una ola cero de tres meses que deja funcionando el Brain, los permisos y un primer circuito de negocio; y olas siguientes de tres meses, cada una con algo operando. Para planificar toda la empresa existe el Mapa del Método.
 
 ## Más información
 

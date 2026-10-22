@@ -123,7 +123,7 @@ export const pasos = [
   {
     title: "Radar.",
     description:
-      "Tres a cuatro horas de reuniones con tu equipo directivo. Te llevás un informe con el método de tu empresa relevado, los puntos de dolor y las oportunidades, ordenados en un plan a dos años con datos, habilidades, agentes y herramientas. USD 1.500, bonificado si implementás la ola cero.",
+      "Tres a cuatro horas de reuniones con tu equipo directivo. Te llevás un informe con el método de tu empresa relevado, los puntos de dolor y las oportunidades, ordenados en un plan a dos años con datos, habilidades, agentes y herramientas. Se bonifica si implementás la ola cero.",
   },
   {
     title: "Ola cero, tres meses.",
@@ -154,7 +154,7 @@ export const primerPaso = {
     {
       title: "Qué se aprueba",
       items: [
-        "Un Radar de USD 1.500: tres a cuatro horas de tu equipo directivo.",
+        "Un Radar: tres a cuatro horas de tu equipo directivo.",
         "Un informe escrito que queda en la empresa: método relevado, puntos de dolor, oportunidades y plan a dos años.",
         "El Radar se bonifica completo al implementar la ola cero.",
         "Entre ola y ola hay un punto de decisión para seguir, reordenar o frenar.",
