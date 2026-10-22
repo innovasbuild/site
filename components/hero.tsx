@@ -3,6 +3,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import type { Cta } from "@/content/types"
 import { HeroDots, type HeroDotsParams } from "@/components/hero-dots"
+import { HeroField, type HeroFieldPattern } from "@/components/hero-field"
 import { PosterHeading } from "@/components/poster-heading"
 import { TapeLabel } from "@/components/tape-label"
 
@@ -29,6 +30,8 @@ interface HeroProps {
   backdrop?: "dots"
   /** Parámetros de la trama cuando backdrop es "dots". */
   dotsParams?: HeroDotsParams
+  /** Fondo animado propio de la página (ver HeroField). */
+  field?: HeroFieldPattern
 }
 
 export function Hero({
@@ -47,6 +50,7 @@ export function Hero({
   variant = "light",
   backdrop,
   dotsParams,
+  field,
 }: HeroProps) {
   const isDark = variant === "dark"
 
@@ -55,6 +59,7 @@ export function Hero({
       {isDark && backdrop === "dots" && (
         <HeroDots className="absolute inset-0 z-0 h-full w-full" params={dotsParams} />
       )}
+      {field && <HeroField pattern={field} surface={variant} className="absolute inset-0 z-0 h-full w-full" />}
       <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 md:py-32">
         <p className={cn("font-mono text-xs uppercase tracking-wider", isDark ? "text-paper/70" : "text-teal")}><ArrowText>{eyebrow}</ArrowText></p>
 

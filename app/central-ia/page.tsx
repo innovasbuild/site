@@ -19,6 +19,7 @@ export default function CentralIaPage() {
     <main>
       <JsonLd data={productSchema} />
       <Hero
+        field="flow"
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}

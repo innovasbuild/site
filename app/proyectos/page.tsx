@@ -20,6 +20,7 @@ export default function ProyectosPage() {
     <main>
       <JsonLd data={buildServiceCatalogSchema()} />
       <Hero
+        field="blocks"
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}

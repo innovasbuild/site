@@ -18,6 +18,7 @@ export default function NosotrosPage() {
   return (
     <main>
       <Hero
+        field="contours"
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}

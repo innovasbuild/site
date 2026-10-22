@@ -18,6 +18,7 @@ export default function ComoImplementamosPage() {
   return (
     <main>
       <Hero
+        field="waves"
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}

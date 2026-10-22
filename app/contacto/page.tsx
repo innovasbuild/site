@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { ArrowText } from "@/components/arrow"
+import { HeroField } from "@/components/hero-field"
 import { ContactForm } from "@/components/contact-form"
 import { OrientationCard } from "@/components/orientation-card"
 import { seo } from "@/content/seo"
@@ -11,8 +12,9 @@ export const metadata: Metadata = buildMetadata("/contacto", seo["/contacto"])
 export default function ContactoPage() {
   return (
     <main>
-      <section className="border-b border-line bg-paper">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center">
+      <section className="relative overflow-hidden border-b border-line bg-paper">
+        <HeroField pattern="signal" align="center" className="absolute inset-0 z-0 h-full w-full" />
+        <div className="relative z-10 mx-auto max-w-3xl px-6 py-20 text-center">
           <p className="font-mono text-xs uppercase tracking-wider text-teal"><ArrowText>{hero.eyebrow}</ArrowText></p>
           <h1 className="mt-6 text-balance font-display text-4xl font-bold text-ink md:text-5xl">{hero.title}</h1>
           <p className="mt-4 text-balance text-lg text-ink-70">{hero.subhead}</p>

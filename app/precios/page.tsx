@@ -15,6 +15,7 @@ export default function PreciosPage() {
   return (
     <main>
       <Hero
+        field="meter"
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}
