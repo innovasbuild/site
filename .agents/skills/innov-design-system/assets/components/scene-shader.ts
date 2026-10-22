@@ -136,10 +136,12 @@ fn sceneEscritura(p: vec3f) {
     let a = t * 0.32 + fi * 1.047;
     var c = vec3f(cos(a) * 1.6, sin(a * 2.0 + fi) * 0.22, sin(a) * 0.8);
     c.y += c.z * 0.25;
-    put(length(p - c) - 0.17, select(1.0, 3.0, i == 0), p - c, 0.0);
+    put(length(p - c) - 0.17, select(4.0, 3.0, i == 0), p - c, 0.0);
     let f = fract(t * 0.45 + fi * 0.37);
     let k = mix(c, vec3f(0.0), f);
-    put(length(p - k) - 0.06 * (1.0 - f * 0.4), 4.0, p - k, 0.0);
+    let ks = 0.05 * (1.0 - f * 0.4);
+    let kp = rotY(rotX(p - k, t + fi), t * 1.2 + fi);
+    put(sdBox(kp, vec3f(ks * 0.6), ks * 0.4), 1.0, kp, 0.0);
   }
 }
 
@@ -268,7 +270,7 @@ fn matLight(m: f32) -> vec3f {
   if (m < 1.5) { return mix(params.paper, vec3f(1.0), 0.2); }
   if (m < 2.5) { return params.teal; }
   if (m < 3.5) { return params.plum; }
-  if (m < 4.5) { return mix(params.taupe, params.paper, 0.3); }
+  if (m < 4.5) { return mix(params.taupe, params.paper, 0.12); }
   return params.ink;
 }
 fn matDot(m: f32) -> vec3f {
