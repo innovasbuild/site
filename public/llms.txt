@@ -2,7 +2,7 @@
 
 > INNOV.AS ofrece Central IA, la plataforma que ordena la adopción de IA en la empresa, con gobernanza sobre la información, los agentes y las herramientas, y el equipo que la implementa.
 
-Para empresas que ya tienen IA entrando por todos lados y necesitan ordenarla. Se puede empezar gratis, con hasta 3 usuarios. En Central IA viven el conocimiento de la empresa (Brain), sus agentes y sus herramientas, con permisos sobre quién accede a qué. Cada persona trabaja desde la plataforma o desde el asistente que ya usa, como Claude o ChatGPT, conectado por MCP. Como servicio opcional, INNOV.AS implementa sobre esa plataforma: releva el método de la empresa, arma el Brain y prepara los agentes que la empresa necesita.
+Para empresas que ya tienen IA entrando por todos lados y necesitan ordenarla. Se puede empezar gratis por tres meses, con hasta 3 usuarios. En Central IA viven el conocimiento de la empresa (Brain), sus agentes y sus herramientas, con permisos sobre quién accede a qué. Cada persona trabaja desde la plataforma o desde el asistente que ya usa, como Claude o ChatGPT, conectado por MCP. Como servicio opcional, INNOV.AS implementa sobre esa plataforma: releva el método de la empresa, arma el Brain y prepara los agentes que la empresa necesita.
 
 INNOV.AS tiene base en Buenos Aires, Argentina, y trabaja con empresas pequeñas, medianas y grandes de Latinoamérica. Su equipo lleva 25 años transformando más de 150 organizaciones en 14 países.
 

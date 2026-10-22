@@ -118,7 +118,7 @@ export const pasos = [
   {
     title: "Creás la cuenta.",
     description:
-      "Con el correo de tu empresa, en minutos. Es gratis hasta 3 usuarios y 5 skills.",
+      "Con el correo de tu empresa, en minutos. Es gratis por tres meses, hasta 3 usuarios y 5 skills.",
   },
   {
     title: "Invitás a tu equipo.",

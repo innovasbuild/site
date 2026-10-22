@@ -38,9 +38,10 @@ export const planes = {
       id: "gratis",
       name: "Gratis",
       price: "USD 0",
-      period: "hasta 3 usuarios",
-      description: "Para que un equipo chico empiece a trabajar con lo que la empresa sabe.",
+      period: "por 3 meses, hasta 3 usuarios",
+      description: "Para que un equipo chico pruebe Central IA durante tres meses con lo que la empresa sabe.",
       features: [
+        "Tres meses de uso.",
         "Hasta 3 usuarios.",
         "Brain con páginas, carpetas e historial de versiones.",
         "Permisos por carpeta y por página.",
@@ -76,16 +77,15 @@ export const planes = {
         "Para implementar Central IA con un equipo con experiencia en IA en producción, que la opera con vos.",
       includesFrom: "Todo lo de Equipo, más:",
       features: [
-        "Relevamiento de tus procesos y sistemas.",
-        "Detección de oportunidades, ordenadas en un plan a dos años.",
-        "Skills y agentes armados con tu método.",
-        "Conexión de tus herramientas, como el CRM y el correo.",
-        "Despliegue y operación continua de la plataforma.",
-        "Acompañamiento para que tu gente la adopte.",
+        "Radar: tres a cuatro horas con tu equipo directivo y un plan a dos años. Bonificado al implementar la ola cero.",
+        "Mapa del Método: el método de cada área del negocio, con el alcance de cada ola trimestral. Bonificado al implementar la ola cero y la ola uno.",
+        "Olas de trabajo de tres meses, con alcance cerrado y algo operando al final de cada una.",
+        "Skills y agentes armados con tu método, y tus herramientas conectadas.",
+        "Operación continua de la plataforma y acompañamiento para que tu gente la adopte.",
       ],
       cta: talkCta,
       link: { label: "Ver servicios →", href: "/servicios" },
-      note: "Arranca con una evaluación completa del método de tu empresa.",
+      note: "Arranca con el Radar o con el Mapa del Método.",
     },
   ] satisfies Plan[],
 }
@@ -130,6 +130,11 @@ export const faqPrecios: FaqItem[] = [
       "La empresa pasa al plan Equipo y paga por cada usuario. Todo lo que cargaron en el plan Gratis queda igual.",
   },
   {
+    question: "Qué pasa a los tres meses?",
+    answer:
+      "Para seguir usando Central IA, la empresa pasa al plan Equipo y paga por cada usuario. Todo lo que cargaron en el plan Gratis queda igual.",
+  },
+  {
     question: "Necesito tener ChatGPT o Claude?",
     answer:
       "No. Quien trabaja sin asistente propio entra directo a la plataforma desde el navegador. Quien ya tiene una licencia conecta Central IA a su asistente y la usa desde ahí.",
@@ -141,7 +146,7 @@ export const faqPrecios: FaqItem[] = [
   {
     question: "Cómo se cotiza el plan Empresa?",
     answer:
-      "Empieza con una primera conversación sin costo. Si tiene sentido seguir, el Radar releva tu empresa en tres a cuatro horas con el equipo directivo y dimensiona la implementación. Se bonifica al implementar la ola cero.",
+      "Empieza con una primera conversación sin costo. Si tiene sentido seguir, hay dos diagnósticos. El Radar releva tu empresa en tres a cuatro horas con el equipo directivo, dimensiona la ola cero y se bonifica al implementarla. El Mapa del Método entra en cada área del negocio, define el alcance de las olas trimestrales y se bonifica al implementar la ola cero y la ola uno. Cada ola de trabajo se cotiza con alcance cerrado antes de empezar.",
   },
 ]
 
@@ -149,5 +154,5 @@ export const finalCta = {
   title: "Creá la cuenta de tu empresa",
   cta: primaryCta,
   secondary: talkCta,
-  note: "Gratis hasta 3 usuarios y 5 skills.",
+  note: "Gratis por tres meses, hasta 3 usuarios y 5 skills.",
 }
