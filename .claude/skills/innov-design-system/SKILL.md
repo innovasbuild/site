@@ -1,6 +1,6 @@
 ---
 name: "innov-design-system"
-description: "Sistema de identidad visual de INNOV.AS y de Central IA, su plataforma (\"Cálido / Notación de Transición\": paper/ink/teal/plum + Fraunces/Inter/Space Mono, escala póster, hero con trama de puntos, ilustraciones a mano con procedimiento obligatorio, escenas animadas en volumen). Usar SIEMPRE al construir, editar o revisar cualquier pieza de marca de INNOV.AS: sitio, decks, one-pagers, documentos Word (.docx, fondo blanco), PDF o cualquier UI o documento que deba verse \"de INNOV.AS\". Activar también con ilustraciones, dibujos a mano, ilustraciones animadas, escenas 3D, bots o agentes dibujados, diagramas, hero, colores, paleta, tipografías, tokens, logo, isotipo, favicon, titulares póster, cintas, camino del cliente o voz de marca. Incluye logo canónico, seis ilustraciones de referencia y reglas de contenido. Regla dura: cero hex o fuentes hardcodeados (var(--...) o Tailwind); el logo siempre es el SVG; toda ilustración sigue los ocho pasos y se renderiza con HandDrawn; las piezas del producto se animan en volumen con AgentScene (procedimiento propio); los Word llevan fondo blanco."
+description: "Sistema de identidad visual de INNOV.AS y de su plataforma Central IA: paleta paper/ink/teal/plum, Fraunces/Inter/Space Mono, escala póster, hero con trama de puntos, ilustraciones a mano y escenas animadas en volumen. Usar SIEMPRE al crear, editar o revisar cualquier pieza de marca de INNOV.AS: sitio, decks, one-pagers, Word, PDF o UI. Activar también con ilustraciones, dibujos, escenas 3D o animadas, bots o agentes dibujados, diagramas, hero, colores, tipografías, tokens, logo, favicon, titulares póster, cintas, camino del cliente o voz de marca. Reglas duras: cero hex o fuentes hardcodeados (var(--...) o Tailwind); el logo siempre es el SVG; las ilustraciones a mano siguen los ocho pasos con HandDrawn; las del sitio se animan en volumen con AgentScene y su procedimiento; los Word llevan fondo blanco."
 ---
 
 # INNOV.AS — Design System
@@ -13,7 +13,7 @@ description: "Sistema de identidad visual de INNOV.AS y de Central IA, su plataf
 
 **Actualización octubre 2026 (v1.2):** decidida por Mati el 2026-10-10 al replantear el sitio con Central IA adelante. Paleta, tipografías y logo no cambian. Cambian cuatro cosas: la escala póster web baja un escalón, el hero oscuro lleva una trama de puntos en WebGPU (`HeroDots`), la ilustración pasa de diagrama puro a objetos y diagramas con dos acentos (`HandDrawn`), y las reglas de movimiento admiten el dibujo progresivo de ilustraciones y el fondo animado del hero.
 
-**Actualización octubre 2026 (v1.4):** decidida por Mati el 2026-10-22 a partir de un pedido de Marcos (las ilustraciones a mano no cerraban para la venta corporativa). Las piezas del producto (Brain, Agentes, Herramientas) pasan a escenas animadas en volumen, en WebGPU, que reaccionan al cursor (`AgentScene`). Los agentes se representan como bots con visor y ojos. Las ilustraciones a mano siguen vigentes para el resto y como respaldo sin WebGPU.
+**Actualización octubre 2026 (v1.4):** decidida por Mati el 2026-10-22 a partir de un pedido de Marcos (las ilustraciones a mano no cerraban para la venta corporativa). Las ilustraciones del sitio (las tres piezas del producto y, desde el mismo día, los tres dolores) pasan a escenas animadas en volumen, en WebGPU, que reaccionan al cursor (`AgentScene`). Los agentes se representan como bots con visor y ojos. Las ilustraciones a mano quedan como respaldo sin WebGPU y para piezas fuera del sitio.
 
 **Actualización octubre 2026 (v1.3):** decidida el 2026-10-20 para alinear la identidad con el reposicionamiento del 2026-10-09 (Central IA adelante, En Paralelo a un costado, Desde Adentro despublicada). Paleta, tipografías, logo y todo lo de la v1.2 no cambian. Cambian cinco cosas: `teal` y `plum` pasan a codificar plataforma y gente en lugar de empresas y personas; el camino de 4 niveles educativo pasa a ser el camino del cliente; las piezas de marca siguen reglas de contenido y voz (sección propia); los documentos Word llevan fondo blanco; y se suma una guía para decks.
 
@@ -143,7 +143,7 @@ Decisión de Mati del 2026-10-10: toda ilustración de INNOV.AS se hace siguiend
 
 ## Ilustración animada en volumen (v1.4)
 
-Decidida por Mati el 2026-10-22, tras comparar tres sistemas en un laboratorio (volumen, trama de puntos y constelación de luz). Ganó **volumen**: es el más corporativo y el que mejor se lee. Se usa para las piezas del producto; los dolores y el resto siguen con la ilustración a mano.
+Decidida por Mati el 2026-10-22, tras comparar tres sistemas en un laboratorio (volumen, trama de puntos y constelación de luz). Ganó **volumen**: es el más corporativo y el que mejor se lee. Se usa en todas las ilustraciones del sitio: primero las piezas del producto y, por decisión de Mati del mismo día, también los dolores.
 
 - **Qué es:** escenas 3D chicas, mate, con luz suave y sombra de contacto, que se funden con el fondo de la superficie donde van (`paper` o `paper-soft`, sin caja ni borde propio). Se mueven despacio y en continuo, y reaccionan al cursor.
 - **Vocabulario fijo.** Toda escena se arma con estas formas, siempre con la misma construcción:
@@ -161,7 +161,7 @@ Decidida por Mati el 2026-10-22, tras comparar tres sistemas en un laboratorio (
 - **Cursor:** la escena gira apenas hacia el cursor, los agentes lo miran y la zona cercana se aclara un poco. Sin cursor, vaivén suave. Con `prefers-reduced-motion`, quietas y sin reacción.
 - **Composición:** una idea por escena, hasta unas 15 formas, lienzo 4:3. Nada se corta en el borde ni sale del cuadro al moverse.
 - **Respaldo:** cada escena tiene su par a mano (`HandDrawn`), que se muestra sin WebGPU. Una escena nueva no se publica sin su par.
-- **Dónde va:** piezas del producto en el home ("Tres piezas, un lugar") y en `/central-ia`. Solo sobre fondo claro. No va en el hero. Hasta unas seis escenas por página.
+- **Dónde va:** toda ilustración del sitio: dolores y piezas del producto en el home, y piezas en `/central-ia`. Una ilustración nueva del sitio se hace como escena en volumen, con su par a mano. Solo sobre fondo claro. No va en el hero. Hasta unas seis escenas por página.
 - **Rendimiento:** un solo dispositivo GPU compartido por todas las escenas de la página, solo se dibuja lo que está en pantalla, densidad de píxel entre 1 y 1.5.
 - **Componente:** `AgentScene` (`components/animated/agent-scene.tsx`, shader en `components/animated/scene-shader.ts`; copias en `assets/components/`). Props: `scene`, `look="volumen"`, `bg` (token del fondo de la superficie), `label` y `fallback`. El shader conserva los estilos `trama` y `constelacion` del laboratorio, no aprobados: no se usan.
 

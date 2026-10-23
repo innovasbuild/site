@@ -59,7 +59,7 @@ export default function Home() {
         </div>
         <p className="mt-4 max-w-2xl text-ink-70">{dolores.intro}</p>
         <div className="mt-10">
-          <IllustratedCards cards={dolores.cards} />
+          <IllustratedCards cards={dolores.cards} animated />
         </div>
         <p className="mt-8 font-display text-xl text-ink">{dolores.closing}</p>
       </section>
