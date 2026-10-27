@@ -17,6 +17,7 @@ export const hero = {
     "Donde vive lo que sabe tu empresa, trabajan sus agentes y se conectan sus sistemas, con permisos por persona y registro de todo. Nuestro equipo la implementa y la opera con vos.",
   ctaPrimary: conversationCta,
   ctaSecondary: primaryCta,
+  foto: imagenes.centralIaHero,
 }
 
 export type Ilustracion = "brain" | "agentes" | "herramientas"

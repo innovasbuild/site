@@ -12,9 +12,9 @@ export const seo: Record<string, SeoMeta> = {
       "El conocimiento de la empresa, sus agentes y sus herramientas en un solo lugar, con permisos por persona. Se usa desde la plataforma o desde Claude y ChatGPT.",
   },
   "/servicios": {
-    title: "Servicios: implementamos Central IA con tu equipo | INNOV.AS",
+    title: "Servicios: un equipo que implementa la IA de tu empresa de punta a punta | INNOV.AS",
     description:
-      "El plan Empresa de Central IA: relevamos el método de tu empresa, armamos el Brain y las skills, preparamos los agentes y operamos la plataforma con vos, por olas de tres meses.",
+      "Relevamos cómo trabaja tu empresa, ordenamos lo que sabe, construimos los agentes y los operamos con vos, por olas de tres meses con algo funcionando al final de cada una.",
   },
   "/precios": {
     title: "Precios de Central IA: gratis por tres meses | INNOV.AS",

@@ -3,13 +3,19 @@
 import { useRef } from "react"
 import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { manifiesto } from "@/content/home"
+import { manifiesto as delHome } from "@/content/home"
+import type { Imagen } from "@/content/imagenes"
 
 /**
  * Manifiesto del home: tres frases en grande que se encienden palabra por palabra al entrar en pantalla,
- * con una foto chica incrustada en la línea al final de cada una (interlock texto/imagen).
+ * con una foto chica incrustada en la línea al final de cada una (interlock texto/imagen). Sin props usa las
+ * frases del home; otras páginas (nosotros) le pasan las suyas.
  */
-export function Manifiesto() {
+export function Manifiesto({
+  manifiesto = delHome,
+}: {
+  manifiesto?: { kicker: { index: string; label: string }; frases: { texto: string; foto: Imagen }[] }
+}) {
   const ref = useRef<HTMLParagraphElement>(null)
   const visto = useInView(ref, { once: true, amount: 0.35 })
   const reduce = useReducedMotion()

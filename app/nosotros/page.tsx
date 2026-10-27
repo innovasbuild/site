@@ -1,69 +1,54 @@
-import { ArrowText } from "@/components/arrow"
 import type { Metadata } from "next"
-import Link from "next/link"
-import { Hero } from "@/components/hero"
-import { PageSection } from "@/components/page-section"
-import { ArrowList } from "@/components/arrow-list"
-import { CtaBanner } from "@/components/cta-banner"
-import { StatCounter } from "@/components/stat-counter"
+import { HeroFoto } from "@/components/hero-foto"
 import { InstitutionalStrip } from "@/components/institutional-strip"
+import { CtaBanner } from "@/components/cta-banner"
+import { Manifiesto } from "@/components/home/manifiesto"
+import { Trayectoria } from "@/components/nosotros/trayectoria"
+import { Equipo } from "@/components/nosotros/equipo"
+import { LoUsamos } from "@/components/nosotros/lo-usamos"
+import { Principios } from "@/components/nosotros/principios"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
-import { trayectoria } from "@/content/home"
-import { hero, why, history, team, principles, finalCta } from "@/content/nosotros"
+import { trayectoria as delHome } from "@/content/home"
+import { hero, porQue, finalCta } from "@/content/nosotros"
 
 export const metadata: Metadata = buildMetadata("/nosotros", seo["/nosotros"])
 
+/**
+ * Nosotros (v1.6): por qué existimos, de dónde venimos, cómo es el equipo, que usamos lo que vendemos y cómo
+ * pensamos. Sin nombres ni bios (regla del brain); las fotos son de ambiente.
+ */
 export default function NosotrosPage() {
   return (
     <main>
-      <Hero
-        field="contours"
+      <HeroFoto
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}
-        posterSize="sm"
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
         ctaSecondary={hero.ctaSecondary}
+        fotos={[hero.foto]}
       />
 
-      <PageSection kicker={why.kicker} posterTitle={why.posterTitle}>
-        <p className="mt-4 text-ink-70">{why.body}</p>
-        <p className="mt-4 font-display text-xl text-ink">{why.lead}</p>
-      </PageSection>
+      {/* 01 — Por qué existimos */}
+      <Manifiesto manifiesto={porQue} />
 
-      <PageSection kicker={history.kicker} posterTitle={history.posterTitle} soft>
-        <p className="mt-4 text-ink-70">{history.body}</p>
-        <div className="mt-8 flex flex-wrap gap-12 border-t border-line pt-8">
-          {trayectoria.stats.map((s) => (
-            <StatCounter key={s.label} value={s.value} suffix={s.suffix} label={s.label} tone={s.tone} />
-          ))}
-        </div>
-        <p className="mt-8 text-ink-70">{history.closing}</p>
-        <Link href={history.link.href} className="mt-6 inline-block font-bold text-teal hover:underline">
-          <ArrowText>{history.link.label}</ArrowText>
-        </Link>
-      </PageSection>
-      <InstitutionalStrip names={trayectoria.logos} label={trayectoria.logosLabel} />
+      {/* 02 — De dónde venimos, y las organizaciones */}
+      <Trayectoria />
+      <InstitutionalStrip names={delHome.logos} label={delHome.logosLabel} />
 
-      <PageSection kicker={team.kicker} posterTitle={team.posterTitle}>
-        <p className="mt-4 text-ink-70">{team.intro}</p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2">
-          {team.focus.map((item) => (
-            <div key={item.title} className="rounded border border-ink bg-paper-soft p-6">
-              <p className="font-display text-lg font-bold text-ink">{item.title}</p>
-              <p className="mt-2 text-sm text-ink-70">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </PageSection>
+      {/* 03 — El equipo */}
+      <Equipo />
 
-      <PageSection kicker={principles.kicker} posterTitle={principles.posterTitle} soft>
-        <ArrowList items={principles.items} className="mt-8" />
-      </PageSection>
+      {/* 04 — Usamos lo que vendemos */}
+      <LoUsamos />
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} />
+      {/* 05 — Cómo pensamos */}
+      <Principios />
+
+
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
     </main>
   )
 }
