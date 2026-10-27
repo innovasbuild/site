@@ -1,21 +1,25 @@
-import { Fraunces, Inter, Space_Mono } from "next/font/google"
+import { Newsreader, Schibsted_Grotesk, IBM_Plex_Mono } from "next/font/google"
 
-export const fraunces = Fraunces({
+/** Títulos y marca: Newsreader, con itálica para la palabra destacada ("Central IA"). */
+export const display = Newsreader({
   subsets: ["latin"],
   variable: "--font-display",
-  axes: ["opsz", "SOFT", "WONK"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
   display: "swap",
 })
 
-export const inter = Inter({
+/** Texto corrido. */
+export const sans = Schibsted_Grotesk({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 })
 
-export const spaceMono = Space_Mono({
+/** Etiquetas y notación. */
+export const mono = IBM_Plex_Mono({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   variable: "--font-mono",
   display: "swap",
 })

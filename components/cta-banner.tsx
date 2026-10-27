@@ -17,14 +17,14 @@ export function CtaBanner({ title, cta, secondary, note }: CtaBannerProps) {
         <div className="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href={cta.href}
-            className="inline-block rounded bg-teal px-6 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
+            className="inline-block rounded-full bg-teal px-7 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
           >
             {cta.label}
           </Link>
           {secondary && (
             <Link
               href={secondary.href}
-              className="inline-block rounded border border-ink px-6 py-3 text-base font-bold text-ink transition-colors hover:bg-ink hover:text-paper"
+              className="inline-block rounded-full border border-ink px-7 py-3 text-base font-bold text-ink transition-colors hover:bg-ink hover:text-paper"
             >
               {secondary.label}
             </Link>

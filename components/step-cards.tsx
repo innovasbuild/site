@@ -5,9 +5,9 @@ interface Step {
 }
 
 /** Tarjetas de pasos numerados: el camino de implementación y metodologías. */
-export function StepCards({ steps }: { steps: Step[] }) {
+export function StepCards({ steps, columns = 2 }: { steps: Step[]; columns?: 2 | 3 }) {
   return (
-    <div className="grid gap-6 md:grid-cols-2">
+    <div className={columns === 3 ? "grid gap-6 md:grid-cols-3" : "grid gap-6 md:grid-cols-2"}>
       {steps.map((step, index) => (
         <div key={step.title} className="rounded border border-ink bg-paper p-6">
           <span className="font-mono text-xs text-teal">{`0${index + 1}`} <Arrow long /></span>

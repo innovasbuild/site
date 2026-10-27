@@ -30,6 +30,13 @@ export function PosterHeading({ children, size = "md", tone = "company", accent,
   const Tag = as
   const reduce = useReducedMotion()
   const words = children.trim().split(/\s+/)
+  // El acento puede ser una palabra o varias seguidas ("de punta a punta").
+  const norm = (w: string) => w.toLowerCase().replace(/[.,;:]/g, "")
+  const accentWords = accent ? accent.trim().split(/\s+/).map(norm) : []
+  const accentAt = new Set<number>()
+  for (let s = 0; accentWords.length && s + accentWords.length <= words.length; s++) {
+    if (accentWords.every((a, k) => norm(words[s + k]) === a)) accentWords.forEach((_, k) => accentAt.add(s + k))
+  }
   const accentColor =
     surface === "dark"
       ? tone === "people"
@@ -56,7 +63,7 @@ export function PosterHeading({ children, size = "md", tone = "company", accent,
       }}
     >
       {words.map((w, i) => {
-        const isAccent = accent && w.toLowerCase().replace(/[.,;:]/g, "") === accent.toLowerCase()
+        const isAccent = accentAt.has(i)
         return (
           <span key={i} style={{ display: "inline-block", overflow: "hidden", verticalAlign: "bottom" }}>
             <motion.span
@@ -64,7 +71,7 @@ export function PosterHeading({ children, size = "md", tone = "company", accent,
               whileInView={reduce ? undefined : { y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.62, delay: reduce ? 0 : i * 0.07, ease: [0.22, 1, 0.36, 1] }}
-              style={{ display: "inline-block", color: isAccent ? accentColor : undefined }}
+              style={{ display: "inline-block", color: isAccent ? accentColor : undefined, fontStyle: isAccent ? "italic" : undefined }}
             >
               {w}
             </motion.span>

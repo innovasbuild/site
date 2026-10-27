@@ -1,34 +1,26 @@
-import { Arrow, ArrowText } from "@/components/arrow"
-import Link from "next/link"
-import { Hero } from "@/components/hero"
 import { InstitutionalStrip } from "@/components/institutional-strip"
 import { SectionKicker } from "@/components/section-kicker"
 import { PosterHeading } from "@/components/poster-heading"
-import { StatCounter } from "@/components/stat-counter"
-import { VerticalRail } from "@/components/vertical-rail"
 import { CtaBanner } from "@/components/cta-banner"
 import { Faq } from "@/components/faq"
-import { StepCards } from "@/components/step-cards"
-import { ArrowList } from "@/components/arrow-list"
-import { IllustratedCards } from "@/components/illustrated-cards"
+import { Hero } from "@/components/hero"
 import { JsonLd } from "@/components/json-ld"
+import { Manifiesto } from "@/components/home/manifiesto"
+import { AntesDespues } from "@/components/home/antes-despues"
+import { Oferta } from "@/components/home/oferta"
+import { Recorrido } from "@/components/home/recorrido"
+import { AgentesRubros } from "@/components/home/agentes-rubros"
+import { BandaControl } from "@/components/home/banda-control"
+import { QuienesSomos } from "@/components/home/quienes-somos"
 import { productSchema } from "@/lib/schema"
-import { faqProducto } from "@/content/faq"
-import {
-  hero,
-  dolores,
-  piezas,
-  gobierno,
-  dosPuertas,
-  pasos,
-  empezar,
-  servicios,
-  trayectoria,
-  quienesSomos,
-  faqSection,
-  finalCta,
-} from "@/content/home"
+import { faqHome } from "@/content/faq"
+import { hero, trayectoria, faqSection, finalCta } from "@/content/home"
 
+/**
+ * Home. Se cuenta desde quien decide: qué hacemos (manifiesto), dónde está su empresa hoy, qué contrata
+ * (infraestructura, agentes y equipo), el proceso de punta a punta, agentes trabajando por rubro, el control
+ * y quiénes somos. La plataforma aparece como la base, sin pantallas.
+ */
 export default function Home() {
   return (
     <main>
@@ -45,138 +37,40 @@ export default function Home() {
         note={hero.note}
         variant="dark"
         backdrop="dots"
-      >
-        <div className="mt-10 max-w-xl">
-          <VerticalRail rails={hero.rails} surface="dark" />
-        </div>
-      </Hero>
-
-      {/* 01 — Los tres dolores */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <SectionKicker index={dolores.kicker.index} label={dolores.kicker.label} />
-        <div className="mt-3">
-          <PosterHeading size="sm">{dolores.posterTitle}</PosterHeading>
-        </div>
-        <p className="mt-4 max-w-2xl text-ink-70">{dolores.intro}</p>
-        <div className="mt-10">
-          <IllustratedCards cards={dolores.cards} animated />
-        </div>
-        <p className="mt-8 font-display text-xl text-ink">{dolores.closing}</p>
-      </section>
-
-      {/* 02 — Qué es Central IA */}
-      <section className="border-y border-line bg-paper-soft">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <SectionKicker index={piezas.kicker.index} label={piezas.kicker.label} />
-          <div className="mt-3">
-            <PosterHeading size="sm">{piezas.posterTitle}</PosterHeading>
-          </div>
-          <p className="mt-4 max-w-2xl text-ink-70">{piezas.intro}</p>
-          <div className="mt-10 [&>div>div]:bg-paper">
-            <IllustratedCards cards={piezas.cards} animated sceneBg="--color-paper" />
-          </div>
-          <Link href={piezas.cta.href} className="mt-8 inline-block font-bold text-teal hover:underline">
-            <ArrowText>{piezas.cta.label}</ArrowText>
-          </Link>
-        </div>
-      </section>
-
-      {/* 03 — Gobierno en el producto */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <SectionKicker index={gobierno.kicker.index} label={gobierno.kicker.label} />
-        <div className="mt-3">
-          <PosterHeading size="sm" accent={gobierno.posterAccent}>{gobierno.posterTitle}</PosterHeading>
-        </div>
-        <p className="mt-4 font-display text-xl text-ink">{gobierno.supportLine}</p>
-        <p className="mt-4 max-w-2xl text-ink-70">{gobierno.intro}</p>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {gobierno.items.map((item) => (
-            <div key={item.title} className="rounded border border-ink bg-paper p-6">
-              <Arrow long className="text-sm text-teal" />
-              <h3 className="mt-3 font-display text-xl font-bold text-ink">{item.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-70">{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 04 — Dos puertas */}
-      <section className="border-y border-line bg-paper-soft">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2 md:items-center">
-          <div>
-            <SectionKicker index={dosPuertas.kicker.index} label={dosPuertas.kicker.label} />
-            <div className="mt-3">
-              <PosterHeading size="sm">{dosPuertas.posterTitle}</PosterHeading>
-            </div>
-            <p className="mt-4 font-display text-xl text-ink">{dosPuertas.supportLine}</p>
-            <p className="mt-4 text-ink-70">{dosPuertas.body}</p>
-          </div>
-          <div className="rounded border border-ink bg-paper p-6">
-            <VerticalRail rails={dosPuertas.rails} />
-          </div>
-        </div>
-      </section>
-
-      {/* 05 — Cómo empezar: alta propia */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <SectionKicker index={empezar.kicker.index} label={empezar.kicker.label} />
-        <div className="mt-3">
-          <PosterHeading size="sm" accent={empezar.posterAccent}>{empezar.posterTitle}</PosterHeading>
-        </div>
-        <p className="mt-4 max-w-2xl text-ink-70">{empezar.intro}</p>
-        <div className="mt-10">
-          <StepCards steps={pasos} />
-        </div>
-        <Link
-          href={empezar.cta.href}
-          className="mt-8 inline-block rounded bg-teal px-6 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
-        >
-          <ArrowText>{empezar.cta.label}</ArrowText>
-        </Link>
-      </section>
-
-      {/* 06 — Servicios: la implementación como opción */}
-      <section className="border-y border-line bg-paper-soft">
-        <div className="mx-auto max-w-6xl px-6 py-20">
-          <SectionKicker index={servicios.kicker.index} label={servicios.kicker.label} />
-          <div className="mt-3">
-            <PosterHeading size="sm" accent={servicios.posterAccent}>{servicios.posterTitle}</PosterHeading>
-          </div>
-          <p className="mt-4 max-w-3xl text-ink-70">{servicios.intro}</p>
-          <ArrowList items={servicios.items} className="mt-6 max-w-3xl" />
-          <Link href={servicios.cta.href} className="mt-8 inline-block font-bold text-teal hover:underline">
-            <ArrowText>{servicios.cta.label}</ArrowText>
-          </Link>
-        </div>
-      </section>
-
-      {/* 07 — Quiénes somos */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <SectionKicker index={quienesSomos.kicker.index} label={quienesSomos.kicker.label} />
-        <div className="mt-3">
-          <PosterHeading size="sm">{quienesSomos.posterTitle}</PosterHeading>
-        </div>
-        <p className="mt-4 max-w-3xl text-ink-70">{quienesSomos.body}</p>
-        <div className="mt-8 flex flex-wrap gap-12 border-t border-line pt-8">
-          {trayectoria.stats.map((s) => (
-            <StatCounter key={s.label} value={s.value} suffix={s.suffix} label={s.label} tone={s.tone} />
-          ))}
-        </div>
-        <p className="mt-8 max-w-3xl text-ink-70">{quienesSomos.body2}</p>
-        <Link href={quienesSomos.cta.href} className="mt-6 inline-block font-bold text-teal hover:underline">
-          <ArrowText>{quienesSomos.cta.label}</ArrowText>
-        </Link>
-      </section>
+      />
       <InstitutionalStrip names={trayectoria.logos} label={trayectoria.logosLabel} />
 
+      {/* 01 — Qué hacemos, en una frase grande */}
+      <Manifiesto />
+
+      {/* 02 — Hoy ──→ con INNOV.AS */}
+      <AntesDespues />
+
+      {/* 03 — Lo que contratás: infraestructura, agentes, equipo */}
+      <Oferta />
+
+      {/* 04 — El proceso de punta a punta */}
+      <Recorrido />
+
+      {/* 05 — Agentes en el trabajo, por rubro */}
+      <AgentesRubros />
+
+      {/* 06 — Control */}
+      <BandaControl />
+
+      {/* 07 — Quiénes somos */}
+      <QuienesSomos />
+
       {/* 08 — Preguntas frecuentes */}
-      <section className="mx-auto max-w-3xl px-6 py-20">
-        <SectionKicker index={faqSection.kicker.index} label={faqSection.kicker.label} />
-        <div className="mt-3">
-          <PosterHeading size="sm">{faqSection.posterTitle}</PosterHeading>
-        </div>
-        <div className="mt-8">
-          <Faq items={faqProducto} />
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-3xl px-6 py-20">
+          <SectionKicker index={faqSection.kicker.index} label={faqSection.kicker.label} />
+          <div className="mt-3">
+            <PosterHeading size="sm">{faqSection.posterTitle}</PosterHeading>
+          </div>
+          <div className="mt-8">
+            <Faq items={faqHome} />
+          </div>
         </div>
       </section>
 

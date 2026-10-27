@@ -55,7 +55,7 @@ export function Hero({
   const isDark = variant === "dark"
 
   return (
-    <section className={cn("relative overflow-hidden border-b", isDark ? "border-paper/10 bg-ink" : "border-line bg-paper")}>
+    <section className={cn("relative overflow-hidden", isDark ? "bajo-nav bg-ink" : "border-b border-line bg-paper")}>
       {isDark && backdrop === "dots" && (
         <HeroDots className="absolute inset-0 z-0 h-full w-full" params={dotsParams} />
       )}
@@ -90,13 +90,13 @@ export function Hero({
           <p className={cn("mt-4 max-w-2xl text-balance font-display text-xl", isDark ? "text-paper" : "text-ink")}>{supportLine}</p>
         )}
 
-        <p className={cn("mt-6 max-w-2xl text-balance text-lg", isDark ? "text-paper/70" : "text-ink-70")}>{subhead}</p>
+        <p className={cn("mt-6 max-w-2xl text-balance text-[18px] leading-[1.6]", isDark ? "text-paper/70" : "text-ink-70")}>{subhead}</p>
 
         <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
           <Link
             href={ctaPrimary.href}
             className={cn(
-              "rounded bg-teal px-6 py-3 text-base font-bold text-on-brand transition-transform",
+              "rounded-full bg-teal px-7 py-3 text-base font-bold text-on-brand transition-transform",
               "hover:-translate-y-0.5 hover:shadow-teal"
             )}
           >
@@ -106,7 +106,7 @@ export function Hero({
             <Link
               href={ctaSecondary.href}
               className={cn(
-                "rounded border px-6 py-3 text-base font-bold transition-colors",
+                "rounded-full border px-7 py-3 text-base font-bold transition-colors",
                 isDark
                   ? "border-paper text-paper hover:bg-paper hover:text-ink"
                   : "border-ink text-ink hover:bg-ink hover:text-paper"
