@@ -33,9 +33,7 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: "Central IA", href: "/central-ia" },
       { label: "Servicios", href: "/servicios" },
-      { label: "Nosotros", href: "#contacto" },
       { label: "Proyectos a medida", href: "/proyectos" },
-      { label: "Contacto", href: "#contacto" },
     ],
   },
 ]
@@ -45,6 +43,11 @@ export const footerInstitutional = {
   description:
     "INNOV.AS ofrece Central IA, la plataforma que ordena la adopción de IA en la empresa, y el equipo que la implementa. Buenos Aires, Argentina.",
 }
+
+export const footerContactLinks: NavLink[] = [
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Contacto", href: "/contacto" },
+]
 
 export const footerContact = {
   email: "hola@innov.as",
