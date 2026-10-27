@@ -245,7 +245,7 @@ Abrir el archivo del soporte en `references/soportes/`. Ahí están los valores 
 
 - `assets/tokens/globals.css` · `assets/tokens/tailwind.config.ts` — contrato ejecutable.
 - `assets/logo/` — logo en SVG: horizontal (ink, dark, paper, mono), badges sobre teal e isotipo suelto.
-- `assets/components/` — componentes del sitio: `serie-cerebro/`, `hero-grano.tsx`, `hero-field.tsx`, `enterprise/` (v1.6) y los anteriores `hero-dots.tsx`, `agent-scene.tsx` + `scene-shader.ts` (sin uso desde la v1.5).
+- `assets/components/` — componentes del sitio: `serie-cerebro/`, `hero-grano.tsx`, `hero-field.tsx`, `enterprise/` (v1.6: `foto.tsx`, `aparece.tsx`, `imagenes.ts` y `central/`; las secciones del home viven solo en `components/home/` del sitio) y los anteriores `hero-dots.tsx`, `agent-scene.tsx` + `scene-shader.ts` (sin uso desde la v1.5).
 - `assets/illustrations/` — ilustración a mano: `hand-drawn.tsx`, `home.ts` y seis SVG de referencia.
 - `assets/style-tile.html` — referencia visual navegable (v1.6.1).
 - `references/soportes/` — un archivo por soporte con la misma estructura, más `_plantilla.md`.

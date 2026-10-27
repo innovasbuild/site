@@ -71,7 +71,7 @@ Grilla de puntos tipo semitono sobre `ink` en WebGPU (`vgpu`), con zona encendid
 
 ## Home de venta enterprise (v1.6)
 
-`app/page.tsx`, componentes en `components/home/` (copia en `assets/components/enterprise/home/`).
+`app/page.tsx`, componentes en `components/home/` del repo del sitio (no viajan con el skill).
 
 | Orden | Componente | Spec |
 |---|---|---|
