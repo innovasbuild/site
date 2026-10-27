@@ -1,5 +1,5 @@
 import type { Cta } from "./types"
-import { primaryCta, conversationCta, conversationCtaNote } from "./global"
+import { primaryCta, conversationCtaNote } from "./global"
 import { imagenes, type Imagen } from "./imagenes"
 
 /**
@@ -14,8 +14,7 @@ export const hero = {
   posterAccent: "en terreno",
   subhead:
     "Somos un equipo senior de producto, datos e ingeniería. Llevamos años haciendo que la tecnología llegue a operar en organizaciones con poco margen de error. De ahí sale Central IA, y la forma en que la implementamos.",
-  ctaPrimary: conversationCta,
-  ctaSecondary: primaryCta,
+  ctaPrimary: primaryCta,
   foto: imagenes.techoVidrio,
 }
 
@@ -103,7 +102,6 @@ export const principios = {
 
 export const finalCta = {
   title: "Conocé al equipo que va a trabajar con vos",
-  cta: conversationCta,
-  secondary: primaryCta,
+  cta: primaryCta,
   note: conversationCtaNote,
 }

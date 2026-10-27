@@ -1,5 +1,5 @@
 import type { Cta, Vertical } from "./types"
-import { primaryCta, conversationCta, conversationCtaNote } from "./global"
+import { primaryCta, conversationCtaNote } from "./global"
 import { imagenes, type Imagen } from "./imagenes"
 
 /**
@@ -16,8 +16,7 @@ export const hero = {
   supportLine: "Ponemos la infraestructura, construimos los agentes y te acompañamos en cada etapa.",
   subhead:
     "Un solo equipo responsable de todo el proceso: relevamos cómo trabaja tu empresa, ordenamos lo que sabe, sumamos agentes que toman el trabajo que se repite y los operamos con vos, ola tras ola.",
-  ctaPrimary: conversationCta,
-  ctaSecondary: primaryCta,
+  ctaPrimary: primaryCta,
   note: conversationCtaNote,
   rails: [
     { from: "licencias sueltas", to: "IA de toda la empresa", vertical: "company" as Vertical, note: "adopción" },
@@ -315,8 +314,7 @@ export const faqSection = {
 
 export const finalCta = {
   title: "Hablemos de tu empresa",
-  cta: conversationCta,
-  secondary: primaryCta,
+  cta: primaryCta,
   note: conversationCtaNote,
 }
 

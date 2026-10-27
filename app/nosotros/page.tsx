@@ -27,7 +27,6 @@ export default function NosotrosPage() {
         posterAccent={hero.posterAccent}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
-        ctaSecondary={hero.ctaSecondary}
         fotos={[hero.foto]}
       />
 
@@ -48,7 +47,7 @@ export default function NosotrosPage() {
       <Principios />
 
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
     </main>
   )
 }

@@ -31,7 +31,6 @@ export default function ServiciosPage() {
         posterAccent={hero.posterAccent}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
-        ctaSecondary={hero.ctaSecondary}
         note={hero.note}
         fotos={hero.fotos}
       />
@@ -67,7 +66,7 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
     </main>
   )
 }
