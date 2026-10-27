@@ -33,9 +33,9 @@ export const footerColumns: FooterColumn[] = [
     links: [
       { label: "Central IA", href: "/central-ia" },
       { label: "Servicios", href: "/servicios" },
-      { label: "Nosotros", href: "/nosotros" },
+      { label: "Nosotros", href: "#contacto" },
       { label: "Proyectos a medida", href: "/proyectos" },
-      { label: "Contacto", href: "/contacto" },
+      { label: "Contacto", href: "#contacto" },
     ],
   },
 ]

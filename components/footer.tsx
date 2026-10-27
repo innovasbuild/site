@@ -24,7 +24,7 @@ export function Footer() {
                 <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">{col.heading}</h4>
                 <ul className="mt-4 space-y-3">
                   {col.links?.map((link) => (
-                    <li key={link.href}>
+                    <li key={link.label}>
                       <Link href={link.href} className="text-sm text-paper/70 hover:text-paper">
                         {link.label}
                       </Link>
@@ -34,7 +34,7 @@ export function Footer() {
               </div>
             ))}
 
-          <div>
+          <div id="contacto" className="scroll-mt-24">
             <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">Contacto</h4>
             <div className="mt-4 flex flex-col gap-3">
               <a href={`mailto:${footerContact.email}`} className="text-sm text-paper/70 hover:text-paper">
