@@ -41,7 +41,7 @@
   --color-teal-dark: #5CC4B0;
   --color-teal-ui-dark: #107468;
   --color-plum-dark: #D4F36B;
-  --color-plum-ui-dark: #4F6B00;
+  --color-plum-ui-dark: #516E00; /* 3.02:1 sobre ink (v1.6.1; #4F6B00 daba 2.90) */
   --color-danger-dark: #CC626F;
   /* Neón lima de B+C (v1.6): solo como acento sobre oscuro o sobre foto, nunca como texto sobre claro. */
   --color-lima: #D4F36B;

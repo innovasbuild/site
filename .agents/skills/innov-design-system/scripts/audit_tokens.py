@@ -36,7 +36,8 @@ FONT_FAMILY_PATTERN = re.compile(
 )
 # Fuentes que SÍ están en el contrato de tokens — si aparecen literal es sospechoso
 # pero mucho menos grave que una fuente ajena al sistema.
-KNOWN_TOKEN_FONTS = {"fraunces", "inter", "space mono", "georgia", "serif",
+KNOWN_TOKEN_FONTS = {"newsreader", "schibsted grotesk", "ibm plex mono",
+                     "fraunces", "inter", "space mono", "georgia", "serif",
                      "system-ui", "-apple-system", "sans-serif", "ui-monospace",
                      "sf mono", "monospace"}
 
