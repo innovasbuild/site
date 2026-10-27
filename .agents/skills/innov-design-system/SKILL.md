@@ -1,6 +1,6 @@
 ---
 name: "innov-design-system"
-description: "Sistema de identidad visual de INNOV.AS y de su plataforma Central IA: paleta paper/ink/teal/plum, Fraunces/Inter/Space Mono, escala póster, hero con trama de puntos, ilustraciones a mano y escenas animadas en volumen. Usar SIEMPRE al crear, editar o revisar cualquier pieza de marca de INNOV.AS: sitio, decks, one-pagers, Word, PDF o UI. Activar también con ilustraciones, dibujos, escenas 3D o animadas, bots o agentes dibujados, diagramas, hero, colores, tipografías, tokens, logo, favicon, titulares póster, cintas, camino del cliente o voz de marca. Reglas duras: cero hex o fuentes hardcodeados (var(--...) o Tailwind); el logo siempre es el SVG; las ilustraciones a mano siguen los ocho pasos con HandDrawn; las del sitio se animan en volumen con AgentScene y su procedimiento; los Word llevan fondo blanco."
+description: "Sistema de identidad visual de INNOV.AS y de su plataforma Central IA: paleta papel/tinta/teal/lima, Newsreader/Schibsted Grotesk/IBM Plex Mono (v1.5, pendiente de validación de Mati), escala póster, hero con grano, ilustraciones de la serie del cerebro (Brain, agente robot, herramientas que se enchufan). Usar SIEMPRE al crear, editar o revisar cualquier pieza de marca de INNOV.AS: sitio, decks, one-pagers, Word, PDF o UI. Activar también con ilustraciones, dibujos, cerebro, robot o agentes dibujados, diagramas, hero, colores, tipografías, tokens, logo, favicon, titulares póster, camino del cliente o voz de marca. Reglas duras: cero hex o fuentes hardcodeados (var(--...) o Tailwind); el logo siempre es el SVG; las ilustraciones nuevas siguen el lenguaje de la serie del cerebro; los Word llevan fondo blanco."
 ---
 
 # INNOV.AS — Design System
@@ -12,6 +12,10 @@ description: "Sistema de identidad visual de INNOV.AS y de su plataforma Central
 **Actualización agosto 2026:** se agregó una capa editorial de escala póster (inspirada en el *mecanismo* de referencias editoriales de agencia, no en su paleta) — titulares gigantes en Fraunces, cintas rotadas en mono, interlock texto/imagen, contadores animados y slots de ilustración a mano alzada. No es una paleta ni tipografía nueva: son componentes y tokens de escala que se suman al mismo contrato de 3 colores.
 
 **Actualización octubre 2026 (v1.2):** decidida por Mati el 2026-10-10 al replantear el sitio con Central IA adelante. Paleta, tipografías y logo no cambian. Cambian cuatro cosas: la escala póster web baja un escalón, el hero oscuro lleva una trama de puntos en WebGPU (`HeroDots`), la ilustración pasa de diagrama puro a objetos y diagramas con dos acentos (`HandDrawn`), y las reglas de movimiento admiten el dibujo progresivo de ilustraciones y el fondo animado del hero.
+
+**Actualización octubre 2026 (v1.6, venta enterprise):** definida por Luli el 2026-10-27 a partir de la devolución del dueño de INNOV.AS sobre la v1.5, **pendiente de validación**. El sitio se vende a empresas grandes como un proceso de punta a punta, no como una plataforma. Paleta, tipografías y logo no cambian. Cambian tres cosas: entra la **fotografía** como recurso del sitio (sección propia), el **home** se reordena alrededor de lo que contrata la empresa (infraestructura, agentes y equipo) y de un proceso que se recorre etapa por etapa, y **`/central-ia`** se cuenta por componentes y beneficios, sin demos de cómo funciona. Detalle en las secciones "Fotografía (v1.6)" y "Home y Central IA de venta enterprise (v1.6)".
+
+**Actualización octubre 2026 (v1.5, rediseño "B + C"):** definida por Luli el 2026-10-26, **pendiente de validación de Mati**. Cambian paleta y tipografía: papel `#F6F4EF`, tinta `#15191A`, teal de marca sin cambios, y el segundo color pasa de `plum` a oliva `#4F6B00` sobre claro y **lima `#D4F36B`** sobre oscuro (los tokens siguen llamándose `plum`/`plum-dark`). Títulos en **Newsreader** (500, en minúscula, palabra destacada en itálica), texto en **Schibsted Grotesk**, etiquetas en **IBM Plex Mono** (`03 · CONTROL`). Barra oscura con los links en pill, botones en pill, tarjetas blancas con filete de tinta. Las ilustraciones de las piezas pasan a la **serie del cerebro** (sección propia más abajo), que reemplaza a las escenas en volumen de la v1.4 en el sitio. Lo que sigue de este archivo que hable de Fraunces/Inter/Space Mono o de la paleta anterior quedó desactualizado hasta que Mati lo valide y se reescriba.
 
 **Actualización octubre 2026 (v1.4):** decidida por Mati el 2026-10-22 a partir de un pedido de Marcos (las ilustraciones a mano no cerraban para la venta corporativa). Las ilustraciones del sitio (las tres piezas del producto y, desde el mismo día, los tres dolores) pasan a escenas animadas en volumen, en WebGPU, que reaccionan al cursor (`AgentScene`). Los agentes se representan como bots con visor y ojos. Las ilustraciones a mano quedan como respaldo sin WebGPU y para piezas fuera del sitio.
 
@@ -141,6 +145,20 @@ Decisión de Mati del 2026-10-10: toda ilustración de INNOV.AS se hace siguiend
 
 `references/prompt-gema-ilustraciones.md` está actualizado a la v1.2 y queda solo como brief de estilo si alguna vez se encarga una pieza afuera.
 
+## Ilustraciones: la serie del cerebro (v1.5)
+
+Definida por Luli el 2026-10-26 a partir de sus propios bocetos. Reemplaza en el sitio a las escenas en volumen (v1.4) para Brain, Agentes y Herramientas. Es un **storytime**: el mismo cerebro aparece en todas las piezas y cuenta la historia del producto.
+
+- **El cerebro:** silueta anatómica de perfil (frontal a la izquierda, temporal abajo, cerebelo y tronco abajo a la derecha) con los surcos principales. Es una sola, compartida: `CONTORNO`, `SILUETA` y `SURCOS` en `red-cerebro.ts`. No se redibuja por pieza.
+- **Brain (`CerebroRed`):** el cerebro como red de nodos que se arma **nodo por nodo**: de los nodos que ya están crecen ramas curvas, en la punta nace un nodo nuevo con un destello lima ("una idea que se prende") y después se conecta con sus vecinos. Se desarma suave y vuelve a empezar desde otro punto. El cursor ilumina los nodos cercanos.
+- **Agentes (`AgenteRobot`):** robotito minimalista de línea, con mancha lima corrida en el cuerpo (como un dibujo a mano), cabeza-pantalla turquesa (`teal`) y adentro un **cerebrito de neón lima ya armado** (sin nodos) que se enciende de a ratos junto con la antena. Saluda, parpadea y flota apenas. No repite el armado de nodos del Brain.
+- **Herramientas (`HerramientasEnchufe`):** un cerebro que **recibe herramientas**: cuatro fichas de línea (correo, datos, agenda, reportes) que se enchufan de a una con un cable; al conectarse, la ficha se enciende en lima, el cerebro destella en neón lima y viajan datos por el cable.
+- **Lenguaje común (obligatorio en toda pieza nueva de la serie):** fondo de la superficie (blanco/papel, nunca un panel de color detrás), línea de tinta de **1.6** en el lienzo de 200×150, nodos y cabeza en `teal`, **"encendido" siempre en neón lima** (trazo lima con resplandor), mancha lima corrida como único relleno de color, encuadre parejo entre piezas (la figura ocupa el alto de la tarjeta).
+- **Técnica:** canvas 2D en un componente cliente, lienzo de 200×150 escalado a la tarjeta (4:3), solo anima en pantalla, con `prefers-reduced-motion` queda quieto y armado. Colores leídos de los tokens.
+- **Descartado en el camino (no volver):** 3D de juguete, figuras de puntos granulados, íconos de línea genéricos tipo Lucide, imágenes generadas con IA (gouache, collage, grabado, línea continua) y repetir el efecto de nodos dentro del robot.
+- **Componentes:** `components/red-cerebro.ts` (silueta, red y pintura compartidas), `components/cerebro-red.tsx`, `components/agente-robot.tsx`, `components/herramientas-enchufe.tsx`; copias en `assets/components/serie-cerebro/`. Se usan en las tarjetas de "Tres piezas" del home y en `/central-ia`.
+- **Hero del home:** fondo de grano (`components/hero-grano.tsx`, copia en `assets/components/`): puntitos redondos teal luz, ralos donde está el texto y más densos a la derecha, quietos; el cursor los empuja de a uno y vuelven con un resorte. Algunos granos se encienden de a ratos como neón lima. Reemplaza a `HeroDots` en el home.
+
 ## Ilustración animada en volumen (v1.4)
 
 Decidida por Mati el 2026-10-22, tras comparar tres sistemas en un laboratorio (volumen, trama de puntos y constelación de luz). Ganó **volumen**: es el más corporativo y el que mejor se lee. Se usa en todas las ilustraciones del sitio: primero las piezas del producto y, por decisión de Mati del mismo día, también los dolores.
@@ -230,6 +248,51 @@ Reemplaza al camino de 4 niveles del programa educativo (Fundamentos, Usuario Av
 - Movimiento: el mismo revelado en scroll (fade-up, 80ms por nodo).
 - ⚠️ Spec propuesta en la v1.3, a confirmar al implementarla en el sitio.
 
+## Fotografía (v1.6)
+
+Decidida el 2026-10-27, tras la referencia que dio el dueño (el sitio de Wonderful: fotos grandes que dan color e impacto). Reemplaza la regla de "solo ilustraciones" de la v1.3. Las ilustraciones de la serie del cerebro siguen siendo el recurso de **producto**; la fotografía cuenta **equipo, trabajo y escala**.
+
+- **Tratamiento común (obligatorio):** toda foto pasa por `Foto` (`components/foto.tsx`), que aplica `.foto`: color apenas bajado (`saturate(0.78)`), contraste suave y un grano fino encima. Así fotos de orígenes distintos se leen como una serie.
+- **Foto propia ya tratada:** si llega con su color y su grano (las de teal y lima que manda Luli), se registra con `natural: true` en `content/imagenes.ts` y no recibe el filtro (`.foto-natural`).
+- **Dónde viven:** fotos propias en `public/images/`; todas se registran en `content/imagenes.ts` (`imagenes`), y las páginas solo las piden por nombre. Cambiar una foto es tocar ese archivo.
+- **Fotos de referencia:** las que no son propias vienen de Unsplash (licencia libre, uso comercial permitido, sin crédito obligatorio), servidas desde su CDN. Para el sitio final se bajan al proyecto o se reemplazan por fotos propias. No son exclusivas.
+- **Sobre foto:** el texto va sobre un velo `ink` (degradé o plano) y el acento es `lima`, nunca `teal` ni `plum` a secas. Con una foto oscura con color propio el velo es más liviano del lado donde no hay texto.
+- **Dónde sí:** manifiesto del home (foto chica dentro de la línea, en píldora), tarjetas de lo que contrata la empresa, banda de control, banda "Central IA viene con un equipo".
+- **Dónde no (decidido en la revisión):** dentro del recorrido por etapas (pelea con el texto y empuja las capas hacia abajo), en las filas de agentes por rubro, en Quiénes somos (las cifras ya ocupan la sección) y en la sección de continuidad. Ahí el texto y los esquemas van solos.
+- **Sin caras reconocibles de clientes ni logos:** son fotos de ambiente. No se presentan como casos ni como el equipo real.
+
+## Home y Central IA de venta enterprise (v1.6)
+
+El comprador es una empresa grande que paga un proceso largo. El sitio tiene que mostrar un **equipo que acompaña de punta a punta**, sobre una infraestructura, con agentes que van tomando trabajo. La plataforma es la base, no el protagonista.
+
+**Home**, en este orden (`app/page.tsx`, componentes en `components/home/`, copia en `assets/components/enterprise/home/`):
+
+1. **Hero** con el titular "La IA de tu empresa, *de punta a punta*" (la palabra destacada puede ser una frase: `PosterHeading` acepta un `accent` de varias palabras) y la franja institucional debajo.
+2. **Manifiesto** (`Manifiesto`): tres frases grandes que se encienden palabra por palabra, con una foto en píldora al final de cada una.
+3. **Hoy → con INNOV.AS** (`AntesDespues`): filas A ──→ B que entran escalonadas.
+4. **Lo que contratás** (`Oferta`): infraestructura, agentes y equipo, en tarjetas altas con foto a sangre. De a dos por fila en ancho medio y de a tres en pantallas grandes; el texto que sube al pasar el cursor es solo de pantallas grandes.
+5. **Un proceso, no un proyecto** (`Recorrido`): cinco etapas (primera conversación, Radar, ola cero, olas, operación continua) que avanzan solas con barra de progreso, se pausan con el cursor y se pueden elegir. Al costado, una **única tarjeta** con "qué te llevás", "quiénes están" y las capas que ya funcionan, que se encienden de abajo hacia arriba. Sin fotos ni botón suelto al final.
+6. **Agentes que toman trabajo** (`AgentesRubros`): rubros en grande que rotan solos; cada tarea se lee como un pase de manos "el agente ──→ tu gente". Sin foto ni tarjetas.
+7. **Control** (`BandaControl`): foto a sangre con velo y cuatro garantías en filetes.
+8. **Quiénes somos** (`QuienesSomos`): como en la v1.5, con las cifras a escala de sección (`StatCounter size="sm"`, token `--text-counter-sm`).
+9. Preguntas frecuentes y cierre.
+
+**Central IA** (`app/central-ia/page.tsx`, componentes en `components/central/`):
+
+- **Componentes y su beneficio** (`ComponentesGrid`): los tres principales (Brain, Agentes, Herramientas) en tres columnas separadas por filetes, cada una con su dibujo de la serie del cerebro y la ilustración en una caja de alto fijo para que los títulos queden alineados. Los demás componentes, como lista de dos columnas con filetes. **Sin cajas ni tarjetas**: la lectura de "demasiados bloques" fue la devolución.
+- **Cuando alguien se va** (`Continuidad`): tres fases que avanzan solas (mientras trabaja, cuando se va, cuando llega alguien) con un esquema persona → Brain → persona. Sin foto.
+- Control por niveles, banda "Central IA viene con un equipo" (foto) y detalle para sistemas.
+- **Ya no se muestran las demos animadas** del producto (Brain, permisos, agente, herramientas). Sus datos siguen en `content/central-ia.ts` por si sirven para una demo comercial.
+
+**Reglas que salieron de la revisión (aplican a toda pieza nueva del sitio):**
+
+- Una sección no mezcla más de un recurso pesado: foto **o** esquema **o** tarjetas, no los tres.
+- Evitar grillas de tarjetas con el mismo peso: se prefieren filas con filetes, columnas separadas por líneas y listas.
+- Lo que explica un proceso se lee **junto** a lo que se está mirando, no debajo de una imagen alta.
+- Los botones no quedan sueltos al final de una sección que ya tiene un cierre: el CTA vive en la barra y en el cierre de la página.
+- Las cifras grandes de la escala póster (`--text-counter`) son para una cifra sola; en una fila de datos se usa `size="sm"`.
+- Las pestañas y secuencias que avanzan solas solo corren mientras están en pantalla, se pausan con el cursor y quedan quietas con `prefers-reduced-motion`.
+
 ## Iconografía
 
 **No hay set de íconos.** El sistema resuelve glifos con **notación mono en caracteres Unicode**, no con un icon set: `──→`/`→` (elemento firma), `//` (prefijo de marcador), `▪`/`░` (bullets y barra de progreso `[▪▪▪▪░░] 4/6`), `·` (separador de metadatos), `[ ]` (encierra superíndices/códigos). Todos en Space Mono, heredan el tamaño de la línea, color de la vertical cuando corresponde. Si algún día hace falta un set real: trazo lineal 1.5px, radio 2px — **Lucide** es la sustitución candidata, pero no está aplicada en ninguna pieza; confirmar antes de usar.
@@ -258,7 +321,7 @@ Ease por defecto `--ease` `cubic-bezier(0.2,0.6,0.2,1)`; revelados `--ease-out-q
 
 La identidad visual no alcanza si el mensaje es el anterior. Antes de escribir el copy de una pieza (sitio, deck, one-pager, Word), leé `marketing/mensajes-innovas` en el brain: ahí vive el canon y, si contradice esta sección, gana el brain. Resumen operativo:
 
-- **Plataforma adelante.** Se presenta primero Central IA, la plataforma que ordena la adopción de IA en la empresa con gobernanza sobre permisos y acceso. Los servicios (relevar el método, armar el brain, preparar agentes, operar) se cuentan como lo que INNOV.AS hace sobre ella.
+- **Plataforma adelante.** (v1.6: en el home y en la oferta la plataforma va como la **base** del proceso y del equipo, no como protagonista, por la devolución del dueño; `/central-ia` sigue contándola completa. Esto se aparta del canon del brain y queda pendiente de validación.) Se presenta primero Central IA, la plataforma que ordena la adopción de IA en la empresa con gobernanza sobre permisos y acceso. Los servicios (relevar el método, armar el brain, preparar agentes, operar) se cuentan como lo que INNOV.AS hace sobre ella.
 - **Sin la marca En Paralelo ni Desde Adentro.** Del método se conservan las olas, los nombres Radar y Mapa del Método y la frase "tu gente decide, los agentes ejecutan". La última etapa se llama "operación continua".
 - **Afirmativo.** "Ofrecemos servicios sobre una plataforma" en lugar de definirse por lo que la empresa no es. Sin guion largo ni signos de apertura (¿ ¡) en ninguna pieza.
 - **A y B explícitos.** El glifo firma y el copy explica. Cada pieza define su par concreto, por ejemplo A: la IA quedó en una o dos personas, B: toda la empresa trabaja con IA y con permisos. B es un estado de operación continua, no un destino al que se llega.
@@ -269,7 +332,7 @@ La identidad visual no alcanza si el mensaje es el anterior. Antes de escribir e
 - **Sin nombres de personas.** Ni founders ni bios en material que circule.
 - **Precio.** El único número público es el del Radar, USD 1.500, bonificado al implementar la ola cero.
 - **Competencia.** No se nombra en piezas públicas.
-- **Imagen.** Solo ilustraciones a mano por ahora. Sin fotografía de talleres ni capturas del producto.
+- **Imagen.** (v1.6) Ilustraciones de la serie del cerebro para el producto y **fotografía de ambiente** tratada (sección "Fotografía (v1.6)"). Sin capturas ni pantallas del producto en el sitio: la plataforma se cuenta por componentes y beneficios.
 
 ## Workflow — implementación en código (Next.js/Tailwind)
 
@@ -331,7 +394,10 @@ Estas piezas no consumen `var(--...)` — necesitan los valores literales. Usá 
 - `assets/illustrations/` — componente `hand-drawn.tsx`, los trazos de las seis ilustraciones del home (`home.ts`) y sus SVG ya renderizados (`svg/`). Son la referencia de estilo de toda ilustración nueva.
 - `assets/components/hero-dots.tsx` — el fondo de trama de puntos del hero, con su shader (requiere la librería `vgpu`).
 - `assets/components/hero-field.tsx` — los fondos de hero de las páginas internas, seis patrones (requiere la librería `vgpu`).
-- `assets/components/agent-scene.tsx` + `assets/components/scene-shader.ts` — las escenas animadas en volumen y su shader con el vocabulario de formas (requiere la librería `vgpu`).
+- `assets/components/agent-scene.tsx` + `assets/components/scene-shader.ts` — las escenas animadas en volumen y su shader con el vocabulario de formas (requiere la librería `vgpu`). Desde la v1.5 no se usan en el sitio.
+- `assets/components/serie-cerebro/` — la serie del cerebro (v1.5): `red-cerebro.ts`, `cerebro-red.tsx`, `agente-robot.tsx`, `herramientas-enchufe.tsx`.
+- `assets/components/hero-grano.tsx` — el fondo de grano del hero del home (v1.5).
+- `assets/components/enterprise/` — la versión de venta enterprise (v1.6): `foto.tsx`, `aparece.tsx`, `imagenes.ts` (registro de fotos), `home/` (manifiesto, antes-despues, oferta, recorrido, agentes-rubros, banda-control, quienes-somos) y `central/` (componentes-grid, continuidad).
 - `assets/style-tile.html` — referencia visual navegable de la paleta/tipografía/componentes base (pendiente de actualización con la capa editorial).
 - `scripts/audit_tokens.py` — detecta hex y fuentes hardcodeadas fuera de los archivos de tokens.
 
@@ -339,7 +405,11 @@ Estas piezas no consumen `var(--...)` — necesitan los valores literales. Usá 
 
 Fuente de verdad desde la v1.3: `.agents/skills/innov-design-system/` del repo del sitio (la copia de `.claude/skills/` es idéntica). Después de editar se carga al brain (borrador del skill, un administrador lo publica) y se actualiza `innov/diseno/`. Si cambia la dirección de arte, se actualiza también `marketing/identidad-visual-innovas` en el brain.
 
-**Versión:** 1.4 (octubre 2026) — decidida por Mati el 2026-10-22. Escenas animadas en volumen para las piezas del producto (`AgentScene`, WebGPU con `vgpu`), con vocabulario fijo de formas, agentes como bots con visor y ojos (excepción a "sin caras" solo para ellos), reacción al cursor, respaldo `HandDrawn` y procedimiento propio de ocho pasos. Excepción de motion que las admite. Actualizados: este archivo, `references/non-code-usage.md` y `assets/components/` (`agent-scene.tsx`, `scene-shader.ts`).
+**Versión:** 1.6 (octubre 2026) — definida por Luli el 2026-10-27, pendiente de validación. Venta enterprise: fotografía con tratamiento común (`Foto`, `.foto`, `.foto-natural`), token `--color-lima`, `--text-counter-sm`, barra de progreso para secuencias que avanzan solas, home reordenado (manifiesto, hoy → con INNOV.AS, lo que contratás, recorrido de punta a punta, agentes por rubro, control) y `/central-ia` por componentes con la sección de continuidad. Actualizados: este archivo, `assets/tokens/globals.css` y `assets/components/enterprise/`. Pendiente: reescribir las secciones de tokens, tipografía y motion con la v1.5 y la v1.6, y `references/`.
+
+**1.5** (octubre 2026) — definida por Luli el 2026-10-26, pendiente de validación de Mati. Rediseño "B + C" (paleta papel/tinta/teal/lima, Newsreader + Schibsted Grotesk + IBM Plex Mono, barra y botones en pill, tarjetas blancas) y serie del cerebro para las ilustraciones (`CerebroRed`, `AgenteRobot`, `HerramientasEnchufe`), más el hero con grano (`HeroGrano`). Actualizados: este archivo, `assets/tokens/globals.css` y `assets/components/`. Pendiente: reescribir las secciones de tokens, tipografía, ilustración y motion con la v1.5, y `references/`.
+
+**1.4** (octubre 2026) — decidida por Mati el 2026-10-22. Escenas animadas en volumen para las piezas del producto (`AgentScene`, WebGPU con `vgpu`), con vocabulario fijo de formas, agentes como bots con visor y ojos (excepción a "sin caras" solo para ellos), reacción al cursor, respaldo `HandDrawn` y procedimiento propio de ocho pasos. Excepción de motion que las admite. Actualizados: este archivo, `references/non-code-usage.md` y `assets/components/` (`agent-scene.tsx`, `scene-shader.ts`).
 
 **1.3.1** (octubre 2026) — decidida el 2026-10-22. Fondos animados en el hero claro de las páginas internas (`HeroField`, seis patrones, uno por página) y excepción de motion que los admite. Actualizados: este archivo y `assets/components/hero-field.tsx`.
 
