@@ -72,6 +72,10 @@
   --text-poster-sm: clamp(2.75rem, 5.5vw, 4rem);
   --text-poster: clamp(2.75rem, 8vw, 6rem);
   --text-poster-xl: clamp(3.5rem, 13vw, 11rem);
+  /* Lienzos fijos (slides, print, redes), calibrados sobre 1280×720. Nunca la escala clamp. */
+  --text-poster-slide-sm: 84px;
+  --text-poster-slide: 96px;
+  --text-poster-slide-xl: 104px;
   /* En minúscula hay descendentes (g, p, q): el interlineado póster necesita aire. */
   --lh-poster: 1;
   --lh-poster-tight: 0.95;
@@ -84,8 +88,24 @@
 
   /* ---- Cintas rotadas (TapeLabel) — máx 2 por composición, 1–2 palabras ---- */
   --tape-rot: -6.5deg;
+  --tape-rot-alt: 5.5deg;
   --tape-pad: 0.34em 0.85em 0.28em;
+  --tape-size: var(--text-sm);
   --tape-track: 0.12em;
+
+  /* ---- Interlock texto/imagen (InterlockHeadline) ---- */
+  --interlock-h: 0.78em;
+  --interlock-gap: 0.06em;
+
+  /* ---- Bloque de color a sangre lateral (solo portada y cierre) ---- */
+  --colorblock-w: 24vw;
+  --colorblock-w-narrow: 14vw;
+
+  /* ---- Ilustración a mano (HandDrawn, v1.2): trazo marcador, acento teal, detalle plum ---- */
+  --illus-stroke: 3.2px;
+  --illus-accent-size: clamp(38px, 4vw, 54px);
+  --illus-accent-rot: 7deg;
+  --illus-detail-size: 30px;
 
   /* ---- Radios ---- */
   --radius-sm: 3px;
