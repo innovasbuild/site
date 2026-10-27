@@ -12,8 +12,8 @@ interface PosterHeadingProps {
   align?: "left" | "center" | "right"
   as?: "h1" | "h2" | "h3"
   className?: string
-  /** Superficie donde vive el titular. En "dark" (sobre bg-ink) el accent usa los tokens -dark. */
-  surface?: "light" | "dark"
+  /** Superficie donde vive el titular. En "dark" (sobre bg-ink) el accent usa los tokens -dark; en "foto" (sobre velo), lima. */
+  surface?: "light" | "dark" | "foto"
 }
 
 const sizeClass: Record<string, string> = {
@@ -38,7 +38,9 @@ export function PosterHeading({ children, size = "md", tone = "company", accent,
     if (accentWords.every((a, k) => norm(words[s + k]) === a)) accentWords.forEach((_, k) => accentAt.add(s + k))
   }
   const accentColor =
-    surface === "dark"
+    surface === "foto"
+      ? "var(--color-lima)"
+      : surface === "dark"
       ? tone === "people"
         ? "var(--color-plum-dark)"
         : "var(--color-teal-dark)"

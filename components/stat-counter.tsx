@@ -14,6 +14,8 @@ interface StatCounterProps {
   tone?: Vertical | "ink"
   /** "sm": cifra a escala de sección, para filas de datos dentro de un texto. */
   size?: "md" | "sm"
+  /** Recorta el espacio de arriba y de abajo de la cifra (sin altura de línea), para centrarla entre filetes. */
+  ajustada?: boolean
 }
 
 const toneColor: Record<string, string> = {
@@ -23,7 +25,7 @@ const toneColor: Record<string, string> = {
 }
 
 /** Cifra grande con conteo animado al entrar en viewport + label mono. */
-export function StatCounter({ value, prefix = "", suffix = "", label, caption, tone = "company", size = "md" }: StatCounterProps) {
+export function StatCounter({ value, prefix = "", suffix = "", label, caption, tone = "company", size = "md", ajustada }: StatCounterProps) {
   const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, amount: 0.4 })
   const reduce = useReducedMotion()
@@ -42,7 +44,7 @@ export function StatCounter({ value, prefix = "", suffix = "", label, caption, t
   return (
     <div ref={ref} className="flex flex-col gap-2">
       <div
-        className="font-display tabular-nums"
+        className={ajustada ? "cifra-ajustada font-display tabular-nums" : "font-display tabular-nums"}
         style={{
           fontVariationSettings: "var(--fraunces-poster)",
           fontWeight: 700,

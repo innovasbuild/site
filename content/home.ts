@@ -32,9 +32,9 @@ export const hero = {
 export const manifiesto = {
   kicker: { index: "01", label: "qué hacemos" },
   frases: [
-    { texto: "Una base ordenada donde vive lo que sabe tu empresa.", foto: imagenes.manifiestoBase },
-    { texto: "Agentes que toman el trabajo que se repite.", foto: imagenes.manifiestoAgentes },
-    { texto: "Y un equipo senior que lo implementa con el tuyo, y se queda.", foto: imagenes.manifiestoEquipo },
+    { texto: "Una base ordenada donde vive lo que sabe tu empresa.", foto: imagenes.rolesTuLado },
+    { texto: "Agentes que toman el trabajo que se repite.", foto: imagenes.rolesNuestro },
+    { texto: "Y un equipo senior que lo implementa con el tuyo, y se queda.", foto: imagenes.equipoFondo },
   ] as { texto: string; foto: Imagen }[],
 }
 
