@@ -34,12 +34,12 @@ export function CerebroRed({ label, className }: { label: string; className?: st
     const reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     const red = armarRed()
     const n = red.x.length
-    const tinta = leerToken(cont, "--color-ink", "#15191A")
+    const tinta = leerToken(cont, "--color-ink")
     const pintura = {
       tinta,
-      teal: leerToken(cont, "--color-teal", "#0F6B60"),
-      lima: leerToken(cont, "--color-plum-dark", "#D4F36B"),
-      halo: crearHalo(leerToken(cont, "--color-plum-dark", "#D4F36B")),
+      teal: leerToken(cont, "--color-teal"),
+      lima: leerToken(cont, "--color-lima"),
+      halo: crearHalo(leerToken(cont, "--color-lima")),
       grosor: 1.1,
       radio: 1.1,
     }

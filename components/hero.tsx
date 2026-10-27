@@ -96,8 +96,8 @@ export function Hero({
           <Link
             href={ctaPrimary.href}
             className={cn(
-              "rounded-full bg-teal px-7 py-3 text-base font-bold text-on-brand transition-transform",
-              "hover:-translate-y-0.5 hover:shadow-teal"
+              "rounded-full px-7 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5",
+              isDark ? "bg-teal-ui-dark" : "bg-teal hover:shadow-teal"
             )}
           >
             <ArrowText>{ctaPrimary.label}</ArrowText>

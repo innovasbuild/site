@@ -74,7 +74,7 @@ El logo es **isotipo + wordmark**, ambos vectores cerrados. Reemplaza el wordmar
 |---|---|---|---|---|
 | `innovas-horizontal-ink.svg` | 991×319, transp. | `teal` | `ink` | **Primaria.** Cualquier fondo claro: `paper`, blanco |
 | `innovas-horizontal-dark.svg` | 991×319, transp. | `teal-dark` | `paper` | Fondo `ink`/`ink-soft` — slides y secciones oscuras |
-| `innovas-horizontal-paper.svg` | 991×319, transp. | `teal` | `paper` | Export plano que conserva el isotipo en teal original. **No tiene superficie segura dentro del sistema**: sobre `ink` el isotipo queda en 2.68:1. Usalo solo sobre foto o fondo medio verificando el contraste a mano — para fondo `ink` va `-dark` |
+| `innovas-horizontal-paper.svg` | 991×319, transp. | `teal` | `paper` | Export plano que conserva el isotipo en teal original. **No tiene superficie segura dentro del sistema**: sobre `ink` el isotipo queda en 2.78:1. Usalo solo sobre foto o fondo medio verificando el contraste a mano — para fondo `ink` va `-dark` |
 | `innovas-badge-lockup-teal.svg` | 747×741, fondo `teal` | `paper` | `paper` | Avatar cuadrado: LinkedIn, redes, app icon, sello de cierre de deck |
 | `innovas-badge-iso-teal.svg` | 747×741, fondo `teal` | `paper` | — | Avatar donde el nombre ya aparece al lado (perfil de red, favicon chico) |
 | `innovas-isotipo-teal.svg` · `-ink.svg` · `-paper.svg` | 174×221, transp. | según nombre | — | Favicon ≥24px, marca de agua, bullet de marca |
@@ -86,12 +86,14 @@ El logo es **isotipo + wordmark**, ambos vectores cerrados. Reemplaza el wordmar
 
 | Combinación | Ratio | |
 |---|---|---|
-| `teal` sobre `paper` | 5.22:1 | ✅ |
+| `teal` sobre `paper` | 5.80:1 | ✅ |
 | `teal` sobre blanco | 6.38:1 | ✅ |
-| `ink` sobre `paper` | 13.98:1 | ✅ |
-| `paper` sobre `teal` (badges) | 5.22:1 | ✅ |
-| `teal-dark` sobre `ink` | 4.51:1 | ✅ |
-| `teal` sobre `ink` | **2.68:1** | ❌ no llega ni a 3:1 |
+| `ink` sobre `paper` | 16.11:1 | ✅ |
+| `paper` sobre `teal` (badges) | 5.80:1 | ✅ |
+| `teal-dark` sobre `ink` | 8.41:1 | ✅ |
+| `teal` sobre `ink` | **2.78:1** | ❌ no llega ni a 3:1 |
+
+Valores de la v1.6.1: desde el 2026-10-27 los SVG y PNG del logo usan tinta `#15191A`, papel `#F6F4EF` y, en la variante oscura, `teal-dark` `#5CC4B0`.
 
 Por eso sobre fondo oscuro va `innovas-horizontal-dark.svg` — nunca el `-ink` recoloreado a mano ni el `-paper` conservando el isotipo teal original. Es el mismo criterio que ya rige para `teal`/`plum` en la sección de fondos oscuros.
 
@@ -284,7 +286,7 @@ El comprador es una empresa grande que paga un proceso largo. El sitio tiene que
 - **Componentes y su beneficio** (`ComponentesGrid`): los tres principales (Brain, Agentes, Herramientas) en tres columnas separadas por filetes, cada una con su dibujo de la serie del cerebro y la ilustración en una caja de alto fijo para que los títulos queden alineados. Los demás componentes, como lista de dos columnas con filetes. **Sin cajas ni tarjetas**: la lectura de "demasiados bloques" fue la devolución.
 - **Cuando alguien se va** (`Continuidad`): tres fases que avanzan solas (mientras trabaja, cuando se va, cuando llega alguien) con un esquema persona → Brain → persona. Sin foto.
 - Control por niveles, banda "Central IA viene con un equipo" (foto) y detalle para sistemas.
-- **Ya no se muestran las demos animadas** del producto (Brain, permisos, agente, herramientas). Sus datos siguen en `content/central-ia.ts` por si sirven para una demo comercial.
+- **Ya no se muestran las demos animadas** del producto (Brain, permisos, agente, herramientas). Sus componentes (`demo-*.tsx`) se borraron en la v1.6.1 y quedan en el historial de git (commit `cd4e599`); sus datos siguen en `content/central-ia.ts` por si sirven para una demo comercial.
 
 **Reglas que salieron de la revisión (aplican a toda pieza nueva del sitio):**
 
@@ -380,7 +382,7 @@ La identidad visual no alcanza si el mensaje es el anterior. Antes de escribir e
 
 5. **Specs de componentes** (elemento firma, camino del cliente, hero, card de pieza o etapa, franja institucional, CTA, motion) en `references/direccion-de-arte.md` §4-5; **capa editorial** (PosterHeading, TapeLabel, InterlockHeadline, StatCounter, IllustrationSlot) en el addendum al final del mismo archivo. No reinventes estos componentes desde cero: ya están especificados.
 
-6. **Referencia visual navegable:** `assets/style-tile.html` — ⚠️ sigue con la paleta y las fuentes de la v1.4: sirve para la estructura de componentes, no para colores ni tipografía (mandan los tokens). **Tampoco incluye la capa editorial** (titulares póster, cintas, interlock, contadores) — para eso, revisar el addendum de `direccion-de-arte.md` o los templates del design system vivo hasta que se actualice.
+6. **Referencia visual navegable:** `assets/style-tile.html` — v1.6.1: paleta clara y oscura con contrastes, tipografía, píldoras, filetes, tarjetas, foto con velo y firma. **No incluye la capa editorial** (titulares póster, cintas, interlock, contadores) — para eso, revisar el addendum de `direccion-de-arte.md` o los templates del design system vivo hasta que se actualice.
 
 ## Workflow — piezas sin código (decks, one-pagers, documentos Word)
 
@@ -394,21 +396,21 @@ Estas piezas no consumen `var(--...)` — necesitan los valores literales. Usá 
 - `references/non-code-usage.md` — cheat sheet de marca para piezas sin código, con capa editorial, reglas de Word (fondo blanco) y guía de decks.
 - `assets/tokens/globals.css` + `assets/tokens/tailwind.config.ts` — fuente de verdad ejecutable, incluye tokens de escala póster, cintas, interlock, contadores e ilustración.
 - `assets/logo/` — logo canónico en SVG: horizontal (`-ink` / `-dark` / `-paper` / mono), badges cuadrados sobre teal (lockup e isotipo) e isotipo suelto (teal / ink / paper).
-- `assets/illustrations/` — componente `hand-drawn.tsx`, los trazos de las seis ilustraciones del home (`home.ts`) y sus SVG ya renderizados (`svg/`). Son la referencia de estilo de toda ilustración nueva.
+- `assets/illustrations/` — componente `hand-drawn.tsx`, los trazos de las seis ilustraciones a mano (`home.ts`) y sus SVG ya renderizados (`svg/`, recoloreados a la v1.5 el 2026-10-27). Referencia de la ilustración a mano; en el sitio manda la serie del cerebro.
 - `assets/components/hero-dots.tsx` — el fondo de trama de puntos del hero, con su shader (requiere la librería `vgpu`).
 - `assets/components/hero-field.tsx` — los fondos de hero de las páginas internas, seis patrones (requiere la librería `vgpu`).
 - `assets/components/agent-scene.tsx` + `assets/components/scene-shader.ts` — las escenas animadas en volumen y su shader con el vocabulario de formas (requiere la librería `vgpu`). Desde la v1.5 no se usan en el sitio.
 - `assets/components/serie-cerebro/` — la serie del cerebro (v1.5): `red-cerebro.ts`, `cerebro-red.tsx`, `agente-robot.tsx`, `herramientas-enchufe.tsx`.
 - `assets/components/hero-grano.tsx` — el fondo de grano del hero del home (v1.5).
 - `assets/components/enterprise/` — la versión de venta enterprise (v1.6): `foto.tsx`, `aparece.tsx`, `imagenes.ts` (registro de fotos), `home/` (manifiesto, antes-despues, oferta, recorrido, agentes-rubros, banda-control, quienes-somos) y `central/` (componentes-grid, continuidad).
-- `assets/style-tile.html` — referencia visual navegable de los componentes base. ⚠️ Sigue con la paleta y las fuentes de la v1.4 y sin la capa editorial.
+- `assets/style-tile.html` — referencia visual navegable de la v1.6.1 (paleta, tipografía, componentes, foto y firma). Sin la capa editorial.
 - `scripts/audit_tokens.py` — detecta hex y fuentes hardcodeadas fuera de los archivos de tokens.
 
 ## Mantenimiento
 
 Fuente de verdad desde la v1.3: `.agents/skills/innov-design-system/` del repo del sitio (la copia de `.claude/skills/` es idéntica). Después de editar se carga al brain (borrador del skill, un administrador lo publica) y se actualiza `innov/diseno/`. Si cambia la dirección de arte, se actualiza también `marketing/identidad-visual-innovas` en el brain.
 
-**Versión:** 1.6.1 (octubre 2026) — 2026-10-27, a pedido de Mati al validar la v1.5 y la v1.6. `plum-ui-dark` pasa de `#4F6B00` (2.90:1 sobre `ink`, no llegaba a 3:1) a `#516E00` (3.02:1). El sitio deja el segundo color óxido (`#B0441F`, coral `#E07A55` sobre oscuro) que había quedado en `app/globals.css` y usa la paleta del skill. Reescritas con la v1.5 las secciones de tokens, tipografía, capa editorial, camino del cliente, fuentes con `next/font`, piezas sin código y `references/non-code-usage.md`. Sale `paper-print`. Pendiente: `assets/style-tile.html`, los hex de los SVG del logo y de `assets/illustrations/`, y definir si las piezas fuera del sitio pasan a la serie del cerebro.
+**Versión:** 1.6.1 (octubre 2026) — 2026-10-27, a pedido de Mati al validar la v1.5 y la v1.6. `plum-ui-dark` pasa de `#4F6B00` (2.90:1 sobre `ink`, no llegaba a 3:1) a `#516E00` (3.02:1). El sitio deja el segundo color óxido (`#B0441F`, coral `#E07A55` sobre oscuro) que había quedado en `app/globals.css` y usa la paleta del skill. Reescritas con la v1.5 las secciones de tokens, tipografía, capa editorial, camino del cliente, fuentes con `next/font`, piezas sin código y `references/non-code-usage.md`. Sale `paper-print`. También el 2026-10-27: logo (SVG y PNG, sitio y skill) e ilustraciones a mano recoloreados a la v1.5; style tile rehecho; botones teal sobre oscuro en `teal-ui-dark`; etiqueta "Legal" en `teal-dark`; demos `demo-*.tsx` borradas (sin uso); `leerToken` sin respaldo en hex; `audit_tokens.py` separa errores de avisos, ignora `hover:bg-ink` y exime `components/ui/`. Pendiente: definir si las piezas fuera del sitio pasan a la serie del cerebro.
 
 **1.6** (octubre 2026) — definida por Luli el 2026-10-27. Venta enterprise: fotografía con tratamiento común (`Foto`, `.foto`, `.foto-natural`), token `--color-lima`, `--text-counter-sm`, barra de progreso para secuencias que avanzan solas, home reordenado (manifiesto, hoy → con INNOV.AS, lo que contratás, recorrido de punta a punta, agentes por rubro, control) y `/central-ia` por componentes con la sección de continuidad.
 

@@ -269,5 +269,6 @@ export function pintarRed(
   ctx.globalAlpha = 1
 }
 
-export const leerToken = (el: HTMLElement, token: string, respaldo: string) =>
-  getComputedStyle(el).getPropertyValue(token).trim() || respaldo
+/** Lee un token de color de globals.css. Los tokens siempre están: sin respaldo en hex. */
+export const leerToken = (el: HTMLElement, token: string) =>
+  getComputedStyle(el).getPropertyValue(token).trim() || "transparent"

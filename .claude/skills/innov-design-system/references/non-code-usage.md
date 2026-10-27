@@ -36,18 +36,16 @@ El logo es **isotipo (perfil-circuito) + wordmark `INNOV.AS`**. El wordmark es l
 
 | Variante | Archivo | Fondo donde va | Colores (los del archivo) |
 |---|---|---|---|
-| Horizontal primaria | `innovas-horizontal-ink.svg` | Claro: papel o blanco | isotipo `#0F6B60` · wordmark `#1F1B19` |
-| Horizontal sobre oscuro | `innovas-horizontal-dark.svg` | Tinta (`#15191A`) | isotipo `#159384` · wordmark `#EDE8DC` |
-| Badge cuadrado con nombre | `innovas-badge-lockup-teal.svg` | — (trae fondo `#0F6B60`) | marca en `#EDE8DC` |
-| Badge cuadrado solo isotipo | `innovas-badge-iso-teal.svg` | — (trae fondo `#0F6B60`) | marca en `#EDE8DC` |
+| Horizontal primaria | `innovas-horizontal-ink.svg` | Claro: papel o blanco | isotipo `#0F6B60` · wordmark `#15191A` |
+| Horizontal sobre oscuro | `innovas-horizontal-dark.svg` | Tinta (`#15191A`) | isotipo `#5CC4B0` · wordmark `#F6F4EF` |
+| Badge cuadrado con nombre | `innovas-badge-lockup-teal.svg` | — (trae fondo `#0F6B60`) | marca en `#F6F4EF` |
+| Badge cuadrado solo isotipo | `innovas-badge-iso-teal.svg` | — (trae fondo `#0F6B60`) | marca en `#F6F4EF` |
 | Isotipo suelto | `innovas-isotipo-teal/ink/paper.svg` | según el color elegido | — |
 | Monocromo | `innovas-horizontal-mono-ink/paper.svg` | Franja institucional de un tercero, 1 tinta | todo en un solo color |
 
-⚠️ Los SVG del logo todavía tienen la tinta y el papel de la v1.4 (`#1F1B19`, `#EDE8DC`). Se usan igual, sin recolorear a mano, hasta que se actualicen los archivos.
-
 **Reglas que no se negocian en una slide ni en un Word:**
 
-- **Sobre fondo oscuro cambia el archivo, no el color a mano.** El isotipo teal `#0F6B60` sobre tinta no se lee; la variante oscura existe para eso.
+- **Sobre fondo oscuro cambia el archivo, no el color a mano.** El isotipo teal `#0F6B60` sobre tinta da 2.78:1 y no se lee; la variante oscura (`#5CC4B0`, 8.41:1) existe para eso.
 - **Tamaño mínimo:** horizontal 120px de ancho en pantalla (≈32mm impreso); isotipo suelto 24px. Por debajo, el circuito se funde. Para un favicon de 16px usá el badge, no el isotipo transparente.
 - **Área de resguardo:** el archivo ya la trae (90px de margen sobre el lienzo de 991×319). Si lo recortás, reponé ese margen: nada — texto, cinta, borde, foto — entra ahí.
 - **No:** degradé, sombra, blur, rotación, estirado no proporcional, recolor fuera de la tabla, separar isotipo y wordmark para armar tu propio lockup, agregarle tagline.
@@ -91,7 +89,7 @@ Aplica igual en decks, one-pagers y documentos: no es un tratamiento exclusivo d
 ## Ilustraciones
 
 - **Producto (Brain, agentes, herramientas):** la serie del cerebro del sitio (sección "Ilustraciones: la serie del cerebro (v1.5)" del `SKILL.md`). En una pieza fija se usa una captura a 2x del dibujo ya armado, sobre el mismo fondo de la pieza, sin recorte ni sombra agregada. Línea de tinta, nodos y cabeza en teal, encendido en lima.
-- **Ilustración a mano (v1.2):** ⚠️ sin definir si sigue para piezas fuera del sitio. Si se usa, trazo tipo marcador de ~3.2px en `#15191A`, extremos redondeados, dos acentos planos por pieza (teal `#0F6B60` principal, un bloque de 38 a 54px rotado ~7°; oliva `#4F6B00` como detalle de hasta 30px con el guiño), fondo transparente, lienzo 4:3 (400×300), objetos y diagramas, sin personas. Los SVG de `assets/illustrations/svg/` tienen todavía los colores de la v1.4.
+- **Ilustración a mano (v1.2):** ⚠️ sin definir si sigue para piezas fuera del sitio. Si se usa, trazo tipo marcador de ~3.2px en `#15191A`, extremos redondeados, dos acentos planos por pieza (teal `#0F6B60` principal, un bloque de 38 a 54px rotado ~7°; oliva `#4F6B00` como detalle de hasta 30px con el guiño), fondo transparente, lienzo 4:3 (400×300), objetos y diagramas, sin personas. Los SVG de `assets/illustrations/svg/` ya tienen los colores de la v1.5.
 
 ## Documentos Word (.docx): fondo blanco (v1.3)
 

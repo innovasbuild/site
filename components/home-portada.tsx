@@ -29,7 +29,7 @@ export function HomeHero() {
           <p className="mt-5 text-[clamp(1.25rem,1.8vw,1.5rem)] leading-[1.25] font-medium tracking-[-0.01em]">{hero.supportLine}</p>
           <p className="mt-3 text-[19px] leading-[1.55] text-paper/70">{hero.subhead}</p>
           <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row">
-            <Link href={hero.ctaPrimary.href} className="rounded-full bg-teal px-7 py-4 text-[17px] font-semibold text-on-brand">
+            <Link href={hero.ctaPrimary.href} className="rounded-full bg-teal-ui-dark px-7 py-4 text-[17px] font-semibold text-on-brand">
               {hero.ctaPrimary.label}
             </Link>
             <Link href={hero.ctaSecondary.href} className="rounded-full border-[1.5px] border-paper/70 px-7 py-[15px] text-[17px] font-semibold text-paper">

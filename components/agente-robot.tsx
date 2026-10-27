@@ -37,11 +37,11 @@ export function AgenteRobot({ label, className }: { label: string; className?: s
     if (!cont || !canvas || !ctx) return
 
     const reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    const tinta = leerToken(cont, "--color-ink", "#15191A")
-    const teal = leerToken(cont, "--color-teal", "#0F6B60")
-    const lima = leerToken(cont, "--color-plum-dark", "#D4F36B")
-    const papel = leerToken(cont, "--color-paper", "#F6F4EF")
-    const halo = crearHalo(leerToken(cont, "--color-teal-dark", "#5CC4B0"))
+    const tinta = leerToken(cont, "--color-ink")
+    const teal = leerToken(cont, "--color-teal")
+    const lima = leerToken(cont, "--color-lima")
+    const papel = leerToken(cont, "--color-paper")
+    const halo = crearHalo(leerToken(cont, "--color-teal-dark"))
     const siluetaPath = new Path2D(SILUETA)
     // Solo los surcos principales, para que en chico se lea simple.
     const surcosPath = SURCOS.slice(0, 3).map((d) => new Path2D(d))

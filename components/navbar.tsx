@@ -141,7 +141,7 @@ export function Navbar() {
             })}
             <Link
               href={navCta.href}
-              className="ml-2 rounded-full bg-teal px-5 py-2.5 text-sm font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
+              className={cn("ml-2 rounded-full px-5 py-2.5 text-sm font-bold text-on-brand transition-transform hover:-translate-y-0.5", sobreOscuro ? "bg-teal-ui-dark" : "bg-teal hover:shadow-teal")}
             >
               {navCta.label}
             </Link>
