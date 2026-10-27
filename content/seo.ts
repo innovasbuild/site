@@ -2,9 +2,9 @@ import type { SeoMeta } from "./types"
 
 export const seo: Record<string, SeoMeta> = {
   "/": {
-    title: "Central IA: la plataforma que ordena la adopción de IA en tu empresa | INNOV.AS",
+    title: "INNOV.AS: consultoría e implementación de IA para empresas",
     description:
-      "Central IA es la plataforma que ordena la adopción de IA en la empresa, con gobernanza sobre la información, los agentes y las herramientas, y el equipo que la implementa.",
+      "Ordenamos el conocimiento y los datos de tu empresa y construimos los agentes que hacen el trabajo que se repite, sobre Central IA, nuestra plataforma, con permisos sobre quién accede a qué.",
   },
   "/central-ia": {
     title: "Central IA: tu gente, tus agentes y tus herramientas, con permisos | INNOV.AS",

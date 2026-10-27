@@ -16,7 +16,7 @@ export function OrientationCard() {
         target="_blank"
         rel="noreferrer"
         onClick={() => window.gtag?.("event", "agenda_click", { method: "charla_orientacion" })}
-        className="mt-8 inline-block rounded bg-teal px-6 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
+        className="mt-8 inline-block rounded-full bg-teal px-7 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
       >
         {orientacion.cta}
       </a>

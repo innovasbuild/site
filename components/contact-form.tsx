@@ -148,7 +148,7 @@ export function ContactForm() {
           type="submit"
           disabled={isSubmitting}
           className={cn(
-            "w-full rounded bg-teal px-6 py-3 text-base font-bold text-on-brand transition-transform",
+            "w-full rounded-full bg-teal px-7 py-3 text-base font-bold text-on-brand transition-transform",
             "hover:-translate-y-0.5 hover:shadow-teal disabled:opacity-50"
           )}
         >

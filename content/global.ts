@@ -11,20 +11,20 @@ export const signupHref = (plan: "gratis" | "equipo") =>
   signupLive ? `${appUrl}/signup?plan=${plan}` : "/contacto"
 
 export const navLinks: NavLink[] = [
-  { label: "Central IA", href: "/central-ia" },
   { label: "Servicios", href: "/servicios" },
+  { label: "Central IA", href: "/central-ia" },
   { label: "Nosotros", href: "/nosotros" },
 ]
 
-/** CTA principal del sitio: el alta gratis en la app. */
-export const primaryCta: Cta = { label: "Empezá gratis", href: signupHref("gratis") }
-export const primaryCtaNote = "Gratis por tres meses, hasta 3 usuarios y 5 skills. El uso de IA se paga por consumo."
+/** CTA principal del sitio: el alta en la app. */
+export const primaryCta: Cta = { label: "Empezá ahora", href: signupHref("gratis") }
+export const primaryCtaNote = "Creás la cuenta de tu empresa en minutos, sin instalar nada."
 
-export const navCta: Cta = primaryCta
+/** CTA de la conversación con el equipo: el principal del home y de la barra, por la venta a empresas. */
+export const conversationCta: Cta = { label: "Solicitá una demo", href: "/contacto" }
+export const conversationCtaNote = "30 minutos con el equipo que después implementa."
 
-/** CTA secundario: la primera conversación con el equipo. */
-export const conversationCta: Cta = { label: "Agendá una primera conversación", href: "/contacto" }
-export const conversationCtaNote = "30 minutos, sin costo, con el equipo que después implementa."
+export const navCta: Cta = conversationCta
 
 export const footerColumns: FooterColumn[] = [
   {},

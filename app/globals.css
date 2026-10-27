@@ -1,31 +1,33 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   INNOV.AS — Design tokens ("Cálido / Notación de Transición")
-   + capa editorial agosto 2026 (poster/tape/interlock/counter).
+   INNOV.AS — Design tokens. Rediseño octubre 2026 ("B + C"): papel claro, tinta, teal de marca y
+   lima como segundo color; Newsreader para títulos, Schibsted Grotesk para texto e IBM Plex Mono
+   para etiquetas. Sobre la capa editorial de agosto 2026 (poster/tape/interlock/counter).
    Cero valores mágicos fuera de este bloque.
    ========================================================================== */
 
 :root {
   /* ---- Color: superficies ---- */
-  --color-paper: #EDE8DC;
-  --color-paper-soft: #E4DDCC;
+  --color-paper: #F6F4EF;
+  --color-paper-soft: #ECEAE3;
 
   /* ---- Color: tinta / texto ---- */
-  --color-ink: #1F1B19;
-  --color-ink-70: rgba(31, 27, 25, 0.68);
-  --color-ink-40: rgba(31, 27, 25, 0.40);
+  --color-ink: #15191A;
+  --color-ink-70: rgba(21, 25, 26, 0.72);
+  --color-ink-40: rgba(21, 25, 26, 0.45);
 
   /* ---- Color: marca + verticales ---- */
   --color-teal: #0F6B60;
-  --color-plum: #8C3B5D;
-  --color-taupe: #A79E8E;
+  /* Segundo color ("la gente"): oliva sobre claro; su versión -dark es el lima. */
+  --color-plum: #B0441F;
+  --color-taupe: #A3A69F;
 
   /* ---- Color: semántico ---- */
   --color-brand: var(--color-teal);
   --color-vertical-company: var(--color-teal);
   --color-vertical-people: var(--color-plum);
-  --color-line: rgba(31, 27, 25, 0.18);
+  --color-line: rgba(21, 25, 26, 0.16);
   --color-on-brand: #FFFFFF;
 
   /* ---- Color: estados ---- */
@@ -35,21 +37,24 @@
 
   /* ---- Color: superficies oscuras — secciones/slides puntuales, NO dark-mode de usuario.
      Regla dura: sobre fondo oscuro nunca --color-teal / --color-plum "a secas". ---- */
-  --color-ink-soft: #2A2522;
-  --color-teal-dark: #159384;
+  --color-ink-soft: #1F2526;
+  --color-teal-dark: #5CC4B0;
   --color-teal-ui-dark: #107468;
-  --color-plum-dark: #C0688D;
-  --color-plum-ui-dark: #A5466E;
+  --color-plum-dark: #E07A55;
+  --color-plum-ui-dark: #B0441F;
   --color-danger-dark: #CC626F;
+  /* Neón lima de B+C: solo como acento sobre oscuro o sobre foto (nunca texto sobre claro). */
+  --color-lima: #D4F36B;
 
   /* ---- Tipografía: familias ---- */
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono: "Space Mono", ui-monospace, "SF Mono", monospace;
-  --fraunces-display: "opsz" 144, "SOFT" 100, "WONK" 0;
-  --fraunces-heading: "opsz" 80, "SOFT" 100, "WONK" 0;
-  --fraunces-poster: "opsz" 144, "SOFT" 100, "WONK" 0;
-  --fraunces-small: "opsz" 14, "SOFT" 100, "WONK" 0;
+  --font-display: "Newsreader", Georgia, serif;
+  --font-sans: "Schibsted Grotesk", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+  /* Ajustes de ejes de la tipografía anterior (Fraunces); con Newsreader no hacen falta. */
+  --fraunces-display: normal;
+  --fraunces-heading: normal;
+  --fraunces-poster: normal;
+  --fraunces-small: normal;
 
   /* ---- Tipografía: escala (rem sobre 16px) ---- */
   --text-xs: 0.75rem;
@@ -62,16 +67,18 @@
   --text-3xl: 3rem;
   --text-hero: clamp(3.5rem, 6.6vw, 4.5rem);
 
-  /* ---- Tipografía: capa editorial — escala póster (Fraunces estirada al máximo,
+  /* ---- Tipografía: capa editorial — escala póster (Newsreader 500 en minúscula,
      1–4 palabras). Mide contra el viewport (web). ---- */
-  --text-poster-sm: clamp(2.5rem, 6vw, 4rem);
+  --text-poster-sm: clamp(2.75rem, 5.5vw, 4rem);
   --text-poster: clamp(2.75rem, 8vw, 6rem);
   --text-poster-xl: clamp(3.5rem, 13vw, 11rem);
-  --lh-poster: 0.84;
-  --lh-poster-tight: 0.78;
-  --track-poster: -0.028em;
-  --track-poster-xl: -0.038em;
+  /* En minúscula hay descendentes (g, p, q): el interlineado póster necesita aire. */
+  --lh-poster: 1;
+  --lh-poster-tight: 0.95;
+  --track-poster: -0.03em;
+  --track-poster-xl: -0.04em;
   --text-counter: clamp(3.5rem, 10vw, 9rem);
+  --text-counter-sm: clamp(2.5rem, 4.5vw, 3.75rem);
   --lh-counter: 0.82;
 
   /* ---- Cintas rotadas (TapeLabel) — máx 2 por composición, 1–2 palabras ---- */
@@ -87,7 +94,7 @@
 
   /* ---- Sombras (offset sólido, sin blur) ---- */
   --shadow-teal: 0 6px 0 -2px rgba(15, 107, 96, 0.35);
-  --shadow-plum: 0 6px 0 -2px rgba(140, 59, 93, 0.40);
+  --shadow-plum: 0 6px 0 -2px rgba(176, 68, 31, 0.35);
   --shadow-tape: 2px 2px 0 0 rgba(31, 27, 25, 0.22);
   /* Halo simétrico (sin offset direccional) para separar el titular póster del backdrop de canvas */
   --shadow-poster-glow: 0 0 8px var(--color-ink), 0 0 28px var(--color-ink-70), 0 0 56px var(--color-ink-40);
@@ -153,6 +160,7 @@
   --color-plum: var(--color-plum);
   --color-plum-dark: var(--color-plum-dark);
   --color-plum-ui-dark: var(--color-plum-ui-dark);
+  --color-lima: var(--color-lima);
   --color-taupe: var(--color-taupe);
   --color-brand: var(--color-brand);
   --color-vertical-company: var(--color-vertical-company);
@@ -278,4 +286,92 @@
   .animate-marquee { animation: none; }
   .animate-travel-dot { animation: none; opacity: 0; }
   .animate-orbit { animation: none; }
+}
+
+/* ==========================================================================
+   Capa B + C (octubre 2026): reglas que unifican piezas comunes en todo el sitio.
+   ========================================================================== */
+
+/* Un hero oscuro con .bajo-nav sube por detrás de la barra flotante (que es una pill suelta, sin fondo propio
+   en el header): así los puntitos del hero siguen por arriba y no se ve el corte. */
+.bajo-nav {
+  margin-top: calc(-1 * var(--alto-nav, 0px));
+  padding-top: var(--alto-nav, 0px);
+}
+
+/* Opción B · Editorial (vista aparte): el armado original con las fuentes y el color de B.
+   Títulos póster en minúscula, con aire abajo para los descendentes del reveal. */
+.font-display.uppercase {
+  text-transform: none;
+}
+.font-display.uppercase > span {
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+/* Los dibujos de la serie del cerebro se encienden en lima, como en B+C (acá el segundo color es óxido). */
+.serie-cerebro {
+  --color-plum-dark: #D4F36B;
+}
+
+/* ==========================================================================
+   Fotografía (octubre 2026): las fotos del sitio van con un mismo tratamiento para que se lean
+   como una serie: color apenas bajado, contraste suave y un grano fino encima.
+   ========================================================================== */
+@layer components {
+.foto {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-ink-soft);
+}
+.foto > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.78) contrast(1.04);
+  transition: transform 900ms var(--ease-out-quint), scale 900ms var(--ease-out-quint), opacity 700ms var(--ease);
+}
+.foto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+}
+}
+
+/* Fotos que ya vienen tratadas: sin filtro ni grano encima. */
+.foto-natural > img { filter: none; }
+.foto-natural::after { display: none; }
+
+/* Progreso de las pestañas que avanzan solas (recorrido, continuidad). */
+@keyframes progreso {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+.barra-progreso {
+  transform-origin: left;
+  animation: progreso var(--dur-paso, 7000ms) linear forwards;
+}
+.pausado .barra-progreso {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .barra-progreso { animation: none; transform: scaleX(1); }
+  .foto > img { transition: none; }
+}
+
+/* Puntos que viajan por un tramo (esquema de continuidad en /central-ia). */
+@keyframes fluye {
+  0% { left: 0%; opacity: 0; }
+  15%, 85% { opacity: 1; }
+  100% { left: calc(100% - 6px); opacity: 0; }
+}
+.punto-fluye {
+  animation: fluye 1.8s linear infinite both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .punto-fluye { animation: none; left: 50%; }
 }

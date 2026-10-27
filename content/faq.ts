@@ -27,7 +27,36 @@ export const faqProducto: FaqItem[] = [
   {
     question: "Cuánto cuesta?",
     answer:
-      "Podés empezar gratis por tres meses, con hasta 3 usuarios y 5 skills. Después, o cuando se suma más gente, se paga por usuario, y el uso de IA dentro de la plataforma se paga por consumo. Si la implementamos con vos, cada ola se cotiza con alcance cerrado antes de empezar.",
+      "Se paga por usuario, y el uso de IA dentro de la plataforma se paga por consumo. Si la implementamos con vos, cada ola se cotiza con alcance cerrado antes de empezar.",
+  },
+]
+
+/** Preguntas del home: arrancan por el trabajo con el equipo y después la plataforma. */
+export const faqHome: FaqItem[] = [
+  {
+    question: "Cómo arranca el trabajo con ustedes?",
+    answer:
+      "Con una conversación de 30 minutos. Si tiene sentido seguir, hacemos el Radar: tres a cuatro horas con tu equipo directivo y un informe con el método relevado, las oportunidades y un plan a dos años.",
+  },
+  {
+    question: "Qué pasa si frenamos después del Radar?",
+    answer:
+      "Te quedás con el informe: el método de tu empresa relevado, los puntos de dolor, las oportunidades y el plan a dos años. Sirve aunque la decisión sea frenar ahí.",
+  },
+  {
+    question: "Ya pagamos licencias de ChatGPT o Claude. Central IA las reemplaza?",
+    answer:
+      "Las aprovecha. La licencia le da un asistente a cada persona. Central IA le da a la empresa un conocimiento compartido, permisos y agentes, y cada persona los usa desde el asistente que ya tiene.",
+  },
+  {
+    question: "Dónde queda la información de mi empresa?",
+    answer:
+      "En un espacio propio de tu empresa dentro de Central IA, aislado del de las demás. Los modelos de IA trabajan sin ver credenciales.",
+  },
+  {
+    question: "Cuánto cuesta?",
+    answer:
+      "El Radar tiene precio fijo y se bonifica al implementar la ola cero. Cada ola se cotiza con alcance cerrado antes de empezar. La plataforma se paga por usuario, y el uso de IA, por consumo.",
   },
 ]
 

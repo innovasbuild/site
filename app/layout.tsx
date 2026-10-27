@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Script from "next/script"
 import "./globals.css"
 import { cn } from "@/lib/utils"
-import { fraunces, inter, spaceMono } from "./fonts"
+import { display, sans, mono } from "./fonts"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={cn(fraunces.variable, inter.variable, spaceMono.variable)}>
+    <html lang="es" className={cn(display.variable, sans.variable, mono.variable)}>
       <head>
         <Script
           id="ga-script"

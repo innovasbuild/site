@@ -1,20 +1,25 @@
-import { Arrow } from "@/components/arrow"
+import Link from "next/link"
 import type { Metadata } from "next"
+import { ArrowText } from "@/components/arrow"
 import { Hero } from "@/components/hero"
 import { PageSection } from "@/components/page-section"
 import { ArrowList } from "@/components/arrow-list"
 import { CtaBanner } from "@/components/cta-banner"
 import { JsonLd } from "@/components/json-ld"
-import { AgentScene } from "@/components/animated/agent-scene"
-import { HandDrawn } from "@/components/illustrations/hand-drawn"
-import { homeIllustrations as il } from "@/components/illustrations/home"
+import { Foto } from "@/components/foto"
+import { ComponentesGrid } from "@/components/central/componentes-grid"
+import { Continuidad } from "@/components/central/continuidad"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { productSchema } from "@/lib/schema"
-import { hero, brain, permisos, agentes, control, puertas, herramientas, sistemas, finalCta } from "@/content/central-ia"
+import { hero, control, conEquipo, sistemas, finalCta } from "@/content/central-ia"
 
 export const metadata: Metadata = buildMetadata("/central-ia", seo["/central-ia"])
 
+/**
+ * Central IA contada por sus componentes y lo que le dan a la empresa, sin pantallas ni demos del producto:
+ * componentes, continuidad del conocimiento, control, el equipo que la implementa y el detalle para sistemas.
+ */
 export default function CentralIaPage() {
   return (
     <main>
@@ -31,97 +36,46 @@ export default function CentralIaPage() {
         ctaSecondary={hero.ctaSecondary}
       />
 
-      <PageSection kicker={brain.kicker} posterTitle={brain.posterTitle} width="lg">
-        <div className="mt-6 grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
-          <div>
-            <p className="text-ink-70">{brain.body}</p>
-            <ArrowList items={brain.features} className="mt-6" />
-          </div>
-          <AgentScene
-            scene="piezaBrain"
-            look="volumen"
-            bg="--color-paper"
-            label={il.piezaBrain.label}
-            className="aspect-[4/3] w-full"
-            fallback={<HandDrawn illustration={il.piezaBrain} className="w-full" />}
-          />
-        </div>
-      </PageSection>
+      {/* 01 — Componentes y su beneficio */}
+      <ComponentesGrid />
 
-      <PageSection kicker={permisos.kicker} posterTitle={permisos.posterTitle} soft width="lg">
-        <p className="mt-4 font-display text-xl text-ink">{permisos.lead}</p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {permisos.items.map((item) => (
-            <div key={item.title} className="rounded border border-ink bg-paper p-6">
-              <p className="font-display text-lg font-bold text-ink">{item.title}</p>
-              <p className="mt-2 text-sm leading-relaxed text-ink-70">{item.description}</p>
+      {/* 02 — Cuando alguien se va */}
+      <Continuidad />
+
+      {/* 03 — Control */}
+      <PageSection kicker={control.kicker} posterTitle={control.posterTitle} posterAccent={control.posterAccent} width="lg">
+        <p className="mt-4 max-w-2xl text-ink-70">{control.lead}</p>
+        <div className="mt-8 divide-y divide-line rounded-[16px] border border-ink bg-paper">
+          {control.levels.map((level, i) => (
+            <div key={level.what} className="grid gap-2 p-5 sm:grid-cols-[3rem_1fr_1fr] sm:items-center">
+              <span className="font-mono text-xs text-ink-40">0{i + 1}</span>
+              <p className="text-[15px] text-ink">{level.what}</p>
+              <p className="text-[15px] font-medium text-teal">{level.rule}</p>
             </div>
           ))}
         </div>
       </PageSection>
 
-      <PageSection kicker={agentes.kicker} posterTitle={agentes.posterTitle} width="lg">
-        <div className="mt-6 grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
-          <div>
-            <p className="text-ink-70">{agentes.body}</p>
-            <div className="mt-6 rounded border border-ink bg-paper-soft p-6">
-              <p className="font-mono text-xs uppercase tracking-wider text-teal">{agentes.exampleTitle}</p>
-              <p className="mt-3 text-sm leading-relaxed text-ink-70">{agentes.example}</p>
-            </div>
-            <p className="mt-6 font-medium text-ink">{agentes.closing}</p>
+      {/* 04 — Viene con un equipo */}
+      <section className="bg-ink text-paper">
+        <div className="mx-auto grid max-w-7xl lg:grid-cols-2">
+          <Foto imagen={conEquipo.foto} className="min-h-[320px] lg:min-h-[520px]" />
+          <div className="flex flex-col justify-center px-6 py-16 md:px-16">
+            <p className="font-mono text-[13px] tracking-[0.12em] text-teal-dark uppercase">
+              {conEquipo.kicker.index} · {conEquipo.kicker.label}
+            </p>
+            <h2 className="mt-4 font-display text-[clamp(2.25rem,4vw,3.5rem)] leading-[1.02] font-medium tracking-[-0.03em]">
+              {conEquipo.titulo}
+            </h2>
+            <p className="mt-5 max-w-lg text-[17px] leading-[1.6] text-paper/75">{conEquipo.texto}</p>
+            <Link href={conEquipo.cta.href} className="mt-8 inline-block font-semibold text-lima hover:underline">
+              <ArrowText>{`${conEquipo.cta.label} →`}</ArrowText>
+            </Link>
           </div>
-          <AgentScene
-            scene="piezaAgentes"
-            look="volumen"
-            bg="--color-paper"
-            label={il.piezaAgentes.label}
-            className="aspect-[4/3] w-full"
-            fallback={<HandDrawn illustration={il.piezaAgentes} className="w-full" />}
-          />
         </div>
-      </PageSection>
+      </section>
 
-      <PageSection kicker={control.kicker} posterTitle={control.posterTitle} posterAccent={control.posterAccent} soft>
-        <p className="mt-4 text-ink-70">{control.lead}</p>
-        <div className="mt-8 divide-y divide-line rounded border border-ink bg-paper">
-          {control.levels.map((level) => (
-            <div key={level.what} className="grid gap-2 p-5 sm:grid-cols-2">
-              <p className="text-sm text-ink">{level.what}</p>
-              <p className="text-sm font-medium text-teal">{level.rule}</p>
-            </div>
-          ))}
-        </div>
-      </PageSection>
-
-      <PageSection kicker={puertas.kicker} posterTitle={puertas.posterTitle}>
-        <p className="mt-4 text-ink-70">{puertas.body}</p>
-        <ol className="mt-8 grid gap-4 sm:grid-cols-2">
-          {puertas.steps.map((step, index) => (
-            <li key={step} className="rounded border border-ink bg-paper-soft p-5 text-sm text-ink-70">
-              <span className="block font-mono text-xs text-teal">{`0${index + 1}`} <Arrow long /></span>
-              <span className="mt-2 block">{step}</span>
-            </li>
-          ))}
-        </ol>
-      </PageSection>
-
-      <PageSection kicker={herramientas.kicker} posterTitle={herramientas.posterTitle} soft width="lg">
-        <div className="mt-6 grid gap-10 md:grid-cols-[1.2fr_0.8fr] md:items-center">
-          <div>
-            <p className="text-ink-70">{herramientas.body}</p>
-            <p className="mt-4 font-medium text-ink">{herramientas.panel}</p>
-          </div>
-          <AgentScene
-            scene="piezaHerramientas"
-            look="volumen"
-            bg="--color-paper-soft"
-            label={il.piezaHerramientas.label}
-            className="aspect-[4/3] w-full"
-            fallback={<HandDrawn illustration={il.piezaHerramientas} className="w-full" />}
-          />
-        </div>
-      </PageSection>
-
+      {/* 05 — Para sistemas */}
       <PageSection kicker={sistemas.kicker} posterTitle={sistemas.posterTitle}>
         <ArrowList items={sistemas.items} className="mt-8" />
       </PageSection>

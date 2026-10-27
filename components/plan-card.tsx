@@ -32,7 +32,7 @@ export function PlanCard({ plan }: { plan: Plan }) {
         <Link
           href={plan.cta.href}
           className={cn(
-            "block rounded px-6 py-3 text-center text-base font-bold transition-transform hover:-translate-y-0.5",
+            "block rounded-full px-7 py-3 text-center text-base font-bold transition-transform hover:-translate-y-0.5",
             featured
               ? "bg-teal text-on-brand hover:shadow-teal"
               : "border border-ink text-ink hover:bg-ink hover:text-paper"

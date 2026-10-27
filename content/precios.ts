@@ -6,8 +6,8 @@ const talkCta: Cta = { label: "Hablemos", href: "/contacto" }
 
 export const hero = {
   eyebrow: "// precios → planes",
-  posterTitle: "Empezá gratis",
-  posterAccent: "gratis",
+  posterTitle: "Empezá ahora",
+  posterAccent: "ahora",
   supportLine: "Tres planes, del primer equipo a toda la empresa.",
   subhead:
     "Creás la cuenta de tu empresa en minutos y trabajás con el Brain desde el primer día. Cuando se suma más gente, pagás por persona. Si querés que nuestro equipo la implemente con vos, lo armamos a medida.",
@@ -49,7 +49,7 @@ export const planes = {
         "Conexión a Claude y ChatGPT por MCP.",
         "Ingreso restringible al dominio de tu empresa.",
       ],
-      cta: { label: "Empezá gratis", href: signupHref("gratis") },
+      cta: { label: "Empezá ahora", href: signupHref("gratis") },
       note: "El uso de IA dentro de la plataforma se paga por consumo.",
     },
     {
