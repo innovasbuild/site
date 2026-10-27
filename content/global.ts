@@ -20,11 +20,10 @@ export const navLinks: NavLink[] = [
 export const primaryCta: Cta = { label: "Empezá ahora", href: signupHref("gratis") }
 export const primaryCtaNote = "Creás la cuenta de tu empresa en minutos, sin instalar nada."
 
-/** CTA de la conversación con el equipo: el principal del home y de la barra, por la venta a empresas. */
-export const conversationCta: Cta = { label: "Solicitá una demo", href: "/contacto" }
+/** Nota bajo "Empezá ahora" en los heros y cierres: mientras el alta no está abierta, el botón lleva a la conversación con el equipo. */
 export const conversationCtaNote = "30 minutos con el equipo que después implementa."
 
-export const navCta: Cta = conversationCta
+export const navCta: Cta = primaryCta
 
 export const footerColumns: FooterColumn[] = [
   {},

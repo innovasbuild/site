@@ -1,4 +1,4 @@
-import { primaryCta, conversationCta, conversationCtaNote } from "./global"
+import { primaryCta, conversationCtaNote } from "./global"
 import { imagenes, type Imagen } from "./imagenes"
 
 /**
@@ -14,8 +14,7 @@ export const hero = {
   posterAccent: "con el tuyo",
   subhead:
     "Implementamos la IA en tu empresa de punta a punta: relevamos cómo trabaja, ordenamos lo que sabe, construimos los agentes y los operamos con vos. Por olas de tres meses, cada una con un circuito de negocio funcionando al final.",
-  ctaPrimary: conversationCta,
-  ctaSecondary: primaryCta,
+  ctaPrimary: primaryCta,
   note: conversationCtaNote,
   fotos: [imagenes.heroServicios],
 }
@@ -211,7 +210,6 @@ export const faqSection = {
 
 export const finalCta = {
   title: "Empecemos por conversar",
-  cta: conversationCta,
-  secondary: primaryCta,
+  cta: primaryCta,
   note: conversationCtaNote,
 }

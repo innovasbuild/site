@@ -32,7 +32,6 @@ export default function Home() {
         supportLine={hero.supportLine}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
-        ctaSecondary={hero.ctaSecondary}
         note={hero.note}
         variant="dark"
         backdrop="dots"
@@ -72,7 +71,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
     </main>
   )
 }

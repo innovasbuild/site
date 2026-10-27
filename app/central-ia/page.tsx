@@ -31,7 +31,6 @@ export default function CentralIaPage() {
         supportLine={hero.supportLine}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
-        ctaSecondary={hero.ctaSecondary}
         fotos={[hero.foto]}
         velo="suave"
       />
@@ -80,7 +79,7 @@ export default function CentralIaPage() {
         <ArrowList items={sistemas.items} className="mt-8" />
       </PageSection>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
     </main>
   )
 }
