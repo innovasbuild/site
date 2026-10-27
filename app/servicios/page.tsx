@@ -1,84 +1,72 @@
 import type { Metadata } from "next"
-import { Hero } from "@/components/hero"
-import { PageSection } from "@/components/page-section"
-import { ArrowList } from "@/components/arrow-list"
-import { StepCards } from "@/components/step-cards"
-import { EconomicsCard } from "@/components/economics-card"
+import { HeroFoto } from "@/components/hero-foto"
+import { BandaFoto } from "@/components/banda-foto"
+import { SectionKicker } from "@/components/section-kicker"
+import { PosterHeading } from "@/components/poster-heading"
 import { Faq } from "@/components/faq"
 import { CtaBanner } from "@/components/cta-banner"
+import { Camino } from "@/components/servicios/camino"
+import { DosFormas } from "@/components/servicios/dos-formas"
+import { OlaCero } from "@/components/servicios/ola-cero"
+import { Roles } from "@/components/servicios/roles"
+import { PrimerPaso } from "@/components/servicios/primer-paso"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
-import { faqProducto, faqMetodo } from "@/content/faq"
-import { hero, camino, diagnosticos, olaCero, principios, roles, primerPaso, finalCta } from "@/content/servicios"
+import { faqMetodo, faqProducto } from "@/content/faq"
+import { hero, principios, faqSection, finalCta } from "@/content/servicios"
 
 export const metadata: Metadata = buildMetadata("/servicios", seo["/servicios"])
 
+/**
+ * Servicios contados desde quien decide (v1.6): un equipo que implementa la IA de la empresa de punta a punta.
+ * Mismas secciones que el sitio publicado, en el mismo orden: el camino, dos formas de empezar, la ola cero,
+ * cómo trabajamos, quién hace qué, el primer paso y preguntas.
+ */
 export default function ServiciosPage() {
   return (
     <main>
-      <Hero
-        field="waves"
+      <HeroFoto
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}
-        posterSize="sm"
-        supportLine={hero.supportLine}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
-        ctaSecondary={hero.ctaSecondary}
+        note={hero.note}
+        fotos={hero.fotos}
       />
 
-      <PageSection kicker={camino.kicker} posterTitle={camino.posterTitle} width="lg">
-        <div className="mt-10">
-          <StepCards steps={camino.steps} />
+      {/* 01 — El camino, etapa por etapa */}
+      <Camino />
+
+      {/* 02 — Radar o Mapa del Método */}
+      <DosFormas />
+
+      {/* 03 — Qué deja la ola cero */}
+      <OlaCero />
+
+      {/* 04 — Cómo trabajamos */}
+      <BandaFoto kicker={principios.kicker} frase={principios.frase} intro={principios.intro} foto={principios.foto} items={principios.items} encender />
+
+      {/* 05 — Quién hace qué */}
+      <Roles />
+
+      {/* 06 — El primer paso */}
+      <PrimerPaso />
+
+      {/* 07 — Preguntas frecuentes */}
+      <section className="border-t border-line">
+        <div className="mx-auto max-w-3xl px-6 py-20">
+          <SectionKicker index={faqSection.kicker.index} label={faqSection.kicker.label} />
+          <div className="mt-3">
+            <PosterHeading size="sm">{faqSection.posterTitle}</PosterHeading>
+          </div>
+          <div className="mt-8">
+            <Faq items={[...faqMetodo, ...faqProducto]} />
+          </div>
         </div>
-      </PageSection>
+      </section>
 
-      <PageSection kicker={diagnosticos.kicker} posterTitle={diagnosticos.posterTitle} soft width="lg">
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {diagnosticos.cards.map((card) => (
-            <div key={card.title} className="rounded border border-ink bg-paper p-6">
-              <h3 className="font-display text-2xl font-bold text-ink">{card.title}</h3>
-              <p className="mt-2 font-medium text-ink">{card.lead}</p>
-              <ArrowList items={card.items} className="mt-4" />
-            </div>
-          ))}
-        </div>
-      </PageSection>
-
-      <PageSection kicker={olaCero.kicker} posterTitle={olaCero.posterTitle}>
-        <p className="mt-4 text-ink-70">{olaCero.intro}</p>
-        <ArrowList items={olaCero.items} className="mt-6" />
-      </PageSection>
-
-      <PageSection kicker={principios.kicker} posterTitle={principios.posterTitle} soft>
-        <ArrowList items={principios.items} className="mt-8" />
-      </PageSection>
-
-      <PageSection kicker={roles.kicker} posterTitle={roles.posterTitle} width="lg">
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {roles.cards.map((card) => (
-            <EconomicsCard key={card.title} title={card.title} items={card.items} />
-          ))}
-        </div>
-      </PageSection>
-
-      <PageSection kicker={primerPaso.kicker} posterTitle={primerPaso.posterTitle} soft width="lg">
-        <p className="mt-4 max-w-2xl text-ink-70">{primerPaso.intro}</p>
-        <div className="mt-10 grid gap-6 md:grid-cols-2 [&>div]:bg-paper">
-          {primerPaso.cards.map((card) => (
-            <EconomicsCard key={card.title} title={card.title} items={card.items} />
-          ))}
-        </div>
-      </PageSection>
-
-      <PageSection kicker={{ index: "07", label: "preguntas frecuentes" }} posterTitle="Preguntas">
-        <div className="mt-8">
-          <Faq items={[...faqMetodo, ...faqProducto]} />
-        </div>
-      </PageSection>
-
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
     </main>
   )
 }

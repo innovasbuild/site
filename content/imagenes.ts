@@ -37,6 +37,12 @@ export const imagenes = {
   manifiestoEquipo: propia("manifiesto-equipo.jpg", "Estructura de vigas en grilla vista desde abajo"),
   equipoPizarra: propia("equipo-pizarra.jpg", "Dos personas conversando frente a una pizarra"),
   reunionControl: propia("control-reunion.jpg", "Equipo directivo reunido alrededor de una mesa, a contraluz"),
+  heroServicios: propia("servicios-hero.jpg", "Equipo reunido alrededor de una mesa larga, mirando a una persona que presenta en la pizarra"),
+  equipoFondo: propia("equipo-fondo.jpg", "Ondas oscuras en verdes y lima, con grano"),
+  centralIaHero: propia("central-ia-hero.jpg", "Ondas desenfocadas en verdes oscuros y lima, con grano"),
+  comoTrabajamos: propia("como-trabajamos.jpg", "Dos personas frente a una pizarra, en movimiento"),
+  rolesTuLado: propia("roles-tu-lado.jpg", "Silueta borrosa en verdes y lima, con luz de neón"),
+  rolesNuestro: propia("roles-nuestro.jpg", "Dos esferas de luz en verde y lima sobre fondo oscuro"),
   socios: unsplash("photo-1758518731706-be5d5230e5a5", "Equipo conversando en una oficina moderna"),
   traspaso: unsplash("photo-1758876203342-fc14c0bba67c", "Dos colegas trabajando juntos en un escritorio"),
 

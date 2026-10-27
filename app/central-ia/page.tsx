@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { Metadata } from "next"
 import { ArrowText } from "@/components/arrow"
-import { Hero } from "@/components/hero"
+import { HeroFoto } from "@/components/hero-foto"
 import { PageSection } from "@/components/page-section"
 import { ArrowList } from "@/components/arrow-list"
 import { CtaBanner } from "@/components/cta-banner"
@@ -24,16 +24,15 @@ export default function CentralIaPage() {
   return (
     <main>
       <JsonLd data={productSchema} />
-      <Hero
-        field="flow"
+      <HeroFoto
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
         posterAccent={hero.posterAccent}
-        posterSize="sm"
         supportLine={hero.supportLine}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
-        ctaSecondary={hero.ctaSecondary}
+        fotos={[hero.foto]}
+        velo="suave"
       />
 
       {/* 01 — Componentes y su beneficio */}
@@ -80,7 +79,7 @@ export default function CentralIaPage() {
         <ArrowList items={sistemas.items} className="mt-8" />
       </PageSection>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
     </main>
   )
 }

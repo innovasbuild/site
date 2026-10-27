@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Linkedin } from "lucide-react"
 import { Logo } from "@/components/logo"
-import { footerColumns, footerInstitutional, footerContact, footerLegal } from "@/content/global"
+import { footerColumns, footerInstitutional, footerContact, footerContactLinks, footerLegal } from "@/content/global"
 
 export function Footer() {
   return (
@@ -37,6 +37,11 @@ export function Footer() {
           <div id="contacto" className="scroll-mt-24">
             <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">Contacto</h4>
             <div className="mt-4 flex flex-col gap-3">
+              {footerContactLinks.map((link) => (
+                <Link key={link.label} href={link.href} className="text-sm text-paper/70 hover:text-paper">
+                  {link.label}
+                </Link>
+              ))}
               <a href={`mailto:${footerContact.email}`} className="text-sm text-paper/70 hover:text-paper">
                 {footerContact.email}
               </a>

@@ -32,9 +32,6 @@ export function HomeHero() {
             <Link href={hero.ctaPrimary.href} className="rounded-full bg-teal-ui-dark px-7 py-4 text-[17px] font-semibold text-on-brand">
               {hero.ctaPrimary.label}
             </Link>
-            <Link href={hero.ctaSecondary.href} className="rounded-full border-[1.5px] border-paper/70 px-7 py-[15px] text-[17px] font-semibold text-paper">
-              {hero.ctaSecondary.label}
-            </Link>
           </div>
           <p className="mt-4 font-mono text-xs text-paper/60">{hero.note}</p>
         </div>

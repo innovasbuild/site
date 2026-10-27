@@ -370,3 +370,33 @@
 @media (prefers-reduced-motion: reduce) {
   .punto-fluye { animation: none; left: 50%; }
 }
+
+/* Cifra grande entre filetes: la caja se recorta a la altura de las cifras para que quede centrada. */
+.cifra-ajustada {
+  text-box: trim-both cap alphabetic;
+}
+
+/* Texto que cambia en una secuencia que avanza sola: sube apenas y aparece. */
+@keyframes sube {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* Un ítem que se enciende: un halo lima que se apaga solo (ola cero, servicios). */
+@keyframes brillo {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-lima) 70%, transparent); }
+  30% { box-shadow: 0 0 0 7px color-mix(in oklab, var(--color-lima) 55%, transparent); }
+  100% { box-shadow: 0 0 0 14px transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [class*="animate-[sube"], [class*="animate-[brillo"] { animation: none !important; }
+}
+
+/* Hero con foto (servicios, nosotros): la foto se aleja apenas al cargar, una sola vez. */
+@keyframes acercar {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="animate-[acercar"] { animation: none !important; }
+}

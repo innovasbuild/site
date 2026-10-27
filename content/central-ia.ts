@@ -1,5 +1,5 @@
 import type { Cta } from "./types"
-import { primaryCta, conversationCta, conversationCtaNote } from "./global"
+import { primaryCta, conversationCtaNote } from "./global"
 import { imagenes } from "./imagenes"
 
 /**
@@ -15,8 +15,8 @@ export const hero = {
   supportLine: "La base sobre la que tu empresa construye su IA.",
   subhead:
     "Donde vive lo que sabe tu empresa, trabajan sus agentes y se conectan sus sistemas, con permisos por persona y registro de todo. Nuestro equipo la implementa y la opera con vos.",
-  ctaPrimary: conversationCta,
-  ctaSecondary: primaryCta,
+  ctaPrimary: primaryCta,
+  foto: imagenes.centralIaHero,
 }
 
 export type Ilustracion = "brain" | "agentes" | "herramientas"
@@ -169,8 +169,7 @@ export const sistemas = {
 
 export const finalCta = {
   title: "Conocé Central IA con tu equipo",
-  cta: conversationCta,
-  secondary: primaryCta,
+  cta: primaryCta,
   note: conversationCtaNote,
 }
 

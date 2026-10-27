@@ -1,4 +1,3 @@
-import { InstitutionalStrip } from "@/components/institutional-strip"
 import { SectionKicker } from "@/components/section-kicker"
 import { PosterHeading } from "@/components/poster-heading"
 import { CtaBanner } from "@/components/cta-banner"
@@ -14,7 +13,7 @@ import { BandaControl } from "@/components/home/banda-control"
 import { QuienesSomos } from "@/components/home/quienes-somos"
 import { productSchema } from "@/lib/schema"
 import { faqHome } from "@/content/faq"
-import { hero, trayectoria, faqSection, finalCta } from "@/content/home"
+import { hero, faqSection, finalCta } from "@/content/home"
 
 /**
  * Home. Se cuenta desde quien decide: qué hacemos (manifiesto), dónde está su empresa hoy, qué contrata
@@ -33,12 +32,10 @@ export default function Home() {
         supportLine={hero.supportLine}
         subhead={hero.subhead}
         ctaPrimary={hero.ctaPrimary}
-        ctaSecondary={hero.ctaSecondary}
         note={hero.note}
         variant="dark"
         backdrop="dots"
       />
-      <InstitutionalStrip names={trayectoria.logos} label={trayectoria.logosLabel} />
 
       {/* 01 — Qué hacemos, en una frase grande */}
       <Manifiesto />
@@ -74,7 +71,7 @@ export default function Home() {
         </div>
       </section>
 
-      <CtaBanner title={finalCta.title} cta={finalCta.cta} secondary={finalCta.secondary} note={finalCta.note} />
+      <CtaBanner title={finalCta.title} cta={finalCta.cta} note={finalCta.note} />
     </main>
   )
 }
