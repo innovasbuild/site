@@ -18,7 +18,7 @@ export default function TerminosPage() {
     <main>
       <section className="border-b border-line bg-ink pt-32 pb-16 text-paper">
         <div className="mx-auto max-w-3xl px-6">
-          <p className="font-mono text-xs uppercase tracking-widest text-teal">Legal</p>
+          <p className="font-mono text-xs uppercase tracking-widest text-teal-dark">Legal</p>
           <h1 className="mt-4 font-display text-4xl font-bold text-paper md:text-5xl">Términos y Condiciones</h1>
           <p className="mt-3 text-sm text-paper/50">Última actualización: agosto de 2026</p>
         </div>

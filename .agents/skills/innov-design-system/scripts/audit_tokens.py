@@ -29,6 +29,8 @@ from pathlib import Path
 
 CODE_EXTENSIONS = {".tsx", ".jsx", ".ts", ".js", ".css"}
 EXEMPT_FILENAMES = {"globals.css", "tailwind.config.ts", "tailwind.config.js"}
+# Componentes de librería copiados tal cual (shadcn/ui): sus hex son selectores de terceros, no colores de marca.
+EXEMPT_DIRS = {("components", "ui")}
 
 HEX_PATTERN = re.compile(r"#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{4}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\b")
 FONT_FAMILY_PATTERN = re.compile(
@@ -36,14 +38,16 @@ FONT_FAMILY_PATTERN = re.compile(
 )
 # Fuentes que SÍ están en el contrato de tokens — si aparecen literal es sospechoso
 # pero mucho menos grave que una fuente ajena al sistema.
-KNOWN_TOKEN_FONTS = {"fraunces", "inter", "space mono", "georgia", "serif",
+KNOWN_TOKEN_FONTS = {"newsreader", "schibsted grotesk", "ibm plex mono",
+                     "fraunces", "inter", "space mono", "georgia", "serif",
                      "system-ui", "-apple-system", "sans-serif", "ui-monospace",
                      "sf mono", "monospace"}
 
 # bg-ink (fondo oscuro) + teal/plum "de superficie clara" en la misma línea = casi
 # seguro un error de contraste (ver T3.2 2.1). bg-ink-soft no cuenta como oscuro para
 # este chequeo... en realidad sí, ink-soft también es un fondo oscuro.
-DARK_BG_PATTERN = re.compile(r"bg-ink(?:-soft)?\b")
+# (?<!:) deja afuera variantes como hover:bg-ink, que no son el fondo de la sección.
+DARK_BG_PATTERN = re.compile(r"(?<![:\w-])bg-ink(?:-soft)?(?![\w-])")
 LIGHT_TEAL_OR_PLUM_ON_DARK = re.compile(r"\b(?:text|bg|border|shadow)-(teal|plum)\b(?!-dark)(?!-ui-dark)")
 
 
@@ -60,12 +64,14 @@ def iter_target_files(paths):
 def audit_file(path: Path):
     violations = []
     if path.name in EXEMPT_FILENAMES:
-        return violations
+        return violations, []
+    if any(path.parts[i:i + len(d)] == d for d in EXEMPT_DIRS for i in range(len(path.parts))):
+        return violations, []
 
     try:
         text = path.read_text(encoding="utf-8", errors="ignore")
     except OSError:
-        return violations
+        return violations, []
 
     for i, line in enumerate(text.splitlines(), start=1):
         stripped = line.strip()
@@ -86,24 +92,27 @@ def audit_file(path: Path):
                     (i, "font-family-hardcodeada", m.group(1), line.strip()[:120])
                 )
 
-    # Chequeo a nivel archivo (no por línea): si el archivo usa un fondo oscuro en
-    # algún lado Y usa teal/plum "de superficie clara" en algún lado, avisar. Es
-    # deliberadamente amplio (puede marcar falsos positivos si hay una tarjeta clara
-    # anidada dentro de una sección oscura) — es una señal para revisar a mano, no un
-    # error automático de línea exacta como el hex/font-family de arriba.
+    # Teal/plum "de superficie clara" en la misma línea que un fondo oscuro: error.
+    # Si solo comparten archivo (una sección clara y otra oscura en el mismo archivo),
+    # es un aviso para revisar a mano: el script no sabe qué elemento está dentro de cuál.
+    warnings = []
     if DARK_BG_PATTERN.search(text):
-        bad_matches = []
+        file_matches = []
         for i, line in enumerate(text.splitlines(), start=1):
+            same_line = DARK_BG_PATTERN.search(line)
             for m in LIGHT_TEAL_OR_PLUM_ON_DARK.finditer(line):
-                bad_matches.append((i, m.group(0)))
-        if bad_matches:
-            lines_str = ", ".join(f"L{ln}:{val}" for ln, val in bad_matches)
-            violations.append(
-                (bad_matches[0][0], "teal-plum-sin-variante-oscura (revisar archivo)",
-                 lines_str, "el archivo usa bg-ink/bg-ink-soft en algún lado")
+                if same_line:
+                    violations.append((i, "teal-plum-sobre-oscuro", m.group(0), line.strip()[:120]))
+                else:
+                    file_matches.append((i, m.group(0)))
+        if file_matches:
+            lines_str = ", ".join(f"L{ln}:{val}" for ln, val in file_matches)
+            warnings.append(
+                (file_matches[0][0], "teal-plum-sin-variante-oscura (revisar a mano)",
+                 lines_str, "el archivo usa bg-ink/bg-ink-soft en otra línea")
             )
 
-    return violations
+    return violations, warnings
 
 
 def main():
@@ -119,13 +128,17 @@ def main():
         sys.exit(0)
 
     total_violations = 0
+    total_warnings = 0
     for f in files:
-        violations = audit_file(f)
-        if violations:
+        violations, warnings = audit_file(f)
+        if violations or warnings:
             print(f"\n{f}")
             for line_no, kind, value, snippet in violations:
                 print(f"  L{line_no} [{kind}] {value!r}  ::  {snippet}")
+            for line_no, kind, value, snippet in warnings:
+                print(f"  aviso L{line_no} [{kind}] {value!r}  ::  {snippet}")
             total_violations += len(violations)
+            total_warnings += len(warnings)
 
     print()
     if total_violations:
@@ -138,6 +151,8 @@ def main():
         sys.exit(1)
     else:
         print(f"✅ Sin violaciones en {len(files)} archivo(s) revisados.")
+        if total_warnings:
+            print(f"   {total_warnings} aviso(s) para revisar a mano: teal/plum claro en un archivo que también tiene fondo oscuro.")
         sys.exit(0)
 
 

@@ -34,7 +34,7 @@ export function Footer() {
               </div>
             ))}
 
-          <div>
+          <div id="contacto" className="scroll-mt-24">
             <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">Contacto</h4>
             <div className="mt-4 flex flex-col gap-3">
               {footerContactLinks.map((link) => (

@@ -47,9 +47,9 @@ export function HerramientasEnchufe({ label, className }: { label: string; class
     if (!cont || !canvas || !ctx) return
 
     const reducir = window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    const tinta = leerToken(cont, "--color-ink", "#15191A")
-    const teal = leerToken(cont, "--color-teal", "#0F6B60")
-    const lima = leerToken(cont, "--color-plum-dark", "#D4F36B")
+    const tinta = leerToken(cont, "--color-ink")
+    const teal = leerToken(cont, "--color-teal")
+    const lima = leerToken(cont, "--color-lima")
     const siluetaPath = new Path2D(SILUETA)
     const surcosPath = SURCOS.slice(0, 3).map((d) => new Path2D(d))
 
@@ -201,7 +201,7 @@ export function HerramientasEnchufe({ label, className }: { label: string; class
           // Ficha del enchufe en la punta, con sus dos patitas hacia el cerebro.
           const [px, py] = enCable(c, a)
           ctx.globalAlpha = 1
-          ctx.fillStyle = conectada ? lima : "#ffffff00"
+          ctx.fillStyle = conectada ? lima : "transparent"
           ctx.beginPath()
           ctx.roundRect(px - 3, py - 3, 6, 5, 1.2)
           if (conectada) ctx.fill()

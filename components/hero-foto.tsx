@@ -67,7 +67,7 @@ export function HeroFoto({
         <Aparece demora={0.5} className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center">
           <Link
             href={ctaPrimary.href}
-            className="rounded-full bg-teal px-7 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
+            className="rounded-full bg-teal-ui-dark px-7 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5"
           >
             <ArrowText>{ctaPrimary.label}</ArrowText>
           </Link>

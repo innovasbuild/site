@@ -1,352 +1,266 @@
 ---
 name: "innov-design-system"
-description: "Sistema de identidad visual de INNOV.AS y de su plataforma Central IA: paleta paper/ink/teal/plum, Fraunces/Inter/Space Mono, escala póster, hero con trama de puntos, ilustraciones a mano y escenas animadas en volumen. Usar SIEMPRE al crear, editar o revisar cualquier pieza de marca de INNOV.AS: sitio, decks, one-pagers, Word, PDF o UI. Activar también con ilustraciones, dibujos, escenas 3D o animadas, bots o agentes dibujados, diagramas, hero, colores, tipografías, tokens, logo, favicon, titulares póster, cintas, camino del cliente o voz de marca. Reglas duras: cero hex o fuentes hardcodeados (var(--...) o Tailwind); el logo siempre es el SVG; las ilustraciones a mano siguen los ocho pasos con HandDrawn; las del sitio se animan en volumen con AgentScene y su procedimiento; los Word llevan fondo blanco."
+description: "Sistema de identidad visual de INNOV.AS y de su plataforma Central IA: paleta papel/tinta/teal/lima, Newsreader/Schibsted Grotesk/IBM Plex Mono, logo perfil-circuito, flecha A→B, titulares en minúscula con palabra en itálica, ilustraciones de la serie del cerebro, fotografía del sitio y reglas por soporte (web, presentaciones, documentos, redes sociales, email). Usar SIEMPRE al crear, editar o revisar cualquier pieza de INNOV.AS en cualquier soporte: sitio, decks, one-pagers, Word, PDF, posteos, firmas o mails, y al proponer cambios al sistema de marca. Activar también con ilustraciones, cerebro, robot o agentes dibujados, diagramas, hero, colores, tipografías, tokens, logo, favicon, titulares póster, camino del cliente o voz de marca. Reglas duras: cero hex o fuentes hardcodeados (var(--...) o Tailwind); el logo siempre es el archivo; las ilustraciones nuevas siguen la serie del cerebro; los Word llevan fondo blanco."
 ---
 
 # INNOV.AS — Design System
 
 ## Qué es
 
-"Sistema Cálido / Notación de Transición": editorial cálido (papel tostado, serif humanista) + anotación técnica (mono, ticks, flecha) sobre neutros. Es la identidad de INNOV.AS, la empresa que ofrece servicios sobre su plataforma, Central IA. La marca vive en la flecha de transición `A ──→ B`, que codifica la tesis del negocio: la empresa pasa de IA suelta (A) a IA con gobierno (B). Los dos acentos tienen rol semántico: `teal` es la plataforma (sistema, agentes, herramientas) y `plum` es la gente de la empresa (quién decide, quién aprueba, el guiño), la misma idea de "tu gente decide, los agentes ejecutan".
+Sistema **"Cálido / Notación de Transición"**: papel claro y serif de lectura (lo editorial), más notación técnica en mono (lo de sistema), sobre neutros. Es la identidad de INNOV.AS, la empresa que acompaña a empresas grandes a adoptar IA de punta a punta sobre su plataforma, Central IA.
 
-**Actualización agosto 2026:** se agregó una capa editorial de escala póster (inspirada en el *mecanismo* de referencias editoriales de agencia, no en su paleta) — titulares gigantes en Fraunces, cintas rotadas en mono, interlock texto/imagen, contadores animados y slots de ilustración a mano alzada. No es una paleta ni tipografía nueva: son componentes y tokens de escala que se suman al mismo contrato de 3 colores.
+Los dos acentos tienen rol fijo: **`teal` es la plataforma** (sistema, agentes, herramientas) y **el segundo color es la gente de la empresa** (quién decide, quién aprueba, el guiño): oliva sobre claro y lima sobre oscuro. Es la misma idea que "tu gente decide, los agentes ejecutan".
 
-**Actualización octubre 2026 (v1.2):** decidida por Mati el 2026-10-10 al replantear el sitio con Central IA adelante. Paleta, tipografías y logo no cambian. Cambian cuatro cosas: la escala póster web baja un escalón, el hero oscuro lleva una trama de puntos en WebGPU (`HeroDots`), la ilustración pasa de diagrama puro a objetos y diagramas con dos acentos (`HandDrawn`), y las reglas de movimiento admiten el dibujo progresivo de ilustraciones y el fondo animado del hero.
+La marca se apoya en cinco elementos:
 
-**Actualización octubre 2026 (v1.4):** decidida por Mati el 2026-10-22 a partir de un pedido de Marcos (las ilustraciones a mano no cerraban para la venta corporativa). Las ilustraciones del sitio (las tres piezas del producto y, desde el mismo día, los tres dolores) pasan a escenas animadas en volumen, en WebGPU, que reaccionan al cursor (`AgentScene`). Los agentes se representan como bots con visor y ojos. Las ilustraciones a mano quedan como respaldo sin WebGPU y para piezas fuera del sitio.
+1. **El logo** (isotipo perfil-circuito + wordmark `INNOV.AS`): la firma institucional. Identifica al emisor.
+2. **La flecha `A ──→ B`**: el recurso gráfico de composición y la tesis del negocio (la empresa pasa de IA suelta a IA con gobierno). Va en marcadores, rieles de mensaje, progreso y diagramas.
+3. **El titular con palabra destacada**: Newsreader en minúscula, con la palabra o frase que importa en itálica ("la IA de tu empresa, *de punta a punta*").
+4. **La notación mono**: etiquetas de sección en IBM Plex Mono (`03 · CONTROL`), estados (`4/6 →`) y cintas.
+5. **El encendido lima**: el neón de las ilustraciones y el acento sobre fondo oscuro o foto.
 
-**Actualización octubre 2026 (v1.3):** decidida el 2026-10-20 para alinear la identidad con el reposicionamiento del 2026-10-09 (Central IA adelante, En Paralelo a un costado, Desde Adentro despublicada). Paleta, tipografías, logo y todo lo de la v1.2 no cambian. Cambian cinco cosas: `teal` y `plum` pasan a codificar plataforma y gente en lugar de empresas y personas; el camino de 4 niveles educativo pasa a ser el camino del cliente; las piezas de marca siguen reglas de contenido y voz (sección propia); los documentos Word llevan fondo blanco; y se suma una guía para decks.
+Esto no se rediscute en cada pieza. El trabajo de cualquier entregable es **aplicar** el sistema, no inventar paletas, tipografías ni recursos "parecidos".
 
-Esto no es una preferencia estética a discutir en cada tarea — ya fue definido, aprobado por Mati, y tiene tokens de código listos (`assets/tokens/`). El trabajo de cualquier pieza nueva es **aplicar** este sistema, no reinventar paleta, tipografía o mecanismos editoriales.
+**Ámbito:** marca de INNOV.AS y de Central IA. Los logos de terceros (franja de organizaciones, clientes) solo aparecen en monocromo y sin efectos.
+
+## Cómo usar este skill
+
+1. Leer este archivo: define la base que vale en todos los soportes (paleta, tipografía, logo, elementos firma, imagen, voz).
+2. Abrir el archivo del soporte de la pieza en `references/soportes/`: formatos, medidas, tamaños, estructura tipo y checklist.
+3. Al terminar, pasar el checklist del soporte y el checklist general de este archivo.
+
+| Soporte | Archivo |
+|---|---|
+| Web y pantallas (sitio, landings, UI de Central IA) | `references/soportes/web.md` + `references/componentes.md` |
+| Presentaciones | `references/soportes/slides.md` |
+| Documentos (Word, PDF, one-pagers, propuestas) | `references/soportes/documentos.md` |
+| Redes sociales | `references/soportes/redes.md` ⚠️ propuesta v1.7 |
+| Email (firma, mails comerciales, newsletters) | `references/soportes/email.md` ⚠️ propuesta v1.7 |
+| Soporte que no está en la lista | Aplicar la base de este archivo y proponerlo con `references/soportes/_plantilla.md` |
+
+Las reglas están escritas para cualquier herramienta. Cada archivo de soporte termina con "Notas por herramienta", la única sección donde se nombran productos.
+
+**Ilustraciones** (serie del cerebro, ilustración a mano y su procedimiento): `references/ilustracion.md`.
+**Para cambiar o hacer crecer el sistema:** `references/gobierno.md` (quién decide, núcleo y evolución, circuito de cambio) y `references/decisiones.md` (registro de decisiones y pendientes).
 
 ## Regla dura para código
 
-**Cero hex, cero nombres de fuente hardcodeados en JSX/TSX.** Todo color y tipografía se consume vía `var(--...)` (CSS) o clases Tailwind que ya mapean a esos tokens (`bg-paper`, `text-ink`, `text-teal`, `font-display`, etc.). Un valor que no está en los tokens no se inventa: se agrega al contrato primero (edita `globals.css`, después úsalo).
+**Cero hex y cero nombres de fuente literales en JSX/TSX/CSS de componentes.** Todo color y tipografía se consume vía `var(--...)` o clases Tailwind mapeadas (`bg-paper`, `text-ink`, `text-teal`, `font-display`). Un valor que no está en `assets/tokens/globals.css` se agrega ahí primero. Auditar con `python3 scripts/audit_tokens.py <carpeta>` antes de entregar.
 
-**Regla dura para titulares póster:** en lienzos de tamaño fijo (slides, print/.docx/.pdf) usar siempre `--text-poster-slide-sm/--text-poster-slide/--text-poster-slide-xl` (px absolutos, calibrados sobre 1280×720) — nunca la escala clamp de web (`--text-poster-sm/--text-poster/--text-poster-xl`, que mide contra el viewport del navegador y en una slide cambiaría de tamaño según el ancho de la ventana, no de la slide). En componentes se pide con `scale="slide"`.
+**Lienzos fijos** (slides, print, .docx, .pdf, redes) usan siempre la escala en px (`--text-poster-slide-*`), nunca la escala `clamp` de web, que mide contra el ancho del navegador y no contra el lienzo. En componentes: `scale="slide"`.
 
-## Tokens — resumen rápido
+## Paleta
+
+Contrastes medidos con la fórmula WCAG 2.1 el 2026-10-27, contra `paper` salvo que se indique otra cosa.
 
 | Token | Hex | Rol | Contraste |
 |---|---|---|---|
-| `paper` | `#EDE8DC` | Superficie base | — |
-| `paper-soft` | `#E4DDCC` | Tarjeta / bloque secundario | — |
-| `paper-print` | `#FAF8F5` | Superficie base **solo .pdf**. Los **.docx llevan fondo blanco `#FFFFFF`** (ver "Piezas sin código") | — |
-| `ink` | `#1F1B19` | Texto y estructura | 13.98:1 (AAA) |
-| `teal` | `#0F6B60` | **Marca** · plataforma · sistema · agentes | 5.22:1 (AA) |
-| `plum` | `#8C3B5D` | La gente de la empresa · decisión humana · guiño | 5.93:1 (AA) |
-| `taupe` | `#A79E8E` | Bordes/ticks/metadatos — **nunca texto esencial chico** | 2.17:1, no pasa AA |
+| `paper` | `#F6F4EF` | Superficie base (web, slides, PDF, redes) | — |
+| `paper-soft` | `#ECEAE3` | Bloque secundario, tarjeta, franja | — |
+| blanco | `#FFFFFF` | Superficie base **solo .docx**; tarjetas sobre `paper` | — |
+| `ink` | `#15191A` | Texto y estructura; fondo de secciones oscuras | 16.11:1 AAA |
+| `teal` | `#0F6B60` | **MARCA.** Plataforma, sistema, agentes, botones, links | 5.80:1 AA (6.38:1 sobre blanco) |
+| `plum` (oliva) | `#4F6B00` | La gente de la empresa, decisión humana, guiño, sobre claro | 5.56:1 AA (6.11:1 sobre blanco) |
+| `lima` | `#D4F36B` | Neón: encendido de ilustraciones, acento sobre oscuro o foto | 14.19:1 sobre `ink`. **Nunca texto sobre claro** (1.14:1) |
+| `taupe` | `#A3A69F` | Bordes, ticks, separadores, metadatos no esenciales | 2.24:1 → **nunca texto de lectura** |
+| `danger` | `#B23A48` | Solo estados de error o riesgo, con etiqueta de texto | — no es color de marca |
 
-Reglas de uso: `teal` manda como color de marca. `plum` entra para marcar a la gente de la empresa y la decisión humana (permisos, aprobaciones, quién responde) y como detalle con guiño en las ilustraciones. Nunca como relleno masivo, y nunca junto a `teal` con igual peso en un mismo componente: teal manda, plum acenta. La excepción de la ilustración v1.2 (teal principal más detalle plum) sigue vigente.
+Los tokens del segundo color conservan el nombre `plum` para no romper el código.
 
-**Tipografía:** Fraunces (display — H1-H3, wordmark, titulares póster, cifras; `opsz`/`SOFT` variables para calidez, `SOFT 0`/`WONK 0`/peso 900 en escala póster) · Inter (texto/UI) · Space Mono (notación: firma `A→B`, estados, datos, cintas — nunca párrafos).
+### Jerarquía de color
 
-**Escala póster (web, clamp, v1.2: un escalón menos):** `--text-poster-sm` clamp(40→64) · `--text-poster` clamp(44→96) · `--text-poster-xl` clamp(56→176). La escala de slide/print no cambió. **Escala póster (slide/print, px fijo):** `--text-poster-slide-sm` 84px · `--text-poster-slide` 96px · `--text-poster-slide-xl` 104px. Los titulares póster van de **1 a 4 palabras** (Fraunces estirada, no condensada — una frase larga no entra y pierde el golpe). Máximo **un** titular póster por pantalla o slide.
+- **Teal manda.** Si tuvieras que describir la pieza en un color, es teal sobre papel.
+- **El segundo color acentúa.** Oliva (o lima sobre oscuro) marca a la gente y la decisión humana, y lleva el guiño. Nunca relleno masivo ni una slide entera, y nunca con el mismo peso que teal en un mismo componente.
+- **Tinta es la voz.** Títulos, cuerpo y estructura en `ink`.
+- **Lima es luz, no texto.** Sobre claro solo como relleno o trazo de ilustración, nunca como letra.
 
-Tabla completa de tokens en `assets/tokens/globals.css` — es la fuente ejecutable, no la reescribas de memoria.
+### Fondos oscuros (secciones puntuales, no dark-mode)
 
-### Fondos oscuros (secciones puntuales del sitio, slides — no es dark-mode de usuario)
+Para hero, portada y cierre de deck, cita o banda de énfasis. Máximo **2 pantallas o slides oscuras por pieza**.
 
-Cuando una sección, componente o slide se diseña sobre fondo oscuro a propósito, **`teal` y `plum` "a secas" no sirven ahí** — están calibrados para leerse sobre `paper` y no pasan contraste WCAG sobre `ink`. Existe una variante calculada y verificada:
+| Uso | Token | Hex | Contraste sobre `ink` |
+|---|---|---|---|
+| Fondo | `ink` | `#15191A` | — |
+| Tarjeta elevada | `ink-soft` | `#1F2526` | — |
+| Texto | `paper` | `#F6F4EF` | 16.11:1 |
+| Teal (texto, íconos chicos) | `teal-dark` | `#5CC4B0` | 8.41:1 |
+| Teal (relleno de botón, texto blanco encima) | `teal-ui-dark` | `#107468` | 3.14:1 (blanco encima 5.65:1) |
+| Segundo color | `plum-dark` = lima | `#D4F36B` | 14.19:1 |
+| Segundo color (relleno) | `plum-ui-dark` | `#516E00` | 3.02:1 (blanco encima 5.87:1) |
+| Error | `danger-dark` | `#CC626F` | 4.68:1 |
 
-| Contexto | Fondo | Texto principal | Acento teal | Acento plum |
-|---|---|---|---|---|
-| Oscuro | `bg-ink` (o `bg-ink-soft` para tarjeta elevada) | `text-paper` | `text-teal-dark` (texto/íconos chicos) · `bg-teal-ui-dark` (fill de botón/texto grande) | `text-plum-dark` · `bg-plum-ui-dark` |
+**Regla dura:** sobre `ink`/`ink-soft` nunca `teal`, `plum` ni sus `bg-` sin sufijo `-dark`/`-ui-dark`: `teal` sobre `ink` da 2.78:1. El audit lo detecta.
 
-**Regla dura:** nunca combines `bg-ink`/`bg-ink-soft` con `text-teal`, `bg-teal`, `text-plum` o `bg-plum` sin sufijo `-dark`/`-ui-dark`. Máximo 2 pantallas/slides oscuras por pieza. `scripts/audit_tokens.py` detecta esta combinación a nivel archivo (heurística — si el script no dice nada igual revisá a ojo).
+## Tipografía
+
+| Rol | Familia | Uso |
+|---|---|---|
+| Display | **Newsreader** (500 títulos, 700 póster, itálica) | H1–H3, titulares póster, cifras. En minúscula, con la palabra o frase destacada en itálica |
+| Texto / UI | **Schibsted Grotesk** (400–700) | Cuerpo, botones, formularios, tablas |
+| Notación | **IBM Plex Mono** (400–700) | Etiquetas de sección (`03 · CONTROL`), estados, datos, cintas. Nunca párrafos |
+
+- Las tres son de Google Fonts (SIL OFL). Reemplazan a Fraunces, Inter y Space Mono, que no van en ninguna pieza nueva.
+- Fallback, solo si la herramienta no permite instalar fuentes: Georgia (títulos), Arial (cuerpo), Courier New (etiquetas).
+- Nada de una cuarta familia. Nada de caja alta en párrafos.
+
+**Escalas.** Web (`clamp`): `--text-poster-sm` 44→64px · `--text-poster` 44→96px · `--text-poster-xl` 56→176px · `--text-counter` 56→144px · `--text-counter-sm` 40→60px. Lienzo fijo (sobre 1280×720): `--text-poster-slide-sm` 84px · `--text-poster-slide` 96px · `--text-poster-slide-xl` 104px. Los valores de cada soporte están en su archivo.
 
 ## Logo
 
-El logo es **isotipo + wordmark**, ambos vectores cerrados. Reemplaza el wordmark tipográfico anterior (`innovas` compuesto en Fraunces con superíndice `[A→B]`), que queda **deprecado**.
+**Isotipo** (perfil humano trazado como circuito: las pistas entran por la izquierda y cierran el contorno de la cara) + **wordmark `INNOV.AS`** en lettering vectorizado. El wordmark **no se tipea**: siempre se usa el archivo. "INNOV.AS" escrito en Newsreader es texto, no el logo.
 
-- **Isotipo:** perfil humano trazado como circuito — las pistas entran por la izquierda y cierran el contorno de la cara. Misma tesis que la flecha `A ──→ B`: entrada → transformación → estado. Convive con la flecha, no la reemplaza: la flecha sigue siendo el elemento gráfico de composición, el logo es la firma institucional.
-- **Wordmark:** `INNOV.AS` es **lettering vectorizado, no texto vivo**. No se recompone tipeando en Fraunces ni en ninguna otra fuente — siempre se usa el SVG. Si necesitás el nombre como texto corriente (título, cuerpo), eso es texto en Fraunces/Inter y no es el logo.
+### Variantes — `assets/logo/`
 
-### Variantes — archivos en `assets/logo/`
+| Archivo | Colores | Dónde va |
+|---|---|---|
+| `innovas-horizontal-ink.svg` | isotipo `#0F6B60`, wordmark `#15191A` | **Primaria.** Fondos claros: papel, blanco |
+| `innovas-horizontal-dark.svg` | isotipo `#5CC4B0`, wordmark `#F6F4EF` | Fondo `ink`/`ink-soft` |
+| `innovas-horizontal-paper.svg` | isotipo `#0F6B60`, wordmark `#F6F4EF` | Solo sobre foto o fondo medio, verificando contraste a mano. Sobre `ink` va `-dark` |
+| `innovas-badge-lockup-teal.svg` | fondo `#0F6B60`, marca `#F6F4EF` | Avatar cuadrado con nombre, ícono de app, sello de cierre |
+| `innovas-badge-iso-teal.svg` | fondo `#0F6B60`, isotipo `#F6F4EF` | Avatar donde el nombre ya está al lado, favicon de 16px |
+| `innovas-isotipo-teal/-ink/-paper.svg` | según nombre | Favicon ≥24px, bullet de marca |
+| `innovas-horizontal-mono-ink/-paper.svg` | un color | Impresión a una tinta, franja institucional de un tercero |
 
-| Archivo | Lienzo | Isotipo | Wordmark | Dónde va |
-|---|---|---|---|---|
-| `innovas-horizontal-ink.svg` | 991×319, transp. | `teal` | `ink` | **Primaria.** Cualquier fondo claro: `paper`, `paper-print`, blanco |
-| `innovas-horizontal-dark.svg` | 991×319, transp. | `teal-dark` | `paper` | Fondo `ink`/`ink-soft` — slides y secciones oscuras |
-| `innovas-horizontal-paper.svg` | 991×319, transp. | `teal` | `paper` | Export plano que conserva el isotipo en teal original. **No tiene superficie segura dentro del sistema**: sobre `ink` el isotipo queda en 2.68:1. Usalo solo sobre foto o fondo medio verificando el contraste a mano — para fondo `ink` va `-dark` |
-| `innovas-badge-lockup-teal.svg` | 747×741, fondo `teal` | `paper` | `paper` | Avatar cuadrado: LinkedIn, redes, app icon, sello de cierre de deck |
-| `innovas-badge-iso-teal.svg` | 747×741, fondo `teal` | `paper` | — | Avatar donde el nombre ya aparece al lado (perfil de red, favicon chico) |
-| `innovas-isotipo-teal.svg` · `-ink.svg` · `-paper.svg` | 174×221, transp. | según nombre | — | Favicon ≥24px, marca de agua, bullet de marca |
-| `innovas-horizontal-mono-ink.svg` · `-paper.svg` | 991×319, transp. | mono | mono | Solo cuando la pieza exige monocromía: franja institucional de un tercero, impresión a 1 tinta |
+PNG listos para herramientas que no aceptan SVG: `public/brand/png/` del repo del sitio. Usar esos o exportar a 2x el SVG, sin recolorear.
 
 ### Reglas duras
 
-**1 · Contraste (calculado, no estimado).**
+1. **Contraste calculado:** teal sobre papel 5.80:1, sobre blanco 6.38:1; `teal-dark` sobre `ink` 8.41:1; teal sobre `ink` **2.78:1, no se usa**. Sobre oscuro cambia el archivo, no el color a mano.
+2. **Tamaño mínimo:** horizontal 120px de ancho (≈32mm impreso); isotipo 24px. Para 16px va el badge.
+3. **Área de resguardo:** viene en el archivo (90px sobre el lienzo de 991×319 a izquierda, arriba y derecha; 48px abajo). Si se recorta, se repone. Nada entra ahí.
+4. **No se toca:** sin recolor fuera de la tabla, degradé, sombra, blur, rotación ni estirado; no se separa isotipo y wordmark; no lleva tagline. El set con **BUILD SOLUTIONS** y la **N invertida** está deprecado.
+5. **Un logo por pieza** en tamaño firma. Nunca agrandado como decoración: si la pieza pide un elemento gráfico grande, es la flecha.
+6. **En código:** `components/logo.tsx` (prop `surface="light" | "dark"`). Los hex dentro de los SVG son la excepción explícita a la regla de cero hex.
 
-| Combinación | Ratio | |
+## Elementos firma
+
+| Elemento | Spec | Regla |
 |---|---|---|
-| `teal` sobre `paper` | 5.22:1 | ✅ |
-| `teal` sobre blanco | 6.38:1 | ✅ |
-| `ink` sobre `paper` | 13.98:1 | ✅ |
-| `paper` sobre `teal` (badges) | 5.22:1 | ✅ |
-| `teal-dark` sobre `ink` | 4.51:1 | ✅ |
-| `teal` sobre `ink` | **2.68:1** | ❌ no llega ni a 3:1 |
+| **Flecha `A ──→ B`** | Glifo en IBM Plex Mono; en grande, trazo `ink` con punta | A y B siempre explícitos. Es el único elemento gráfico de marca que va en grande |
+| **Titular póster** | Newsreader 700 en minúscula, palabra destacada en itálica (teal sobre claro, lima sobre oscuro), interlineado 0.95–1.0, tracking −3% | 1 a 4 palabras. Uno por pantalla o slide |
+| **Etiqueta de sección** | IBM Plex Mono caja alta, número y punto medio: `03 · CONTROL` | Una por sección, arriba del título |
+| **Cinta** | Etiqueta en mono caja alta rotada (−6.5° / +5.5°), sombra sólida desplazada, sin blur | Máximo 2 por composición, 1–2 palabras |
+| **Contador** | Cifra en Newsreader; debajo, en Schibsted Grotesk, la unidad y el contexto | Nunca un número suelto. Escala póster para una cifra sola; en fila, tamaño de sección |
+| **Botón** | Píldora, Schibsted Grotesk bold. Primario `teal` (sobre oscuro `teal-ui-dark`) con texto blanco; hover sube 1px y suma sombra sólida | Un primario por pantalla |
+| **Tarjeta** | Blanca con filete de tinta, sin sombra difusa | Se prefieren filas con filetes y columnas separadas por líneas antes que grillas de tarjetas iguales |
+| **Bloque lateral** | Franja vertical teal a sangre (14vw o 24vw) | Solo portada y cierre. Único bloque de color a sangre |
+| **Franja institucional** | "Organizaciones para las que trabajó nuestro equipo", logos o nombres en monocromo sobre `ink` o `paper-soft` | Sobria. Lista vigente en `content/home.ts` del sitio |
 
-Por eso sobre fondo oscuro va `innovas-horizontal-dark.svg` — nunca el `-ink` recoloreado a mano ni el `-paper` conservando el isotipo teal original. Es el mismo criterio que ya rige para `teal`/`plum` en la sección de fondos oscuros.
+**Notación de apoyo** (en vez de un set de íconos): `──→`/`→`, `//` como prefijo de marcador, `▪`/`░` para progreso (`[▪▪▪▪░░] 4/6`), `·` como separador. Todo en IBM Plex Mono.
 
-**2 · Tamaño mínimo (medido rasterizando, no estimado).** Horizontal: **120px de ancho** — a 100px los serifs del wordmark empiezan a cerrarse, a 80px las pistas del circuito se funden. Isotipo suelto: **24px** — a 20px es el límite, a 16px las pistas colapsan en una mancha. Para un **favicon de 16px usá el badge**, no el isotipo transparente: el fondo teal sólido sostiene la lectura donde el trazo no.
+## Imagen
 
-**3 · Área de resguardo.** Los archivos ya la traen incorporada: en el horizontal son 90px sobre el lienzo de 991×319 (≈ 0.52× el ancho del isotipo) a izquierda, arriba y derecha, y 48px abajo. Si recortás el SVG a su bounding box, reponé ese margen. Nada entra en esa zona — ni texto, ni cinta, ni borde.
-
-**4 · No se toca.** No se recolorea fuera de la tabla de variantes · nada de degradé, sombra ni blur · no se rota · no se estira (escalá siempre proporcional) · no se separa el isotipo del wordmark para armar un lockup propio — los dos lockups aprobados son el horizontal y el badge vertical · no se le agrega tagline. El set anterior con tagline **BUILD SOLUTIONS** y la **N invertida** queda **deprecado**: no va en ninguna pieza nueva.
-
-**5 · En código.** El sitio ya tiene el logo como componente (`components/logo.tsx`, prop `surface="light" | "dark"`) consumiendo `var(--color-teal)` / `var(--color-teal-dark)` / `var(--color-ink)` / `var(--color-paper)`. En un proyecto Next.js usá el componente; los SVG de `assets/logo/` son para piezas fuera de código. Los hex literales dentro de esos SVG son la excepción explícita a "cero hex hardcodeado" — igual que `assets/tokens/`, son archivos de contrato.
-
-## Capa editorial — componentes (agregado agosto 2026)
-
-Cuatro adiciones que no reemplazan nada del sistema previo, lo escalan:
-
-| Componente | Qué hace | Regla clave |
-|---|---|---|
-| **TapeLabel** | Etiqueta cinta rotada en mono, versión física del marcador de sección (`// 03 ──→`) | Máximo **2 cintas** por composición, 1–2 palabras cada una. Ángulos `--tape-rot -6.5deg` / `--tape-rot-alt 5.5deg`. Sombra sólida `--shadow-tape`, nunca blur |
-| **PosterHeading** | Titular a escala póster | 1–4 palabras, `scale="slide"` en lienzos fijos, `SOFT 0`/`WONK 0`/peso 900, `line-height` 0.84 (0.78 en xl) |
-| **InterlockHeadline** | Interlock texto/imagen: un bloque de imagen incrustado dentro de una línea de titular póster | Alto del bloque `--interlock-h` (0.78em), gap `--interlock-gap` |
-| **StatCounter** | Cifra grande en Fraunces que cuenta desde 0 al entrar en viewport (IntersectionObserver 40%, 1200ms) | Cifra siempre con unidad y contexto en una línea secundaria — nunca un número suelto |
-| **IllustrationSlot** | Andamio que sostiene el layout mientras una ilustración no está hecha | Se reemplaza por una pieza `HandDrawn` que cumpla la spec de ilustración v1.2, nunca por un ícono o clipart genérico |
-| **HandDrawn** (v1.2) | Ilustración a mano en SVG que se dibuja al entrar en pantalla | Spec completa en "Ilustración (v1.2)" más abajo. En el sitio: `components/illustrations/hand-drawn.tsx` más un archivo de trazos por conjunto |
-| **HeroDots** (v1.2) | Fondo del hero oscuro: trama de puntos tipo semitono en WebGPU | Spec en "Hero con trama de puntos (v1.2)". Un solo uso por página, solo en el hero. En el sitio: `components/hero-dots.tsx` |
-| **AgentScene** (v1.4) | Escena animada en volumen (WebGPU) para las piezas del producto: formas mate, luz suave, sombra de contacto, agentes que miran al cursor | Spec y procedimiento en "Ilustración animada en volumen (v1.4)". Siempre con `fallback` a la `HandDrawn` equivalente y `bg` igual al fondo de la superficie. En el sitio: `components/animated/` |
-| **HeroField** (v1.3.1) | Fondo animado del hero claro de cada página interna, con un patrón propio por página | Spec en "Fondos de hero de páginas internas (v1.3.1)". Un patrón por página, solo en el hero, nunca dos páginas con el mismo. En el sitio: `components/hero-field.tsx` |
-
-## Ilustración (v1.2)
-
-Reemplaza la spec de trazo fino, acento único y registro solo diagramático.
-
-- **Registro:** objetos y diagramas. Objetos reconocibles de trabajo (ventana de asistente, nota, carpeta, fichero, cuaderno, lápiz, llave, candado, enchufe, burbuja de chat, planilla) combinados con flechas y nodos. **Sin personas**, caras ni manos. Sin isométrico, 3D, degradé ni sombra difusa. (Estas reglas son de la ilustración a mano. Las escenas en volumen de la v1.4 tienen las suyas, más abajo.)
-- **Trazo:** tipo marcador, **3.2px** en `ink`, extremos y uniones redondeados, sin relleno. Irregularidad de mano visible y pareja en toda la pieza.
-- **Color:** dos acentos planos por pieza, con pesos distintos. **Teal** es el principal: un bloque de **38 a 54px** de lado, rotado unos **7°**, sobre el elemento que importa. **Plum** es un detalle: un bloque de hasta **30px**, rotado en sentido contrario, que lleva el guiño. Encima de un acento puede ir una marca corta en `paper` (un tilde, una cruz, un signo). Es la única excepción a la regla de no juntar teal y plum en un componente, y vale porque plum siempre pesa menos.
-- **Hachurado:** fuera en v1.2. Las superficies de color son planas.
-- **Tono:** claro y con un guiño. La idea se entiende a primera vista y hay un solo detalle con humor (un candado que quedó abierto, un renglón tachado). Un guiño por pieza.
-- **Complejidad:** una idea por ilustración, hasta unos 45 trazos. Lienzo `viewBox 0 0 400 300`, fondo transparente, pensada para apoyarse sobre `paper` o `paper-soft`.
-- **Texto:** ninguno dentro del dibujo. Va `aria-label` con la descripción.
-- **Movimiento:** cada trazo se dibuja una vez cuando la pieza entra en pantalla (ver Motion).
-
-### Procedimiento de ilustración (obligatorio)
-
-Decisión de Mati del 2026-10-10: toda ilustración de INNOV.AS se hace siguiendo estos pasos, que son los que produjeron las seis del home. El objetivo es consistencia total entre piezas hechas en sesiones distintas.
-
-1. **Concepto antes de dibujar.** Por cada pieza, escribir en una línea qué situación concreta muestra, con qué objetos, y cuál es el guiño. Presentárselo a quien la pidió y esperar el visto bueno. Una idea y un guiño por pieza.
-2. **Mirar las existentes.** Abrir `assets/illustrations/home.ts` (en el repo del sitio, `components/illustrations/home.ts`) y los SVG ya renderizados de `assets/illustrations/svg/`, y usar esas seis como referencia de vocabulario, densidad y proporciones. Reutilizar los objetos que ya existen (ventana, nota, carpeta, llave, candado, burbuja, lápiz) con la misma construcción.
-3. **Dibujar como lista de trazos.** Lienzo 400x300. Un `path` por trazo, escrito a mano: rectángulos con esquinas en curva, coordenadas apenas desparejas, líneas que no cierran perfecto. Hasta unos 45 trazos. Sin texto.
-4. **Poner los acentos.** Un bloque teal de 38 a 54px rotado unos 7° sobre lo que importa, y un detalle plum de hasta 30px rotado en sentido contrario con el guiño. Marca en `paper` encima solo si aporta.
-5. **Renderizar con `HandDrawn`.** Nunca un SVG suelto con otros valores: el componente fija el grosor de 3.2px, los extremos redondeados, el filtro de temblor (`feTurbulence` 0.035, dos octavas, semilla 7, desplazamiento 3.4), los colores por token y el dibujo al entrar en pantalla. El componente viaja en este skill (`assets/illustrations/hand-drawn.tsx`): en un proyecto que no lo tenga, se copia tal cual. Para una pieza fuera de código (deck, documento) o una sesión sin navegador, se arma el SVG estático con la misma estructura que los de `assets/illustrations/svg/`: mismo filtro, mismo grosor, colores en hex de la paleta.
-6. **Verla en contexto.** Montarla en una tarjeta real junto a su título y su texto (en el sitio, una página temporal sin links que se borra al terminar), capturar la pantalla y mirarla al tamaño en que se va a usar.
-7. **Revisarla con honestidad.** Se entiende sin leer el texto? El guiño se ve a ese tamaño? Parece de la misma familia que las otras? Algún objeto se confunde con otra cosa? Lo que no pase se redibuja antes de mostrarlo, y lo que quede flojo se dice.
-8. **Mostrar y ajustar.** Presentar la captura con una línea por pieza sobre cómo quedó, y redibujar lo que se pida.
-
-`references/prompt-gema-ilustraciones.md` está actualizado a la v1.2 y queda solo como brief de estilo si alguna vez se encarga una pieza afuera.
-
-## Ilustración animada en volumen (v1.4)
-
-Decidida por Mati el 2026-10-22, tras comparar tres sistemas en un laboratorio (volumen, trama de puntos y constelación de luz). Ganó **volumen**: es el más corporativo y el que mejor se lee. Se usa en todas las ilustraciones del sitio: primero las piezas del producto y, por decisión de Mati del mismo día, también los dolores.
-
-- **Qué es:** escenas 3D chicas, mate, con luz suave y sombra de contacto, que se funden con el fondo de la superficie donde van (`paper` o `paper-soft`, sin caja ni borde propio). Se mueven despacio y en continuo, y reaccionan al cursor.
-- **Vocabulario fijo.** Toda escena se arma con estas formas, siempre con la misma construcción:
-  - **Agente:** bot de cuerpo redondeado (píldora, esfera o rombo) con visor `ink` y dos ojos encendidos. Flota, parpadea cada tanto y gira el cuerpo hacia el cursor. Puede llevar una antena con bolita `plum` como guiño.
-  - **Persona:** esfera. En `plum` si es la gente que decide o usa la IA, en `taupe` apagado si quedó afuera.
-  - **Herramienta:** bloque redondeado neutro.
-  - **Brain / conocimiento:** esfera `teal`.
-  - **Plataforma / hub:** bloque `teal`.
-  - **Conexión:** cable fino `ink` con pulsos `teal` que viajan.
-  - **Permiso:** anillo `plum` alrededor de lo que protege.
-  - **Dato:** cubito `teal`.
-- **Color:** cinco materiales, todos leídos de los tokens: neutro (papel aclarado), `teal`, `plum`, apagado (`taupe`) y `ink`. Un protagonista en `teal` por escena; `plum` como detalle, a lo sumo dos elementos.
-- **Caras:** única excepción a "sin caras" del sistema, y solo para los agentes: visor y dos ojos, sin boca ni otros rasgos. Las personas nunca tienen cara.
-- **Luz y cámara:** fijas y comunes a todas las escenas (cámara apenas elevada, luz arriba a la izquierda, sombra sobre un piso invisible). No se ajustan por escena.
-- **Cursor:** la escena gira apenas hacia el cursor, los agentes lo miran y la zona cercana se aclara un poco. Sin cursor, vaivén suave. Con `prefers-reduced-motion`, quietas y sin reacción.
-- **Composición:** una idea por escena, hasta unas 15 formas, lienzo 4:3. Nada se corta en el borde ni sale del cuadro al moverse.
-- **Respaldo:** cada escena tiene su par a mano (`HandDrawn`), que se muestra sin WebGPU. Una escena nueva no se publica sin su par.
-- **Dónde va:** toda ilustración del sitio: dolores y piezas del producto en el home, y piezas en `/central-ia`. Una ilustración nueva del sitio se hace como escena en volumen, con su par a mano. Solo sobre fondo claro. No va en el hero. Hasta unas seis escenas por página.
-- **Rendimiento:** un solo dispositivo GPU compartido por todas las escenas de la página, solo se dibuja lo que está en pantalla, densidad de píxel entre 1 y 1.5.
-- **Componente:** `AgentScene` (`components/animated/agent-scene.tsx`, shader en `components/animated/scene-shader.ts`; copias en `assets/components/`). Props: `scene`, `look="volumen"`, `bg` (token del fondo de la superficie), `label` y `fallback`. El shader conserva los estilos `trama` y `constelacion` del laboratorio, no aprobados: no se usan.
-
-### Procedimiento de escena animada (obligatorio)
-
-Mismo espíritu que el de ilustración: consistencia total entre escenas hechas en sesiones distintas.
-
-1. **Concepto antes de modelar.** Una línea con la situación, las formas del vocabulario que la cuentan y el guiño. Visto bueno de quien la pidió.
-2. **Mirar las existentes.** `sceneBrain`, `sceneAgentes` y `sceneHerramientas` en `scene-shader.ts` son la referencia de escala, densidad y ritmo.
-3. **Escribir la escena** como una función `sceneNombre(p)` en `scene-shader.ts`, usando solo `bot()`, esferas, bloques (`sdBox`), cables (`sdSeg`) y anillos (`sdTorus`) registrados con `put(distancia, material, ...)`. Sumar el nombre a `SCENES` y su rama en `map()`. No se agregan formas, materiales, luces ni cámaras nuevas sin pasar por una decisión de diseño.
-4. **Acentos:** un protagonista `teal`, `plum` como detalle, el resto neutro o apagado.
-5. **Movimiento:** lento (velocidades entre 0.2 y 1.4 rad/s), flotación chica, pulsos que viajan en ciclos. Nada brusco.
-6. **Par a mano:** dibujar la `HandDrawn` equivalente con los ocho pasos de ilustración. Es el respaldo.
-7. **Verla en contexto:** con `AgentScene` en la tarjeta o sección real y `bg` igual a su fondo. Mover el cursor por la página, revisar escritorio y celular, y probar el respaldo.
-8. **Revisar y mostrar:** se entiende sin leer el texto, el bot se lee como bot, parece de la misma familia que las otras. Presentar captura y ajustar lo que se pida.
-
-En piezas fijas (decks, documentos, PDF) se usa una captura del render a 2x sobre el fondo de la pieza.
-
-## Hero con trama de puntos (v1.2)
-
-Reemplaza la red de nodos del hero del home, que quedaba cargada. Es atmósfera: no cuenta el producto, eso lo hace el titular.
-
-- **Qué es:** una grilla de puntos tipo semitono sobre `ink`. El radio de cada punto respira con un campo lento. Puntos en tono `paper`, apagados, con una zona que se enciende en `teal-dark` y deriva despacio.
-- **Cursor:** la trama se abre apenas alrededor del cursor. Sutil: se descubre sin competir con el titular ni con el botón.
-- **Texto primero:** la trama se apaga detrás de la columna de texto y gana presencia hacia la derecha. En pantallas angostas se atenúa entera.
-- **Tecnología:** WebGPU con la librería `vgpu`, shader WGSL en un componente cliente. Los colores se leen de los tokens CSS en tiempo de ejecución.
-- **Obligatorio:** sin WebGPU cae a una trama estática en CSS; con `prefers-reduced-motion` queda quieta y sin reacción al cursor.
-- **Límites:** solo en el hero oscuro, una vez por página. Cuenta como una de las dos secciones oscuras que admite una pieza. En slides y documentos se usa una captura fija del mismo shader.
-- **Valores** (aprobados por Mati el 2026-10-11): paso de grilla 18px, punto 0.62, velocidad 0.12, radio del cursor 190px, foco 0.9.
-
-Ya existían del inventario original (`direccion-de-arte.md` § 4-5) y siguen vigentes, con el uso que se les da desde la v1.3: `TransitionArrow`, `SectionMarker`, `Button`, `InstitutionalStrip`, `LevelCard` (card de pieza o etapa), `VerticalRail` (rieles de mensaje) y `LevelPath` (ahora camino del cliente). `Wordmark` está deprecado y lo reemplaza el logo. `SegmentedIntent` queda sin uso: `/contacto` tiene un formulario único.
-
-**Bloque de color a sangre lateral:** franja vertical de `--colorblock-w-narrow` (14vw) o `--colorblock-w` (24vw) en teal, tocando los cuatro bordes de su lado. Único elemento full-bleed de color del sistema — portada y cierre.
-
-## Fondos de hero de páginas internas (v1.3.1)
-
-Decidido por Mati el 2026-10-22. El home tiene la trama de puntos oscura; cada página interna lleva en su hero claro un fondo de la misma familia con personalidad propia. El patrón cuenta en abstracto lo que dice la página, no lo ilustra.
-
-| Página | Patrón | Qué cuenta | Acento teal | Cursor |
-|---|---|---|---|---|
-| `/central-ia` | `flow`: guiones que siguen un flujo | La plataforma ordena | Foco que deriva | Los guiones se alinean hacia → |
-| `/como-implementamos` | `waves`: olas concéntricas de puntos | Las olas del método | La ola más cercana al origen (ola cero) | Larga su propia onda |
-| `/proyectos` | `blocks`: bloques que se arman y desarman | Piezas en construcción | Algunos bloques armados | Completa los bloques |
-| `/nosotros` | `contours`: curvas de nivel | Trayectoria, terreno | Una de cada cinco curvas | Levanta un cerro |
-| `/precios` | `meter`: columnas de puntos tipo medidor | El consumo | El punto superior de cada columna | Sube las columnas cercanas |
-| `/contacto` | `signal`: pulsos que viajan por filas | Un mensaje de A a B | La punta del pulso | Agranda los puntos cercanos |
-
-- **Superficie:** sobre `paper`, con trazos en `ink` tenue y acento `teal`. No suman secciones oscuras. Si alguna vez van sobre `ink`, el componente usa `paper` y `teal-dark` (`surface="dark"`).
-- **Texto primero:** la trama casi desaparece detrás de la columna de texto (izquierda, o centro en `/contacto` con `align="center"`) y gana presencia hacia el lado libre. En pantallas angostas se atenúa entera. Los patrones llenos (`blocks`, `meter`) bajan más su intensidad.
-- **Tecnología y respaldo:** igual que `HeroDots`. WebGPU con `vgpu`, colores leídos de los tokens, trama estática en CSS sin WebGPU, quieto y sin cursor con `prefers-reduced-motion`.
-- **Límites:** un patrón por página, solo en el hero, y ninguno se repite entre páginas. Las páginas legales (`/terminos`, `/privacidad`) no llevan. Una página nueva que quiera fondo necesita un patrón nuevo con su propia idea. Si no, va sin fondo.
-- **Componente:** `HeroField` (`components/hero-field.tsx`; copia en `assets/components/hero-field.tsx`), con la prop `field` del `Hero` o directo en un hero propio.
-
-## Camino del cliente (v1.3)
-
-Reemplaza al camino de 4 niveles del programa educativo (Fundamentos, Usuario Avanzado, Builder, Orquestador), que sale del sistema junto con Desde Adentro. El componente (`LevelPath`) es el mismo con otro contenido: una escalera de estados unidos por la flecha `A ──→ B`, horizontal en escritorio y vertical en celular.
-
-```
-[ Primera conversación ] ──→ [ Radar ] ──→ [ Ola cero ] ──→ [ Olas ] ──→ [ Operación continua ]
-      estado 01              estado 02     estado 03       estado 04       estado 05
-```
-
-- Cada nodo: etiqueta mono de estado, título en Fraunces y una línea de resultado en Inter. Los cinco nombres son los del método vigente y no se renombran por pieza.
-- Color: nodos con borde `ink`; el nodo que la pieza quiere destacar va en `teal`. El gradiente `plum → teal` del camino anterior queda fuera. `plum` entra solo si el nodo implica una decisión humana (por ejemplo, la aprobación del directorio).
-- Una pieza que muestra el camino completo usa los cinco estados. Una pieza que muestra una parte deja el resto con borde `taupe` como contexto.
-- Movimiento: el mismo revelado en scroll (fade-up, 80ms por nodo).
-- ⚠️ Spec propuesta en la v1.3, a confirmar al implementarla en el sitio.
+- **Ilustración de producto:** la **serie del cerebro** (Brain, agente robot, herramientas que se enchufan). Toda ilustración nueva sigue su lenguaje. Spec y procedimiento en `references/ilustracion.md`. En lienzos fijos va una captura a 2x del dibujo armado, sin animación.
+- **Fotografía:** recurso del **sitio** desde la v1.6, para contar equipo, trabajo y escala. Tratamiento común (color apenas bajado, contraste suave, grano fino), texto sobre velo `ink` con acento lima, sin caras reconocibles de clientes ni logos, nunca presentada como un caso o como el equipo real. Reglas completas en `references/soportes/web.md`. Otros soportes solo reutilizan fotos del registro del sitio, donde su archivo lo indica.
+- **Sin** fotos de stock genéricas sin tratar, capturas de pantalla del producto en piezas de venta, íconos de IA genéricos, clipart ni imágenes generadas con IA.
 
 ## Iconografía
 
-**No hay set de íconos.** El sistema resuelve glifos con **notación mono en caracteres Unicode**, no con un icon set: `──→`/`→` (elemento firma), `//` (prefijo de marcador), `▪`/`░` (bullets y barra de progreso `[▪▪▪▪░░] 4/6`), `·` (separador de metadatos), `[ ]` (encierra superíndices/códigos). Todos en Space Mono, heredan el tamaño de la línea, color de la vertical cuando corresponde. Si algún día hace falta un set real: trazo lineal 1.5px, radio 2px — **Lucide** es la sustitución candidata, pero no está aplicada en ninguna pieza; confirmar antes de usar.
+No hay set de íconos: la notación mono resuelve los glifos. Si algún día hace falta un set real: trazo lineal 1.5px, radio 2px. **Lucide** es la candidata, sin aplicar en ninguna pieza; confirmar antes de usar.
 
-## Motion (nivel "medio", actualizado en v1.2)
+## Motion (base)
 
-Ease por defecto `--ease` `cubic-bezier(0.2,0.6,0.2,1)`; revelados `--ease-out-quint`; cintas `--ease-tape` (con overshoot).
+Ease `--ease` `cubic-bezier(0.2,0.6,0.2,1)`; revelados `--ease-out-quint`; cintas `--ease-tape`.
 
-**Se anima:** reveal de titular por palabra/línea (stagger 70ms, 620ms) · cintas entrando 0°→ángulo final con escala 0.86→1 (420ms) · contadores (1200ms) · camino del cliente (fade-up 80ms/nodo) · flecha A→B (`stroke-dashoffset`, 1000ms) · hover de CTA (`translateY(-1px)` + sombra sólida).
+- **Se anima:** revelado de titulares, cintas, contadores, la flecha `A→B` y el dibujo de las ilustraciones, una vez al entrar en pantalla; hover de botones.
+- **No se anima:** texto de cuerpo, logos (salvo la marquesina lenta de la franja institucional en el sitio), nada parallax ni atado al scroll.
+- `prefers-reduced-motion`: todo quieto y a 0ms. Obligatorio.
+- En lienzos fijos cada pieza se lee completa en estático. Las animaciones en bucle del sitio están en `references/soportes/web.md`.
 
-**Nuevo en v1.2:**
-- **Dibujo de ilustraciones.** Cada trazo se dibuja con `stroke-dashoffset` (620ms, `--ease-out-quint`, 40ms de escalonado entre trazos) y los acentos entran con escala 0.86→1 (420ms, `--ease-tape`). Se dispara una sola vez, cuando el 40% de la pieza entra en pantalla, y queda quieta.
-- **Fondo del hero.** `HeroDots` en el home y `HeroField` en las páginas internas se mueven solos y en continuo. Junto a la marquesina de la franja institucional, son las únicas animaciones en bucle del sistema.
+## Voz
 
-**No se anima:** texto de cuerpo, logos institucionales (salvo el desplazamiento de la franja, ver la excepción más abajo), nada parallax ni atado a la posición del scroll, y ningún otro bucle o auto-play fuera del fondo del hero (uno por página) y de la franja. Las entradas al aparecer en pantalla (titulares, contadores, ilustraciones) se disparan una vez y no siguen al scroll.
+Antes de escribir el copy de cualquier pieza, leer `marketing/mensajes-innovas` en el brain: es el canon y, si contradice esta sección, gana el brain. Resumen operativo:
 
-`prefers-reduced-motion`: todas las duraciones a 0ms, ilustraciones ya dibujadas, fondo del hero y franja institucional quietos. Obligatorio, no opcional.
+- **Central IA es la base** del proceso y del equipo (v1.6: en el home y la oferta va como base, no como protagonista; `/central-ia` la cuenta completa. Se aparta del canon del brain y queda pendiente de validación). Los servicios se cuentan como lo que INNOV.AS hace sobre ella.
+- **Sin las marcas En Paralelo ni Desde Adentro.** Del método quedan las olas, Radar, Mapa del Método, "tu gente decide, los agentes ejecutan" y "operación continua".
+- **Afirmativo**, sin guion largo ni signos de apertura (¿ ¡).
+- **A y B explícitos** en cada pieza. B es operación continua, no un destino.
+- **Plataforma completa**, sin "próximamente".
+- **Experiencia:** "25 años transformando más de 150 organizaciones en 14 países", en conjunto. Sin cantidades de clientes ni casos atribuidos a Central IA.
+- **Organizaciones:** "para las que trabajó nuestro equipo". Banco Mundial no figura mientras sea oferta en curso. "Ejecutamos para" solo con contrato firmado.
+- **Sin nombres de personas** en material que circule. **Sin nombrar competencia.**
+- **Precio público:** solo el Radar, USD 1.500, bonificado al implementar la ola cero.
 
-> **Excepción de motion (decidida el 2026-10-21):** la franja institucional (`InstitutionalStrip`) sigue corriendo como marquesina lenta (32s, pausa al pasar el cursor) y queda quieta con `prefers-reduced-motion`. Es la segunda animación en bucle del sistema, junto al fondo del hero. En decks, documentos y PDF los logos son siempre estáticos.
+## Workflow — código (Next.js / Tailwind)
 
-> **Excepción de motion (v1.4, decidida el 2026-10-22):** las escenas en volumen (`AgentScene`) se mueven en continuo mientras están en pantalla y reaccionan al cursor. Solo en las piezas del producto, con las reglas de "Ilustración animada en volumen (v1.4)". Con `prefers-reduced-motion` quedan quietas.
-
-> **Excepción de motion (decidida el 2026-10-22):** el fondo animado del hero deja de ser exclusivo del hero oscuro del home. Cada página interna lleva el suyo (`HeroField`) sobre el hero claro, con las reglas de "Fondos de hero de páginas internas (v1.3.1)". Sigue valiendo uno por página. En decks y documentos se usa una captura fija.
-
-## Contenido y voz en piezas de marca (v1.3)
-
-La identidad visual no alcanza si el mensaje es el anterior. Antes de escribir el copy de una pieza (sitio, deck, one-pager, Word), leé `marketing/mensajes-innovas` en el brain: ahí vive el canon y, si contradice esta sección, gana el brain. Resumen operativo:
-
-- **Plataforma adelante.** Se presenta primero Central IA, la plataforma que ordena la adopción de IA en la empresa con gobernanza sobre permisos y acceso. Los servicios (relevar el método, armar el brain, preparar agentes, operar) se cuentan como lo que INNOV.AS hace sobre ella.
-- **Sin la marca En Paralelo ni Desde Adentro.** Del método se conservan las olas, los nombres Radar y Mapa del Método y la frase "tu gente decide, los agentes ejecutan". La última etapa se llama "operación continua".
-- **Afirmativo.** "Ofrecemos servicios sobre una plataforma" en lugar de definirse por lo que la empresa no es. Sin guion largo ni signos de apertura (¿ ¡) en ninguna pieza.
-- **A y B explícitos.** El glifo firma y el copy explica. Cada pieza define su par concreto, por ejemplo A: la IA quedó en una o dos personas, B: toda la empresa trabaja con IA y con permisos. B es un estado de operación continua, no un destino al que se llega.
-- **Plataforma completa.** Se comunica sin etiquetas de "próximamente" ni "en el plan".
-- **Tamaño de cliente.** Empresas pequeñas, medianas y grandes. El rango de empleados del foco comercial es interno y no figura.
-- **Experiencia.** "25 años transformando más de 150 organizaciones en 14 países", en conjunto y sin desglosar por tecnología. Sin cantidades de clientes ni casos atribuidos a Central IA.
-- **Organizaciones.** La franja "Organizaciones para las que trabajó nuestro equipo" lista la trayectoria del equipo; la lista vigente vive en `content/home.ts` del sitio. Banco Mundial no figura mientras sea oferta en curso. "Ejecutamos para" se habilita recién con contrato firmado.
-- **Sin nombres de personas.** Ni founders ni bios en material que circule.
-- **Precio.** El único número público es el del Radar, USD 1.500, bonificado al implementar la ola cero.
-- **Competencia.** No se nombra en piezas públicas.
-- **Imagen.** Solo ilustraciones a mano por ahora. Sin fotografía de talleres ni capturas del producto.
-
-## Workflow — implementación en código (Next.js/Tailwind)
-
-1. **Verificá si el proyecto ya tiene los tokens** (buscá `--color-teal` o `--text-poster` en el CSS global). Si no existen, o si existen sin la capa editorial: copiá `assets/tokens/globals.css` al stylesheet global y fusioná `assets/tokens/tailwind.config.ts` (bloque `theme.extend`) — no sobrescribas el config entero.
-
-2. **Fuentes self-host con `next/font`** (nunca `<link>` a Google Fonts ni `@import`):
+1. Buscar `--color-teal` en el CSS global del proyecto. Si no está, copiar `assets/tokens/globals.css` y fusionar el `theme.extend` de `assets/tokens/tailwind.config.ts` (sin pisar el config entero).
+2. Fuentes self-hosted con `next/font` (nunca `<link>` ni `@import` a Google Fonts):
 
    ```ts
    // app/fonts.ts
-   import { Fraunces, Inter, Space_Mono } from "next/font/google";
+   import { Newsreader, Schibsted_Grotesk, IBM_Plex_Mono } from "next/font/google";
 
-   export const fraunces = Fraunces({
+   export const display = Newsreader({
      subsets: ["latin"],
      variable: "--font-display",
-     axes: ["opsz", "SOFT", "WONK"],
+     style: ["normal", "italic"], // la itálica es la palabra destacada
+     axes: ["opsz"],
      display: "swap",
    });
 
-   export const inter = Inter({
+   export const sans = Schibsted_Grotesk({
      subsets: ["latin"],
      variable: "--font-sans",
      display: "swap",
    });
 
-   export const spaceMono = Space_Mono({
+   export const mono = IBM_Plex_Mono({
      subsets: ["latin"],
-     weight: ["400", "700"],
+     weight: ["400", "500", "700"],
      variable: "--font-mono",
      display: "swap",
    });
    ```
 
-   Aplicá las tres clases `variable` en el elemento raíz. `next/font` sobreescribe los `--font-*` de `globals.css` con el stack real self-hosted.
+   Aplicar las tres `variable` en `<html>`.
+3. Construir con clases mapeadas: `bg-paper text-ink`, `text-teal font-display`, `font-mono text-xs`, `text-poster`, `shadow-teal`, `rounded-full`. Nunca `bg-[#0F6B60]` ni `style={{color: "..."}}`.
+4. Specs de componentes: `references/componentes.md`. Reglas del sitio: `references/soportes/web.md`.
+5. Auditar: `python3 scripts/audit_tokens.py <archivos-o-carpeta>`.
+6. Referencia visual navegable: `assets/style-tile.html`.
 
-3. **Construí con clases Tailwind mapeadas a tokens** (`bg-paper text-ink`, `text-teal font-display`, `border-ink font-mono text-xs`, `text-poster`, `shadow-ink`, `rounded-tape`), nunca `style={{color:"#..."}}` ni `bg-[#0F6B60]`.
+## Workflow — piezas sin código
 
-4. **Auditá antes de entregar:**
+Abrir el archivo del soporte en `references/soportes/`. Ahí están los valores literales: hex, tamaños en la unidad del soporte, medidas de lienzo, estructura tipo y notas por herramienta.
 
-   ```bash
-   python3 scripts/audit_tokens.py <archivos-o-carpeta-tocados>
-   ```
+**Fondo por formato:** web, slides, PDF y redes sobre `paper` `#F6F4EF`. **Word (.docx) sobre blanco `#FFFFFF`**, con bloques secundarios en `#ECEAE3`.
 
-5. **Specs de componentes** (elemento firma, camino del cliente, hero, card de pieza o etapa, franja institucional, CTA, motion) en `references/direccion-de-arte.md` §4-5; **capa editorial** (PosterHeading, TapeLabel, InterlockHeadline, StatCounter, IllustrationSlot) en el addendum al final del mismo archivo. No reinventes estos componentes desde cero: ya están especificados.
+**Fuentes:** Newsreader, Schibsted Grotesk e IBM Plex Mono tienen que estar instaladas en la máquina que arma la pieza; sin ellas el archivo editable se desarma en la de quien lo recibe. Para terceros, mandar también el PDF.
 
-6. **Referencia visual navegable:** `assets/style-tile.html` — cubre paleta/tipografía/componentes base. **No incluye aún la capa editorial** (titulares póster, cintas, interlock, contadores) — para eso, revisar el addendum de `direccion-de-arte.md` o los templates del design system vivo hasta que se actualice.
+## Checklist antes de entregar cualquier pieza
 
-## Workflow — piezas sin código (decks, one-pagers, documentos Word)
-
-Estas piezas no consumen `var(--...)` — necesitan los valores literales. Usá `references/non-code-usage.md`: paleta/tipografía en hex directo, la capa editorial en valores literales (tamaños de titular póster para slide/print, ángulos y specs de cinta, spec de ilustración, formato de contador), y las mismas reglas de uso. No inventes una paleta o mecanismo "similar" — es la misma marca.
-
-**Fondo por formato.** Presentaciones y web usan `paper` `#EDE8DC`, sin cambios. Los **documentos Word (.docx) llevan fondo blanco `#FFFFFF`** para simplificar la impresión: sin color de página ni sombreado de fondo, y los bloques secundarios en `paper-soft` `#E4DDCC`. Los .pdf mantienen `paper-print` `#FAF8F5`. El resto de la paleta no cambia. Las reglas de Word y la guía de decks (agnóstica del formato: se arman en formato nativo de Claude y se exportan a .pptx) están en `references/non-code-usage.md`.
+- [ ] ¿El color dominante es teal sobre papel (o blanco en Word)?
+- [ ] ¿El segundo color aparece solo para la gente, la decisión humana o el guiño?
+- [ ] ¿Lima solo como luz (sobre oscuro, foto o ilustración), nunca como texto sobre claro?
+- [ ] ¿Títulos en Newsreader en minúscula con la palabra destacada en itálica, texto en Schibsted Grotesk, etiquetas en IBM Plex Mono?
+- [ ] ¿Sobre fondo oscuro se usaron las variantes `-dark`/`-ui-dark`, y hay como mucho 2 pantallas oscuras?
+- [ ] ¿Ningún texto de lectura en `taupe`?
+- [ ] ¿Las cifras tienen unidad y contexto?
+- [ ] ¿A y B explícitos donde aparece la flecha?
+- [ ] ¿Logo de la tabla de variantes, con resguardo, tamaño mínimo y sin efectos?
+- [ ] ¿Copy según la voz (sin guion largo ni ¿ ¡, sin nombres de personas)?
+- [ ] ¿Pasó el checklist del archivo de su soporte?
+- [ ] En código: `audit_tokens.py` sin violaciones.
 
 ## Recursos del skill
 
-- `references/direccion-de-arte.md` — guía de dirección de arte (T3.2) + addendum agosto 2026 con la capa editorial.
-- `references/non-code-usage.md` — cheat sheet de marca para piezas sin código, con capa editorial, reglas de Word (fondo blanco) y guía de decks.
-- `assets/tokens/globals.css` + `assets/tokens/tailwind.config.ts` — fuente de verdad ejecutable, incluye tokens de escala póster, cintas, interlock, contadores e ilustración.
-- `assets/logo/` — logo canónico en SVG: horizontal (`-ink` / `-dark` / `-paper` / mono), badges cuadrados sobre teal (lockup e isotipo) e isotipo suelto (teal / ink / paper).
-- `assets/illustrations/` — componente `hand-drawn.tsx`, los trazos de las seis ilustraciones del home (`home.ts`) y sus SVG ya renderizados (`svg/`). Son la referencia de estilo de toda ilustración nueva.
-- `assets/components/hero-dots.tsx` — el fondo de trama de puntos del hero, con su shader (requiere la librería `vgpu`).
-- `assets/components/hero-field.tsx` — los fondos de hero de las páginas internas, seis patrones (requiere la librería `vgpu`).
-- `assets/components/agent-scene.tsx` + `assets/components/scene-shader.ts` — las escenas animadas en volumen y su shader con el vocabulario de formas (requiere la librería `vgpu`).
-- `assets/style-tile.html` — referencia visual navegable de la paleta/tipografía/componentes base (pendiente de actualización con la capa editorial).
-- `scripts/audit_tokens.py` — detecta hex y fuentes hardcodeadas fuera de los archivos de tokens.
+- `assets/tokens/globals.css` · `assets/tokens/tailwind.config.ts` — contrato ejecutable.
+- `assets/logo/` — logo en SVG: horizontal (ink, dark, paper, mono), badges sobre teal e isotipo suelto.
+- `assets/components/` — componentes del sitio: `serie-cerebro/`, `hero-grano.tsx`, `hero-field.tsx`, `enterprise/` (v1.6: `foto.tsx`, `aparece.tsx`, `imagenes.ts` y `central/`; las secciones del home viven solo en `components/home/` del sitio) y los anteriores `hero-dots.tsx`, `agent-scene.tsx` + `scene-shader.ts` (sin uso desde la v1.5).
+- `assets/illustrations/` — ilustración a mano: `hand-drawn.tsx`, `home.ts` y seis SVG de referencia.
+- `assets/style-tile.html` — referencia visual navegable (v1.6.1).
+- `references/soportes/` — un archivo por soporte con la misma estructura, más `_plantilla.md`.
+- `references/componentes.md` — specs de componentes web.
+- `references/ilustracion.md` — serie del cerebro, ilustración a mano y procedimientos.
+- `references/gobierno.md` — dueños, núcleo y evolución, versiones, circuito de cambio.
+- `references/decisiones.md` — registro de decisiones, historial de versiones y pendientes.
+- `references/prompt-gema-ilustraciones.md` — brief de estilo para encargar ilustración a mano afuera.
+- `references/direccion-de-arte.md` — dirección de arte original (T3.2), **histórico**: paleta y fuentes superadas.
+- `scripts/audit_tokens.py` — detecta hex y fuentes hardcodeadas y teal sin variante sobre oscuro.
 
 ## Mantenimiento
 
-Fuente de verdad desde la v1.3: `.agents/skills/innov-design-system/` del repo del sitio (la copia de `.claude/skills/` es idéntica). Después de editar se carga al brain (borrador del skill, un administrador lo publica) y se actualiza `innov/diseno/`. Si cambia la dirección de arte, se actualiza también `marketing/identidad-visual-innovas` en el brain.
+Luli define la dirección de arte y Mati la valida (ver `references/gobierno.md`). Fuente de verdad: `.agents/skills/innov-design-system/` del repo del sitio; `.claude/skills/innov-design-system/` es una copia idéntica. Todo cambio se registra en `references/decisiones.md`, se sube como borrador al skill del brain de INNOV.AS y se refleja en `marketing/identidad-visual-innovas`.
 
-**Versión:** 1.4 (octubre 2026) — decidida por Mati el 2026-10-22. Escenas animadas en volumen para las piezas del producto (`AgentScene`, WebGPU con `vgpu`), con vocabulario fijo de formas, agentes como bots con visor y ojos (excepción a "sin caras" solo para ellos), reacción al cursor, respaldo `HandDrawn` y procedimiento propio de ocho pasos. Excepción de motion que las admite. Actualizados: este archivo, `references/non-code-usage.md` y `assets/components/` (`agent-scene.tsx`, `scene-shader.ts`).
+**Versión 1.7** (2026-10-27). Reorganiza el skill por soporte, con la misma estructura que el de Lagomarsino: base común en este archivo, un archivo por soporte en `references/soportes/` (web, presentaciones, documentos, y redes y email como propuesta), componentes web, ilustración, gobierno y registro de decisiones aparte. Reemplaza a `references/non-code-usage.md`. No cambia ninguna regla vigente.
 
-**1.3.1** (octubre 2026) — decidida el 2026-10-22. Fondos animados en el hero claro de las páginas internas (`HeroField`, seis patrones, uno por página) y excepción de motion que los admite. Actualizados: este archivo y `assets/components/hero-field.tsx`.
-
-**1.3** (octubre 2026) — decidida el 2026-10-20 por el reposicionamiento con Central IA adelante. `teal` y `plum` pasan a plataforma y gente (tokens nuevos `--color-accent-system/people`, los `vertical-*` quedan como alias deprecados); el camino de 4 niveles pasa a camino del cliente; sección de contenido y voz; documentos Word con fondo blanco `#FFFFFF`; guía de decks; style tile y brief de ilustración al día. Pendiente: implementar el camino del cliente en el sitio y migrar las clases `vertical-*` del sitio (`app/globals.css`, `lib/utils.ts`).
-
-**1.2** (octubre 2026) — decidida por Mati el 2026-10-10. Escala póster web un escalón menos; hero oscuro con trama de puntos en WebGPU (`HeroDots`, con `vgpu`); ilustración de objetos y diagramas con trazo marcador de 3.2px, acento teal y detalle plum (`HandDrawn`), sin hachurado; dibujo progresivo de ilustraciones y fondo animado del hero admitidos en Motion. Actualizados en esta versión: este archivo, `references/prompt-gema-ilustraciones.md`, `assets/tokens/globals.css` y los addendum de `references/direccion-de-arte.md` y `references/non-code-usage.md`. El camino de producción de ilustraciones es el procedimiento de la sección "Ilustración (v1.2)". Pendiente: refrescar `assets/style-tile.html` y resolver la marquesina de la franja institucional.
-
-**1.1** (agosto 2026) — incorpora el **logo canónico** (isotipo circuito + wordmark `INNOV.AS`) con sus siete variantes en `assets/logo/`, reglas de superficie con contraste calculado, tamaños mínimos medidos y área de resguardo; depreca el wordmark tipográfico anterior y el set con tagline BUILD SOLUTIONS / N invertida.
-
-**1.0** (agosto 2026) — incorpora la capa editorial de escala póster (PosterHeading, TapeLabel, InterlockHeadline, StatCounter, IllustrationSlot) sobre el sistema base "Cálido / Notación de Transición", más la recalibración v1.0 de la spec de ilustración a mano alzada: trazo 3.2px (antes 1.6px), acento 38–54px rotado 7° (antes 28–46px), e incorporación del hachurado a mano para superficies con color (grosor de hachura = 50% del trazo principal), con irregularidad de trazo más marcada. Pendiente para una próxima sincronización: propagar esta recalibración a `references/prompt-gema-ilustraciones.md`, `references/direccion-de-arte.md`, `references/non-code-usage.md` y `assets/tokens/globals.css` (`--illus-stroke`, `--illus-accent-size`, sumar `--illus-accent-rot` y `--illus-fill-stroke`), refrescar `assets/style-tile.html` con ejemplos de la capa editorial, y sumar los **logos institucionales** (BM, BID, FAO, SAGyP) en monocromo para la franja de credibilidad — el logo propio ya quedó incorporado en 1.1.
+Historial completo de versiones (1.0 a 1.6.1) y pendientes en `references/decisiones.md`.

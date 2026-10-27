@@ -6,6 +6,7 @@
 > Estado: v1 — dirección recomendada, lista para implementar. Revisión: Mati (aprobada).
 > **Update 2026-07-05:** agregado token `paper-print` (`#FAF8F5`) — fondo específico para .docx/.pdf, ver sección 2. Desde la v1.3 los .docx llevan blanco y solo el .pdf conserva este token.
 > **Update 2026-08:** agregada la capa editorial de escala póster — ver addendum al final de este documento.
+> **⚠️ Update 2026-10-27 (v1.5/v1.6.1):** la paleta y las tipografías de este documento están reemplazadas. Rigen papel `#F6F4EF`, tinta `#15191A`, teal `#0F6B60`, oliva `#4F6B00`/lima `#D4F36B` y Newsreader, Schibsted Grotesk e IBM Plex Mono: ver la tabla de tokens del `SKILL.md` y `assets/tokens/globals.css`. Este documento queda como referencia de estructura y componentes.
 > **Update 2026-10-20 (v1.3):** reposicionamiento con Central IA adelante: nuevos roles de `teal` y `plum`, camino del cliente, hero oscuro, fondo blanco en Word. Ver addendum al final (§10).
 
 ---

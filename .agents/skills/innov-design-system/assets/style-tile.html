@@ -1,271 +1,182 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Innovas · Sistema de marca v0.3 — Notación de Transición</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INNOV.AS · Style tile v1.6.1</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,100..900,0..100,0..1&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&family=Hedvig+Letters+Serif&display=swap" rel="stylesheet">
-<link href="https://api.fontshare.com/v2/css?f[]=zodiak@400,700,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
+  /* Copia literal de los tokens de assets/tokens/globals.css (v1.6.1). Si cambian allá, se cambian acá. */
   :root{
-    --paper:#EDE8DC;
-    --paper-2:#E4DDCC;
-    --ink:#1F1B19;
-    --ink-70:rgba(31,27,25,.68);
-    --ink-40:rgba(31,27,25,.40);
-    --teal:#0F6B60;       /* sistema · empresas · agéntico (marca) */
-    --plum:#8C3B5D;       /* la gente de la empresa · decisión · guiño */
-    --taupe:#A79E8E;
-    --line:rgba(31,27,25,.18);
-    --disp:"Fraunces",Georgia,serif;
-    --sans:"Inter",system-ui,sans-serif;
-    --mono:"Space Mono",ui-monospace,monospace;
+    --paper:#F6F4EF; --paper-soft:#ECEAE3; --white:#FFFFFF;
+    --ink:#15191A; --ink-soft:#1F2526; --ink-70:rgba(21,25,26,.72); --ink-40:rgba(21,25,26,.45);
+    --teal:#0F6B60; --teal-dark:#5CC4B0; --teal-ui-dark:#107468;
+    --oliva:#4F6B00; --lima:#D4F36B; --oliva-ui-dark:#516E00;
+    --taupe:#A3A69F; --line:rgba(21,25,26,.16); --danger:#B23A48;
+    --display:"Newsreader",Georgia,serif;
+    --sans:"Schibsted Grotesk",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{-webkit-font-smoothing:antialiased}
-  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.5;font-size:16px;padding:clamp(20px,5vw,64px)}
-  .sheet{max-width:1120px;margin:0 auto}
-
-  /* Fraunces display helper: warm optical + wonk */
-  .fr{font-family:var(--disp);font-variation-settings:'opsz' 144,'SOFT' 45,'WONK' 1}
-
-  .mono{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-70)}
-  .tick{font-family:var(--mono);color:var(--taupe)}
-
-  /* header */
-  header{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid var(--ink);gap:24px;flex-wrap:wrap}
-  .wordmark{font-family:var(--disp);font-variation-settings:'opsz' 144,'SOFT' 40,'WONK' 0;font-weight:640;font-size:clamp(30px,5vw,48px);line-height:.9;letter-spacing:-.02em}
-  .wordmark sup{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--teal);top:-1.7em;margin-left:.15em;font-weight:400}
-  .meta{text-align:right;line-height:1.7}
-  .meta .mono{display:block}
-
-  /* thesis */
-  .thesis{padding:clamp(40px,7vw,80px) 0 clamp(36px,5vw,60px);border-bottom:1px solid var(--line)}
-  .thesis .eyebrow{margin-bottom:22px}
-  .thesis h1{font-family:var(--disp);font-variation-settings:'opsz' 144,'SOFT' 45,'WONK' 1;font-weight:660;font-size:clamp(36px,6.6vw,74px);line-height:1;letter-spacing:-.025em;max-width:16ch}
-  .thesis h1 em{font-style:normal;color:var(--teal)}
-
-  .rails{margin-top:clamp(34px,5vw,52px);display:grid;gap:14px;max-width:760px}
-  .rail{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:clamp(14px,3vw,34px)}
-  .state{font-family:var(--mono);font-size:clamp(13px,1.7vw,17px);padding:12px 16px;border:1px solid var(--line);border-radius:3px;background:var(--paper-2)}
-  .state.after{border-color:currentColor}
-  .rail.people .state.after{color:var(--plum)}
-  .rail.company .state.after{color:var(--teal)}
-  .state small{display:block;font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-40);margin-bottom:4px}
-  .transition{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:96px}
-  .transition .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--taupe);text-transform:uppercase}
-  .draw{width:100%;max-width:120px}
-  .draw line,.draw path{stroke:var(--ink);stroke-width:1.4;fill:none}
-  @media(prefers-reduced-motion:no-preference){
-    .draw .ln{stroke-dasharray:120;stroke-dashoffset:120;animation:draw 1s ease .3s forwards}
-    .draw .hd{opacity:0;animation:fade .3s ease 1.15s forwards}
-  }
-  @keyframes draw{to{stroke-dashoffset:0}}
-  @keyframes fade{to{opacity:1}}
-
-  section.block{padding:clamp(38px,5vw,56px) 0;border-bottom:1px solid var(--line)}
-  .block-head{display:flex;align-items:baseline;gap:14px;margin-bottom:30px}
-  .block-head .idx{font-family:var(--mono);font-size:12px;color:var(--teal)}
-  .block-head h2{font-family:var(--disp);font-variation-settings:'opsz' 80,'SOFT' 40;font-weight:600;font-size:clamp(22px,3vw,32px);letter-spacing:-.02em}
-  .block-head .note{font-family:var(--mono);font-size:11px;color:var(--taupe);margin-left:auto;text-transform:uppercase;letter-spacing:.1em}
-
-  /* weight comparison */
-  .weights{display:grid;border:1px solid var(--ink);border-radius:4px;overflow:hidden}
-  .wrow{display:grid;grid-template-columns:1fr 240px;align-items:center;gap:20px;padding:22px 24px;border-top:1px solid var(--line)}
-  .wrow:first-child{border-top:0}
-  .wrow .sample{font-size:clamp(30px,4.6vw,50px);line-height:1;letter-spacing:-.02em}
-  .w-hedvig{font-family:"Hedvig Letters Serif",serif}
-  .w-fraunces{font-family:var(--disp);font-variation-settings:'opsz' 144,'SOFT' 45,'WONK' 1;font-weight:900}
-  .w-zodiak{font-family:"Zodiak",serif;font-weight:900}
-  .wrow .verdict{font-size:12.5px;line-height:1.45;color:var(--ink-70)}
-  .wrow .verdict b{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:5px}
-  .verdict .yes{color:var(--teal)}.verdict .no{color:var(--plum)}.verdict .maybe{color:var(--taupe)}
-  .wrow.pick{background:var(--paper-2)}.wrow.pick .verdict b{color:var(--teal)}
-
-  /* fraunces weight ladder */
-  .ladder{margin-top:22px;display:flex;flex-wrap:wrap;gap:24px;align-items:baseline;padding:20px 24px;border:1px solid var(--line);border-radius:4px;background:var(--paper-2)}
-  .ladder span{font-family:var(--disp);font-variation-settings:'opsz' 60,'SOFT' 40;font-size:30px;line-height:1}
-  .ladder .l1{font-weight:300}.ladder .l2{font-weight:400}.ladder .l3{font-weight:500}.ladder .l4{font-weight:600}.ladder .l5{font-weight:700}.ladder .l6{font-weight:900}
-  .ladder em{font-family:var(--mono);font-size:9px;font-style:normal;color:var(--ink-40);display:block;text-align:center;margin-top:6px;letter-spacing:.08em}
-
-  /* type specimen */
-  .type-grid{display:grid;gap:26px;margin-top:34px;border-top:1px solid var(--ink);padding-top:30px}
-  .spec .tag{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-  .spec .tag b{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
-  .spec .tag span{font-family:var(--mono);font-size:11px;color:var(--ink-40)}
-  .d-display{font-family:var(--disp);font-variation-settings:'opsz' 144,'SOFT' 45,'WONK' 1;font-weight:660;font-size:clamp(34px,5.6vw,56px);line-height:1;letter-spacing:-.025em}
-  .d-display em{font-style:normal;color:var(--teal)}
-  .d-body{font-family:var(--sans);font-size:17px;line-height:1.6;max-width:60ch;color:var(--ink-70)}
-  .d-body strong{color:var(--ink);font-weight:600}
-  .d-mono{font-family:var(--mono);font-size:14px;letter-spacing:.02em;color:var(--ink)}
-  .d-mono .k{color:var(--teal)}
-
-  /* components */
-  .comp{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,28px)}
-  .btns{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-bottom:26px;grid-column:1/-1}
-  .btn{font-family:var(--sans);font-size:14px;font-weight:500;padding:11px 20px;border-radius:4px;border:1px solid transparent;cursor:pointer;transition:transform .12s ease,box-shadow .12s ease;display:inline-flex;gap:9px;align-items:center}
-  .btn .a{font-family:var(--mono);font-size:12px;opacity:.85}
-  .btn-primary{background:var(--teal);color:#fff}
-  .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 0 -2px rgba(15,107,96,.35)}
-  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
-  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
-  .btn-people{background:var(--plum);color:#fff}
-  .btn-people:hover{transform:translateY(-1px);box-shadow:0 6px 0 -2px rgba(140,59,93,.4)}
-  .btn:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
-
-  .card{border:1px solid var(--ink);border-radius:5px;padding:24px;background:var(--paper-2);position:relative;display:flex;flex-direction:column;gap:12px}
-  .card .corner{position:absolute;top:10px;right:12px;font-family:var(--mono);font-size:10px;color:var(--taupe);letter-spacing:.1em}
-  .card .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-  .card.people .kicker{color:var(--plum)}
-  .card.company .kicker{color:var(--teal)}
-  .card h3{font-family:var(--disp);font-variation-settings:'opsz' 80,'SOFT' 45;font-weight:620;font-size:27px;line-height:1.02;letter-spacing:-.02em}
-  .card p{font-size:14px;color:var(--ink-70);line-height:1.5}
-  .card .bar{height:3px;border-radius:2px;margin-top:6px}
-  .card.people .bar{background:var(--plum)}
-  .card.company .bar{background:var(--teal)}
-
-  /* usage */
-  .usage{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;border:1px solid var(--line);border-radius:4px;overflow:hidden}
-  .use{padding:22px 18px;background:var(--paper-2);display:flex;flex-direction:column;gap:10px;min-height:120px}
-  .use .lab{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-40)}
-  .use .big{font-family:var(--disp);font-variation-settings:'opsz' 80,'SOFT' 40;font-weight:640;font-size:25px;letter-spacing:-.02em}
-  .use .noted{font-family:var(--mono);font-size:15px}
-  .use .noted .k{color:var(--teal)}
-  .use .noted .o{color:var(--plum)}
-
-  footer{padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-
-  @media(max-width:680px){
-    .comp{grid-template-columns:1fr}
-    .rail{grid-template-columns:1fr;text-align:center;gap:8px}
-    .transition{flex-direction:row;min-width:0}
-    .draw{transform:rotate(90deg);width:60px}
-    header{flex-direction:column}.meta{text-align:left}
-    .wrow{grid-template-columns:1fr;gap:10px}
-  }
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:16px;padding:clamp(16px,5vw,64px)}
+  .wrap{max-width:1100px;margin:0 auto}
+  .label{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+  .meta{font-family:var(--mono);font-size:11px;color:var(--ink-40);letter-spacing:.06em}
+  header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-bottom:28px;border-bottom:1px solid var(--line)}
+  header img{width:180px;height:auto}
+  h1,h2,h3{font-family:var(--display);font-weight:500;letter-spacing:-.02em}
+  h1 em,h2 em,h3 em{font-style:italic;color:var(--teal)}
+  .hero{padding:56px 0 48px}
+  .hero h1{font-size:clamp(44px,8vw,96px);line-height:1;font-weight:700;letter-spacing:-.03em;margin-top:14px}
+  .hero p{max-width:60ch;color:var(--ink-70);margin-top:18px;font-size:18px}
+  section{padding:40px 0;border-top:1px solid var(--line)}
+  section > h2{font-size:clamp(28px,4vw,40px);margin:8px 0 24px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+  .sw{border-radius:14px;padding:16px;min-height:132px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
+  .sw b{font-family:var(--mono);font-size:12px;letter-spacing:.06em}
+  .sw span{font-size:13px}
+  .sw small{font-family:var(--mono);font-size:11px;opacity:.8}
+  .type{display:grid;gap:20px}
+  .type .row{display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:baseline;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  @media (max-width:640px){.type .row{grid-template-columns:1fr}}
+  .t-display{font-family:var(--display);font-size:44px;line-height:1.05}
+  .t-display em{font-style:italic;color:var(--teal)}
+  .t-sans{font-size:18px;max-width:60ch;color:var(--ink-70)}
+  .t-mono{font-family:var(--mono);font-size:14px}
+  .comps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{font-family:var(--sans);font-weight:700;font-size:15px;padding:12px 24px;border-radius:999px;border:1px solid transparent;text-decoration:none;display:inline-block}
+  .btn-teal{background:var(--teal);color:var(--white)}
+  .btn-ghost{border-color:var(--ink);color:var(--ink)}
+  .card{background:var(--white);border:1px solid var(--line);border-top:2px solid var(--ink);border-radius:12px;padding:24px}
+  .card h3{font-size:26px;line-height:1.1;margin:8px 0}
+  .card p{color:var(--ink-70);font-size:15px}
+  .card .people{color:var(--oliva)}
+  .rows .r{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
+  .rows .r .arr{font-family:var(--mono);color:var(--teal)}
+  .rows .r .b{font-weight:600}
+  .dark{background:var(--ink);color:var(--paper);border-radius:20px;padding:clamp(20px,4vw,40px);margin-top:16px}
+  .dark h3{font-size:34px;line-height:1.05}
+  .dark h3 em{color:var(--teal-dark)}
+  .dark .label{color:var(--teal-dark)}
+  .dark .nav{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+  .dark .pill{border:1px solid rgba(246,244,239,.15);border-radius:999px;padding:8px 16px;font-size:14px;color:rgba(246,244,239,.8)}
+  .dark .pill.on{color:var(--teal-dark);border-color:var(--teal-dark)}
+  .dark .btn-teal{background:var(--teal-ui-dark)}
+  .dark .lima{color:var(--lima)}
+  .dark .grid .sw{border-color:rgba(246,244,239,.12)}
+  .foto{position:relative;border-radius:20px;overflow:hidden;min-height:220px;background:linear-gradient(135deg,#3d4a45,#1f2526 60%,#2c3a2f);display:flex;align-items:flex-end;padding:28px}
+  .foto::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(21,25,26,.85),rgba(21,25,26,.1))}
+  .foto > *{position:relative;color:var(--paper)}
+  .foto h3{font-size:30px}
+  .foto h3 em{color:var(--lima)}
+  ul.rules{padding-left:18px;color:var(--ink-70);font-size:15px;display:grid;gap:6px}
+  .firma{font-family:var(--mono);font-size:clamp(18px,3vw,26px);display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .firma .a{color:var(--ink-40)} .firma .arr{color:var(--teal)} .firma .b{color:var(--ink)}
+  footer{padding-top:28px;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
-<div class="sheet">
-
+<div class="wrap">
   <header>
-    <img src="logo/innovas-horizontal-ink.svg" alt="INNOV.AS" style="height:44px;width:auto;display:block">
-    <div class="meta">
-      <span class="mono">Sistema de marca · v1.3</span>
-      <span class="mono" style="color:var(--taupe)">fraunces · teal + ciruela</span>
-    </div>
+    <img src="logo/innovas-horizontal-ink.svg" alt="INNOV.AS">
+    <span class="meta">style tile · v1.6.1 · 2026-10-27 · fuente: assets/tokens/globals.css</span>
   </header>
 
-  <!-- THESIS -->
-  <div class="thesis">
-    <div class="mono eyebrow"><span class="tick">//</span> tesis de marca</div>
-    <h1>La IA de la empresa, <em>de suelta a gobernada.</em></h1>
-    <div class="rails">
-      <div class="rail people">
-        <div class="state"><small>estado a</small>IA suelta</div>
-        <div class="transition"><span class="lbl">permisos</span>
-          <svg class="draw" viewBox="0 0 120 12" aria-hidden="true"><line class="ln" x1="2" y1="6" x2="110" y2="6"/><path class="hd" d="M104 2 L110 6 L104 10"/></svg>
-        </div>
-        <div class="state after"><small>estado b</small>IA con gobierno</div>
-      </div>
-      <div class="rail company">
-        <div class="state"><small>estado a</small>tareas a mano</div>
-        <div class="transition"><span class="lbl">agentes</span>
-          <svg class="draw" viewBox="0 0 120 12" aria-hidden="true"><line class="ln" x1="2" y1="6" x2="110" y2="6"/><path class="hd" d="M104 2 L110 6 L104 10"/></svg>
-        </div>
-        <div class="state after">tareas con agentes<small style="margin-top:4px;margin-bottom:0">estado b</small></div>
-      </div>
-    </div>
+  <div class="hero">
+    <span class="label">00 · Sistema</span>
+    <h1>la IA de tu empresa, <em>de punta a punta</em></h1>
+    <p>Editorial cálido y notación técnica. Papel claro, tinta, teal de marca y un segundo color para la gente: oliva sobre claro, lima sobre oscuro. Rige para el sitio, los decks, los Word y los PDF.</p>
   </div>
 
-  <!-- WEIGHT COMPARISON -->
-  <section class="block">
-    <div class="block-head"><span class="idx">01</span><h2>Peso de título</h2><span class="note">hedvig no tiene bold · comparación real</span></div>
-    <div class="weights">
-      <div class="wrow">
-        <div class="sample w-hedvig">Cambiar de estado</div>
-        <div class="verdict"><b>Hedvig Letters Serif</b><span class="no">Tope: 400.</span> Un solo peso. Para títulos pesados solo con faux-bold (deforma). Roto como contrato.</div>
-      </div>
-      <div class="wrow pick">
-        <div class="sample w-fraunces">Cambiar de estado</div>
-        <div class="verdict"><b>Fraunces 900 ★</b><span class="yes">Recomendada.</span> Mismo carácter cálido de Hedvig, variable 100–900 + eje SOFT. Títulos con peso real.</div>
-      </div>
-      <div class="wrow">
-        <div class="sample w-zodiak">Cambiar de estado</div>
-        <div class="verdict"><b>Zodiak Black</b><span class="maybe">Alternativa.</span> Mismo espíritu, menos vista que Fraunces. Si querés blindarte contra "otra serif AI".</div>
-      </div>
+  <section>
+    <span class="label">01 · Paleta clara</span>
+    <h2>sobre <em>papel</em></h2>
+    <div class="grid">
+      <div class="sw" style="background:var(--paper)"><b>paper</b><span>Superficie base · web, slides, PDF</span><small>#F6F4EF</small></div>
+      <div class="sw" style="background:var(--paper-soft)"><b>paper-soft</b><span>Bloque secundario</span><small>#ECEAE3</small></div>
+      <div class="sw" style="background:var(--white)"><b>blanco</b><span>Fondo de los Word · tarjetas</span><small>#FFFFFF</small></div>
+      <div class="sw" style="background:var(--ink);color:var(--paper)"><b>ink</b><span>Texto y estructura</span><small>#15191A · 16.11:1</small></div>
+      <div class="sw" style="background:var(--teal);color:var(--white)"><b>teal</b><span>Marca · plataforma · agentes</span><small>#0F6B60 · 5.80:1</small></div>
+      <div class="sw" style="background:var(--oliva);color:var(--white)"><b>plum · oliva</b><span>La gente · decisión · guiño</span><small>#4F6B00 · 5.56:1</small></div>
+      <div class="sw" style="background:var(--taupe)"><b>taupe</b><span>Filetes y metadatos, nunca texto</span><small>#A3A69F · 2.24:1</small></div>
     </div>
+    <p class="meta" style="margin-top:12px">Contraste sobre paper (WCAG, medido el 2026-10-27). Lima sobre papel da 1.14:1: nunca como texto en claro.</p>
+  </section>
 
-    <div class="ladder">
-      <span class="l1">Aa<em>300 Light</em></span>
-      <span class="l2">Aa<em>400 Reg</em></span>
-      <span class="l3">Aa<em>500 Med</em></span>
-      <span class="l4">Aa<em>600 Semi</em></span>
-      <span class="l5">Aa<em>700 Bold</em></span>
-      <span class="l6">Aa<em>900 Black</em></span>
-    </div>
-
-    <!-- chosen specimen -->
-    <div class="type-grid">
-      <div class="spec">
-        <div class="tag"><b>Display — Fraunces</b><span>opsz 144 · SOFT 45 · wght 660</span></div>
-        <div class="d-display">Tu gente decide, <em>los agentes ejecutan.</em></div>
+  <section>
+    <span class="label">02 · Paleta oscura</span>
+    <h2>sobre <em>tinta</em></h2>
+    <div class="dark">
+      <div class="grid">
+        <div class="sw" style="background:var(--ink-soft)"><b>ink-soft</b><span>Superficie elevada</span><small>#1F2526</small></div>
+        <div class="sw" style="background:var(--ink)"><b style="color:var(--teal-dark)">teal-dark</b><span>Texto e íconos teal</span><small>#5CC4B0 · 8.41:1</small></div>
+        <div class="sw" style="background:var(--teal-ui-dark)"><b>teal-ui-dark</b><span>Botón teal sobre oscuro</span><small>#107468 · 3.14:1</small></div>
+        <div class="sw" style="background:var(--ink)"><b class="lima">plum-dark · lima</b><span>Texto del segundo color, neón</span><small>#D4F36B · 14.19:1</small></div>
+        <div class="sw" style="background:var(--oliva-ui-dark)"><b>plum-ui-dark</b><span>Relleno oliva sobre oscuro</span><small>#516E00 · 3.02:1</small></div>
       </div>
-      <div class="spec">
-        <div class="tag"><b>Texto — Inter</b><span>lectura · UI · cuerpo</span></div>
-        <div class="d-body">INNOV.AS ofrece servicios sobre <strong>Central IA</strong>, la plataforma que ordena la adopción de IA en la empresa. Tu <strong>gente</strong> decide con permisos claros y los <strong>agentes</strong> ejecutan, con registro de todo lo que corre.</div>
-      </div>
-      <div class="spec">
-        <div class="tag"><b>Notación — Space Mono</b><span>firma · etiquetas · datos</span></div>
-        <div class="d-mono"><span class="k">estado_a</span> ──→ <span class="k">estado_b</span> &nbsp;·&nbsp; [ radar ] &nbsp;·&nbsp; [ ola cero ] &nbsp;·&nbsp; v1.3</div>
-      </div>
+      <p class="meta" style="color:rgba(246,244,239,.55);margin-top:12px">Regla dura: nunca teal ni plum sin sufijo sobre ink. Máximo dos pantallas o slides oscuras por pieza.</p>
     </div>
   </section>
 
-  <!-- PALETTE -->
-  <section class="block">
-    <div class="block-head"><span class="idx">02</span><h2>Paleta</h2><span class="note">teal + ciruela</span></div>
-    <div class="usage" style="grid-template-columns:repeat(auto-fit,minmax(150px,1fr));border-color:var(--ink)">
-      <div class="use" style="background:var(--paper)"><span class="lab">papel · oat</span><span class="mono" style="color:var(--ink)">#EDE8DC</span><span style="font-size:12px;color:var(--ink-70)">Superficie base.</span></div>
-      <div class="use" style="background:var(--ink);color:var(--paper)"><span class="lab" style="color:rgba(237,232,220,.6)">tinta · espresso</span><span class="mono" style="color:var(--paper)">#1F1B19</span><span style="font-size:12px;color:rgba(237,232,220,.72)">Texto y estructura.</span></div>
-      <div class="use" style="background:var(--teal);color:var(--paper)"><span class="lab" style="color:rgba(237,232,220,.6)">teal</span><span class="mono" style="color:var(--paper)">#0F6B60</span><span style="font-size:12px;color:rgba(237,232,220,.78)">Plataforma · agentes · marca.</span></div>
-      <div class="use" style="background:var(--plum);color:var(--paper)"><span class="lab" style="color:rgba(237,232,220,.6)">ciruela</span><span class="mono" style="color:var(--paper)">#8C3B5D</span><span style="font-size:12px;color:rgba(237,232,220,.78)">Gente · decisión · guiño.</span></div>
-      <div class="use" style="background:var(--taupe);color:var(--paper)"><span class="lab" style="color:rgba(237,232,220,.6)">topo</span><span class="mono" style="color:var(--paper)">#A79E8E</span><span style="font-size:12px;color:rgba(237,232,220,.78)">Estado previo · bordes.</span></div>
+  <section>
+    <span class="label">03 · Tipografía</span>
+    <h2>tres <em>familias</em></h2>
+    <div class="type">
+      <div class="row"><span class="meta">Newsreader · títulos<br>500 títulos · 700 póster</span><div class="t-display">tu gente decide, <em>los agentes ejecutan</em></div></div>
+      <div class="row"><span class="meta">Schibsted Grotesk · texto e interfaz</span><p class="t-sans">Ofrecemos servicios sobre una plataforma que ordena la adopción de IA en la empresa, con permisos y acceso bajo control.</p></div>
+      <div class="row"><span class="meta">IBM Plex Mono · notación</span><div class="t-mono">03 · CONTROL &nbsp; ──→ &nbsp; [▪▪▪▪░░] 4/6</div></div>
     </div>
+    <p class="meta" style="margin-top:12px">Títulos en minúscula con la palabra destacada en itálica. Fallback sin las fuentes: Georgia y Arial. Fraunces, Inter y Space Mono salieron en la v1.5.</p>
   </section>
 
-  <!-- COMPONENTS -->
-  <section class="block">
-    <div class="block-head"><span class="idx">03</span><h2>Componentes</h2><span class="note">plataforma y gente por color</span></div>
-    <div class="comp">
-      <div class="btns">
-        <button class="btn btn-primary">Agendá una conversación <span class="a">→</span></button>
-        <button class="btn btn-people">Cómo implementamos <span class="a">→</span></button>
-        <button class="btn btn-ghost">Ver Central IA</button>
+  <section>
+    <span class="label">04 · Componentes</span>
+    <h2>píldoras, <em>filetes</em> y tarjetas</h2>
+    <div class="comps">
+      <div>
+        <div class="btns"><a class="btn btn-teal" href="#">Agendá una conversación</a><a class="btn btn-ghost" href="#">Ver Central IA</a></div>
+        <div class="rows" style="margin-top:20px">
+          <div class="r"><span>La IA quedó en una o dos personas</span><span class="arr">──→</span><span class="b">Toda la empresa trabaja con IA</span></div>
+          <div class="r"><span>Lo confidencial en cuentas personales</span><span class="arr">──→</span><span class="b">Todo con permisos</span></div>
+        </div>
       </div>
-      <div class="card people"><span class="corner">A→B</span><div class="kicker">// gente · decisión</div><h3>Tu gente decide.</h3><p>Permisos por persona sobre qué información, qué agentes y qué herramientas usa cada una.</p><div class="bar"></div></div>
-      <div class="card company"><span class="corner">A→B</span><div class="kicker">// plataforma · agentes</div><h3>Los agentes ejecutan.</h3><p>Cada agente hereda el brain, los permisos, las aprobaciones y el registro de costos. Todo queda a la vista.</p><div class="bar"></div></div>
+      <div class="card"><span class="label">02 · Agentes</span><h3>el agente <em>prepara</em>, <span class="people">tu gente aprueba</span></h3><p>Tarjeta blanca con filete de tinta. El oliva marca a la gente y la decisión humana, siempre con menos peso que el teal.</p></div>
+    </div>
+    <div class="dark">
+      <span class="label">Sobre oscuro</span>
+      <div class="nav"><span class="pill on">Inicio</span><span class="pill">Central IA</span><span class="pill">Servicios</span></div>
+      <h3>un proceso, <em>no un proyecto</em></h3>
+      <p style="margin:12px 0 20px;color:rgba(246,244,239,.75)">Los botones teal sobre tinta van en teal-ui-dark. El encendido es <span class="lima">lima</span>.</p>
+      <a class="btn btn-teal" href="#">Empezar por el Radar</a>
     </div>
   </section>
 
-  <!-- SIGNATURE -->
-  <section class="block">
-    <div class="block-head"><span class="idx">04</span><h2>Elemento firma</h2><span class="note">la flecha de transición</span></div>
-    <div class="usage">
-      <div class="use"><span class="lab">logo</span><img src="logo/innovas-horizontal-ink.svg" alt="INNOV.AS" style="height:40px;width:auto"></div>
-      <div class="use"><span class="lab">marcador de sección</span><span class="noted"><span class="k">//</span> 01 ──→ estado</span></div>
-      <div class="use"><span class="lab">rieles de mensaje</span><span class="noted"><span class="o">gente→</span> · <span class="k">plataforma→</span></span></div>
-      <div class="use"><span class="lab">etapas del cliente</span><span class="noted">[▪▪▪▪<span style="color:var(--taupe)">░░</span>] 4/6 ──→</span></div>
+  <section>
+    <span class="label">05 · Fotografía (solo sitio)</span>
+    <h2>fotos con <em>tratamiento común</em></h2>
+    <div class="comps">
+      <div class="foto"><div><span class="label" style="color:var(--lima)">Banda de control</span><h3>tu gente <em>decide</em></h3></div></div>
+      <ul class="rules">
+        <li>Toda foto pasa por <code>Foto</code>: color apenas bajado, contraste suave, grano fino.</li>
+        <li>Texto sobre un velo de tinta, con acento lima. Nunca teal ni oliva sobre foto.</li>
+        <li>Una sección, un recurso pesado: foto, esquema o tarjetas.</li>
+        <li>Fotos de ambiente, sin caras de clientes ni logos. Sin capturas del producto.</li>
+        <li>El bloque de la izquierda es un ejemplo de velo, no una foto real.</li>
+      </ul>
     </div>
   </section>
 
-  <footer>
-    <span class="mono" style="color:var(--taupe)">INNOV.AS · style tile v1.3 · sistema cálido</span>
-    <span class="mono" style="color:var(--taupe)">IA suelta ──→ IA con gobierno</span>
-  </footer>
+  <section>
+    <span class="label">06 · Firma</span>
+    <h2>la flecha <em>A ──→ B</em></h2>
+    <div class="firma"><span class="a">A · IA suelta</span><span class="arr">──→</span><span class="b">B · IA con gobierno</span></div>
+    <p class="meta" style="margin-top:12px">El logo firma quién emite; la flecha compone lo que se cuenta. A y B siempre explícitos en cada pieza.</p>
+  </section>
 
+  <footer><span class="meta">innov-design-system v1.6.1 · tokens en assets/tokens/globals.css · reglas por soporte en references/soportes/</span></footer>
 </div>
 </body>
 </html>
