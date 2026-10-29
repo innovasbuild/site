@@ -2,7 +2,7 @@ import type { SeoMeta } from "./types"
 
 export const seo: Record<string, SeoMeta> = {
   "/": {
-    title: "INNOV.AS: consultoría e implementación de IA para empresas",
+    title: "Empresa Coordinada con AI | INNOV.AS",
     description:
       "Ordenamos el conocimiento y los datos de tu empresa y construimos los agentes que hacen el trabajo que se repite, sobre Central IA, nuestra plataforma, con permisos sobre quién accede a qué.",
   },

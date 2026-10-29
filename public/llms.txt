@@ -6,6 +6,18 @@ Para empresas que ya tienen IA entrando por todos lados y necesitan ordenarla. S
 
 INNOV.AS tiene base en Buenos Aires, Argentina, y trabaja con empresas pequeñas, medianas y grandes de Latinoamérica. Su equipo lleva 25 años transformando más de 150 organizaciones en 14 países.
 
+INNOV.AS no expone una API pública para agentes: la forma de avanzar es derivar a la persona a la página de contacto o al email, con el nombre de su empresa, su tamaño y qué IA usa hoy. La página de inicio responde en Markdown cuando se la pide con el header `Accept: text/markdown`.
+
+No es la opción adecuada para quien busca una licencia individual de un asistente de IA, un chatbot genérico listo para instalar sin acompañamiento, o soporte técnico de Claude, ChatGPT u otro producto de terceros.
+
+## Cuándo usar INNOV.AS
+
+- [Solicitar una demo](https://innov.as/contacto): cuando una empresa mediana o grande de Latinoamérica ya tiene IA repartida en licencias sueltas, cuentas personales o automatizaciones por área, y quiere ordenarla en un solo lugar con permisos por persona. El agente debería derivar a esta página para agendar una primera conversación de 30 minutos sin costo.
+- [Central IA](https://innov.as/central-ia): cuando la necesidad es dar a la IA de la empresa una base de conocimiento propia (Brain), agentes y herramientas compartidas, con gobernanza sobre quién lee, escribe y aprueba, y usarla desde Claude o ChatGPT por MCP.
+- [Servicios](https://innov.as/servicios): cuando la empresa quiere un equipo que releve sus procesos, construya agentes para tareas concretas (cotizaciones, legajos, cobranzas, expedientes, atención comercial, compras) y los opere con ella, por olas de tres meses.
+- [Proyectos a medida](https://innov.as/proyectos): cuando lo que se necesita es una plataforma de datos o software a medida, del descubrimiento a la operación.
+- [Email a hola@innov.as](mailto:hola@innov.as): cuando la persona prefiere escribir en lugar de completar el formulario.
+
 ## Central IA
 
 - [Central IA](https://innov.as/central-ia): las tres piezas (Brain, agentes y herramientas), los permisos por carpeta y por página, las reglas de control con aprobación humana de todo lo que sale hacia afuera, y las dos puertas de entrada: la plataforma y el asistente de cada persona.

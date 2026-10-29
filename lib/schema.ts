@@ -1,5 +1,5 @@
 import { solutionTypes } from "@/content/proyectos"
-import { footerInstitutional } from "@/content/global"
+import { footerInstitutional, footerContact } from "@/content/global"
 import { seo } from "@/content/seo"
 
 export const organizationSchema = {
@@ -9,8 +9,22 @@ export const organizationSchema = {
   url: "https://innov.as",
   logo: "https://innov.as/innovas-logo.png",
   description: footerInstitutional.description,
+  email: footerContact.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Buenos Aires",
+    addressCountry: "AR",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "sales",
+    email: footerContact.email,
+    url: "https://innov.as/contacto",
+    availableLanguage: ["es"],
+    areaServed: "Latinoamérica",
+  },
   areaServed: { "@type": "Place", name: "Latinoamérica" },
-  sameAs: ["https://www.linkedin.com/company/innov-as"],
+  sameAs: [footerContact.linkedin],
 }
 
 export const productSchema = {
