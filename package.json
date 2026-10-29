@@ -6,7 +6,9 @@
     "build": "next build",
     "dev": "next dev -p 3300",
     "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "test": "node --test tests/negotiation.test.mjs tests/llms-txt.test.mjs",
+    "test:endpoints": "node --test tests/endpoints.test.mjs"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
