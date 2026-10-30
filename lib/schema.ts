@@ -7,7 +7,7 @@ export const organizationSchema = {
   "@type": "Organization",
   name: "INNOV.AS",
   url: "https://innov.as",
-  logo: "https://innov.as/innovas-logo.png",
+  logo: "https://innov.as/brand/png/innovas-horizontal-ink.png",
   description: footerInstitutional.description,
   email: footerContact.email,
   address: {
