@@ -2,58 +2,76 @@
 
 ## 1. Alcance
 
-Decks comerciales (primera conversación, propuesta, Radar), de seguimiento con clientes y presentaciones institucionales. Los decks de INNOV.AS se arman en el formato nativo de Claude (el tipo Slides) y se exportan de ahí a .pptx o PDF; las reglas valen igual en cualquier otra herramienta.
+Decks comerciales (primera conversación, propuesta, Radar), de seguimiento con clientes y presentaciones institucionales.
 
 ## 2. Formatos y medidas
 
 - **16:9**, lienzo de referencia 1280×720 px. En 1920×1080, multiplicar todo por 1.5.
-- Conversión al .pptx exportado: 1 px = 0,75 pt (lienzo de 13,33 pulgadas de ancho).
+- Conversión a .pptx: 1 px = 0,75 pt (lienzo de 13,33 × 7,5 pulgadas).
 - Para mandar afuera de la empresa: PDF, que conserva las fuentes.
+
+### Dónde sale el deck
+
+| Caso | Salida |
+|---|---|
+| La persona no pide un formato | Formato nativo de Claude (tipo Slides), exportable a .pptx o PDF (decisión del 2026-10-20) |
+| La persona pide PowerPoint o .pptx | `scripts/build_pptx.py` |
+
+En los dos casos la marca sale de este archivo y del logo en `assets/logo/png/`: la herramienta pone la estructura, este soporte pone el sistema.
 
 ## 3. Grilla y márgenes (sobre 1280×720)
 
-- Margen de 64px a los cuatro lados (referencia v1.7).
-- Título siempre a la misma altura en las slides de contenido.
-- Etiqueta de sección mono arriba del título; logo o isotipo en el pie, siempre en la misma esquina.
+- Margen de 64px a los cuatro lados.
+- Etiqueta de sección en y = 72px y título en y = 112px, iguales en todas las slides de contenido.
+- Zona del pie: últimos 48px. Nombre del deck y número en mono a la izquierda; **isotipo abajo a la derecha, en todas las slides de contenido**.
 
 ## 4. Tipografía
 
 | Elemento | px (1280×720) | pt en .pptx | Fuente |
 |---|---|---|---|
 | Titular póster | 84 / 96 / 104 (`--text-poster-slide-sm/-slide/-slide-xl`) | 63 / 72 / 78 | Newsreader 700, minúscula, palabra en itálica |
-| Título de slide | 48–56 (referencia v1.7) | 36–42 | Newsreader 500, minúscula |
-| Cuerpo | 20–24 (referencia v1.7) | 15–18 | Schibsted Grotesk |
-| Etiqueta de sección / cinta | 14–16 | 11–12 | IBM Plex Mono caja alta |
-| Cifra de contador | 96 sola, 56–64 en fila | 72 / 42–48 | Newsreader |
+| Título de slide | 52 | 39 | Newsreader 500 (regular en .pptx), minúscula, palabra en itálica |
+| Cuerpo | 22–24 | 16,5–18 | Schibsted Grotesk |
+| Etiqueta de sección / cinta | 15 | 11 | IBM Plex Mono caja alta, teal |
+| Cifra de contador | 96 sola, 64 en fila | 72 / 48 | Newsreader |
+| Pie | 14 | 10,5 | IBM Plex Mono, taupe (metadato, no lectura) |
 
-- Un titular póster por slide, de 1 a 4 palabras. Si no entra en 2–3 líneas cortas, está mal escrito, no mal maquetado.
+- Un titular póster por slide, de 1 a 4 palabras. Si no entra en 2 o 3 líneas cortas, está mal escrito, no mal maquetado.
 - Nada por debajo de 14px.
 
 ## 5. Color
 
-- Fondo `#F6F4EF`, texto `#15191A`, acento `#0F6B60`. Oliva `#4F6B00` solo para la gente, la decisión humana o el guiño. Valores en hex directo de la paleta, nunca los de un tema de la herramienta.
-- **Slides oscuras:** máximo 2 por deck (portada y cierre, o una cita). Fondo `#15191A` liso o con foto tratada y velo. Texto `#F6F4EF`, teal `#5CC4B0`, segundo color lima `#D4F36B`. Relleno teal con texto blanco: `#107468`; relleno oliva con texto blanco: `#516E00`.
+- Fondo `#F6F4EF`, texto `#15191A`, acento `#0F6B60`. Oliva `#4F6B00` solo para la gente, la decisión humana o el guiño. Valores de la paleta, nunca los de un tema de la herramienta.
+- **Slides oscuras:** máximo 2 por deck (portada y una cita o póster). Fondo `#15191A`. Texto `#F6F4EF`, teal `#5CC4B0`, palabra destacada en lima `#D4F36B`. Relleno teal con texto blanco: `#107468`. `build_pptx.py` pasa a papel la tercera oscura y avisa.
 - Lima nunca como texto sobre fondo claro.
+- **Bloque lateral teal** (24% del ancho, a sangre): solo portada clara y cierre.
 
 ## 6. Logo
 
-- **Portada:** `innovas-horizontal-ink.svg` sobre papel o `innovas-horizontal-dark.svg` sobre tinta, ≥120px de ancho, con su resguardo.
-- **Slides de contenido:** isotipo de 24–32px en el pie, siempre en la misma esquina.
-- **Cierre:** logo horizontal o badge `innovas-badge-lockup-teal.svg` como sello.
-- Si el formato no admite SVG, un PNG exportado a 2x del mismo SVG, sin recolorear.
+**Ningún deck se entrega sin el logo.** Sale siempre del archivo, nunca tipeado.
 
-## 7. Recursos de marca — estructura tipo del deck
+| Slide | Archivo | Tamaño y lugar |
+|---|---|---|
+| Portada oscura | `innovas-horizontal-dark.png` | 220px de ancho, arriba a la izquierda |
+| Portada clara | `innovas-horizontal-ink.png` | 220px de ancho, arriba a la izquierda |
+| Contenido sobre papel | `innovas-isotipo-teal.png` | 28px de alto, abajo a la derecha |
+| Contenido oscuro | `innovas-isotipo-paper.png` | 28px de alto, abajo a la derecha |
+| Cierre | `innovas-horizontal-ink.png` (o `-dark` si es oscuro) | 200px de ancho, abajo a la izquierda |
 
-Esqueleto sugerido (el del home del sitio, v1.6; se adapta a la audiencia):
+Los PNG están a 2x del SVG, con fondo transparente y el resguardo incluido. Si la herramienta acepta SVG, usar el SVG de `assets/logo/` con el mismo nombre.
 
-1. **Portada:** logo y titular póster. Puede llevar el bloque lateral teal o una foto a sangre con velo de tinta (son los únicos elementos a sangre del deck).
-2. **Manifiesto o "hoy ──→ con INNOV.AS":** pares A y B explícitos.
-3. **Lo que contrata la empresa:** infraestructura, agentes y equipo.
-4. **Un proceso, no un proyecto:** primera conversación, Radar, ola cero, olas y operación continua, como camino del cliente con la flecha.
-5. **Agentes que toman trabajo, por rubro:** "el agente ──→ tu gente".
-6. **Control:** "tu gente decide, los agentes ejecutan".
-7. **Quiénes somos:** trayectoria del equipo con contadores (cifra, unidad y contexto).
-8. **Cierre:** la primera conversación como siguiente paso.
+## 7. Recursos de marca y estructura tipo del deck
+
+Esqueleto (el del home del sitio, v1.6; se adapta a la audiencia). Entre paréntesis, el `tipo` de slide en `build_pptx.py`:
+
+1. **Portada** (`portada`): logo, etiqueta y titular póster. Oscura por defecto; clara con bloque lateral teal.
+2. **Manifiesto, "hoy ──→ con INNOV.AS"** (`ab`): pares A y B explícitos, flecha en teal.
+3. **Lo que contrata la empresa** (`contenido`): infraestructura, agentes y equipo, con `──→` como viñeta.
+4. **Un proceso, no un proyecto** (`camino`): primera conversación, Radar, ola cero, olas y operación continua; el estado actual en teal.
+5. **Agentes que toman trabajo, por rubro** (`contenido` o `ab` con "el agente ──→ tu gente").
+6. **Control** (`poster`): "tu gente decide, los agentes ejecutan". Puede ser la segunda oscura.
+7. **Quiénes somos** (`contadores`): cifra, unidad y contexto, sobre `#ECEAE3`.
+8. **Cierre** (`cierre`): la primera conversación como siguiente paso, con bloque lateral teal y logo.
 
 Recursos:
 
@@ -62,6 +80,8 @@ Recursos:
 - **Fotos:** las del registro del sitio (`content/imagenes.ts`) con su tratamiento; nunca más de una foto grande por slide.
 - **Diagramas:** la flecha `A ──→ B` y la notación mono; si falta un diagrama encargado, dejar el espacio con una nota de placeholder antes que improvisar un ícono.
 - **Franja de organizaciones:** logos en monocromo, estáticos, sobre `ink` o `paper-soft`.
+
+Referencia de cómo queda aplicado: `assets/ejemplos/innovas-deck-ejemplo.json` y su `.pptx` (7 slides, una por tipo).
 
 ## 8. Accesibilidad y legibilidad
 
@@ -72,10 +92,11 @@ Recursos:
 
 ## 9. Qué evitar
 
-Más de 2 slides oscuras, dos titulares póster en una slide, slides enteras en oliva o lima, lima como texto sobre claro, degradés y sombras difusas (salvo el velo sobre foto), íconos 3D o de IA genéricos, el logo agrandado como decoración, transiciones vistosas, texto animado letra por letra.
+Más de 2 slides oscuras, dos titulares póster en una slide, slides enteras en oliva o lima, lima como texto sobre claro, degradés y sombras difusas (salvo el velo sobre foto), íconos 3D o de IA genéricos, el logo agrandado como decoración o tipeado, slides de contenido sin isotipo, transiciones vistosas, texto animado letra por letra.
 
 ## 10. Checklist
 
+- [ ] Logo horizontal en portada y cierre, isotipo en el pie de cada slide de contenido, siempre en la misma esquina.
 - [ ] Fuentes, fondo y logo correctos después de exportar.
 - [ ] Texto `#F6F4EF` sobre `#15191A`; `#5CC4B0` y `#D4F36B` solo en slides oscuras.
 - [ ] Máximo 2 slides oscuras, un titular póster y 2 cintas por slide.
@@ -85,6 +106,7 @@ Más de 2 slides oscuras, dos titulares póster en una slide, slides enteras en 
 
 ## 11. Notas por herramienta
 
-- **Formato nativo de Claude (tipo Slides):** la estructura y la edición de cada slide siguen las instrucciones del tipo; este archivo aporta la marca. Exportar a .pptx o PDF desde ahí.
-- **Editores de presentaciones de escritorio:** definir un patrón con los diseños de la estructura tipo y usar marcadores de posición. Incrustar las fuentes si el archivo se comparte editable. Sin las fuentes, el .pptx cae a Georgia y Arial: avisar o mandar el PDF, y no sustituir por otra familia a mano.
+- **Formato nativo de Claude (tipo Slides):** la estructura y la edición de cada slide siguen las instrucciones del tipo; la marca sale de este archivo. Subir al artifact los PNG del logo que pide la tabla de la sección 6 y referenciarlos desde ahí; cargar Newsreader, Schibsted Grotesk e IBM Plex Mono desde Google Fonts; usar las medidas en px de este archivo, nunca la escala `clamp` de web. Exportar a .pptx o PDF desde ahí.
+- **PowerPoint por código:** escribir el contenido como JSON con el esquema de la cabecera de `scripts/build_pptx.py` y correr `python3 scripts/build_pptx.py contenido.json salida.pptx` (requiere `python-pptx`). El script corta si no encuentra el logo.
+- **Editores de presentaciones de escritorio:** partir de `assets/ejemplos/innovas-deck-ejemplo.pptx` y duplicar la slide del tipo que haga falta. Incrustar las fuentes si el archivo se comparte editable. Sin las fuentes, el .pptx cae a Georgia y Arial: avisar o mandar el PDF, y no sustituir por otra familia a mano.
 - **Editores en la nube y herramientas de diseño online:** cargar paleta, fuentes y logos en el kit de marca; si no se pueden instalar las fuentes, el fallback es Georgia, Arial y Courier New, como último recurso.

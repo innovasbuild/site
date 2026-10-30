@@ -5,10 +5,12 @@ Cada soporte tiene su archivo con la misma estructura, para que se pueda compara
 | Soporte | Archivo | Piezas típicas | Estado |
 |---|---|---|---|
 | Web y pantallas | `web.md` | Sitio innov.as, landings, UI de Central IA | vigente |
-| Presentaciones | `slides.md` | Decks comerciales, de propuesta, de seguimiento | vigente |
-| Documentos | `documentos.md` | Propuestas en Word, PDF, one-pagers, informes | vigente |
+| Presentaciones | `slides.md` | Decks comerciales, de propuesta, de seguimiento | vigente · generador `build_pptx.py` |
+| Documentos | `documentos.md` | Propuestas, informes del Radar, one-pagers, contratos (Google Docs o Word) | vigente · generador `build_docx.py` |
 | Redes sociales | `redes.md` | Posteos y carruseles de LinkedIn, avatares, portadas | ⚠️ propuesta v1.7 |
 | Email | `email.md` | Firma, mails comerciales, newsletters | ⚠️ propuesta v1.7 |
+
+Un soporte de lienzo fijo está completo cuando tiene, además de su archivo, el logo listo en `../../assets/logo/png/`, un generador en `../../scripts/` que lo aplica y un ejemplo en `../../assets/ejemplos/`. Documentos y presentaciones lo están desde la v1.8.
 
 Para sumar un soporte nuevo (planillas y tableros, video, impresión y eventos…), copiar `_plantilla.md` y seguir `../gobierno.md`.
 

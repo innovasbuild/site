@@ -1,0 +1,43 @@
+{
+  "titulo": "la IA de tu empresa,",
+  "destacada": "de punta a punta",
+  "etiqueta": "PROPUESTA · OLA CERO",
+  "bajada": "Ejemplo de referencia del sistema de diseño",
+  "fecha": "2026-10-30",
+  "nombre_corto": "Propuesta ola cero (ejemplo)",
+  "portada": true,
+  "bloques": [
+    {"tipo": "etiqueta", "texto": "01 · RESUMEN"},
+    {"tipo": "h1", "texto": "dónde está hoy y dónde opera mañana"},
+    {"tipo": "p", "texto": "Este documento es un **ejemplo de referencia**: muestra cómo se ven aplicados los estilos, el logo, el pie y los recursos de marca en un .docx. El contenido es ilustrativo."},
+    {"tipo": "ab", "pares": [
+      ["La IA quedó en una o dos personas", "Toda la empresa trabaja con IA y con permisos"],
+      ["Cada área prueba herramientas sueltas", "Una base común, con agentes que toman trabajo"],
+      ["Nadie sabe qué datos salen de la empresa", "Tu gente decide, los agentes ejecutan"]
+    ]},
+    {"tipo": "etiqueta", "texto": "02 · TRAYECTORIA"},
+    {"tipo": "h1", "texto": "el equipo detrás"},
+    {"tipo": "contadores", "items": [
+      ["25", "años", "transformando organizaciones"],
+      ["+150", "organizaciones", "para las que trabajó nuestro equipo"],
+      ["14", "países", "con proyectos en curso o cerrados"]
+    ]},
+    {"tipo": "etiqueta", "texto": "03 · ALCANCE"},
+    {"tipo": "h1", "texto": "un proceso, no un proyecto"},
+    {"tipo": "h2", "texto": "Camino del cliente"},
+    {"tipo": "lista", "numerada": true, "items": [
+      "**Primera conversación.** Entender el punto A.",
+      "**Radar.** Mapa del método y prioridades.",
+      "**Ola cero.** Primer caso en producción.",
+      "**Olas.** Cada área suma agentes.",
+      "**Operación continua.** El punto B, sostenido."
+    ]},
+    {"tipo": "tabla", "encabezado": ["Etapa", "Entregable", "Plazo"], "filas": [
+      ["Radar", "Mapa del Método y recomendación de ola cero", "2 semanas"],
+      ["Ola cero", "Primer agente en producción con su gobierno", "4 a 6 semanas"],
+      ["Operación continua", "Equipo y plataforma acompañando cada ola", "Mensual"]
+    ]},
+    {"tipo": "destacado", "texto": "**Siguiente paso.** Agendar la primera conversación para definir el punto A con el equipo de la empresa."},
+    {"tipo": "nota", "texto": "Documento generado con build_docx.py del skill innov-design-system."}
+  ]
+}

@@ -4,6 +4,12 @@ Una línea por decisión o propuesta. Lo más nuevo arriba. Estado: `propuesta` 
 
 | Fecha | Versión | Decisión | Estado | Responsable |
 |---|---|---|---|---|
+| 2026-10-30 | 1.8 | Documentos: sin formato pedido, salen como Google Doc en el Drive de INNOV.AS vía `gws-innov`; sin `gws-innov`, como .docx. El Google Doc es el .docx de `build_docx.py` subido con conversión | aprobada | Mati |
+| 2026-10-30 | 1.8 | Presentaciones como soporte con sistema propio dentro del skill (no un sistema de diseño aparte): estructura tipo con un tipo de slide por sección, `build_pptx.py` y deck de ejemplo | aprobada | Mati |
+| 2026-10-30 | 1.8 | Logo obligatorio en toda pieza fija; PNG a 2x de las diez variantes en `assets/logo/png/` y `public/brand/png/` | aprobada | Mati |
+| 2026-10-30 | 1.8 | En documentos editables Newsreader va en peso regular (el 500 no existe con el mismo nombre en Word y Google Docs) | aprobada | Mati |
+| 2026-10-30 | 1.8 | Tamaños de slides fijados con el deck de ejemplo: título 52px, cuerpo 22–24px, etiqueta 15px, pie 14px | propuesta | Luli |
+| 2026-10-30 | — | `innovas-lockup-vertical-paper.png` existe en `public/brand/png/` sin SVG ni lugar en la tabla de variantes: incorporarlo o retirarlo | pendiente | Luli |
 | 2026-10-27 | 1.7 | Skill reorganizado por soporte (web, presentaciones, documentos, redes, email) con la estructura del de Lagomarsino; base común en `SKILL.md`; componentes, ilustración, gobierno y decisiones aparte. Sale `references/non-code-usage.md`. Sin cambios de reglas | aprobada | Mati |
 | 2026-10-27 | 1.7 | Reglas de redes sociales y email | propuesta | Luli / Mati |
 | 2026-10-27 | 1.7 | Tamaños de título, cuerpo y márgenes en slides y documentos (marcados "referencia v1.7") | propuesta | Luli |

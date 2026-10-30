@@ -1,6 +1,6 @@
 ---
 name: "innov-design-system"
-description: "Sistema de identidad visual de INNOV.AS y de su plataforma Central IA: paleta papel/tinta/teal/lima, Newsreader/Schibsted Grotesk/IBM Plex Mono, logo perfil-circuito, flecha A→B, titulares en minúscula con palabra en itálica, ilustraciones de la serie del cerebro, fotografía del sitio y reglas por soporte (web, presentaciones, documentos, redes sociales, email). Usar SIEMPRE al crear, editar o revisar cualquier pieza de INNOV.AS en cualquier soporte: sitio, decks, one-pagers, Word, PDF, posteos, firmas o mails, y al proponer cambios al sistema de marca. Activar también con ilustraciones, cerebro, robot o agentes dibujados, diagramas, hero, colores, tipografías, tokens, logo, favicon, titulares póster, camino del cliente o voz de marca. Reglas duras: cero hex o fuentes hardcodeados (var(--...) o Tailwind); el logo siempre es el archivo; las ilustraciones nuevas siguen la serie del cerebro; los Word llevan fondo blanco."
+description: "Sistema de identidad visual de INNOV.AS y de su plataforma Central IA: paleta papel/tinta/teal/lima, Newsreader/Schibsted Grotesk/IBM Plex Mono, logo perfil-circuito, flecha A→B, titulares en minúscula con palabra en itálica, ilustraciones de la serie del cerebro, fotografía del sitio y reglas por soporte (web, presentaciones, documentos, redes sociales, email). Usar SIEMPRE al crear, editar o revisar cualquier pieza de INNOV.AS: sitio, decks, Google Docs, Word, PDF, posteos, firmas o mails, y al proponer cambios al sistema de marca. Activar también con ilustraciones, diagramas, hero, colores, tipografías, tokens, logo, favicon, titulares póster o voz de marca. Reglas duras: cero hex o fuentes hardcodeados (var(--...) o Tailwind); el logo siempre es el archivo; las ilustraciones nuevas siguen la serie del cerebro; los Word llevan fondo blanco; ningún documento ni deck sale sin el logo."
 ---
 
 # INNOV.AS — Design System
@@ -121,7 +121,7 @@ Para hero, portada y cierre de deck, cita o banda de énfasis. Máximo **2 panta
 | `innovas-isotipo-teal/-ink/-paper.svg` | según nombre | Favicon ≥24px, bullet de marca |
 | `innovas-horizontal-mono-ink/-paper.svg` | un color | Impresión a una tinta, franja institucional de un tercero |
 
-PNG listos para herramientas que no aceptan SVG: `public/brand/png/` del repo del sitio. Usar esos o exportar a 2x el SVG, sin recolorear.
+PNG a 2x, con fondo transparente y el mismo nombre que cada SVG: **`assets/logo/png/`** (copia en `public/brand/png/` del sitio). Son los que se usan en Word, Google Docs, .pptx y cualquier herramienta que no acepte SVG. No se convierte el SVG por cuenta propia ni se recolorea.
 
 ### Reglas duras
 
@@ -129,8 +129,9 @@ PNG listos para herramientas que no aceptan SVG: `public/brand/png/` del repo de
 2. **Tamaño mínimo:** horizontal 120px de ancho (≈32mm impreso); isotipo 24px. Para 16px va el badge.
 3. **Área de resguardo:** viene en el archivo (90px sobre el lienzo de 991×319 a izquierda, arriba y derecha; 48px abajo). Si se recorta, se repone. Nada entra ahí.
 4. **No se toca:** sin recolor fuera de la tabla, degradé, sombra, blur, rotación ni estirado; no se separa isotipo y wordmark; no lleva tagline. El set con **BUILD SOLUTIONS** y la **N invertida** está deprecado.
-5. **Un logo por pieza** en tamaño firma. Nunca agrandado como decoración: si la pieza pide un elemento gráfico grande, es la flecha.
-6. **En código:** `components/logo.tsx` (prop `surface="light" | "dark"`). Los hex dentro de los SVG son la excepción explícita a la regla de cero hex.
+5. **Siempre presente.** Ningún documento, deck ni pieza fija se entrega sin el logo del archivo. Dónde va en cada soporte lo dice su archivo en `references/soportes/`.
+6. **Un logo por pieza** en tamaño firma. Nunca agrandado como decoración: si la pieza pide un elemento gráfico grande, es la flecha.
+7. **En código:** `components/logo.tsx` (prop `surface="light" | "dark"`). Los hex dentro de los SVG son la excepción explícita a la regla de cero hex.
 
 ## Elementos firma
 
@@ -183,7 +184,7 @@ Antes de escribir el copy de cualquier pieza, leer `marketing/mensajes-innovas` 
 
 ## Workflow — código (Next.js / Tailwind)
 
-1. Buscar `--color-teal` en el CSS global del proyecto. Si no está, copiar `assets/tokens/globals.css` y fusionar el `theme.extend` de `assets/tokens/tailwind.config.ts` (sin pisar el config entero).
+1. Buscar `--color-teal` en el CSS global del proyecto. Si no está, copiar `assets/tokens/globals.css`. Con **Tailwind v4** (el caso del sitio) los tokens se mapean en el bloque `@theme inline` del CSS y no hay config; `assets/tokens/tailwind.config.ts` queda solo para proyectos en Tailwind v3, donde se fusiona su `theme.extend` sin pisar el config entero.
 2. Fuentes self-hosted con `next/font` (nunca `<link>` ni `@import` a Google Fonts):
 
    ```ts
@@ -222,7 +223,16 @@ Antes de escribir el copy de cualquier pieza, leer `marketing/mensajes-innovas` 
 
 Abrir el archivo del soporte en `references/soportes/`. Ahí están los valores literales: hex, tamaños en la unidad del soporte, medidas de lienzo, estructura tipo y notas por herramienta.
 
-**Fondo por formato:** web, slides, PDF y redes sobre `paper` `#F6F4EF`. **Word (.docx) sobre blanco `#FFFFFF`**, con bloques secundarios en `#ECEAE3`.
+**Fondo por formato:** web, slides, PDF y redes sobre `paper` `#F6F4EF`. **Documentos editables (Google Docs y Word) sobre blanco `#FFFFFF`**, con bloques secundarios en `#ECEAE3`.
+
+**Salida por soporte y generadores.** Cada soporte fijo tiene su generador, que aplica estilos, colores y logo desde el skill y corta si falta el archivo del logo:
+
+| Soporte | Salida por defecto | Alternativa | Generador |
+|---|---|---|---|
+| Documentos | Google Doc en el Drive de INNOV.AS, vía `gws-innov` | .docx si `gws-innov` no está o si se pide Word | `scripts/build_docx.py` (el Google Doc es ese .docx subido con conversión) |
+| Presentaciones | Formato nativo de Claude (tipo Slides) | .pptx si se pide PowerPoint | `scripts/build_pptx.py` |
+
+El contenido se escribe como JSON con el esquema de la cabecera de cada script. Ejemplos en `assets/ejemplos/`.
 
 **Fuentes:** Newsreader, Schibsted Grotesk e IBM Plex Mono tienen que estar instaladas en la máquina que arma la pieza; sin ellas el archivo editable se desarma en la de quien lo recibe. Para terceros, mandar también el PDF.
 
@@ -236,7 +246,7 @@ Abrir el archivo del soporte en `references/soportes/`. Ahí están los valores 
 - [ ] ¿Ningún texto de lectura en `taupe`?
 - [ ] ¿Las cifras tienen unidad y contexto?
 - [ ] ¿A y B explícitos donde aparece la flecha?
-- [ ] ¿Logo de la tabla de variantes, con resguardo, tamaño mínimo y sin efectos?
+- [ ] ¿Logo presente, del archivo (SVG o PNG de `assets/logo/png/`), de la tabla de variantes, con resguardo, tamaño mínimo y sin efectos?
 - [ ] ¿Copy según la voz (sin guion largo ni ¿ ¡, sin nombres de personas)?
 - [ ] ¿Pasó el checklist del archivo de su soporte?
 - [ ] En código: `audit_tokens.py` sin violaciones.
@@ -245,6 +255,9 @@ Abrir el archivo del soporte en `references/soportes/`. Ahí están los valores 
 
 - `assets/tokens/globals.css` · `assets/tokens/tailwind.config.ts` — contrato ejecutable.
 - `assets/logo/` — logo en SVG: horizontal (ink, dark, paper, mono), badges sobre teal e isotipo suelto.
+- `assets/logo/png/` — las mismas variantes en PNG a 2x con fondo transparente, para documentos, decks y herramientas sin SVG.
+- `assets/plantillas/innovas-documento.docx` — plantilla de documento con estilos, portada, encabezado y pie.
+- `assets/ejemplos/` — una propuesta (.json + .docx) y un deck (.json + .pptx) hechos con los generadores, como referencia de cómo se ve aplicado.
 - `assets/components/` — componentes del sitio: `serie-cerebro/`, `hero-grano.tsx`, `hero-field.tsx`, `enterprise/` (v1.6: `foto.tsx`, `aparece.tsx`, `imagenes.ts` y `central/`; las secciones del home viven solo en `components/home/` del sitio) y los anteriores `hero-dots.tsx`, `agent-scene.tsx` + `scene-shader.ts` (sin uso desde la v1.5).
 - `assets/illustrations/` — ilustración a mano: `hand-drawn.tsx`, `home.ts` y seis SVG de referencia.
 - `assets/style-tile.html` — referencia visual navegable (v1.6.1).
@@ -256,11 +269,15 @@ Abrir el archivo del soporte en `references/soportes/`. Ahí están los valores 
 - `references/prompt-gema-ilustraciones.md` — brief de estilo para encargar ilustración a mano afuera.
 - `references/direccion-de-arte.md` — dirección de arte original (T3.2), **histórico**: paleta y fuentes superadas.
 - `scripts/audit_tokens.py` — detecta hex y fuentes hardcodeadas y teal sin variante sobre oscuro.
+- `scripts/build_docx.py` — arma el .docx de marca desde un JSON (base del Google Doc).
+- `scripts/build_pptx.py` — arma el .pptx de marca desde un JSON.
 
 ## Mantenimiento
 
-Luli define la dirección de arte y Mati la valida (ver `references/gobierno.md`). Fuente de verdad: `.agents/skills/innov-design-system/` del repo del sitio; `.claude/skills/innov-design-system/` es una copia idéntica. Todo cambio se registra en `references/decisiones.md`, se sube como borrador al skill del brain de INNOV.AS y se refleja en `marketing/identidad-visual-innovas`.
+Luli define la dirección de arte y Mati la valida (ver `references/gobierno.md`). Fuente de verdad: `.agents/skills/innov-design-system/` del repo del sitio; `.claude/skills/innov-design-system/` es una copia idéntica. Todo cambio se registra en `references/decisiones.md`, se sube como borrador al skill del brain de INNOV.AS y se refleja en `marketing/identidad-visual-innovas`. El paquete del brain admite hasta 50 archivos, así que lleva todo salvo el código del sitio (`assets/components/`, `assets/illustrations/hand-drawn.tsx` y `home.ts`) y `references/direccion-de-arte.md` (histórico): esos viven solo en el repo, que es donde se usan.
 
-**Versión 1.7** (2026-10-27). Reorganiza el skill por soporte, con la misma estructura que el de Lagomarsino: base común en este archivo, un archivo por soporte en `references/soportes/` (web, presentaciones, documentos, y redes y email como propuesta), componentes web, ilustración, gobierno y registro de decisiones aparte. Reemplaza a `references/non-code-usage.md`. No cambia ninguna regla vigente.
+**Versión 1.8** (2026-10-30). Documentos y presentaciones pasan a tener su sistema completo dentro del skill, como el de Lagomarsino: logo en PNG a 2x en `assets/logo/png/`, generadores `build_docx.py` y `build_pptx.py`, plantilla de documento y ejemplos de referencia. Los documentos salen por defecto como Google Doc vía `gws-innov` y, sin él, como .docx. El logo pasa a ser obligatorio en toda pieza fija. El flujo de código contempla Tailwind v4.
+
+**1.7** (2026-10-27). Reorganiza el skill por soporte, con la misma estructura que el de Lagomarsino: base común en este archivo, un archivo por soporte en `references/soportes/` (web, presentaciones, documentos, y redes y email como propuesta), componentes web, ilustración, gobierno y registro de decisiones aparte. Reemplaza a `references/non-code-usage.md`. No cambia ninguna regla vigente.
 
 Historial completo de versiones (1.0 a 1.6.1) y pendientes en `references/decisiones.md`.
