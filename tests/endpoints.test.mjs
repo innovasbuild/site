@@ -1,4 +1,4 @@
-// Tests de integración contra el sitio corriendo: BASE_URL=http://localhost:3300 npm run test:endpoints
+// Tests de integración contra el sitio corriendo: BASE_URL=http://localhost:3300 pnpm test:endpoints
 import { test } from "node:test"
 import assert from "node:assert/strict"
 
