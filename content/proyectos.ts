@@ -6,7 +6,7 @@ export const hero = {
   posterAccent: "medida",
   subhead:
     "El mismo equipo que implementa Central IA construye plataformas de datos y software a medida para organizaciones con un proyecto concreto.",
-  ctaPrimary: { label: "Contanos tu proyecto", href: "/contacto" } as Cta,
+  ctaPrimary: { label: "Cuéntanos tu proyecto", href: "/contacto" } as Cta,
 }
 
 export const solutionTypes = {
@@ -74,12 +74,12 @@ export const audience = {
     "Empresas con un proyecto de plataforma o producto digital, y un sponsor en dirección o gerencia general.",
     "Organismos y sector público, por licitación o contratación directa.",
   ],
-  note: "Tu necesidad es ordenar la IA de la empresa: mirá Central IA.",
+  note: "Tu necesidad es ordenar la IA de la empresa: mira Central IA.",
   noteCta: { label: "Central IA →", href: "/central-ia" } as Cta,
 }
 
 export const finalCta = {
-  title: "Contanos tu proyecto",
+  title: "Cuéntanos tu proyecto",
   cta: { label: "Hablemos", href: "/contacto" } as Cta,
   note: "La primera conversación es con el equipo que después ejecuta.",
 }

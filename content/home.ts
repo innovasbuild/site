@@ -15,7 +15,7 @@ export const hero = {
   posterAccent: "de punta a punta",
   supportLine: "Ponemos la infraestructura, construimos los agentes y te acompañamos en cada etapa.",
   subhead:
-    "Un solo equipo responsable de todo el proceso: relevamos cómo trabaja tu empresa, ordenamos lo que sabe, sumamos agentes que toman el trabajo que se repite y los operamos con vos, ola tras ola.",
+    "Un solo equipo responsable de todo el proceso: relevamos cómo trabaja tu empresa, ordenamos lo que sabe, sumamos agentes que toman el trabajo que se repite y los operamos contigo, ola tras ola.",
   ctaPrimary: primaryCta,
   note: conversationCtaNote,
   rails: [
@@ -66,7 +66,7 @@ export const antesDespues = {
 }
 
 export const oferta = {
-  kicker: { index: "03", label: "lo que contratás" },
+  kicker: { index: "03", label: "lo que contratas" },
   posterTitle: "Tres capas, un responsable",
   posterAccent: "un responsable",
   intro:
@@ -78,7 +78,7 @@ export const oferta = {
       texto:
         "Central IA, nuestra plataforma, ordena el conocimiento, los accesos y los sistemas de tu empresa. Cada agente nuevo se apoya en lo que ya está, con las mismas reglas.",
       foto: imagenes.estructura,
-      cta: { label: "Conocé Central IA", href: "/central-ia" } as Cta,
+      cta: { label: "Conoce Central IA", href: "/central-ia" } as Cta,
     },
     {
       etiqueta: "agentes",
@@ -92,7 +92,7 @@ export const oferta = {
       etiqueta: "equipo",
       titulo: "Un equipo que te acompaña",
       texto:
-        "Consultores senior que relevan, implementan y operan con vos. Están desde la primera reunión hasta la operación de todos los días.",
+        "Consultores senior que relevan, implementan y operan contigo. Están desde la primera reunión hasta la operación de todos los días.",
       foto: imagenes.taller,
       cta: { label: "Ver servicios", href: "/servicios" } as Cta,
     },
@@ -113,9 +113,9 @@ export const recorrido = {
   posterTitle: "Un proceso, no un proyecto",
   posterAccent: "proceso",
   intro:
-    "Cada etapa deja algo funcionando y prepara la siguiente. Vos decidís la velocidad. Nosotros estamos en cada paso.",
+    "Cada etapa deja algo funcionando y prepara la siguiente. Tú decides la velocidad. Nosotros estamos en cada paso.",
   capasTitulo: "Lo que ya está funcionando",
-  entregaLabel: "Qué te llevás",
+  entregaLabel: "Qué te llevas",
   equipoLabel: "Quiénes están",
   etapas: [
     {
@@ -149,7 +149,7 @@ export const recorrido = {
       nombre: "Olas",
       duracion: "cada 3 meses",
       texto:
-        "Cada ola suma un circuito de negocio con sus agentes. Se implementa, se mide y se pasa al siguiente. Entre una ola y otra decidís si acelerás, cambiás el orden o frenás.",
+        "Cada ola suma un circuito de negocio con sus agentes. Se implementa, se mide y se pasa al siguiente. Entre una ola y otra decides si aceleras, cambias el orden o frenas.",
       entrega: "Un circuito nuevo operando por ola, con su medición.",
       equipo: "Los responsables de cada área y el equipo de INNOV.AS que contrataste.",
       capas: { encendidas: 4, planeadas: 5 },
@@ -171,7 +171,7 @@ export const agentes = {
   posterTitle: "Agentes que toman trabajo",
   posterAccent: "trabajo",
   intro:
-    "Cada agente se diseña con tu equipo para una tarea concreta y trabaja con los sistemas que ya usás. Tu gente decide, los agentes ejecutan.",
+    "Cada agente se diseña con tu equipo para una tarea concreta y trabaja con los sistemas que ya usas. Tu gente decide, los agentes ejecutan.",
   agenteLabel: "El agente",
   genteLabel: "Tu gente",
   rubros: [
@@ -304,7 +304,7 @@ export const quienesSomos = {
     "Somos un equipo senior con 25 años transformando más de 150 organizaciones en 14 países, en consumo masivo, educación, agro, organismos internacionales y sector público. Trabajamos en español y directamente con quien conduce la empresa.",
   body2:
     "Y usamos lo mismo que vendemos: nuestra área comercial trabaja todos los días sobre Central IA, con un agente que investiga, redacta y espera que una persona lo apruebe antes de enviar. En la demo te lo mostramos funcionando.",
-  cta: { label: "Conocenos →", href: "/nosotros" } as Cta,
+  cta: { label: "Conócenos →", href: "/nosotros" } as Cta,
 }
 
 export const faqSection = {

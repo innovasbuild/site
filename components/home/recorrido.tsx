@@ -104,7 +104,7 @@ export function Recorrido() {
             })}
           </ol>
 
-          {/* Qué te llevás, quiénes están y las capas que ya funcionan, todo a la vista junto a las etapas */}
+          {/* Qué te llevas, quiénes están y las capas que ya funcionan, todo a la vista junto a las etapas */}
           <div className="self-start rounded-[20px] border border-line bg-paper p-6 sm:p-8">
             <div className="grid gap-6 sm:grid-cols-2">
               <div>

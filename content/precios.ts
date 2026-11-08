@@ -6,11 +6,11 @@ const talkCta: Cta = { label: "Hablemos", href: "/contacto" }
 
 export const hero = {
   eyebrow: "// precios → planes",
-  posterTitle: "Empezá ahora",
+  posterTitle: "Empieza ahora",
   posterAccent: "ahora",
   supportLine: "Tres planes, del primer equipo a toda la empresa.",
   subhead:
-    "Creás la cuenta de tu empresa en minutos y trabajás con el Brain desde el primer día. Cuando se suma más gente, pagás por persona. Si querés que nuestro equipo la implemente con vos, lo armamos a medida.",
+    "Creas la cuenta de tu empresa en minutos y trabajas con el Brain desde el primer día. Cuando se suma más gente, pagas por persona. Si quieres que nuestro equipo la implemente contigo, lo armamos a medida.",
   ctaPrimary: primaryCta,
   ctaSecondary: talkCta,
 }
@@ -49,7 +49,7 @@ export const planes = {
         "Conexión a Claude y ChatGPT por MCP.",
         "Ingreso restringible al dominio de tu empresa.",
       ],
-      cta: { label: "Empezá ahora", href: signupHref("gratis") },
+      cta: { label: "Empieza ahora", href: signupHref("gratis") },
       note: "El uso de IA dentro de la plataforma se paga por consumo.",
     },
     {
@@ -64,7 +64,7 @@ export const planes = {
         "Usuarios sin límite.",
         "Skills sin límite.",
       ],
-      cta: { label: "Elegí Equipo", href: signupHref("equipo") },
+      cta: { label: "Elige Equipo", href: signupHref("equipo") },
       note: "El uso de IA dentro de la plataforma se paga por consumo.",
       featured: true,
     },
@@ -74,7 +74,7 @@ export const planes = {
       price: "A medida",
       period: "con nuestro equipo",
       description:
-        "Para implementar Central IA con un equipo con experiencia en IA en producción, que la opera con vos.",
+        "Para implementar Central IA con un equipo con experiencia en IA en producción, que la opera contigo.",
       includesFrom: "Todo lo de Equipo, más:",
       features: [
         "Radar: tres a cuatro horas con tu equipo directivo y un plan a dos años. Bonificado al implementar la ola cero.",
@@ -92,8 +92,8 @@ export const planes = {
 
 export const consumo = {
   kicker: { index: "02", label: "uso de ia" },
-  posterTitle: "Pagás lo que usás",
-  posterAccent: "usás",
+  posterTitle: "Pagas lo que usas",
+  posterAccent: "usas",
   body:
     "El Brain, los permisos y las skills están incluidos en cada plan. Lo que se paga aparte es el uso de los modelos de IA dentro de la plataforma, en el chat y en los agentes, según lo que consume cada empresa.",
   items: [
@@ -151,7 +151,7 @@ export const faqPrecios: FaqItem[] = [
 ]
 
 export const finalCta = {
-  title: "Creá la cuenta de tu empresa",
+  title: "Crea la cuenta de tu empresa",
   cta: primaryCta,
   secondary: talkCta,
   note: "Gratis por tres meses, hasta 3 usuarios y 5 skills.",

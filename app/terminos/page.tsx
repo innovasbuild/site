@@ -35,10 +35,10 @@ export default function TerminosPage() {
           <p>
             Al contratar nuestros servicios, acceder al sitio web o completar cualquier formulario de
             contacto, el usuario declara haber leído, comprendido y aceptado estos Términos en su totalidad.
-            Si actuás en representación de una empresa u organismo, declarás tener facultades suficientes
+            Si actúas en representación de una empresa u organismo, declaras tener facultades suficientes
             para obligarla.
           </p>
-          <p>Si no aceptás estos Términos, no debés usar nuestros servicios ni el sitio web.</p>
+          <p>Si no aceptas estos Términos, no debes usar nuestros servicios ni el sitio web.</p>
         </Section>
 
         <Section title="2. Descripción del servicio">

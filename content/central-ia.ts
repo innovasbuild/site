@@ -14,7 +14,7 @@ export const hero = {
   posterAccent: "IA",
   supportLine: "La base sobre la que tu empresa construye su IA.",
   subhead:
-    "Donde vive lo que sabe tu empresa, trabajan sus agentes y se conectan sus sistemas, con permisos por persona y registro de todo. Nuestro equipo la implementa y la opera con vos.",
+    "Donde vive lo que sabe tu empresa, trabajan sus agentes y se conectan sus sistemas, con permisos por persona y registro de todo. Nuestro equipo la implementa y la opera contigo.",
   ctaPrimary: primaryCta,
   foto: imagenes.centralIaHero,
 }
@@ -61,7 +61,7 @@ export const componentes = {
   resto: [
     {
       nombre: "Permisos por persona",
-      titulo: "Abrís la IA a todos sin abrir todo",
+      titulo: "Abres la IA a todos sin abrir todo",
       texto: "Lector, editor, administrador o sin acceso, por carpeta y por página. Lo confidencial queda donde tiene que estar.",
     },
     {
@@ -76,12 +76,12 @@ export const componentes = {
     },
     {
       nombre: "Registro y costos",
-      titulo: "Sabés qué pasó y cuánto costó",
+      titulo: "Sabes qué pasó y cuánto costó",
       texto: "Cada acción y cada llamada a un modelo quedan registradas con su costo. Con topes de gasto por empresa.",
     },
     {
       nombre: "Desde tu asistente",
-      titulo: "Aprovechás las licencias que ya pagás",
+      titulo: "Aprovechas las licencias que ya pagas",
       texto: "Quien usa Claude o ChatGPT conecta su asistente a Central IA, con el mismo contenido y los mismos permisos.",
     },
     {
@@ -135,7 +135,7 @@ export const control = {
   kicker: { index: "03", label: "control" },
   posterTitle: "Tu gente decide",
   posterAccent: "decide",
-  lead: "Abrís la IA a toda la empresa sin perder el control. Cada acción tiene un nivel, y el nivel define si necesita a una persona.",
+  lead: "Abres la IA a toda la empresa sin perder el control. Cada acción tiene un nivel, y el nivel define si necesita a una persona.",
   levels: [
     { what: "Trabaja solo con datos de la plataforma", rule: "Corre sola." },
     { what: "Gasta en servicios de terceros, como los modelos de IA", rule: "Corre sola, con tope por corrida y presupuesto diario." },
@@ -148,7 +148,7 @@ export const conEquipo = {
   kicker: { index: "04", label: "implementación" },
   titulo: "Central IA viene con un equipo",
   texto:
-    "No te damos una herramienta para que te arregles. Nuestro equipo la instala, arma el Brain con tu gente, construye los agentes y los opera con vos, ola tras ola.",
+    "No te damos una herramienta para que te arregles. Nuestro equipo la instala, arma el Brain con tu gente, construye los agentes y los opera contigo, ola tras ola.",
   foto: imagenes.equipoPizarra,
   cta: { label: "Ver cómo trabajamos", href: "/servicios" } as Cta,
 }
@@ -168,7 +168,7 @@ export const sistemas = {
 }
 
 export const finalCta = {
-  title: "Conocé Central IA con tu equipo",
+  title: "Conoce Central IA con tu equipo",
   cta: primaryCta,
   note: conversationCtaNote,
 }
@@ -187,7 +187,7 @@ export const demoBrain = {
   label: "Demo de Central IA: el Brain con sus carpetas, una búsqueda y el historial de versiones de una página",
   pasos: [
     { titulo: "Todo en un lugar", detalle: "Lo que sabe tu empresa, ordenado en carpetas." },
-    { titulo: "Lo encontrás rápido", detalle: "Búsqueda en español sobre todo el Brain." },
+    { titulo: "Lo encuentras rápido", detalle: "Búsqueda en español sobre todo el Brain." },
     { titulo: "Cada cambio queda", detalle: "Historial de versiones, para comparar y volver." },
   ],
   usuario: { iniciales: "A" },
@@ -219,7 +219,7 @@ export const demoBrain = {
     acciones: ["Editar", "Historial", "Detalles"],
     titulo: "Condiciones para distribuidores",
     parrafo:
-      "Lo que acordamos con cada distribuidor sale de acá. Si un caso no entra en estas reglas, lo decide la gerencia comercial.",
+      "Lo que acordamos con cada distribuidor sale de aquí. Si un caso no entra en estas reglas, lo decide la gerencia comercial.",
     subtitulo: "Plazos y montos",
     items: ["Pedido mínimo: 2 pallets.", "Bonificación por pronto pago: 3% a 10 días."],
     /** El ítem que cambió en la última versión: antes y después. */
@@ -245,7 +245,7 @@ export const demoPermisos = {
   label: "Demo de Central IA: las carpetas del Brain, quién accede a cada una y cómo las ve una persona del equipo",
   pasos: [
     { titulo: "Armamos el Brain", detalle: "Leemos tu sitio y proponemos las carpetas." },
-    { titulo: "Vos decidís quién ve", detalle: "Cada carpeta, abierta o restringida." },
+    { titulo: "Tú decides quién ve", detalle: "Cada carpeta, abierta o restringida." },
     { titulo: "Cada uno ve lo suyo", detalle: "Lector, editor, administrador o sin acceso." },
   ],
   producto: "Central IA",
@@ -253,7 +253,7 @@ export const demoPermisos = {
   leyendo: "Estamos leyendo molineraaustral.com.ar",
   leyendoDetalle: "El brain es la memoria de tu empresa. Lo ordenamos en carpetas, y cada carpeta decide quién la ve.",
   titulo: "Así ordenaríamos el brain de Molinera Austral",
-  bajada: "Leímos molineraaustral.com.ar y propusimos estas carpetas. Cambiá lo que quieras.",
+  bajada: "Leímos molineraaustral.com.ar y propusimos estas carpetas. Cambia lo que quieras.",
   carpetas: [
     { nombre: "Dirección", detalle: "Decisiones y planes que no van a todo el equipo.", restringida: true, rol: "Sin acceso" },
     { nombre: "Finanzas", detalle: "Márgenes y contratos con cifras.", restringida: true, rol: "Sin acceso" },
@@ -275,15 +275,15 @@ export const demoPermisos = {
 export const demoAgente = {
   label: "Demo de Central IA: un agente redacta un mail y una persona lo aprueba antes de que salga",
   pasos: [
-    { titulo: "Le pedís", detalle: "Con tus palabras, desde el chat." },
+    { titulo: "Le pides", detalle: "Con tus palabras, desde el chat." },
     { titulo: "Busca y redacta", detalle: "Usa HubSpot y el Brain, con tus permisos." },
-    { titulo: "Vos aprobás", detalle: "Nada sale sin que una persona lo apruebe." },
+    { titulo: "Tú apruebas", detalle: "Nada sale sin que una persona lo apruebe." },
   ],
   usuario: { iniciales: "S", nombre: "Sofía" },
   agente: "Outreach",
   bienvenida: "En qué trabajamos",
-  placeholder: "Escribí un mensaje para Outreach",
-  pedido: "Armame un mail para Carla Méndez, de Logística Ribera, sobre el piloto de agentes en logística.",
+  placeholder: "Escribe un mensaje para Outreach",
+  pedido: "Ármame un mail para Carla Méndez, de Logística Ribera, sobre el piloto de agentes en logística.",
   tituloHilo: "Mail a Carla Méndez",
   hilos: [
     { titulo: "Calificar cuentas de logística", agente: "Outreach" },
@@ -307,7 +307,7 @@ export const demoAgente = {
     cancelar: "Cancelar",
   },
   enviado: "Enviado a Carla. Lo aprobó Sofía y quedó en el registro.",
-  esperando: "Respondé la tarjeta pendiente para seguir",
+  esperando: "Responde la tarjeta pendiente para seguir",
 } as const
 
 /**
@@ -318,28 +318,28 @@ export const demoAgente = {
 export const demoHerramientas = {
   label: "Demo de Central IA: lo que un agente puede hacer con tus herramientas, y cómo se suma una cuenta nueva",
   pasos: [
-    { titulo: "Lo que ya usás, adentro", detalle: "Gmail, HubSpot y tus fuentes de datos, en el chat." },
-    { titulo: "Cada uno, su cuenta", detalle: "Conectás la tuya y usás lo que te habilitaron." },
-    { titulo: "Suma lo que podés hacer", detalle: "Lo nuevo aparece al momento, en la plataforma y en tu asistente." },
+    { titulo: "Lo que ya usas, adentro", detalle: "Gmail, HubSpot y tus fuentes de datos, en el chat." },
+    { titulo: "Cada uno, su cuenta", detalle: "Conectas la tuya y usas lo que te habilitaron." },
+    { titulo: "Suma lo que puedes hacer", detalle: "Lo nuevo aparece al momento, en la plataforma y en tu asistente." },
   ],
   usuario: { iniciales: "S" },
   bienvenida: "En qué trabajamos",
-  placeholder: "Escribí un mensaje para Outreach",
+  placeholder: "Escribe un mensaje para Outreach",
   agente: "Outreach",
-  capacidadesTitulo: "Qué podés hacer con Outreach",
+  capacidadesTitulo: "Qué puedes hacer con Outreach",
   capacidades: [
     { icono: "upload", texto: "Cargar contactos pegando un CSV" },
     { icono: "building", texto: "Investigar una empresa y armar su ficha" },
     { icono: "map-pin", texto: "Buscar negocios por rubro y zona con Google Places" },
-    { icono: "mail", texto: "Redactar mensajes y mandarlos por Gmail cuando los aprobás" },
+    { icono: "mail", texto: "Redactar mensajes y mandarlos por Gmail cuando los apruebas" },
     { icono: "inbox", texto: "Leer respuestas, registrarlas en HubSpot y agendar seguimientos" },
   ],
   nueva: { icono: "user-search", texto: "Encontrar personas nuevas por rubro, tamaño y cargo", detalle: "Con tu cuenta de Apollo", marca: "Nuevo" },
-  aviso: "Conectando tu cuenta de Apollo también podés encontrar personas nuevas por rubro, tamaño y cargo.",
+  aviso: "Conectando tu cuenta de Apollo también puedes encontrar personas nuevas por rubro, tamaño y cargo.",
   avisoLink: "Conectar en Mis cuentas",
   cuentas: {
     titulo: "Mis cuentas",
-    bajada: "Tus agentes usan estas cuentas con tus permisos. Las desconectás cuando quieras.",
+    bajada: "Tus agentes usan estas cuentas con tus permisos. Las desconectas cuando quieras.",
     lista: [
       { icono: "mail", nombre: "Gmail", detalle: "Mandar los mensajes que aprobaste", conectada: true },
       { icono: "inbox", nombre: "HubSpot", detalle: "Registrar respuestas y seguimientos", conectada: true },

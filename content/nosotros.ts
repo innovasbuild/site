@@ -49,7 +49,7 @@ export const equipo = {
   kicker: { index: "03", label: "el equipo" },
   titulo: "Quienes diseñan, construyen y operan",
   texto:
-    "Somos un equipo chico y estable, con roles fijos. Trabajás con las mismas personas desde la primera reunión hasta la operación, sin capas en el medio, y con agentes que nos aumentan en cada entrega.",
+    "Somos un equipo chico y estable, con roles fijos. Trabajas con las mismas personas desde la primera reunión hasta la operación, sin capas en el medio, y con agentes que nos aumentan en cada entrega.",
   foto: imagenes.equipoFondo,
   perfiles: [
     { titulo: "Datos", texto: "Releva dónde está la información y la ordena." },
@@ -101,7 +101,7 @@ export const principios = {
 }
 
 export const finalCta = {
-  title: "Conocé al equipo que va a trabajar con vos",
+  title: "Conoce al equipo que va a trabajar contigo",
   cta: primaryCta,
   note: conversationCtaNote,
 }

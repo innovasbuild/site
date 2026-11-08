@@ -14,7 +14,7 @@ export const seo: Record<string, SeoMeta> = {
   "/servicios": {
     title: "Servicios: un equipo que implementa la IA de tu empresa de punta a punta | INNOV.AS",
     description:
-      "Relevamos cómo trabaja tu empresa, ordenamos lo que sabe, construimos los agentes y los operamos con vos, por olas de tres meses con algo funcionando al final de cada una.",
+      "Relevamos cómo trabaja tu empresa, ordenamos lo que sabe, construimos los agentes y los operamos contigo, por olas de tres meses con algo funcionando al final de cada una.",
   },
   "/precios": {
     title: "Precios de Central IA: gratis por tres meses | INNOV.AS",
@@ -34,7 +34,7 @@ export const seo: Record<string, SeoMeta> = {
   "/contacto": {
     title: "Contacto: empecemos por conversar | INNOV.AS",
     description:
-      "Escribinos o agendá una charla de orientación de 30 minutos, sin costo: cómo es trabajar con IA coordinada y con gobernanza, con ejemplos de tu empresa.",
+      "Escríbenos o agenda una charla de orientación de 30 minutos, sin costo: cómo es trabajar con IA coordinada y con gobernanza, con ejemplos de tu empresa.",
   },
   "/privacidad": {
     title: "Política de Privacidad | INNOV.AS",

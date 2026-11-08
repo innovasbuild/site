@@ -34,14 +34,14 @@ export default function PrivacidadPage() {
             servicios y del uso de nuestro sitio web <strong>innov.as</strong>.
           </p>
           <p>
-            Al utilizar nuestros servicios o interactuar con nuestro sitio, aceptás los términos de esta
+            Al utilizar nuestros servicios o interactuar con nuestro sitio, aceptas los términos de esta
             política. Si no estás de acuerdo, te pedimos que no uses nuestros servicios.
           </p>
         </Section>
 
         <Section title="2. Datos que recopilamos">
           <p>
-            <strong>Datos de contacto y consulta:</strong> cuando completás el formulario de contacto de nuestro
+            <strong>Datos de contacto y consulta:</strong> cuando completas el formulario de contacto de nuestro
             sitio web recopilamos nombre completo, dirección de correo electrónico, teléfono, empresa y el
             contenido del mensaje.
           </p>
@@ -51,7 +51,7 @@ export default function PrivacidadPage() {
             documentación) exclusivamente para diseñar, construir y operar los sistemas acordados.
           </p>
           <p>
-            <strong>Datos de participantes de programas de formación:</strong> cuando te inscribís a un
+            <strong>Datos de participantes de programas de formación:</strong> cuando te inscribes a un
             programa de adopción de IA (por ejemplo, Desde Adentro) recopilamos datos de contacto, empresa y
             progreso dentro del programa.
           </p>
@@ -107,10 +107,10 @@ export default function PrivacidadPage() {
         </Section>
 
         <Section title="7. Tus derechos">
-          <p>De acuerdo con la normativa aplicable de protección de datos, tenés derecho a acceder, rectificar, eliminar, limitar el tratamiento, oponerte al tratamiento y a la portabilidad de tus datos personales.</p>
+          <p>De acuerdo con la normativa aplicable de protección de datos, tienes derecho a acceder, rectificar, eliminar, limitar el tratamiento, oponerte al tratamiento y a la portabilidad de tus datos personales.</p>
           <p>
             Para ejercer cualquiera de estos derechos —incluyendo la <strong>eliminación de tus datos
-            personales</strong>— escribinos a{" "}
+            personales</strong>— escríbenos a{" "}
             <a href="mailto:hola@innov.as" className="text-teal underline">hola@innov.as</a>{" "}
             con el asunto "Ejercicio de derechos" o "Solicitud de eliminación de datos". Responderemos en un
             plazo máximo de 30 días hábiles.
@@ -122,7 +122,7 @@ export default function PrivacidadPage() {
         </Section>
 
         <Section title="9. Cookies y tecnologías similares">
-          <p>Nuestro sitio web puede utilizar cookies propias y de terceros con fines analíticos y de funcionamiento. Podés configurar tu navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del sitio.</p>
+          <p>Nuestro sitio web puede utilizar cookies propias y de terceros con fines analíticos y de funcionamiento. Puedes configurar tu navegador para rechazar cookies, aunque esto puede afectar la funcionalidad del sitio.</p>
         </Section>
 
         <Section title="10. Menores de edad">
@@ -137,7 +137,7 @@ export default function PrivacidadPage() {
         </Section>
 
         <Section title="12. Eliminación de datos personales">
-          <p>Podés solicitar la eliminación de tus datos personales en cualquier momento enviando un correo a:</p>
+          <p>Puedes solicitar la eliminación de tus datos personales en cualquier momento enviando un correo a:</p>
           <div className="mt-2 mb-4 rounded-xl border border-teal/20 bg-paper-soft p-6">
             <p className="mb-1 font-display font-bold text-ink">Solicitud de eliminación de datos</p>
             <p>
@@ -145,7 +145,7 @@ export default function PrivacidadPage() {
               <a href="mailto:hola@innov.as" className="font-semibold text-teal underline">hola@innov.as</a>
             </p>
             <p className="mt-2 text-sm text-ink-70">
-              Asunto sugerido: <em>&quot;Solicitud de eliminación de datos personales&quot;</em>. Incluí tu
+              Asunto sugerido: <em>&quot;Solicitud de eliminación de datos personales&quot;</em>. Incluye tu
               nombre completo y el correo o número de teléfono asociado a tu cuenta o interacción.
             </p>
           </div>
@@ -153,7 +153,7 @@ export default function PrivacidadPage() {
         </Section>
 
         <Section title="13. Contacto">
-          <p>Para cualquier consulta sobre esta política o el tratamiento de tus datos, contactanos en:</p>
+          <p>Para cualquier consulta sobre esta política o el tratamiento de tus datos, contáctanos en:</p>
           <div className="mt-2 rounded-xl bg-paper-soft p-6">
             <p className="font-display font-bold text-ink">INNOV.AS</p>
             <p>

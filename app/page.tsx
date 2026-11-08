@@ -43,7 +43,7 @@ export default function Home() {
       {/* 02 — Hoy ──→ con INNOV.AS */}
       <AntesDespues />
 
-      {/* 03 — Lo que contratás: infraestructura, agentes, equipo */}
+      {/* 03 — Lo que contratas: infraestructura, agentes, equipo */}
       <Oferta />
 
       {/* 04 — El proceso de punta a punta */}

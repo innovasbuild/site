@@ -12,7 +12,7 @@ export const faqProducto: FaqItem[] = [
   {
     question: "Necesito contratarlos para usar Central IA?",
     answer:
-      "No. Creás la cuenta de tu empresa y la usan solos. Si querés que la implementemos con vos, es el plan Empresa: relevamos tu método, armamos el Brain y los agentes, y la operamos con tu equipo.",
+      "No. Creas la cuenta de tu empresa y la usan solos. Si quieres que la implementemos contigo, es el plan Empresa: relevamos tu método, armamos el Brain y los agentes, y la operamos con tu equipo.",
   },
   {
     question: "Dónde queda la información de mi empresa?",
@@ -27,7 +27,7 @@ export const faqProducto: FaqItem[] = [
   {
     question: "Cuánto cuesta?",
     answer:
-      "Se paga por usuario, y el uso de IA dentro de la plataforma se paga por consumo. Si la implementamos con vos, cada ola se cotiza con alcance cerrado antes de empezar.",
+      "Se paga por usuario, y el uso de IA dentro de la plataforma se paga por consumo. Si la implementamos contigo, cada ola se cotiza con alcance cerrado antes de empezar.",
   },
 ]
 
@@ -41,7 +41,7 @@ export const faqHome: FaqItem[] = [
   {
     question: "Qué pasa si frenamos después del Radar?",
     answer:
-      "Te quedás con el informe: el método de tu empresa relevado, los puntos de dolor, las oportunidades y el plan a dos años. Sirve aunque la decisión sea frenar ahí.",
+      "Te quedas con el informe: el método de tu empresa relevado, los puntos de dolor, las oportunidades y el plan a dos años. Sirve aunque la decisión sea frenar ahí.",
   },
   {
     question: "Ya pagamos licencias de ChatGPT o Claude. Central IA las reemplaza?",
@@ -74,7 +74,7 @@ export const faqMetodo: FaqItem[] = [
   {
     question: "Qué pasa si frenamos después del Radar?",
     answer:
-      "Te quedás con el informe: el método de tu empresa relevado, los puntos de dolor, las oportunidades y el plan a dos años. Sirve aunque la decisión sea frenar ahí.",
+      "Te quedas con el informe: el método de tu empresa relevado, los puntos de dolor, las oportunidades y el plan a dos años. Sirve aunque la decisión sea frenar ahí.",
   },
   {
     question: "Cómo se elige el primer circuito de negocio?",

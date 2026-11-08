@@ -119,7 +119,7 @@ export function ContactForm() {
           <div>
             <Label htmlFor="tamano">Cuántas personas son</Label>
             <select id="tamano" defaultValue="" {...register("tamano")} className={selectClass}>
-              <option value="" disabled>Elegí una opción</option>
+              <option value="" disabled>Elige una opción</option>
               {tamanos.map((option) => (
                 <option key={option}>{option}</option>
               ))}
@@ -129,7 +129,7 @@ export function ContactForm() {
           <div>
             <Label htmlFor="usoIA">Qué IA usan hoy</Label>
             <select id="usoIA" defaultValue="" {...register("usoIA")} className={selectClass}>
-              <option value="" disabled>Elegí una opción</option>
+              <option value="" disabled>Elige una opción</option>
               {usosIA.map((option) => (
                 <option key={option}>{option}</option>
               ))}

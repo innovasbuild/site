@@ -17,8 +17,8 @@ export const navLinks: NavLink[] = [
 ]
 
 /** CTA principal del sitio: el alta en la app. */
-export const primaryCta: Cta = { label: "Empezá ahora", href: signupHref("gratis") }
-export const primaryCtaNote = "Creás la cuenta de tu empresa en minutos, sin instalar nada."
+export const primaryCta: Cta = { label: "Empieza ahora", href: signupHref("gratis") }
+export const primaryCtaNote = "Creas la cuenta de tu empresa en minutos, sin instalar nada."
 
 /** Nota bajo "Empezá ahora" en los heros y cierres: mientras el alta no está abierta, el botón lleva a la conversación con el equipo. */
 export const conversationCtaNote = "30 minutos con el equipo que después implementa."
@@ -58,7 +58,7 @@ export const footerLegal = "© 2026 INNOV.AS. Todos los derechos reservados."
 export const globalMicrocopy = {
   submitButton: "Enviar",
   submitSuccess: "Recibimos tus datos. Te escribimos dentro de las próximas 24 horas hábiles para coordinar la conversación.",
-  submitError: "No pudimos enviar el formulario. Probá de nuevo o escribinos a hola@innov.as.",
+  submitError: "No pudimos enviar el formulario. Prueba de nuevo o escríbenos a hola@innov.as.",
 }
 
 export const notFoundContent = {

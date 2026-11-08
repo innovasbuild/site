@@ -13,7 +13,7 @@ export const hero = {
   posterTitle: "Un equipo que se sienta con el tuyo",
   posterAccent: "con el tuyo",
   subhead:
-    "Implementamos la IA en tu empresa de punta a punta: relevamos cómo trabaja, ordenamos lo que sabe, construimos los agentes y los operamos con vos. Por olas de tres meses, cada una con un circuito de negocio funcionando al final.",
+    "Implementamos la IA en tu empresa de punta a punta: relevamos cómo trabaja, ordenamos lo que sabe, construimos los agentes y los operamos contigo. Por olas de tres meses, cada una con un circuito de negocio funcionando al final.",
   ctaPrimary: primaryCta,
   note: conversationCtaNote,
   fotos: [imagenes.heroServicios],
@@ -25,13 +25,13 @@ export const camino = {
   posterTitle: "De la primera charla a la operación",
   posterAccent: "operación",
   intro:
-    "El objetivo es que la IA quede trabajando en tu negocio, no en un piloto. Cada etapa deja algo funcionando y termina en una decisión tuya: vos elegís la velocidad.",
+    "El objetivo es que la IA quede trabajando en tu negocio, no en un piloto. Cada etapa deja algo funcionando y termina en una decisión tuya: tú eliges la velocidad.",
   etapaLabel: "Etapa",
   campos: {
     pasa: "Qué pasa",
-    llevas: "Qué te llevás",
+    llevas: "Qué te llevas",
     pide: "Qué le pide a tu equipo",
-    decision: "Al terminar, decidís",
+    decision: "Al terminar, decides",
   },
   etapas: [
     {
@@ -56,7 +56,7 @@ export const camino = {
       pasa: "Instalamos la base: Central IA en tu empresa, los accesos de cada persona, el Brain inicial y un primer circuito de negocio.",
       llevas: "La infraestructura andando y un primer agente trabajando con tu equipo.",
       pide: "Un grupo chico del área elegida y una reunión de trabajo por semana.",
-      decision: "Qué ola sigue, o si frenás acá.",
+      decision: "Qué ola sigue, o si frenas aquí.",
     },
     {
       nombre: "Olas",
@@ -64,7 +64,7 @@ export const camino = {
       pasa: "Cada ola suma un circuito de negocio con sus agentes y sube de escalón los datos que lo alimentan. Se implementa, se hace visible y se mide antes de pasar al siguiente.",
       llevas: "Un circuito nuevo operando por ola, con su medición.",
       pide: "El responsable del área de cada ola y su equipo.",
-      decision: "Si acelerás, cambiás el orden o frenás.",
+      decision: "Si aceleras, cambias el orden o frenas.",
     },
     {
       nombre: "Operación continua",
@@ -80,7 +80,7 @@ export const camino = {
 /** Los dos diagnósticos, comparados fila por fila. */
 export const dosFormas = {
   kicker: { index: "02", label: "dos formas de empezar" },
-  posterTitle: "Empezá por un diagnóstico",
+  posterTitle: "Empieza por un diagnóstico",
   posterAccent: "diagnóstico",
   intro: "Los dos tienen precio fijo y dejan un informe escrito que queda en tu empresa, aunque la decisión sea frenar ahí.",
   filas: ["Para qué", "Cuánto le pide a tu equipo", "Qué entrega", "Se bonifica"],
@@ -138,7 +138,7 @@ export const principios = {
     { titulo: "Primero velocidad", texto: "Salimos con lo resuelto y optimizamos con datos de uso." },
     { titulo: "Cada tema con un para qué", texto: "Antes de cargar algo al Brain definimos a quién le sirve y cuándo." },
     { titulo: "Lo imperfecto, con norte", texto: "Arrancamos con una parte de cada tema y el camino para completarlo." },
-    { titulo: "La velocidad la elegís vos", texto: "El mapa define qué hay para hacer. Cuánto por mes, lo decidís en cada ola." },
+    { titulo: "La velocidad la eliges tú", texto: "El mapa define qué hay para hacer. Cuánto por mes, lo decides en cada ola." },
   ],
 }
 
