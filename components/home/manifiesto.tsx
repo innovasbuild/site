@@ -3,8 +3,10 @@
 import { useRef } from "react"
 import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { manifiesto as delHome } from "@/content/home"
+import { home } from "@/content/home"
 import type { Imagen } from "@/content/imagenes"
+
+const { manifiesto: delHome } = home.es
 
 /**
  * Manifiesto del home: tres frases en grande que se encienden palabra por palabra al entrar en pantalla,

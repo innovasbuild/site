@@ -1,6 +1,10 @@
-import { solutionTypes } from "@/content/proyectos"
-import { footerInstitutional, footerContact } from "@/content/global"
+import { proyectos } from "@/content/proyectos"
+import { global } from "@/content/global"
+import { footerContact } from "@/content/shared"
 import { seo } from "@/content/seo"
+
+const { solutionTypes } = proyectos.es
+const { footerInstitutional } = global.es
 
 export const organizationSchema = {
   "@context": "https://schema.org",
@@ -33,7 +37,7 @@ export const productSchema = {
   name: "Central IA",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
-  description: seo["/"].description,
+  description: seo.es["/"].description,
   provider: { "@type": "Organization", name: "INNOV.AS", url: "https://innov.as" },
   areaServed: "Latinoamérica",
 }

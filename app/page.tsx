@@ -12,8 +12,11 @@ import { AgentesRubros } from "@/components/home/agentes-rubros"
 import { BandaControl } from "@/components/home/banda-control"
 import { QuienesSomos } from "@/components/home/quienes-somos"
 import { productSchema } from "@/lib/schema"
-import { faqHome } from "@/content/faq"
-import { hero, faqSection, finalCta } from "@/content/home"
+import { faq } from "@/content/faq"
+import { home } from "@/content/home"
+
+const { faqHome } = faq.es
+const { hero, faqSection, finalCta } = home.es
 
 /**
  * Home. Se cuenta desde quien decide: qué hacemos (manifiesto), dónde está su empresa hoy, qué contrata

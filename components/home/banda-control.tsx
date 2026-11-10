@@ -1,5 +1,7 @@
 import { BandaFoto } from "@/components/banda-foto"
-import { control as c } from "@/content/home"
+import { home } from "@/content/home"
+
+const { control: c } = home.es
 
 /** Control: foto a sangre con velo oscuro, la frase en grande y cuatro garantías. */
 export function BandaControl() {

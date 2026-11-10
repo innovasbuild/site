@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react"
 import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
-import { capas, recorrido as c } from "@/content/home"
+import { home } from "@/content/home"
+
+const { capas, recorrido: c } = home.es
 
 /** Cuánto dura cada etapa en pantalla antes de pasar sola a la siguiente. */
 const DURACION = 7000

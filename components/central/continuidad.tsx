@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react"
 import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
-import { continuidad as c } from "@/content/central-ia"
+import { centralIa } from "@/content/central-ia"
+
+const { continuidad: c } = centralIa.es
 
 const DURACION = 8000
 

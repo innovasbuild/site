@@ -1,7 +1,9 @@
 import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
 import { cn } from "@/lib/utils"
-import { primerPaso as c } from "@/content/servicios"
+import { servicios } from "@/content/servicios"
+
+const { primerPaso: c } = servicios.es
 
 /**
  * El primer paso, en banda oscura partida: la foto a un lado (se acerca al pasar el cursor) y, al otro, qué

@@ -4,7 +4,10 @@ import { CerebroRed } from "@/components/cerebro-red"
 import { HerramientasEnchufe } from "@/components/herramientas-enchufe"
 import { PosterHeading } from "@/components/poster-heading"
 import { homeIllustrations as il } from "@/components/illustrations/home"
-import { componentes as c, type Ilustracion } from "@/content/central-ia"
+import { centralIa } from "@/content/central-ia"
+import type { Ilustracion } from "@/content/central-ia"
+
+const { componentes: c } = centralIa.es
 
 const dibujo: Record<Ilustracion, React.ReactNode> = {
   brain: <CerebroRed label={il.piezaBrain.label} className="serie-cerebro" />,

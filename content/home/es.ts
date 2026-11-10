@@ -1,6 +1,6 @@
-import type { Cta, Vertical } from "./types"
-import { primaryCta, conversationCtaNote } from "./global"
-import { imagenes, type Imagen } from "./imagenes"
+import type { Cta, Vertical } from "../types"
+import { primaryCta, conversationCtaNote } from "../global/es"
+import { imagenes, type Imagen } from "../imagenes/es"
 
 /**
  * Home, octubre 2026 (segunda vuelta). Pedido del dueño: menos plataforma a la vista y más la venta de un

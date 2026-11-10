@@ -6,7 +6,9 @@ import { cn } from "@/lib/utils"
 import { CerebroRed } from "@/components/cerebro-red"
 import { PosterHeading } from "@/components/poster-heading"
 import { homeIllustrations as il } from "@/components/illustrations/home"
-import { olaCero as c } from "@/content/servicios"
+import { servicios } from "@/content/servicios"
+
+const { olaCero: c } = servicios.es
 
 /** Cuánto tarda en encenderse cada ítem, una vez que la lista entra en pantalla. */
 const PASO = 650

@@ -1,6 +1,6 @@
-import type { Cta } from "./types"
-import { primaryCta, conversationCtaNote } from "./global"
-import { imagenes, type Imagen } from "./imagenes"
+import type { Cta } from "../types"
+import { primaryCta, conversationCtaNote } from "../global/es"
+import { imagenes, type Imagen } from "../imagenes/es"
 
 /**
  * Nosotros, octubre 2026 (venta enterprise). Regla del brain (company/innov-overview): sin nombres ni bios del

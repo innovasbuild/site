@@ -6,7 +6,9 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
-import { navLinks, navCta } from "@/content/global"
+import { global } from "@/content/global"
+
+const { navLinks, navCta } = global.es
 
 /** Cuánto hay que bajar antes de que la barra pueda esconderse, y cuánto movimiento cuenta como un gesto. */
 const BAJADA_MIN = 120

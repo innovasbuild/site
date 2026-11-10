@@ -12,10 +12,13 @@ import { Roles } from "@/components/servicios/roles"
 import { PrimerPaso } from "@/components/servicios/primer-paso"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
-import { faqMetodo, faqProducto } from "@/content/faq"
-import { hero, principios, faqSection, finalCta } from "@/content/servicios"
+import { faq } from "@/content/faq"
+import { servicios } from "@/content/servicios"
 
-export const metadata: Metadata = buildMetadata("/servicios", seo["/servicios"])
+const { faqMetodo, faqProducto } = faq.es
+const { hero, principios, faqSection, finalCta } = servicios.es
+
+export const metadata: Metadata = buildMetadata("/servicios", seo.es["/servicios"])
 
 /**
  * Servicios contados desde quien decide (v1.6): un equipo que implementa la IA de la empresa de punta a punta.

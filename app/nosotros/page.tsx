@@ -9,10 +9,13 @@ import { LoUsamos } from "@/components/nosotros/lo-usamos"
 import { Principios } from "@/components/nosotros/principios"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
-import { trayectoria as delHome } from "@/content/home"
-import { hero, porQue, finalCta } from "@/content/nosotros"
+import { home } from "@/content/home"
+import { nosotros } from "@/content/nosotros"
 
-export const metadata: Metadata = buildMetadata("/nosotros", seo["/nosotros"])
+const { trayectoria: delHome } = home.es
+const { hero, porQue, finalCta } = nosotros.es
+
+export const metadata: Metadata = buildMetadata("/nosotros", seo.es["/nosotros"])
 
 /**
  * Nosotros (v1.6): por qué existimos, de dónde venimos, cómo es el equipo, que usamos lo que vendemos y cómo

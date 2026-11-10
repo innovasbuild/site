@@ -6,17 +6,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import {
-  contactFormSchema,
-  submitNote,
-  directEmailNote,
-  directEmail,
-  tamanos,
-  usosIA,
-  hubspotForm,
-  type ContactFormValues,
-} from "@/content/contacto"
-import { globalMicrocopy } from "@/content/global"
+import { contacto, contactFormSchema, type ContactFormValues } from "@/content/contacto"
+import { global } from "@/content/global"
+import { directEmail, hubspotForm } from "@/content/shared"
 import { cn } from "@/lib/utils"
 
 declare global {
@@ -24,6 +16,9 @@ declare global {
     gtag?: (...args: unknown[]) => void
   }
 }
+
+const { submitNote, directEmailNote, tamanos, usosIA } = contacto.es
+const { globalMicrocopy } = global.es
 
 const selectClass = "mt-2 block h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm text-ink"
 
@@ -36,7 +31,7 @@ export function ContactForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(contactFormSchema("es")),
   })
 
   const onSubmit = async (data: ContactFormValues) => {

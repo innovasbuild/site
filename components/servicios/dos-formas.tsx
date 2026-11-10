@@ -5,7 +5,9 @@ import { cn } from "@/lib/utils"
 import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
 import { PosterHeading } from "@/components/poster-heading"
-import { dosFormas as c } from "@/content/servicios"
+import { servicios } from "@/content/servicios"
+
+const { dosFormas: c } = servicios.es
 
 /**
  * Los dos diagnósticos comparados fila por fila. Cada uno lleva arriba su foto con el nombre encima; al pasar

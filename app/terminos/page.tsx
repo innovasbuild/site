@@ -4,7 +4,7 @@ import Link from "next/link"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 
-export const metadata: Metadata = buildMetadata("/terminos", seo["/terminos"])
+export const metadata: Metadata = buildMetadata("/terminos", seo.es["/terminos"])
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
   <div className="mb-10">

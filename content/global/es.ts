@@ -1,14 +1,5 @@
-import type { Cta, FooterColumn, NavLink } from "./types"
-
-/** App de Central IA: ahí viven el alta, el onboarding y los pagos. */
-export const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? "https://app.innov.as"
-
-/** En false, los botones de alta llevan al formulario de contacto. Pasar a true con el portal de pagos listo. */
-export const signupLive = false
-
-/** Link al alta en la app con el plan elegido. */
-export const signupHref = (plan: "gratis" | "equipo") =>
-  signupLive ? `${appUrl}/signup?plan=${plan}` : "/contacto"
+import type { Cta, FooterColumn, NavLink } from "../types"
+import { signupHref } from "../shared"
 
 export const navLinks: NavLink[] = [
   { label: "Servicios", href: "/servicios" },
@@ -47,11 +38,6 @@ export const footerContactLinks: NavLink[] = [
   { label: "Nosotros", href: "/nosotros" },
   { label: "Contacto", href: "/contacto" },
 ]
-
-export const footerContact = {
-  email: "hola@innov.as",
-  linkedin: "https://www.linkedin.com/company/innov-as",
-}
 
 export const footerLegal = "© 2026 INNOV.AS. Todos los derechos reservados."
 

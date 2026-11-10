@@ -12,7 +12,7 @@ import { organizationSchema } from "@/lib/schema"
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://innov.as"),
-  ...buildMetadata("/", seo["/"]),
+  ...buildMetadata("/", seo.es["/"]),
   generator: "v0.app",
 }
 

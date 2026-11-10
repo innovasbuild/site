@@ -5,7 +5,7 @@ const baseUrl = "https://innov.as"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // /precios queda fuera mientras no esté publicada.
-  return Object.keys(seo).filter((route) => route !== "/precios").map((route) => ({
+  return Object.keys(seo.es).filter((route) => route !== "/precios").map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
   }))

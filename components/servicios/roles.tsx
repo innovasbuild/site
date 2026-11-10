@@ -2,7 +2,9 @@ import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
 import { PosterHeading } from "@/components/poster-heading"
 import { cn } from "@/lib/utils"
-import { roles as c } from "@/content/servicios"
+import { servicios } from "@/content/servicios"
+
+const { roles: c } = servicios.es
 
 /**
  * Quién se sienta en la mesa: los dos lados en dos columnas, cada uno encabezado por su foto (que se acerca

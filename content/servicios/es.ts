@@ -1,5 +1,5 @@
-import { primaryCta, conversationCtaNote } from "./global"
-import { imagenes, type Imagen } from "./imagenes"
+import { primaryCta, conversationCtaNote } from "../global/es"
+import { imagenes, type Imagen } from "../imagenes/es"
 
 /**
  * Servicios, octubre 2026 (venta enterprise). Mismo pedido que el home: quien decide tiene que ver un equipo

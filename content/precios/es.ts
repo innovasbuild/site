@@ -1,6 +1,7 @@
-import type { Cta } from "./types"
-import { primaryCta, signupHref } from "./global"
-import type { FaqItem } from "./faq"
+import type { Cta } from "../types"
+import { primaryCta } from "../global/es"
+import { signupHref } from "../shared"
+import type { FaqItem } from "../faq/es"
 
 const talkCta: Cta = { label: "Hablemos", href: "/contacto" }
 

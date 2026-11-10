@@ -2,7 +2,9 @@ import Link from "next/link"
 import { ArrowText } from "@/components/arrow"
 import { PosterHeading } from "@/components/poster-heading"
 import { StatCounter } from "@/components/stat-counter"
-import { trayectoria as c } from "@/content/nosotros"
+import { nosotros } from "@/content/nosotros"
+
+const { trayectoria: c } = nosotros.es
 
 /**
  * De dónde venimos: el texto a la izquierda y, a la derecha, las tres cifras una por fila (cada una sola en

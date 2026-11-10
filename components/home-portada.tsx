@@ -1,6 +1,8 @@
 import Link from "next/link"
-import { hero, dolores } from "@/content/home"
+import { home } from "@/content/home"
 import { HeroGrano } from "@/components/hero-grano"
+
+const { hero, dolores } = home.es
 
 /**
  * Hero y sección 01 de la home. El hero es oscuro, con Newsreader y la palabra destacada en itálica, botones en pill y

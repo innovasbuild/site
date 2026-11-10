@@ -1,7 +1,10 @@
 import Link from "next/link"
 import { Linkedin } from "lucide-react"
 import { Logo } from "@/components/logo"
-import { footerColumns, footerInstitutional, footerContact, footerContactLinks, footerLegal } from "@/content/global"
+import { global } from "@/content/global"
+import { footerContact } from "@/content/shared"
+
+const { footerColumns, footerInstitutional, footerContactLinks, footerLegal } = global.es
 
 export function Footer() {
   return (

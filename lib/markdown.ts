@@ -1,6 +1,8 @@
-import { hero, oferta, recorrido, agentes, control, trayectoria, quienesSomos } from "@/content/home"
-import { footerContact } from "@/content/global"
+import { home } from "@/content/home"
+import { footerContact } from "@/content/shared"
 import { seo } from "@/content/seo"
+
+const { hero, oferta, recorrido, agentes, control, trayectoria, quienesSomos } = home.es
 
 const baseUrl = "https://innov.as"
 
@@ -11,7 +13,7 @@ export function buildHomeMarkdown(): string {
   const lines: string[] = [
     `# ${hero.posterTitle}`,
     "",
-    `> ${seo["/"].description}`,
+    `> ${seo.es["/"].description}`,
     "",
     hero.supportLine,
     "",

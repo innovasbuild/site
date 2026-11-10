@@ -1,7 +1,9 @@
 import { Arrow } from "@/components/arrow"
 import { Aparece } from "@/components/aparece"
 import { PosterHeading } from "@/components/poster-heading"
-import { antesDespues as c } from "@/content/home"
+import { home } from "@/content/home"
+
+const { antesDespues: c } = home.es
 
 /** Dónde está la empresa hoy y dónde queda: filas A ──→ B, que entran escalonadas. */
 export function AntesDespues() {

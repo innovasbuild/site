@@ -1,6 +1,6 @@
-import type { Cta } from "./types"
-import { primaryCta, conversationCtaNote } from "./global"
-import { imagenes } from "./imagenes"
+import type { Cta } from "../types"
+import { primaryCta, conversationCtaNote } from "../global/es"
+import { imagenes } from "../imagenes/es"
 
 /**
  * /central-ia, octubre 2026 (segunda vuelta). Pedido del dueño: no mostrar cómo funciona por dentro (las demos

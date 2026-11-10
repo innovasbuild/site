@@ -1,7 +1,10 @@
 "use client"
 
 import { ArrowList } from "@/components/arrow-list"
-import { orientacion } from "@/content/contacto"
+import { contacto } from "@/content/contacto"
+import { meetingsUrl } from "@/content/shared"
+
+const { orientacion } = contacto.es
 
 /** Tarjeta de la charla de orientación: explica para qué es y abre la agenda en una pestaña nueva. */
 export function OrientationCard() {
@@ -12,7 +15,7 @@ export function OrientationCard() {
       <p className="mt-3 font-medium text-ink">{orientacion.lead}</p>
       <ArrowList items={orientacion.items} className="mt-5" />
       <a
-        href={orientacion.url}
+        href={meetingsUrl}
         target="_blank"
         rel="noreferrer"
         onClick={() => window.gtag?.("event", "agenda_click", { method: "charla_orientacion" })}

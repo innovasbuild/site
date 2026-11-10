@@ -1,4 +1,4 @@
-import type { SeoMeta } from "./types"
+import type { SeoMeta } from "../types"
 
 export const seo: Record<string, SeoMeta> = {
   "/": {

@@ -5,9 +5,11 @@ import { ContactForm } from "@/components/contact-form"
 import { OrientationCard } from "@/components/orientation-card"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
-import { hero, formTitle } from "@/content/contacto"
+import { contacto } from "@/content/contacto"
 
-export const metadata: Metadata = buildMetadata("/contacto", seo["/contacto"])
+const { hero, formTitle } = contacto.es
+
+export const metadata: Metadata = buildMetadata("/contacto", seo.es["/contacto"])
 
 export default function ContactoPage() {
   return (

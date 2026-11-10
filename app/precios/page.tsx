@@ -6,10 +6,12 @@ import { Faq } from "@/components/faq"
 import { CtaBanner } from "@/components/cta-banner"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
-import { hero, planes, consumo, faqSection, faqPrecios, finalCta } from "@/content/precios"
+import { precios } from "@/content/precios"
+
+const { hero, planes, consumo, faqSection, faqPrecios, finalCta } = precios.es
 
 // Fuera del menú y sin indexar hasta que el portal de pagos esté listo.
-export const metadata: Metadata = buildMetadata("/precios", seo["/precios"], { noindex: true })
+export const metadata: Metadata = buildMetadata("/precios", seo.es["/precios"], { noindex: true })
 
 export default function PreciosPage() {
   return (

@@ -1,10 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server"
 import { negotiate } from "@/lib/negotiation"
 import { buildHomeMarkdown, buildNotFoundMarkdown } from "@/lib/markdown"
-import { seo } from "@/content/seo"
+import { routes } from "@/lib/i18n"
 
 /** Rutas que existen como página. Lo que no está acá (ni bajo /cuentas) es un 404. */
-const knownRoutes = new Set(Object.keys(seo))
+const knownRoutes = new Set(routes.map((r) => r.key))
 const isKnownRoute = (pathname: string) =>
   knownRoutes.has(pathname) || pathname === "/cuentas" || pathname.startsWith("/cuentas/")
 

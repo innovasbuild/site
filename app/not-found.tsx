@@ -1,6 +1,8 @@
 import { Arrow } from "@/components/arrow"
 import Link from "next/link"
-import { notFoundContent } from "@/content/global"
+import { global } from "@/content/global"
+
+const { notFoundContent } = global.es
 
 export default function NotFound() {
   return (

@@ -12,9 +12,11 @@ import { Continuidad } from "@/components/central/continuidad"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { productSchema } from "@/lib/schema"
-import { hero, control, conEquipo, sistemas, finalCta } from "@/content/central-ia"
+import { centralIa } from "@/content/central-ia"
 
-export const metadata: Metadata = buildMetadata("/central-ia", seo["/central-ia"])
+const { hero, control, conEquipo, sistemas, finalCta } = centralIa.es
+
+export const metadata: Metadata = buildMetadata("/central-ia", seo.es["/central-ia"])
 
 /**
  * Central IA contada por sus componentes y lo que le dan a la empresa, sin pantallas ni demos del producto:

@@ -3,7 +3,9 @@ import { ArrowText } from "@/components/arrow"
 import { SectionKicker } from "@/components/section-kicker"
 import { PosterHeading } from "@/components/poster-heading"
 import { StatCounter } from "@/components/stat-counter"
-import { quienesSomos as c, trayectoria } from "@/content/home"
+import { home } from "@/content/home"
+
+const { quienesSomos: c, trayectoria } = home.es
 
 /** Quiénes somos, con el armado anterior: texto, las cifras en una fila y el link. Sin foto. */
 export function QuienesSomos() {

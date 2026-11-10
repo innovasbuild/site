@@ -1,4 +1,4 @@
-import type { Cta } from "./types"
+import type { Cta } from "../types"
 
 export const hero = {
   eyebrow: "// proyectos → a medida",

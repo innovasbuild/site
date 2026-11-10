@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from "react"
 import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
-import { loUsamos as c } from "@/content/nosotros"
+import { nosotros } from "@/content/nosotros"
+
+const { loUsamos: c } = nosotros.es
 
 const DURACION = 3200
 

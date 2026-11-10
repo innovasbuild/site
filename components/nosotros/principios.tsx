@@ -1,6 +1,8 @@
 import { Aparece } from "@/components/aparece"
 import { PosterHeading } from "@/components/poster-heading"
-import { principios as c } from "@/content/nosotros"
+import { nosotros } from "@/content/nosotros"
+
+const { principios: c } = nosotros.es
 
 /**
  * Cómo pensamos: cada principio como una frase grande en su fila, con la explicación al costado. Al pasar el

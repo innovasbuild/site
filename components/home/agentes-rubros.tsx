@@ -5,7 +5,9 @@ import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Arrow } from "@/components/arrow"
 import { PosterHeading } from "@/components/poster-heading"
-import { agentes as c } from "@/content/home"
+import { home } from "@/content/home"
+
+const { agentes: c } = home.es
 
 const DURACION = 6500
 

@@ -11,9 +11,11 @@ import { JsonLd } from "@/components/json-ld"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { buildServiceCatalogSchema } from "@/lib/schema"
-import { hero, solutionTypes, methodology, audience, finalCta } from "@/content/proyectos"
+import { proyectos } from "@/content/proyectos"
 
-export const metadata: Metadata = buildMetadata("/proyectos", seo["/proyectos"])
+const { hero, solutionTypes, methodology, audience, finalCta } = proyectos.es
+
+export const metadata: Metadata = buildMetadata("/proyectos", seo.es["/proyectos"])
 
 export default function ProyectosPage() {
   return (

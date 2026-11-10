@@ -3,7 +3,9 @@ import { Arrow } from "@/components/arrow"
 import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
 import { PosterHeading } from "@/components/poster-heading"
-import { oferta as c } from "@/content/home"
+import { home } from "@/content/home"
+
+const { oferta: c } = home.es
 
 /**
  * Lo que contrata la empresa: infraestructura, agentes y equipo. Tres tarjetas altas con foto a sangre;

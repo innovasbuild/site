@@ -1,6 +1,8 @@
 import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
-import { equipo as c } from "@/content/nosotros"
+import { nosotros } from "@/content/nosotros"
+
+const { equipo: c } = nosotros.es
 
 /**
  * El equipo, sobre una imagen a sangre en los colores de la paleta (en lugar del fondo oscuro liso). La
