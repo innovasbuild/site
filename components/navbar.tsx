@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
 import { global } from "@/content/global"
 import { useLocale } from "@/components/locale-provider"
-import { pathFor } from "@/lib/i18n"
+import { pathFor, publicPath } from "@/lib/i18n"
 import { LanguageSwitcher } from "@/components/language-switcher"
 
 /** Cuánto hay que bajar antes de que la barra pueda esconderse, y cuánto movimiento cuenta como un gesto. */
@@ -129,7 +129,7 @@ export function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden items-center gap-2 md:flex">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href
+              const isActive = publicPath(pathname) === link.href
               return (
                 <Link
                   key={link.href}

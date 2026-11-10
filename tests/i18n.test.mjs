@@ -1,6 +1,6 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
-import { routes, resolvePath, pathFor, counterpart, detectLocale, localeRedirect, hreflangFor, EN_LIVE, LOCALE_COOKIE } from "../lib/i18n.ts"
+import { routes, resolvePath, pathFor, counterpart, publicPath, detectLocale, localeRedirect, hreflangFor, EN_LIVE, LOCALE_COOKIE } from "../lib/i18n.ts"
 
 test("resolvePath: URLs públicas a ruta interna", () => {
   assert.deepEqual(resolvePath("/servicios"), { locale: "es", key: "/servicios" })
@@ -43,6 +43,19 @@ test("pathFor y counterpart", () => {
   assert.equal(counterpart("/en/foo", "es"), "/")
 })
 
+test("counterpart y publicPath siguen las rutas internas del prerender", () => {
+  assert.equal(counterpart("/es/servicios", "en"), "/en/services")
+  assert.equal(counterpart("/en/servicios", "es"), "/servicios")
+  assert.equal(counterpart("/es", "en"), "/en")
+  assert.equal(counterpart("/en", "es"), "/")
+  assert.equal(publicPath("/es/servicios"), "/servicios")
+  assert.equal(publicPath("/es"), "/")
+  assert.equal(publicPath("/en/servicios"), "/en/services")
+  assert.equal(publicPath("/servicios"), "/servicios")
+  assert.equal(publicPath("/en/services"), "/en/services")
+  assert.equal(publicPath("/cuentas/x"), "/cuentas/x")
+})
+
 test("cada ruta tiene es y en únicos, y en empieza con /en", () => {
   assert.equal(new Set(routes.map((r) => r.es)).size, routes.length)
   assert.equal(new Set(routes.map((r) => r.en)).size, routes.length)
@@ -54,7 +67,8 @@ test("constantes", () => {
   assert.equal(LOCALE_COOKIE, "lang")
 })
 
-const live = { enLive: true }
+const BROWSER = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+const live = { enLive: true, userAgent: BROWSER }
 
 test("detectLocale: cookie, Accept-Language y país", () => {
   assert.equal(detectLocale({ ...live, cookie: "en", acceptLanguage: "es" }), "en")
@@ -79,9 +93,27 @@ test("detectLocale nunca redirige bots ni agentes", () => {
   assert.equal(detectLocale({ ...live, accept: "text/html", acceptLanguage: "en-US", userAgent: "Mozilla/5.0" }), "en")
 })
 
+test("detectLocale no redirige a herramientas de Google, agentes -User ni clientes programáticos", () => {
+  const uas = [
+    "Mozilla/5.0 (compatible; Google-InspectionTool/1.0)", "GoogleOther", "Google-Site-Verification/1.0",
+    "Mozilla/5.0 AppleWebKit/537.36 (compatible; Claude-User/1.0; +Claude-User@anthropic.com)",
+    "Mozilla/5.0 (compatible; Perplexity-User/1.0)", "MistralAI-User/1.0",
+    "Mozilla/5.0 Chrome-Lighthouse", "Mozilla/5.0 (Linux) Chrome/119 Google Page Speed Insights",
+    "PageSpeed Insights", "curl/8.4.0", "Wget/1.21", "python-requests/2.31", "node", "undici",
+    "node-fetch/1.0", "axios/1.6", "Go-http-client/2.0", "okhttp/4.12",
+  ]
+  for (const userAgent of uas) assert.equal(detectLocale({ ...live, userAgent, acceptLanguage: "en-US" }), null, userAgent)
+})
+
+test("detectLocale sin User-Agent (ausente o vacío) no redirige", () => {
+  for (const userAgent of [undefined, null, "", "  "]) {
+    assert.equal(detectLocale({ enLive: true, userAgent, acceptLanguage: "en-US" }), null, String(userAgent))
+  }
+})
+
 test("detectLocale con enLive false siempre es es", () => {
-  assert.equal(detectLocale({ enLive: false, acceptLanguage: "en-US", country: "US" }), "es")
-  assert.equal(detectLocale({ enLive: false, cookie: "en" }), "es")
+  assert.equal(detectLocale({ enLive: false, userAgent: BROWSER, acceptLanguage: "en-US", country: "US" }), "es")
+  assert.equal(detectLocale({ enLive: false, userAgent: BROWSER, cookie: "en" }), "es")
 })
 
 test("localeRedirect: sin EN_LIVE nunca redirige", () => {
@@ -91,14 +123,14 @@ test("localeRedirect: sin EN_LIVE nunca redirige", () => {
 })
 
 test("localeRedirect: con EN_LIVE redirige en ambos sentidos", () => {
-  assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "en-US" }), "/en/services")
-  assert.equal(localeRedirect("/en/services", { enLive: true, cookie: "es" }), "/servicios")
+  assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "en-US", userAgent: BROWSER }), "/en/services")
+  assert.equal(localeRedirect("/en/services", { enLive: true, cookie: "es", userAgent: BROWSER }), "/servicios")
 })
 
 test("localeRedirect: bots y mismo idioma no redirigen", () => {
   assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "en-US", userAgent: "Googlebot/2.1" }), null)
-  assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "es-AR" }), null)
-  assert.equal(localeRedirect("/foo", { enLive: true, acceptLanguage: "en-US" }), null)
+  assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "es-AR", userAgent: BROWSER }), null)
+  assert.equal(localeRedirect("/foo", { enLive: true, acceptLanguage: "en-US", userAgent: BROWSER }), null)
 })
 
 test("hreflangFor: sin EN_LIVE no hay alternates; con EN_LIVE es/en/x-default (español)", () => {

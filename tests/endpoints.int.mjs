@@ -80,7 +80,9 @@ test("el JSON-LD de Organization trae contactPoint y address", async () => {
 })
 
 const manual = (path, headers = {}) => fetch(`${base}${path}`, { redirect: "manual", headers })
-const EN = { "Accept-Language": "en-US" }
+const BROWSER_UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+const BROWSER = { "User-Agent": BROWSER_UA }
+const EN = { ...BROWSER, "Accept-Language": "en-US" }
 const htmlLang = (html) => html.match(/<html[^>]*\slang="([^"]*)"/)?.[1]
 
 test("/servicios responde 200 con lang es y /en/services con lang en", async () => {
@@ -140,13 +142,20 @@ test("un agente que pide Markdown nunca es redirigido, aunque prefiera inglés",
   assert.equal(res.headers.get("location"), null)
 })
 
+test("curl y fetch sin navegador no son redirigidos aunque prefieran inglés", async () => {
+  for (const ua of ["curl/8.4.0", "node"]) {
+    const res = await manual("/servicios", { "Accept-Language": "en-US", "User-Agent": ua })
+    assert.equal(res.status, 200, ua)
+  }
+})
+
 test("la cookie lang=es gana sobre Accept-Language en-US", async () => {
   const res = await manual("/servicios", { ...EN, Cookie: "lang=es" })
   assert.equal(res.status, 200)
 })
 
 test("/en/services con cookie lang=es redirige (307) a /servicios", async () => {
-  const res = await manual("/en/services", { Cookie: "lang=es" })
+  const res = await manual("/en/services", { ...BROWSER, Cookie: "lang=es" })
   assert.equal(res.status, 307)
   assert.equal(new URL(res.headers.get("location"), base).pathname, "/servicios")
 })

@@ -121,31 +121,31 @@ export const faqSection = {
 
 export const faqPrecios: FaqItem[] = [
   {
-    question: "Qué es una skill?",
+    question: "¿Qué es una skill?",
     answer:
       "Es un procedimiento de tu empresa escrito para que el asistente lo siga paso a paso: cómo se responde un reclamo, cómo se arma una cotización, cómo se califica un cliente. Vive en Central IA y la usa cualquier persona con permiso, desde la plataforma o desde su asistente.",
   },
   {
-    question: "Qué pasa cuando se suma la cuarta persona?",
+    question: "¿Qué pasa cuando se suma la cuarta persona?",
     answer:
       "La empresa pasa al plan Equipo y paga por cada usuario. Todo lo que cargaron en el plan Gratis queda igual.",
   },
   {
-    question: "Qué pasa a los tres meses?",
+    question: "¿Qué pasa a los tres meses?",
     answer:
       "Para seguir usando Central IA, la empresa pasa al plan Equipo y paga por cada usuario. Todo lo que cargaron en el plan Gratis queda igual.",
   },
   {
-    question: "Necesito tener ChatGPT o Claude?",
+    question: "¿Necesito tener ChatGPT o Claude?",
     answer:
       "No. Quien trabaja sin asistente propio entra directo a la plataforma desde el navegador. Quien ya tiene una licencia conecta Central IA a su asistente y la usa desde ahí.",
   },
   {
-    question: "En qué moneda se cobra?",
+    question: "¿En qué moneda se cobra?",
     answer: "Los precios están en dólares y no incluyen los impuestos que correspondan en tu país.",
   },
   {
-    question: "Cómo se cotiza el plan Empresa?",
+    question: "¿Cómo se cotiza el plan Empresa?",
     answer:
       "Empieza con una primera conversación sin costo. Si tiene sentido seguir, hay dos diagnósticos. El Radar releva tu empresa en tres a cuatro horas con el equipo directivo, dimensiona la ola cero y se bonifica al implementarla. El Mapa del Método entra en cada área del negocio, define el alcance de las olas trimestrales y se bonifica al implementar la ola cero y la ola uno. Cada ola de trabajo se cotiza con alcance cerrado antes de empezar.",
   },

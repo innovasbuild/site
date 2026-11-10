@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { EN_LIVE, counterpart, locales, type Locale } from "@/lib/i18n"
+import { EN_LIVE, LOCALE_COOKIE, counterpart, locales, type Locale } from "@/lib/i18n"
 import { global } from "@/content/global"
 import { useLocale } from "@/components/locale-provider"
 
@@ -36,9 +36,12 @@ export function LanguageSwitcher({ className, onDark }: { className?: string; on
               hrefLang={l}
               lang={l}
               onClick={(e) => {
+                const secure = window.location.protocol === "https:" ? "; secure" : ""
+                document.cookie = `${LOCALE_COOKIE}=${l}; path=/; max-age=31536000; samesite=lax${secure}`
+                // Clic con modificador o botón del medio: el navegador abre el enlace como siempre (la cookie ya quedó).
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return
                 e.preventDefault()
-                document.cookie = `lang=${l}; path=/; max-age=31536000; samesite=lax`
-                window.location.assign(counterpart(pathname, l))
+                window.location.assign(counterpart(pathname, l) + window.location.search + window.location.hash)
               }}
               className={cn("transition-colors", other)}
             >

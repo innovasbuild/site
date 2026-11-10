@@ -166,3 +166,32 @@ Total: 88 líneas en 15 archivos.
 | `content/servicios.ts` | decision: "Si acelerás, cambiás el orden o frenás.", | decision: "Si aceleras, cambias el orden o frenas.", |
 | `content/servicios.ts` | posterTitle: "Empezá por un diagnóstico", | posterTitle: "Empieza por un diagnóstico", |
 | `content/servicios.ts` | { titulo: "La velocidad la elegís vos", texto: "El mapa define qué hay para hacer. Cuánto por mes, lo decidís en cada ola." }, | { titulo: "La velocidad la eliges tú", texto: "El mapa define qué hay para hacer. Cuánto por mes, lo decides en cada ola." }, |
+
+## Signo de apertura "¿" (revisión final)
+
+Solo se agregó el "¿" de apertura a las preguntas en español; no se cambió ninguna otra palabra.
+
+| Archivo | Antes | Después |
+|---|---|---|
+| `content/central-ia/es.ts` | "Hola Carla:\n\nVi que Logística Ribera abrió dos depósitos este año. Con esa red, cada pedido que sale tarde le cuesta a alguien una llamada. En INNOV.AS armamos agentes que ordenan esas excepciones antes de que lleguen a una persona.\n\nTe muestro cómo quedó en otra operación parecida? Son 20 minutos.\n\nSofía\nINNOV.AS", | "Hola Carla:\n\nVi que Logística Ribera abrió dos depósitos este año. Con esa red, cada pedido que sale tarde le cuesta a alguien una llamada. En INNOV.AS armamos agentes que ordenan esas excepciones antes de que lleguen a una persona.\n\n¿Te muestro cómo quedó en otra operación parecida? Son 20 minutos.\n\nSofía\nINNOV.AS", |
+| `content/faq/es.ts` | question: "Ya pagamos licencias de ChatGPT o Claude. Central IA las reemplaza?", | question: "¿Ya pagamos licencias de ChatGPT o Claude. Central IA las reemplaza?", |
+| `content/faq/es.ts` | question: "Necesito contratarlos para usar Central IA?", | question: "¿Necesito contratarlos para usar Central IA?", |
+| `content/faq/es.ts` | question: "Dónde queda la información de mi empresa?", | question: "¿Dónde queda la información de mi empresa?", |
+| `content/faq/es.ts` | question: "Cómo entra mi gente?", | question: "¿Cómo entra mi gente?", |
+| `content/faq/es.ts` | question: "Cuánto cuesta?", | question: "¿Cuánto cuesta?", |
+| `content/faq/es.ts` | question: "Cómo arranca el trabajo con ustedes?", | question: "¿Cómo arranca el trabajo con ustedes?", |
+| `content/faq/es.ts` | question: "Qué pasa si frenamos después del Radar?", | question: "¿Qué pasa si frenamos después del Radar?", |
+| `content/faq/es.ts` | question: "Ya pagamos licencias de ChatGPT o Claude. Central IA las reemplaza?", | question: "¿Ya pagamos licencias de ChatGPT o Claude. Central IA las reemplaza?", |
+| `content/faq/es.ts` | question: "Dónde queda la información de mi empresa?", | question: "¿Dónde queda la información de mi empresa?", |
+| `content/faq/es.ts` | question: "Cuánto cuesta?", | question: "¿Cuánto cuesta?", |
+| `content/faq/es.ts` | question: "Qué necesitamos de nuestro lado para implementar?", | question: "¿Qué necesitamos de nuestro lado para implementar?", |
+| `content/faq/es.ts` | question: "Qué diferencia hay entre el Radar y el Mapa del Método?", | question: "¿Qué diferencia hay entre el Radar y el Mapa del Método?", |
+| `content/faq/es.ts` | question: "Qué pasa si frenamos después del Radar?", | question: "¿Qué pasa si frenamos después del Radar?", |
+| `content/faq/es.ts` | question: "Cómo se elige el primer circuito de negocio?", | question: "¿Cómo se elige el primer circuito de negocio?", |
+| `content/faq/es.ts` | question: "Cuánto tiempo le pide a mi equipo?", | question: "¿Cuánto tiempo le pide a mi equipo?", |
+| `content/precios/es.ts` | question: "Qué es una skill?", | question: "¿Qué es una skill?", |
+| `content/precios/es.ts` | question: "Qué pasa cuando se suma la cuarta persona?", | question: "¿Qué pasa cuando se suma la cuarta persona?", |
+| `content/precios/es.ts` | question: "Qué pasa a los tres meses?", | question: "¿Qué pasa a los tres meses?", |
+| `content/precios/es.ts` | question: "Necesito tener ChatGPT o Claude?", | question: "¿Necesito tener ChatGPT o Claude?", |
+| `content/precios/es.ts` | question: "En qué moneda se cobra?", | question: "¿En qué moneda se cobra?", |
+| `content/precios/es.ts` | question: "Cómo se cotiza el plan Empresa?", | question: "¿Cómo se cotiza el plan Empresa?", |

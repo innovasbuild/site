@@ -304,7 +304,7 @@ export const demoAgente = {
     para: "carla.mendez@logribera.com.ar",
     asunto: "Dos depósitos nuevos y los pedidos que salen tarde",
     cuerpo:
-      "Hola Carla:\n\nVi que Logística Ribera abrió dos depósitos este año. Con esa red, cada pedido que sale tarde le cuesta a alguien una llamada. En INNOV.AS armamos agentes que ordenan esas excepciones antes de que lleguen a una persona.\n\nTe muestro cómo quedó en otra operación parecida? Son 20 minutos.\n\nSofía\nINNOV.AS",
+      "Hola Carla:\n\nVi que Logística Ribera abrió dos depósitos este año. Con esa red, cada pedido que sale tarde le cuesta a alguien una llamada. En INNOV.AS armamos agentes que ordenan esas excepciones antes de que lleguen a una persona.\n\n¿Te muestro cómo quedó en otra operación parecida? Son 20 minutos.\n\nSofía\nINNOV.AS",
     aprobar: "Aprobar y enviar",
     cancelar: "Cancelar",
   },

@@ -69,12 +69,21 @@ export function pathFor(key: string, locale: Locale): string {
 
 /** Par de una URL pública en el otro idioma; si no hay par, la home de ese idioma. */
 export function counterpart(pathname: string, to: Locale): string {
-  const resolved = resolvePath(pathname)
+  const resolved = resolvePath(publicPath(pathname))
   return pathFor(resolved && "key" in resolved ? resolved.key : "/", to)
 }
 
+/**
+ * Ruta interna (/es/servicios, /en/servicios, /es) → URL pública. Las páginas se prerenderizan bajo la ruta
+ * interna, así que usePathname() en el servidor la devuelve; el cliente ve la pública. Esto las iguala.
+ */
+export function publicPath(pathname: string): string {
+  const resolved = resolvePath(pathname)
+  return resolved && "redirect" in resolved ? resolved.redirect : pathname
+}
+
 const BOT_UA =
-  /googlebot|bingbot|gptbot|claudebot|claude-web|perplexitybot|oai-searchbot|chatgpt-user|applebot|duckduckbot|yandex|baiduspider|facebookexternalhit|linkedinbot|slurp|bot|crawler|spider/i
+  /google|bingbot|gptbot|claudebot|claude-web|perplexitybot|oai-searchbot|chatgpt-user|applebot|duckduckbot|yandex|baiduspider|facebookexternalhit|linkedinbot|slurp|bot|crawler|spider|-user\b|inspectiontool|lighthouse|pagespeed|curl|wget|python-requests|undici|node-fetch|axios|go-http-client|okhttp|^node$/i
 
 /** Idioma del rango Accept-Language de mayor q, o null si no hay ninguno utilizable. */
 function fromAcceptLanguage(header: string | null | undefined): Locale | null {
@@ -107,7 +116,8 @@ export function detectLocale(input: {
   accept?: string | null
   enLive?: boolean
 }): Locale | null {
-  if (input.userAgent && BOT_UA.test(input.userAgent)) return null
+  // Sin User-Agent no es un navegador: es un cliente programático.
+  if (!input.userAgent?.trim() || BOT_UA.test(input.userAgent)) return null
   if (input.accept && input.accept.toLowerCase().includes("text/markdown")) return null
 
   if (!(input.enLive ?? EN_LIVE)) return "es"
