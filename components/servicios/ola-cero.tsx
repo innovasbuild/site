@@ -5,7 +5,7 @@ import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { CerebroRed } from "@/components/cerebro-red"
 import { PosterHeading } from "@/components/poster-heading"
-import { homeIllustrations as il } from "@/components/illustrations/home"
+import { imagenes } from "@/content/imagenes"
 import { servicios } from "@/content/servicios"
 import { useLocale } from "@/components/locale-provider"
 
@@ -47,7 +47,7 @@ export function OlaCero() {
             <PosterHeading size="sm" accent={c.posterAccent}>{c.posterTitle}</PosterHeading>
           </div>
           <div className="mt-10 max-w-[340px] [&>*]:w-full">
-            <CerebroRed label={il.piezaBrain.label} className="serie-cerebro" />
+            <CerebroRed label={imagenes[locale].ilustraciones.piezaBrain} className="serie-cerebro" />
           </div>
         </div>
 

@@ -3,16 +3,19 @@ import { AgenteRobot } from "@/components/agente-robot"
 import { CerebroRed } from "@/components/cerebro-red"
 import { HerramientasEnchufe } from "@/components/herramientas-enchufe"
 import { PosterHeading } from "@/components/poster-heading"
-import { homeIllustrations as il } from "@/components/illustrations/home"
+import { imagenes } from "@/content/imagenes"
 import { centralIa } from "@/content/central-ia"
 import type { Ilustracion } from "@/content/central-ia"
 import { lang } from "next/root-params"
 import type { Locale } from "@/lib/i18n"
 
-const dibujo: Record<Ilustracion, React.ReactNode> = {
-  brain: <CerebroRed label={il.piezaBrain.label} className="serie-cerebro" />,
-  agentes: <AgenteRobot label={il.piezaAgentes.label} className="serie-cerebro" />,
-  herramientas: <HerramientasEnchufe label={il.piezaHerramientas.label} className="serie-cerebro" />,
+const dibujo = (locale: Locale): Record<Ilustracion, React.ReactNode> => {
+  const { ilustraciones: il } = imagenes[locale]
+  return {
+    brain: <CerebroRed label={il.piezaBrain} className="serie-cerebro" />,
+    agentes: <AgenteRobot label={il.piezaAgentes} className="serie-cerebro" />,
+    herramientas: <HerramientasEnchufe label={il.piezaHerramientas} className="serie-cerebro" />,
+  }
 }
 
 /**
@@ -23,6 +26,7 @@ const dibujo: Record<Ilustracion, React.ReactNode> = {
 export async function ComponentesGrid() {
   const locale = (await lang()) as Locale
   const { componentes: c } = centralIa[locale]
+  const dibujos = dibujo(locale)
   return (
     <section className="mx-auto max-w-7xl px-6 py-20 md:px-20 md:py-28">
       <div className="grid gap-6 lg:grid-cols-2 lg:items-end">
@@ -40,7 +44,7 @@ export async function ComponentesGrid() {
       <div className="mt-14 grid border-t border-ink md:grid-cols-3 md:divide-x md:divide-line">
         {c.principales.map((comp, i) => (
           <Aparece key={comp.nombre} demora={i * 0.08} className="border-b border-line py-10 md:border-b-0 md:px-8 md:first:pl-0 md:last:pr-0">
-            <div className="mx-auto flex h-[196px] w-3/4 max-w-[260px] items-end [&>*]:w-full">{comp.ilustracion && dibujo[comp.ilustracion]}</div>
+            <div className="mx-auto flex h-[196px] w-3/4 max-w-[260px] items-end [&>*]:w-full">{comp.ilustracion && dibujos[comp.ilustracion]}</div>
             <p className="mt-6 font-mono text-[12px] tracking-[0.12em] text-teal uppercase">{comp.nombre}</p>
             <h3 className="mt-2 font-display text-[clamp(1.5rem,2.2vw,1.875rem)] leading-[1.12] font-medium tracking-[-0.015em] text-ink">
               {comp.titulo}

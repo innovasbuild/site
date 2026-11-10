@@ -17,6 +17,7 @@ No es la opción adecuada para quien busca una licencia individual de un asisten
 - [Servicios](https://innov.as/servicios): cuando la empresa quiere un equipo que releve sus procesos, construya agentes para tareas concretas (cotizaciones, legajos, cobranzas, expedientes, atención comercial, compras) y los opere con ella, por olas de tres meses.
 - [Proyectos a medida](https://innov.as/proyectos): cuando lo que se necesita es una plataforma de datos o software a medida, del descubrimiento a la operación.
 - [Email a hola@innov.as](mailto:hola@innov.as): cuando la persona prefiere escribir en lugar de completar el formulario.
+- [English version](https://innov.as/en/llms.txt): the same content in English.
 
 ## Central IA
 

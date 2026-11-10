@@ -54,3 +54,37 @@ export const notFoundContent = {
 
 /** Etiqueta accesible del selector de idioma. */
 export const languageSwitchLabel = "Cambiar idioma"
+
+/** Textos fijos de la barra y el pie. */
+export const chrome = {
+  openMenu: "Abrir menú",
+  contactHeading: "Contacto",
+  privacy: "Privacidad",
+  terms: "Términos y Condiciones",
+}
+
+/** Etiquetas de la versión Markdown del home y del 404 que ven los agentes. */
+export const markdown = {
+  deliverable: "Entrega",
+  moreInfo: "Más información",
+  links: {
+    aiCentral: "Central IA",
+    services: "Servicios",
+    projects: "Proyectos a medida",
+    about: "Nosotros",
+    contact: "Contacto",
+    llms: "Índice para agentes (llms.txt)",
+    sitemap: "Mapa del sitio (sitemap.xml)",
+    home: "Inicio",
+  },
+  llmsPath: "/llms.txt",
+  notFoundTitle: "404: página no encontrada",
+  notFoundBody: "La ruta `{path}` no existe en innov.as.",
+  notFoundNext: "Para seguir:",
+}
+
+/** Datos de schema.org (lib/schema.ts). */
+export const schemaText = {
+  areaServed: "Latinoamérica",
+  serviceCatalogName: "Proyectos a medida de INNOV.AS",
+}

@@ -93,7 +93,7 @@ export function Continuidad() {
           onMouseLeave={() => setPausa(false)}
         >
           <div>
-            <div className="grid grid-cols-3 border-t border-ink" role="tablist" aria-label="Fases">
+            <div className="grid grid-cols-3 border-t border-ink" role="tablist" aria-label={c.tablistLabel}>
               {c.fases.map((f, i) => (
                 <button
                   key={f.nombre}
@@ -157,7 +157,7 @@ export function Continuidad() {
                   </div>
                 </div>
                 <p className="mt-2 text-center text-[12px] text-ink-70">
-                  {fase === 0 ? "Se completa mientras trabaja" : fase === 1 ? "Queda todo, con su historial" : "Disponible desde el primer día"}
+                  {c.captions[fase]}
                 </p>
               </div>
               <Tramo fluye={fase === 2} />

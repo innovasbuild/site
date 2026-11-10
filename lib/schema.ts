@@ -23,9 +23,9 @@ export const organizationSchema = (locale: Locale) => ({
     email: footerContact.email,
     url: `https://innov.as${pathFor("/contacto", locale)}`,
     availableLanguage: EN_LIVE ? ["es", "en"] : ["es"],
-    areaServed: "Latinoamérica",
+    areaServed: global[locale].schemaText.areaServed,
   },
-  areaServed: { "@type": "Place", name: "Latinoamérica" },
+  areaServed: { "@type": "Place", name: global[locale].schemaText.areaServed },
   sameAs: [footerContact.linkedin],
 })
 
@@ -37,7 +37,7 @@ export const productSchema = (locale: Locale) => ({
   operatingSystem: "Web",
   description: seo[locale]["/"].description,
   provider: { "@type": "Organization", name: "INNOV.AS", url: "https://innov.as" },
-  areaServed: "Latinoamérica",
+  areaServed: global[locale].schemaText.areaServed,
 })
 
 export function buildServiceCatalogSchema(locale: Locale) {
@@ -45,13 +45,13 @@ export function buildServiceCatalogSchema(locale: Locale) {
   return {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
-    name: "Proyectos a medida de INNOV.AS",
+    name: global[locale].schemaText.serviceCatalogName,
     itemListElement: solutionTypes.items.map((item) => ({
       "@type": "Service",
       name: item.title,
       description: item.description,
       provider: { "@type": "Organization", name: "INNOV.AS" },
-      areaServed: "Latinoamérica",
+      areaServed: global[locale].schemaText.areaServed,
     })),
   }
 }

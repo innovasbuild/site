@@ -54,7 +54,7 @@ export function AgentesRubros() {
           onMouseLeave={() => setPausa(false)}
         >
           {/* Rubros */}
-          <div className="flex gap-x-6 gap-y-1 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0" role="tablist" aria-label="Rubros">
+          <div className="flex gap-x-6 gap-y-1 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0" role="tablist" aria-label={c.rubrosLabel}>
             {c.rubros.map((r, i) => {
               const on = i === activo
               return (

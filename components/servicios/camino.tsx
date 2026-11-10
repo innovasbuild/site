@@ -54,7 +54,7 @@ export function Camino() {
         <div className={cn("mt-14", !corre && "pausado")} onMouseEnter={() => setPausa(true)} onMouseLeave={() => setPausa(false)}>
           {/* Línea con las etapas */}
           <div className="-mx-6 overflow-x-auto px-6 pb-2 md:mx-0 md:overflow-visible md:px-0">
-            <div className="relative min-w-[680px]" role="tablist" aria-label="Etapas">
+            <div className="relative min-w-[680px]" role="tablist" aria-label={c.tablistLabel}>
               <span className="absolute top-[7px] right-0 left-0 h-px bg-paper/25" />
               <span
                 className="absolute top-[6px] left-0 h-[3px] bg-teal-dark transition-[width] duration-700 ease-[var(--ease-out-quint)]"

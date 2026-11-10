@@ -96,6 +96,8 @@ export const continuidad = {
   kicker: { index: "02", label: "continuidad" },
   posterTitle: "Cuando alguien se va, lo que sabe se queda",
   posterAccent: "se queda",
+  tablistLabel: "Fases",
+  captions: ["Se completa mientras trabaja", "Queda todo, con su historial", "Disponible desde el primer día"],
   intro:
     "En la mayoría de las empresas el método vive en la cabeza de pocas personas. Cuando una se va, se lleva años de criterio, contactos y atajos. Con Central IA ese conocimiento se guarda mientras la persona trabaja y pasa entero a quien llega.",
   personas: { sale: "Martín", saleRol: "Compras, 9 años", llega: "Lucía", llegaRol: "Compras, primer día", brain: "Brain" },

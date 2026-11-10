@@ -27,6 +27,7 @@ export const camino = {
   intro:
     "El objetivo es que la IA quede trabajando en tu negocio, no en un piloto. Cada etapa deja algo funcionando y termina en una decisión tuya: tú eliges la velocidad.",
   etapaLabel: "Etapa",
+  tablistLabel: "Etapas",
   campos: {
     pasa: "Qué pasa",
     llevas: "Qué te llevas",

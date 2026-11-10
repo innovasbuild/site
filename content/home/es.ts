@@ -115,6 +115,8 @@ export const recorrido = {
   intro:
     "Cada etapa deja algo funcionando y prepara la siguiente. Tú decides la velocidad. Nosotros estamos en cada paso.",
   capasTitulo: "Lo que ya está funcionando",
+  tablistLabel: "Etapas del trabajo",
+  estados: { encendida: "funcionando", planeada: "en el plan" },
   entregaLabel: "Qué te llevas",
   equipoLabel: "Quiénes están",
   etapas: [
@@ -174,6 +176,7 @@ export const agentes = {
     "Cada agente se diseña con tu equipo para una tarea concreta y trabaja con los sistemas que ya usas. Tu gente decide, los agentes ejecutan.",
   agenteLabel: "El agente",
   genteLabel: "Tu gente",
+  rubrosLabel: "Rubros",
   rubros: [
     {
       nombre: "Seguros",

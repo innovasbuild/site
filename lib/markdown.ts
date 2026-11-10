@@ -1,7 +1,8 @@
 import { home } from "@/content/home"
+import { global } from "@/content/global"
 import { footerContact } from "@/content/shared"
 import { seo } from "@/content/seo"
-import type { Locale } from "@/lib/i18n"
+import { pathFor, type Locale } from "@/lib/i18n"
 
 const baseUrl = "https://innov.as"
 
@@ -10,6 +11,8 @@ const absolute = (href: string) => (href.startsWith("/") ? `${baseUrl}${href}` :
 /** Versión Markdown del home, para agentes que piden Accept: text/markdown. Sale del mismo contenido que la página. */
 export function buildHomeMarkdown(locale: Locale): string {
   const { hero, oferta, recorrido, agentes, control, trayectoria, quienesSomos } = home[locale]
+  const { markdown: md } = global[locale]
+  const link = (label: string, key: string) => `- [${label}](${absolute(pathFor(key, locale))})`
   const lines: string[] = [
     `# ${hero.posterTitle}`,
     "",
@@ -31,7 +34,7 @@ export function buildHomeMarkdown(locale: Locale): string {
     "",
     recorrido.intro,
     "",
-    ...recorrido.etapas.map((etapa) => `- **${etapa.nombre}** (${etapa.duracion}): ${etapa.texto} Entrega: ${etapa.entrega}`),
+    ...recorrido.etapas.map((etapa) => `- **${etapa.nombre}** (${etapa.duracion}): ${etapa.texto} ${md.deliverable}: ${etapa.entrega}`),
     "",
     `## ${agentes.posterTitle}`,
     "",
@@ -60,14 +63,14 @@ export function buildHomeMarkdown(locale: Locale): string {
     "",
     `${trayectoria.logosLabel}: ${trayectoria.logos.join(", ")}.`,
     "",
-    "## Más información",
+    `## ${md.moreInfo}`,
     "",
-    `- [Central IA](${baseUrl}/central-ia)`,
-    `- [Servicios](${baseUrl}/servicios)`,
-    `- [Proyectos a medida](${baseUrl}/proyectos)`,
-    `- [Nosotros](${baseUrl}/nosotros)`,
-    `- [Contacto](${baseUrl}/contacto)`,
-    `- [Índice para agentes (llms.txt)](${baseUrl}/llms.txt)`,
+    link(md.links.aiCentral, "/central-ia"),
+    link(md.links.services, "/servicios"),
+    link(md.links.projects, "/proyectos"),
+    link(md.links.about, "/nosotros"),
+    link(md.links.contact, "/contacto"),
+    `- [${md.links.llms}](${baseUrl}${md.llmsPath})`,
     `- Email: ${footerContact.email}`,
     "",
   )
@@ -77,17 +80,18 @@ export function buildHomeMarkdown(locale: Locale): string {
 
 /** Cuerpo Markdown del 404, con caminos para seguir. */
 export function buildNotFoundMarkdown(pathname: string, locale: Locale): string {
+  const { markdown: md } = global[locale]
   return [
-    "# 404: página no encontrada",
+    `# ${md.notFoundTitle}`,
     "",
-    `La ruta \`${pathname}\` no existe en innov.as.`,
+    md.notFoundBody.replace("{path}", pathname),
     "",
-    "Para seguir:",
+    md.notFoundNext,
     "",
-    `- [Inicio](${baseUrl}/)`,
-    `- [Índice para agentes (llms.txt)](${baseUrl}/llms.txt)`,
-    `- [Mapa del sitio (sitemap.xml)](${baseUrl}/sitemap.xml)`,
-    `- [Contacto](${baseUrl}/contacto)`,
+    `- [${md.links.home}](${absolute(pathFor("/", locale))})`,
+    `- [${md.links.llms}](${baseUrl}${md.llmsPath})`,
+    `- [${md.links.sitemap}](${baseUrl}/sitemap.xml)`,
+    `- [${md.links.contact}](${absolute(pathFor("/contacto", locale))})`,
     "",
   ].join("\n")
 }

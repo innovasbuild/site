@@ -54,7 +54,7 @@ export function Recorrido() {
           onMouseLeave={() => setPausa(false)}
         >
           {/* Etapas */}
-          <ol className="border-t border-ink" role="tablist" aria-label="Etapas del trabajo">
+          <ol className="border-t border-ink" role="tablist" aria-label={c.tablistLabel}>
             {c.etapas.map((e, i) => {
               const on = i === activa
               return (
@@ -142,7 +142,7 @@ export function Recorrido() {
                     >
                       <span>{capa}</span>
                       <span className="ml-3 shrink-0 font-mono text-[11px] tracking-[0.08em] whitespace-nowrap uppercase">
-                        {encendida ? "funcionando" : planeada ? "en el plan" : ""}
+                        {encendida ? c.estados.encendida : planeada ? c.estados.planeada : ""}
                       </span>
                     </li>
                   )

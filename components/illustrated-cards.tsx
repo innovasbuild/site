@@ -2,6 +2,8 @@ import { AgentScene } from "@/components/animated/agent-scene"
 import { SCENES, type SceneName } from "@/components/animated/scene-shader"
 import { HandDrawn } from "@/components/illustrations/hand-drawn"
 import { homeIllustrations } from "@/components/illustrations/home"
+import { imagenes } from "@/content/imagenes"
+import type { Locale } from "@/lib/i18n"
 import { CerebroRed } from "@/components/cerebro-red"
 import { AgenteRobot } from "@/components/agente-robot"
 import { HerramientasEnchufe } from "@/components/herramientas-enchufe"
@@ -31,10 +33,12 @@ const dibujoChico = "serie-cerebro mx-auto w-4/5"
  */
 export function IllustratedCards({
   cards,
+  locale,
   animated = false,
   sceneBg = "--color-paper-soft",
 }: {
   cards: readonly IllustratedCard[]
+  locale: Locale
   animated?: boolean
   /** Token del fondo de la tarjeta, para que la escena se funda con ella. */
   sceneBg?: string
@@ -42,9 +46,9 @@ export function IllustratedCards({
   return (
     <div className="grid gap-6 md:grid-cols-3">
       {cards.map((card) => {
-        const drawn = <HandDrawn illustration={homeIllustrations[card.illustration]} className="w-full" />
+        const label = imagenes[locale].ilustraciones[card.illustration]
+        const drawn = <HandDrawn illustration={homeIllustrations[card.illustration]} label={label} className="w-full" />
         const propia = piezasPropias[card.illustration]
-        const label = homeIllustrations[card.illustration].label
         return (
           <div key={card.title} className="flex flex-col rounded border border-ink bg-paper-soft p-6">
             {propia === "brain" ? (

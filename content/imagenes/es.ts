@@ -56,3 +56,13 @@ export const imagenes = {
   analista: unsplash("photo-1758876201660-103984519266", "Analista trabajando en su computadora"),
   biblioratos: unsplash("photo-1544396821-4dd40b938ad3", "Biblioratos ordenados en una estantería"),
 } satisfies Record<string, Imagen>
+
+/** Descripciones accesibles de las ilustraciones a mano (components/illustrations/home.ts), por nombre. */
+export const ilustraciones = {
+  dolorAdopcion: "Una ventana de asistente llena de notas y tableros, y tres ventanas vacías que apuntan hacia ella",
+  dolorEscritura: "Un cuaderno abierto al que le llegan lápices desde todos lados, con renglones encimados y uno tachado",
+  dolorFuga: "Un documento con el candado abierto sale de la empresa hacia burbujas de chat personales",
+  piezaBrain: "Un fichero con carpetas ordenadas del que salen dos hojas con un sello",
+  piezaAgentes: "Una lista de tareas que se va tildando sola, con la última esperando la firma de una persona",
+  piezaHerramientas: "Tres ventanas, correo, contactos y planilla, enchufadas a un mismo tablero, cada enchufe con su llave",
+}

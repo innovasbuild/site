@@ -18,6 +18,19 @@ export const orientacion = {
 
 export const formTitle = "Escríbenos"
 
+/** Etiquetas de los campos del formulario. */
+export const fields = {
+  nombre: "Nombre",
+  email: "Email laboral",
+  empresa: "Empresa",
+  pais: "País",
+  tamano: "Cuántas personas son",
+  usoIA: "Qué IA usan hoy",
+  consulta: "Algo que quieras contarnos antes (opcional)",
+  elige: "Elige una opción",
+  enviando: "Enviando...",
+}
+
 export const tamanos = ["Hasta 50 personas", "50 a 200", "200 a 500", "Más de 500"]
 export const usosIA = ["Licencias de ChatGPT", "Licencias de Claude", "Copilot u otra", "Cuentas personales", "Todavía nada"]
 
