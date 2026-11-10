@@ -129,9 +129,15 @@ test("/servicios sin Accept-Language responde 200 en español", async () => {
 })
 
 test("un bot (Googlebot) nunca es redirigido", async () => {
-  const res = await manual("/servicios", { "User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" })
+  const res = await manual("/servicios", { ...EN, "User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" })
   assert.equal(res.status, 200)
   assert.equal(htmlLang(await res.text()), "es")
+})
+
+test("un agente que pide Markdown nunca es redirigido, aunque prefiera inglés", async () => {
+  const res = await manual("/servicios", { ...EN, Accept: "text/markdown" })
+  assert.ok(![307, 308].includes(res.status), `status ${res.status}`)
+  assert.equal(res.headers.get("location"), null)
 })
 
 test("la cookie lang=es gana sobre Accept-Language en-US", async () => {
