@@ -51,3 +51,6 @@ export const notFoundContent = {
   message: "Esta página no existe. Pero tu próxima oportunidad de automatización seguro que sí.",
   cta: { label: "Volver al inicio", href: "/" } as Cta,
 }
+
+/** Etiqueta accesible del selector de idioma. */
+export const languageSwitchLabel = "Cambiar idioma"

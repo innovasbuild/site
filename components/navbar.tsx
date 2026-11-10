@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
 import { global } from "@/content/global"
 import { useLocale } from "@/components/locale-provider"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 /** Cuánto hay que bajar antes de que la barra pueda esconderse, y cuánto movimiento cuenta como un gesto. */
 const BAJADA_MIN = 120
@@ -142,6 +143,7 @@ export function Navbar() {
                 </Link>
               )
             })}
+            <LanguageSwitcher onDark={sobreOscuro} className="ml-1" />
             <Link
               href={navCta.href}
               className={cn("ml-2 rounded-full px-5 py-2.5 text-sm font-bold text-on-brand transition-transform hover:-translate-y-0.5", sobreOscuro ? "bg-teal-ui-dark" : "bg-teal hover:shadow-teal")}
@@ -173,6 +175,7 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <LanguageSwitcher className="text-sm" />
               <Link
                 href={navCta.href}
                 onClick={() => setIsMobileMenuOpen(false)}
