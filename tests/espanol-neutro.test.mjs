@@ -7,7 +7,14 @@ const ROOT = new URL("..", import.meta.url).pathname
 
 // Voseo rioplatense. Las palabras neutras parecidas (más, después, país, está, aquí) no entran.
 const VOSEO =
-  /\b(vos|sos|podés|querés|tenés|sabés|hacés|necesitás|creás|preferís|empezá|agendá|escribinos|contanos|dejanos|mirá|elegí|pedí|conocé|probá|sumate|hablá|dejá|completá|ingresá|descubrí|arrancá|fijate|abrís|acelerás|aceptás|actuás|aprobás|aprovechás|acá|cambiá|cambiás|completás|conectás|contratás|creá|debés|decidís|declarás|desconectás|elegís|encontrás|escribí|frenás|incluí|inscribís|llevás|pagás|pedís|quedás|respondé|usás|trabajás|contactanos|conocenos|armame)\b/i
+  /(?<!\p{L})(vos|sos|podés|querés|tenés|sabés|hacés|necesitás|creás|preferís|empezá|agendá|escribinos|contanos|dejanos|mirá|elegí|pedí|conocé|probá|sumate|hablá|dejá|completá|ingresá|descubrí|arrancá|fijate|abrís|acelerás|aceptás|actuás|aprobás|aprovechás|acá|cambiá|cambiás|completás|conectás|contratás|creá|debés|decidís|declarás|desconectás|elegís|encontrás|escribí|frenás|incluí|inscribís|llevás|pagás|pedís|quedás|respondé|usás|trabajás|contactanos|conocenos|armame)(?!\p{L})/iu
+
+test("la regex detecta voseo con tilde final", () => {
+  assert.match("Empezá ahora", VOSEO)
+  assert.match("sale de acá.", VOSEO)
+  assert.match("Elegí una opción", VOSEO)
+  assert.doesNotMatch("más después país está aquí", VOSEO)
+})
 
 function walk(dir, exts, out = []) {
   if (!existsSync(dir)) return out
