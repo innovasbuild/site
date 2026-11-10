@@ -9,7 +9,6 @@ import { JsonLd } from "@/components/json-ld"
 import { Foto } from "@/components/foto"
 import { ComponentesGrid } from "@/components/central/componentes-grid"
 import { Continuidad } from "@/components/central/continuidad"
-import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { productSchema } from "@/lib/schema"
 import { centralIa } from "@/content/central-ia"
@@ -18,7 +17,7 @@ import type { Locale } from "@/lib/i18n"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = (await lang()) as Locale
-  return buildMetadata("/central-ia", seo[locale]["/central-ia"])
+  return buildMetadata("/central-ia", locale)
 }
 
 /**

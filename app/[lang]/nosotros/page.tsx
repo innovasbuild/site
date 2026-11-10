@@ -7,7 +7,6 @@ import { Trayectoria } from "@/components/nosotros/trayectoria"
 import { Equipo } from "@/components/nosotros/equipo"
 import { LoUsamos } from "@/components/nosotros/lo-usamos"
 import { Principios } from "@/components/nosotros/principios"
-import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { home } from "@/content/home"
 import { nosotros } from "@/content/nosotros"
@@ -16,7 +15,7 @@ import type { Locale } from "@/lib/i18n"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = (await lang()) as Locale
-  return buildMetadata("/nosotros", seo[locale]["/nosotros"])
+  return buildMetadata("/nosotros", locale)
 }
 
 /**

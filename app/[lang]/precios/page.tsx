@@ -4,7 +4,6 @@ import { PageSection } from "@/components/page-section"
 import { PlanCard } from "@/components/plan-card"
 import { Faq } from "@/components/faq"
 import { CtaBanner } from "@/components/cta-banner"
-import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { precios } from "@/content/precios"
 import { lang } from "next/root-params"
@@ -13,7 +12,7 @@ import type { Locale } from "@/lib/i18n"
 // Fuera del menú y sin indexar hasta que el portal de pagos esté listo.
 export async function generateMetadata(): Promise<Metadata> {
   const locale = (await lang()) as Locale
-  return buildMetadata("/precios", seo[locale]["/precios"], { noindex: true })
+  return buildMetadata("/precios", locale, { noindex: true })
 }
 
 export default async function PreciosPage() {

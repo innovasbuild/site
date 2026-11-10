@@ -132,3 +132,12 @@ export function localeRedirect(
   const detected = detectLocale(input)
   return detected && detected !== resolved.locale ? counterpart(pathname, detected) : null
 }
+
+/** Alternates hreflang de una ruta (es, en, x-default → español); null mientras el inglés no esté publicado. */
+export function hreflangFor(
+  key: string,
+  enLive: boolean = EN_LIVE,
+): Record<string, string> | null {
+  if (!enLive) return null
+  return { es: pathFor(key, "es"), en: pathFor(key, "en"), "x-default": pathFor(key, "es") }
+}

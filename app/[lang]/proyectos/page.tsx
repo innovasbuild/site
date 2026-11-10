@@ -8,7 +8,6 @@ import { ArrowList } from "@/components/arrow-list"
 import { StepCards } from "@/components/step-cards"
 import { CtaBanner } from "@/components/cta-banner"
 import { JsonLd } from "@/components/json-ld"
-import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { buildServiceCatalogSchema } from "@/lib/schema"
 import { proyectos } from "@/content/proyectos"
@@ -17,7 +16,7 @@ import type { Locale } from "@/lib/i18n"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = (await lang()) as Locale
-  return buildMetadata("/proyectos", seo[locale]["/proyectos"])
+  return buildMetadata("/proyectos", locale)
 }
 
 export default async function ProyectosPage() {

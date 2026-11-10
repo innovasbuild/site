@@ -2,7 +2,7 @@ import { proyectos } from "@/content/proyectos"
 import { global } from "@/content/global"
 import { footerContact } from "@/content/shared"
 import { seo } from "@/content/seo"
-import type { Locale } from "@/lib/i18n"
+import { EN_LIVE, pathFor, type Locale } from "@/lib/i18n"
 
 export const organizationSchema = (locale: Locale) => ({
   "@context": "https://schema.org",
@@ -21,8 +21,8 @@ export const organizationSchema = (locale: Locale) => ({
     "@type": "ContactPoint",
     contactType: "sales",
     email: footerContact.email,
-    url: "https://innov.as/contacto",
-    availableLanguage: ["es"],
+    url: `https://innov.as${pathFor("/contacto", locale)}`,
+    availableLanguage: EN_LIVE ? ["es", "en"] : ["es"],
     areaServed: "Latinoamérica",
   },
   areaServed: { "@type": "Place", name: "Latinoamérica" },
@@ -32,7 +32,7 @@ export const organizationSchema = (locale: Locale) => ({
 export const productSchema = (locale: Locale) => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Central IA",
+  name: locale === "en" ? "AI Central" : "Central IA",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
   description: seo[locale]["/"].description,

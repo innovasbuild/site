@@ -119,3 +119,27 @@ test("con EN_LIVE apagado, Accept-Language en-US no redirige", async () => {
   const res = await manual("/servicios", { "Accept-Language": "en-US" })
   assert.equal(res.status, 200)
 })
+
+test("/servicios: canonical sin alternates, html lang=es e indexable", async () => {
+  const html = await (await get("/servicios", "text/html")).text()
+  assert.match(html, /<html lang="es"/)
+  assert.match(html, /<link rel="canonical" href="https:\/\/innov\.as\/servicios"/)
+  assert.doesNotMatch(html, /hreflang=/)
+  assert.doesNotMatch(html, /name="robots" content="noindex/)
+  assert.match(html, /property="og:locale" content="es_419"/)
+})
+
+test("/en/services: canonical propio y noindex mientras EN_LIVE es false", async () => {
+  const html = await (await get("/en/services", "text/html")).text()
+  assert.match(html, /<html lang="en"/)
+  assert.match(html, /<link rel="canonical" href="https:\/\/innov\.as\/en\/services"/)
+  assert.match(html, /<meta name="robots" content="noindex, nofollow"/)
+  assert.match(html, /property="og:locale" content="en_US"/)
+})
+
+test("sitemap.xml lista solo URLs en español y deja afuera /precios", async () => {
+  const xml = await (await get("/sitemap.xml")).text()
+  assert.match(xml, /<loc>https:\/\/innov\.as\/servicios<\/loc>/)
+  assert.doesNotMatch(xml, /\/en(\/|<)/)
+  assert.doesNotMatch(xml, /precios/)
+})

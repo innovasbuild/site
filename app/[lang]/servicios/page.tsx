@@ -10,7 +10,6 @@ import { DosFormas } from "@/components/servicios/dos-formas"
 import { OlaCero } from "@/components/servicios/ola-cero"
 import { Roles } from "@/components/servicios/roles"
 import { PrimerPaso } from "@/components/servicios/primer-paso"
-import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { faq } from "@/content/faq"
 import { servicios } from "@/content/servicios"
@@ -19,7 +18,7 @@ import type { Locale } from "@/lib/i18n"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = (await lang()) as Locale
-  return buildMetadata("/servicios", seo[locale]["/servicios"])
+  return buildMetadata("/servicios", locale)
 }
 
 /**

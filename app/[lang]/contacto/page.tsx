@@ -3,7 +3,6 @@ import { ArrowText } from "@/components/arrow"
 import { HeroField } from "@/components/hero-field"
 import { ContactForm } from "@/components/contact-form"
 import { OrientationCard } from "@/components/orientation-card"
-import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { contacto } from "@/content/contacto"
 import { lang } from "next/root-params"
@@ -11,7 +10,7 @@ import type { Locale } from "@/lib/i18n"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = (await lang()) as Locale
-  return buildMetadata("/contacto", seo[locale]["/contacto"])
+  return buildMetadata("/contacto", locale)
 }
 
 export default async function ContactoPage() {

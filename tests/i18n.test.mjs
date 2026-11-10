@@ -1,6 +1,6 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
-import { routes, resolvePath, pathFor, counterpart, detectLocale, localeRedirect, EN_LIVE, LOCALE_COOKIE } from "../lib/i18n.ts"
+import { routes, resolvePath, pathFor, counterpart, detectLocale, localeRedirect, hreflangFor, EN_LIVE, LOCALE_COOKIE } from "../lib/i18n.ts"
 
 test("resolvePath: URLs públicas a ruta interna", () => {
   assert.deepEqual(resolvePath("/servicios"), { locale: "es", key: "/servicios" })
@@ -99,4 +99,14 @@ test("localeRedirect: bots y mismo idioma no redirigen", () => {
   assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "en-US", userAgent: "Googlebot/2.1" }), null)
   assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "es-AR" }), null)
   assert.equal(localeRedirect("/foo", { enLive: true, acceptLanguage: "en-US" }), null)
+})
+
+test("hreflangFor: sin EN_LIVE no hay alternates; con EN_LIVE es/en/x-default (español)", () => {
+  assert.equal(hreflangFor("/servicios", false), null)
+  assert.deepEqual(hreflangFor("/servicios", true), {
+    es: "/servicios",
+    en: "/en/services",
+    "x-default": "/servicios",
+  })
+  assert.deepEqual(hreflangFor("/", true), { es: "/", en: "/en", "x-default": "/" })
 })

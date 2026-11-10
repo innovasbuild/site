@@ -1,14 +1,13 @@
 import { Arrow } from "@/components/arrow"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { lang } from "next/root-params"
 import type { Locale } from "@/lib/i18n"
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = (await lang()) as Locale
-  return buildMetadata("/terminos", seo[locale]["/terminos"])
+  return buildMetadata("/terminos", locale)
 }
 
 const Section = ({ title, children }: { title: string; children: React.ReactNode }) => (
