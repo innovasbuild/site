@@ -44,10 +44,7 @@ for (const { nombre, lines, seccion, contacto, otro } of archivos) {
     assert.ok(items.some((l) => l.includes(contacto)), "dice cómo derivar al contacto")
   })
 
-  // El link del español al inglés se agrega en la Task 11, cuando EN_LIVE pasa a true.
-  if (nombre === "en/llms.txt") {
-    test(`${nombre} enlaza la versión en español`, () => {
-      assert.ok(itemsDeSeccion(lines, seccion).some((l) => l.includes(otro)), "falta el link al otro idioma")
-    })
-  }
+  test(`${nombre} enlaza la otra versión de idioma`, () => {
+    assert.ok(itemsDeSeccion(lines, seccion).some((l) => l.includes(otro)), "falta el link al otro idioma")
+  })
 }

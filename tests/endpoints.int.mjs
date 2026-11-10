@@ -80,13 +80,14 @@ test("el JSON-LD de Organization trae contactPoint y address", async () => {
 })
 
 const manual = (path, headers = {}) => fetch(`${base}${path}`, { redirect: "manual", headers })
+const EN = { "Accept-Language": "en-US" }
 const htmlLang = (html) => html.match(/<html[^>]*\slang="([^"]*)"/)?.[1]
 
 test("/servicios responde 200 con lang es y /en/services con lang en", async () => {
   const es = await manual("/servicios")
   assert.equal(es.status, 200)
   assert.equal(htmlLang(await es.text()), "es")
-  const en = await manual("/en/services")
+  const en = await manual("/en/services", EN)
   assert.equal(en.status, 200)
   assert.equal(htmlLang(await en.text()), "en")
 })
@@ -104,7 +105,7 @@ test("el 404 usa el layout de su idioma", async () => {
   const es = await manual("/foo")
   assert.equal(es.status, 404)
   assert.equal(htmlLang(await es.text()), "es")
-  const en = await manual("/en/foo")
+  const en = await manual("/en/foo", EN)
   assert.equal(en.status, 404)
   assert.equal(htmlLang(await en.text()), "en")
 })
@@ -115,31 +116,76 @@ test("404 en inglés con Accept: text/markdown devuelve Markdown", async () => {
   assert.match(res.headers.get("content-type"), /^text\/markdown/)
 })
 
-test("con EN_LIVE apagado, Accept-Language en-US no redirige", async () => {
-  const res = await manual("/servicios", { "Accept-Language": "en-US" })
+test("/servicios con Accept-Language en-US redirige (307) a /en/services", async () => {
+  const res = await manual("/servicios", EN)
+  assert.equal(res.status, 307)
+  assert.equal(new URL(res.headers.get("location"), base).pathname, "/en/services")
+})
+
+test("/servicios sin Accept-Language responde 200 en español", async () => {
+  const res = await manual("/servicios")
+  assert.equal(res.status, 200)
+  assert.equal(htmlLang(await res.text()), "es")
+})
+
+test("un bot (Googlebot) nunca es redirigido", async () => {
+  const res = await manual("/servicios", { "User-Agent": "Googlebot/2.1 (+http://www.google.com/bot.html)" })
+  assert.equal(res.status, 200)
+  assert.equal(htmlLang(await res.text()), "es")
+})
+
+test("la cookie lang=es gana sobre Accept-Language en-US", async () => {
+  const res = await manual("/servicios", { ...EN, Cookie: "lang=es" })
   assert.equal(res.status, 200)
 })
 
-test("/servicios: canonical sin alternates, html lang=es e indexable", async () => {
+test("/en/services con cookie lang=es redirige (307) a /servicios", async () => {
+  const res = await manual("/en/services", { Cookie: "lang=es" })
+  assert.equal(res.status, 307)
+  assert.equal(new URL(res.headers.get("location"), base).pathname, "/servicios")
+})
+
+test("/cuentas/lagomarsino no redirige con Accept-Language en-US", async () => {
+  const res = await manual("/cuentas/lagomarsino", EN)
+  assert.ok(![307, 308].includes(res.status), `status ${res.status}`)
+  assert.equal(res.headers.get("location"), null)
+})
+
+test("/en con Accept: text/markdown responde Markdown en inglés con AI Central", async () => {
+  const res = await manual("/en", { Accept: "text/markdown" })
+  assert.equal(res.status, 200)
+  assert.match(res.headers.get("content-type"), /^text\/markdown/)
+  assert.ok((await res.text()).includes("AI Central"))
+})
+
+test("/servicios: canonical, alternates es/en/x-default, html lang=es e indexable", async () => {
   const html = await (await get("/servicios", "text/html")).text()
   assert.match(html, /<html lang="es"/)
   assert.match(html, /<link rel="canonical" href="https:\/\/innov\.as\/servicios"/)
-  assert.doesNotMatch(html, /hreflang=/)
+  assert.match(html, /<link rel="alternate" hrefLang="en" href="https:\/\/innov\.as\/en\/services"/i)
+  assert.match(html, /<link rel="alternate" hrefLang="x-default" href="https:\/\/innov\.as\/servicios"/i)
   assert.doesNotMatch(html, /name="robots" content="noindex/)
   assert.match(html, /property="og:locale" content="es_419"/)
 })
 
-test("/en/services: canonical propio y noindex mientras EN_LIVE es false", async () => {
-  const html = await (await get("/en/services", "text/html")).text()
+test("/en/services: canonical propio, indexable y alternates", async () => {
+  const html = await (await manual("/en/services", EN)).text()
   assert.match(html, /<html lang="en"/)
   assert.match(html, /<link rel="canonical" href="https:\/\/innov\.as\/en\/services"/)
-  assert.match(html, /<meta name="robots" content="noindex, nofollow"/)
+  assert.match(html, /<link rel="alternate" hrefLang="es" href="https:\/\/innov\.as\/servicios"/i)
+  assert.doesNotMatch(html, /name="robots" content="noindex/)
   assert.match(html, /property="og:locale" content="en_US"/)
 })
 
-test("sitemap.xml lista solo URLs en español y deja afuera /precios", async () => {
+test("/en: el JSON-LD usa el producto AI Central", async () => {
+  const html = await (await manual("/en", EN)).text()
+  assert.match(html, /"name":"AI Central"/)
+  assert.doesNotMatch(html, /Central IA/)
+})
+
+test("sitemap.xml lista las URLs en ambos idiomas y deja afuera /precios", async () => {
   const xml = await (await get("/sitemap.xml")).text()
   assert.match(xml, /<loc>https:\/\/innov\.as\/servicios<\/loc>/)
-  assert.doesNotMatch(xml, /\/en(\/|<)/)
-  assert.doesNotMatch(xml, /precios/)
+  assert.match(xml, /<loc>https:\/\/innov\.as\/en\/services<\/loc>/)
+  assert.doesNotMatch(xml, /precios|\/en\/pricing/)
 })

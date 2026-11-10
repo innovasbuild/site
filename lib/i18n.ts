@@ -6,8 +6,8 @@
 export const locales = ["es", "en"] as const
 export type Locale = (typeof locales)[number]
 
-/** Mientras sea false no se redirige a nadie a /en. */
-export const EN_LIVE = false
+/** Mientras sea false no se redirige a nadie a /en y el inglés queda noindex. */
+export const EN_LIVE = true
 
 export const LOCALE_COOKIE = "lang"
 
