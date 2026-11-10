@@ -1,9 +1,10 @@
 import { z } from "zod"
 import type { Locale } from "@/lib/i18n"
+import type { Widen } from "../types"
 import * as es from "./es"
 import * as en from "./en"
 
-export const contacto = { es, en } satisfies Record<Locale, typeof es>
+export const contacto = { es, en } satisfies Record<Locale, Widen<typeof es>>
 
 const crearEsquema = (m: typeof es.formErrors) =>
   z.object({

@@ -12,7 +12,7 @@ export const EN_LIVE = false
 export const LOCALE_COOKIE = "lang"
 
 /** `key` es la ruta interna en español sin prefijo; `es` y `en` son las URLs públicas. */
-export const routes: { key: string; es: string; en: string }[] = [
+export const routes = [
   { key: "/", es: "/", en: "/en" },
   { key: "/servicios", es: "/servicios", en: "/en/services" },
   { key: "/central-ia", es: "/central-ia", en: "/en/ai-central" },
@@ -22,7 +22,9 @@ export const routes: { key: string; es: string; en: string }[] = [
   { key: "/precios", es: "/precios", en: "/en/pricing" },
   { key: "/privacidad", es: "/privacidad", en: "/en/privacy" },
   { key: "/terminos", es: "/terminos", en: "/en/terms" },
-]
+] as const satisfies readonly { key: string; es: string; en: string }[]
+
+export type RouteKey = (typeof routes)[number]["key"]
 
 export const SPANISH_COUNTRIES = [
   "AR", "BO", "CL", "CO", "CR", "CU", "DO", "EC", "ES", "GQ",

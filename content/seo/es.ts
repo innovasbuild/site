@@ -1,6 +1,7 @@
+import type { RouteKey } from "@/lib/i18n"
 import type { SeoMeta } from "../types"
 
-export const seo: Record<string, SeoMeta> = {
+export const seo: Record<RouteKey, SeoMeta> = {
   "/": {
     title: "Empresa Coordinada con AI | INNOV.AS",
     description:
