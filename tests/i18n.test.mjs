@@ -21,6 +21,13 @@ test("resolvePath redirige /es/... y /en/<slug español>", () => {
   assert.deepEqual(resolvePath("/en/servicios"), { redirect: "/en/services" })
 })
 
+test("resolvePath no redirige /es/... a destinos desconocidos ni externos", () => {
+  for (const p of ["/es//evil.com", "/es/\\evil.com", "/es/foo", "/es/cuentas/x", "/es/es/servicios", "/es/en/services"]) {
+    assert.equal(resolvePath(p), null, p)
+  }
+  assert.deepEqual(resolvePath("/es/servicios/"), { redirect: "/servicios" })
+})
+
 test("resolvePath devuelve null para rutas desconocidas y /cuentas", () => {
   assert.equal(resolvePath("/foo"), null)
   assert.equal(resolvePath("/cuentas/lagomarsino"), null)

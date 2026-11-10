@@ -40,7 +40,12 @@ export function resolvePath(
   const path = stripTrailingSlash(pathname)
 
   if (path === "/es") return { redirect: "/" }
-  if (path.startsWith("/es/")) return { redirect: path.slice(3) }
+  if (path.startsWith("/es/")) {
+    // Solo se redirige a rutas españolas conocidas: evita redirects abiertos (//host) y 307 que terminan en 404.
+    const rest = path.slice(3)
+    const target = resolvePath(rest)
+    return target && "key" in target && target.locale === "es" ? { redirect: rest } : null
+  }
 
   const isEn = path === "/en" || path.startsWith("/en/")
   if (isEn) {
