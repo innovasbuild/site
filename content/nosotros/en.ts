@@ -13,7 +13,7 @@ export const hero = {
   posterTitle: "Twenty-five years in the field",
   posterAccent: "in the field",
   subhead:
-    "We're a senior team of product, data, and engineering people. For years, we've been getting technology to operate inside organizations with little room for error. AI Central, and the way we implement it, come from that.",
+    "We're a senior team of product, data, and engineering people. For years, we've been putting technology to work inside organizations that can't afford mistakes. AI Central, and the way we implement it, come from that.",
   ctaPrimary: primaryCta,
   foto: imagenes.techoVidrio,
 }
@@ -30,14 +30,14 @@ export const porQue = {
 
 export const trayectoria = {
   kicker: { index: "02", label: "where we come from" },
-  posterTitle: "Technology that ends up running",
-  posterAccent: "running",
+  posterTitle: "Technology that makes it into production",
+  posterAccent: "production",
   body:
     "We've built territorial data platforms, satellite analysis, consumer-goods e-commerce, and educational platforms, for companies, international organizations, and the public sector.",
   closing:
-    "That experience shaped how we work: architecture that scales, organized data, everything logged, and projects that end up in operation.",
+    "That experience shaped how we work: architecture that scales, organized data, everything logged, and projects that go into production.",
   cifras: [
-    { value: 25, suffix: "", label: "years", texto: "building technology for organizations with little room for error." },
+    { value: 25, suffix: "", label: "years", texto: "building technology for organizations that can't afford mistakes." },
     { value: 150, suffix: "+", label: "organizations", texto: "companies, international organizations, and the public sector." },
     { value: 14, suffix: "", label: "countries" },
   ] as { value: number; suffix: string; label: string; texto?: string }[],
@@ -65,7 +65,7 @@ export const loUsamos = {
   posterTitle: "Our sales team already works this way",
   posterAccent: "this way",
   intro:
-    "Every day, on AI Central. An agent prepares the work and a person decides. In the demo, we show it running.",
+    "Every day, on AI Central. An agent prepares the work and a person decides. We'll show it to you live in the demo.",
   pasos: [
     { nombre: "Researches", texto: "Reads the account and what we know about its industry in our Brain.", quien: "agente" as const },
     { nombre: "Drafts", texto: "Writes the message in our voice, following our rules.", quien: "agente" as const },
@@ -78,8 +78,8 @@ export const loUsamos = {
 
 export const principios = {
   kicker: { index: "05", label: "how we think" },
-  posterTitle: "Four ideas we don't negotiate",
-  posterAccent: "don't negotiate",
+  posterTitle: "Our four non-negotiables",
+  posterAccent: "non-negotiables",
   items: [
     {
       frase: "Control is part of the product.",
@@ -94,7 +94,7 @@ export const principios = {
       texto: "A system is worth what people actually use. That's why we work with your team, not around it.",
     },
     {
-      frase: "Exact where there's no margin.",
+      frase: "Precise where there's no room for error.",
       texto: "Fixed rules where precision matters, AI where judgment is needed.",
     },
   ],

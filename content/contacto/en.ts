@@ -1,7 +1,7 @@
 export const hero = {
   eyebrow: "// contact → first conversation",
   title: "Let's start with a conversation",
-  subhead: "Leave us your details and we'll write to you, or book an orientation call with our team directly.",
+  subhead: "Leave your details and we'll get back to you, or book an orientation call with our team directly.",
 }
 
 /** Orientation call. The booking URL (HubSpot Meetings) is in shared.ts. */

@@ -23,7 +23,7 @@ export const camino = {
   posterTitle: "From the first talk to operations",
   posterAccent: "operations",
   intro:
-    "The goal is for AI to end up working in your business, not stuck in a pilot. Each stage leaves something working and ends with a decision from you: you set the pace.",
+    "The goal is for AI to actually work in your business, not sit in a pilot. Each stage leaves something working and ends with a decision from you: you set the pace.",
   etapaLabel: "Stage",
   tablistLabel: "Stages",
   campos: {
@@ -68,7 +68,7 @@ export const camino = {
     {
       nombre: "Ongoing operations",
       duracion: "always",
-      pasa: "The Brain stays alive: every change in your company gets in by the next day. We run a round of interviews with each team every six months.",
+      pasa: "The Brain stays alive: every change in your company is reflected by the next day. We run a round of interviews with each team every six months.",
       llevas: "AI that gets better with use, and a team behind it that knows it.",
       pide: "Your people working as usual.",
       decision: "What else to add, when you need it.",
@@ -136,7 +136,7 @@ export const principios = {
   items: [
     { titulo: "Speed first", texto: "We launch with what's solved and optimize with usage data." },
     { titulo: "Every topic has a purpose", texto: "Before loading anything into the Brain, we define who it's for and when they need it." },
-    { titulo: "Imperfect, but pointed somewhere", texto: "We start with part of each topic and the path to complete it." },
+    { titulo: "Imperfect, but headed somewhere", texto: "We start with part of each topic and the path to complete it." },
     { titulo: "You choose the pace", texto: "The map defines what there is to do. How much per month, you decide in each wave." },
   ],
 }

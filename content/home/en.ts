@@ -54,7 +54,7 @@ export const antesDespues = {
       despues: "Everything lives in one company-owned space, with permissions and an activity log.",
     },
     {
-      hoy: "Pilots that never get past the pilot.",
+      hoy: "Pilots that never make it past the pilot stage.",
       despues: "Business workflows in operation, with a new one every wave.",
     },
   ],
@@ -299,9 +299,9 @@ export const quienesSomos = {
   posterTitle: "A senior team, at your table",
   posterAccent: "at your table",
   body:
-    "We're a senior team with 25 years of experience transforming more than 150 organizations in 14 countries, across consumer goods, education, agriculture, international organizations, and the public sector. We work directly with the person who runs the company.",
+    "We're a senior team with 25 years of experience transforming more than 150 organizations in 14 countries, across consumer goods, education, agriculture, international organizations, and the public sector. We work in English and Spanish, directly with the person who runs the company.",
   body2:
-    "And we use what we sell. Our sales team works on AI Central every day, with an agent that researches, drafts, and waits for a person to approve before anything goes out. In the demo, we show it running.",
+    "And we use what we sell. Our sales team works on AI Central every day, with an agent that researches, drafts, and waits for a person to approve before anything goes out. We'll show it to you live in the demo.",
   cta: { label: "Get to know us →", href: "/en/about" } as Cta,
 }
 

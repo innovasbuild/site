@@ -4,7 +4,7 @@ import { legal, type Block, type LegalDocument } from "@/content/legal"
 import { pathFor, type Locale } from "@/lib/i18n"
 
 /** Texto con **negrita**, _cursiva_ y [enlace](destino). Los destinos que empiezan con "/" son internos. */
-function Inline({ text }: { text: string }) {
+function Inline({ text, bold }: { text: string; bold?: boolean }) {
   const parts = text.split(/(\*\*[^*]+\*\*|_[^_]+_|\[[^\]]+\]\([^)]+\))/g)
   return (
     <>
@@ -14,7 +14,7 @@ function Inline({ text }: { text: string }) {
         const link = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
         if (!link) return part
         const [, label, href] = link
-        const className = "text-teal underline"
+        const className = bold ? "font-semibold text-teal underline" : "text-teal underline"
         return href.startsWith("/") ? (
           <Link key={i} href={href} className={className}>{label}</Link>
         ) : (
@@ -50,7 +50,7 @@ function BlockView({ block }: { block: Block }) {
       {title && <p className={highlight ? "mb-1 font-display font-bold text-ink" : "font-display font-bold text-ink"}>{title}</p>}
       {lines.map((line) => (
         <p key={line}>
-          <Inline text={line} />
+          <Inline text={line} bold={highlight} />
         </p>
       ))}
       {note && (

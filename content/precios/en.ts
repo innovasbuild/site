@@ -34,7 +34,7 @@ export const planes = {
         "Permissions by folder and by page.",
         "Up to 5 skills.",
         "Connection to Claude and ChatGPT through MCP.",
-        "Sign-in restricted to your company's domain.",
+        "Option to restrict sign-in to your company's domain.",
       ],
       cta: { label: "Get started", href: signupHref("gratis", "en") },
       note: "AI usage inside the platform is billed by consumption.",
@@ -94,7 +94,7 @@ export const consumo = {
       description: "Every model call is logged with its cost.",
     },
     {
-      title: "With a cap",
+      title: "Capped spending",
       description: "Each company has a spending cap, and each agent a daily budget.",
     },
   ],

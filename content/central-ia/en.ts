@@ -14,7 +14,7 @@ export const hero = {
   posterAccent: "Central",
   supportLine: "The foundation your company builds its AI on.",
   subhead:
-    "Where what your company knows lives, where its agents work, and where its systems connect, with permissions for each person and a record of everything. Our team implements and operates it with you.",
+    "One place for everything your company knows, the agents that act on it, and the systems they connect to, with permissions for each person and a log of every action. Our team implements it and runs it with you.",
   ctaPrimary: primaryCta,
   foto: imagenes.centralIaHero,
 }
@@ -117,7 +117,7 @@ export const continuidad = {
       puntos: [
         "They inherit the role's access, not the previous person's.",
         "They consult the Brain the way they'd ask the person before them: how decisions get made, who to call, what was agreed.",
-        "The area's agents keep working the same from day one.",
+        "The team's agents keep running without a hitch from day one.",
       ],
     },
   ],

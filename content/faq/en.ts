@@ -31,7 +31,7 @@ export const faqProducto: FaqItem[] = [
 /** Home page questions: they start with working with the team, then the platform. */
 export const faqHome: FaqItem[] = [
   {
-    question: "How does working with you start?",
+    question: "How do we get started with you?",
     answer:
       "With a 30-minute conversation. If it makes sense to continue, we do the Radar: three to four hours with your leadership team, and a report with the method we mapped, the opportunities, and a two-year plan.",
   },

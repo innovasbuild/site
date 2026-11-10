@@ -48,7 +48,7 @@ export const globalMicrocopy = {
 }
 
 export const notFoundContent = {
-  message: "This page doesn't exist. Your next automation opportunity surely does.",
+  message: "This page doesn't exist. But your next automation opportunity does.",
   cta: { label: "Back to home", href: "/en" } as Cta,
 }
 
