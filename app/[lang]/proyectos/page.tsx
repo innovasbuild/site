@@ -12,15 +12,20 @@ import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { buildServiceCatalogSchema } from "@/lib/schema"
 import { proyectos } from "@/content/proyectos"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
-const { hero, solutionTypes, methodology, audience, finalCta } = proyectos.es
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await lang()) as Locale
+  return buildMetadata("/proyectos", seo[locale]["/proyectos"])
+}
 
-export const metadata: Metadata = buildMetadata("/proyectos", seo.es["/proyectos"])
-
-export default function ProyectosPage() {
+export default async function ProyectosPage() {
+  const locale = (await lang()) as Locale
+  const { hero, solutionTypes, methodology, audience, finalCta } = proyectos[locale]
   return (
     <main>
-      <JsonLd data={buildServiceCatalogSchema()} />
+      <JsonLd data={buildServiceCatalogSchema(locale)} />
       <Hero
         field="blocks"
         eyebrow={hero.eyebrow}

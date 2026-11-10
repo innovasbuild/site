@@ -10,6 +10,7 @@ import { contacto, contactFormSchema, type ContactFormValues } from "@/content/c
 import { global } from "@/content/global"
 import { directEmail, hubspotForm } from "@/content/shared"
 import { cn } from "@/lib/utils"
+import { useLocale } from "@/components/locale-provider"
 
 declare global {
   interface Window {
@@ -17,12 +18,12 @@ declare global {
   }
 }
 
-const { submitNote, directEmailNote, tamanos, usosIA } = contacto.es
-const { globalMicrocopy } = global.es
-
 const selectClass = "mt-2 block h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm text-ink"
 
 export function ContactForm() {
+  const locale = useLocale()
+  const { submitNote, directEmailNote, tamanos, usosIA } = contacto[locale]
+  const { globalMicrocopy } = global[locale]
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null)
 
   const {
@@ -31,7 +32,7 @@ export function ContactForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema("es")),
+    resolver: zodResolver(contactFormSchema(locale)),
   })
 
   const onSubmit = async (data: ContactFormValues) => {

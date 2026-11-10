@@ -6,8 +6,8 @@ import { PosterHeading } from "@/components/poster-heading"
 import { homeIllustrations as il } from "@/components/illustrations/home"
 import { centralIa } from "@/content/central-ia"
 import type { Ilustracion } from "@/content/central-ia"
-
-const { componentes: c } = centralIa.es
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 const dibujo: Record<Ilustracion, React.ReactNode> = {
   brain: <CerebroRed label={il.piezaBrain.label} className="serie-cerebro" />,
@@ -20,7 +20,9 @@ const dibujo: Record<Ilustracion, React.ReactNode> = {
  * un tríptico separado por líneas, con su dibujo de la serie del cerebro, y el resto como una lista de dos
  * columnas con filetes.
  */
-export function ComponentesGrid() {
+export async function ComponentesGrid() {
+  const locale = (await lang()) as Locale
+  const { componentes: c } = centralIa[locale]
   return (
     <section className="mx-auto max-w-7xl px-6 py-20 md:px-20 md:py-28">
       <div className="grid gap-6 lg:grid-cols-2 lg:items-end">

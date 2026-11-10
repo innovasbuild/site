@@ -5,8 +5,7 @@ import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
 import { nosotros } from "@/content/nosotros"
-
-const { loUsamos: c } = nosotros.es
+import { useLocale } from "@/components/locale-provider"
 
 const DURACION = 3200
 
@@ -16,6 +15,8 @@ const DURACION = 3200
  * color de la gente.
  */
 export function LoUsamos() {
+  const locale = useLocale()
+  const { loUsamos: c } = nosotros[locale]
   const [paso, setPaso] = useState(0)
   const [pausa, setPausa] = useState(false)
   const ref = useRef<HTMLElement>(null)

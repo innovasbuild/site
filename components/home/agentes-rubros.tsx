@@ -6,8 +6,7 @@ import { cn } from "@/lib/utils"
 import { Arrow } from "@/components/arrow"
 import { PosterHeading } from "@/components/poster-heading"
 import { home } from "@/content/home"
-
-const { agentes: c } = home.es
+import { useLocale } from "@/components/locale-provider"
 
 const DURACION = 6500
 
@@ -17,6 +16,8 @@ const DURACION = 6500
  * agente ──→ lo que decide la gente.
  */
 export function AgentesRubros() {
+  const locale = useLocale()
+  const { agentes: c } = home[locale]
   const [activo, setActivo] = useState(0)
   const [pausa, setPausa] = useState(false)
   const ref = useRef<HTMLElement>(null)

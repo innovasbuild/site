@@ -5,8 +5,7 @@ import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { home } from "@/content/home"
 import type { Imagen } from "@/content/imagenes"
-
-const { manifiesto: delHome } = home.es
+import { useLocale } from "@/components/locale-provider"
 
 /**
  * Manifiesto del home: tres frases en grande que se encienden palabra por palabra al entrar en pantalla,
@@ -14,10 +13,13 @@ const { manifiesto: delHome } = home.es
  * frases del home; otras páginas (nosotros) le pasan las suyas.
  */
 export function Manifiesto({
-  manifiesto = delHome,
+  manifiesto: propio,
 }: {
   manifiesto?: { kicker: { index: string; label: string }; frases: { texto: string; foto: Imagen }[] }
 }) {
+  const locale = useLocale()
+  const { manifiesto: delHome } = home[locale]
+  const manifiesto = propio ?? delHome
   const ref = useRef<HTMLParagraphElement>(null)
   const visto = useInView(ref, { once: true, amount: 0.35 })
   const reduce = useReducedMotion()

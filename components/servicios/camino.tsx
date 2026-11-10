@@ -5,8 +5,7 @@ import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
 import { servicios } from "@/content/servicios"
-
-const { camino: c } = servicios.es
+import { useLocale } from "@/components/locale-provider"
 
 const DURACION = 7500
 
@@ -17,6 +16,8 @@ const DURACION = 7500
  * lima, el color de lo que decide la gente sobre oscuro.
  */
 export function Camino() {
+  const locale = useLocale()
+  const { camino: c } = servicios[locale]
   const [activa, setActiva] = useState(0)
   const [pausa, setPausa] = useState(false)
   const ref = useRef<HTMLElement>(null)

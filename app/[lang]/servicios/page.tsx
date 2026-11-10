@@ -14,18 +14,23 @@ import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { faq } from "@/content/faq"
 import { servicios } from "@/content/servicios"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
-const { faqMetodo, faqProducto } = faq.es
-const { hero, principios, faqSection, finalCta } = servicios.es
-
-export const metadata: Metadata = buildMetadata("/servicios", seo.es["/servicios"])
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await lang()) as Locale
+  return buildMetadata("/servicios", seo[locale]["/servicios"])
+}
 
 /**
  * Servicios contados desde quien decide (v1.6): un equipo que implementa la IA de la empresa de punta a punta.
  * Mismas secciones que el sitio publicado, en el mismo orden: el camino, dos formas de empezar, la ola cero,
  * cómo trabajamos, quién hace qué, el primer paso y preguntas.
  */
-export default function ServiciosPage() {
+export default async function ServiciosPage() {
+  const locale = (await lang()) as Locale
+  const { faqMetodo, faqProducto } = faq[locale]
+  const { hero, principios, faqSection, finalCta } = servicios[locale]
   return (
     <main>
       <HeroFoto

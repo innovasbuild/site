@@ -7,13 +7,18 @@ import { CtaBanner } from "@/components/cta-banner"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { precios } from "@/content/precios"
-
-const { hero, planes, consumo, faqSection, faqPrecios, finalCta } = precios.es
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 // Fuera del menú y sin indexar hasta que el portal de pagos esté listo.
-export const metadata: Metadata = buildMetadata("/precios", seo.es["/precios"], { noindex: true })
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await lang()) as Locale
+  return buildMetadata("/precios", seo[locale]["/precios"], { noindex: true })
+}
 
-export default function PreciosPage() {
+export default async function PreciosPage() {
+  const locale = (await lang()) as Locale
+  const { hero, planes, consumo, faqSection, faqPrecios, finalCta } = precios[locale]
   return (
     <main>
       <Hero

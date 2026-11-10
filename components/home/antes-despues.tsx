@@ -2,11 +2,13 @@ import { Arrow } from "@/components/arrow"
 import { Aparece } from "@/components/aparece"
 import { PosterHeading } from "@/components/poster-heading"
 import { home } from "@/content/home"
-
-const { antesDespues: c } = home.es
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /** Dónde está la empresa hoy y dónde queda: filas A ──→ B, que entran escalonadas. */
-export function AntesDespues() {
+export async function AntesDespues() {
+  const locale = (await lang()) as Locale
+  const { antesDespues: c } = home[locale]
   return (
     <section className="border-y border-line bg-paper-soft">
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-20 md:py-24">

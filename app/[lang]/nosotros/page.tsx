@@ -11,17 +11,22 @@ import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { home } from "@/content/home"
 import { nosotros } from "@/content/nosotros"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
-const { trayectoria: delHome } = home.es
-const { hero, porQue, finalCta } = nosotros.es
-
-export const metadata: Metadata = buildMetadata("/nosotros", seo.es["/nosotros"])
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await lang()) as Locale
+  return buildMetadata("/nosotros", seo[locale]["/nosotros"])
+}
 
 /**
  * Nosotros (v1.6): por qué existimos, de dónde venimos, cómo es el equipo, que usamos lo que vendemos y cómo
  * pensamos. Sin nombres ni bios (regla del brain); las fotos son de ambiente.
  */
-export default function NosotrosPage() {
+export default async function NosotrosPage() {
+  const locale = (await lang()) as Locale
+  const { trayectoria: delHome } = home[locale]
+  const { hero, porQue, finalCta } = nosotros[locale]
   return (
     <main>
       <HeroFoto

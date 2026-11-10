@@ -4,14 +4,16 @@ import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
 import { PosterHeading } from "@/components/poster-heading"
 import { home } from "@/content/home"
-
-const { oferta: c } = home.es
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /**
  * Lo que contrata la empresa: infraestructura, agentes y equipo. Tres tarjetas altas con foto a sangre;
  * al pasar el cursor la foto se acerca y el texto sube.
  */
-export function Oferta() {
+export async function Oferta() {
+  const locale = (await lang()) as Locale
+  const { oferta: c } = home[locale]
   return (
     <section className="mx-auto max-w-7xl px-6 py-20 md:px-20 md:py-28">
       <div className="max-w-3xl">

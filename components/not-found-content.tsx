@@ -1,10 +1,10 @@
 import { Arrow } from "@/components/arrow"
 import Link from "next/link"
 import { global } from "@/content/global"
+import type { Locale } from "@/lib/i18n"
 
-const { notFoundContent } = global.es
-
-export default function NotFound() {
+export function NotFoundContent({ locale }: { locale: Locale }) {
+  const { notFoundContent } = global[locale]
   return (
     <main className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
       <p className="font-mono text-xs uppercase tracking-wider text-teal">// 404 <Arrow /> ?</p>

@@ -1,4 +1,3 @@
-import type { Metadata } from "next"
 import Script from "next/script"
 import "./globals.css"
 import { cn } from "@/lib/utils"
@@ -6,23 +5,20 @@ import { display, sans, mono } from "./fonts"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { JsonLd } from "@/components/json-ld"
-import { seo } from "@/content/seo"
-import { buildMetadata } from "@/lib/metadata"
+import { LocaleProvider } from "@/components/locale-provider"
 import { organizationSchema } from "@/lib/schema"
+import type { Locale } from "@/lib/i18n"
 
-export const metadata: Metadata = {
-  metadataBase: new URL("https://innov.as"),
-  ...buildMetadata("/", seo.es["/"]),
-  generator: "v0.app",
-}
-
-export default function RootLayout({
+/** Documento completo del sitio (html, scripts, barra, pie). Lo usan el layout de [lang] y la página 404 global. */
+export function SiteShell({
+  locale,
   children,
 }: Readonly<{
+  locale: Locale
   children: React.ReactNode
 }>) {
   return (
-    <html lang="es" className={cn(display.variable, sans.variable, mono.variable)}>
+    <html lang={locale} className={cn(display.variable, sans.variable, mono.variable)}>
       <head>
         <Script
           id="ga-script"
@@ -37,10 +33,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="min-h-screen bg-paper text-ink font-sans antialiased selection:bg-teal/20">
-        <JsonLd data={organizationSchema} />
-        <Navbar />
-        {children}
-        <Footer />
+        <LocaleProvider locale={locale}>
+          <JsonLd data={organizationSchema(locale)} />
+          <Navbar />
+          {children}
+          <Footer locale={locale} />
+        </LocaleProvider>
         <Script
           id="hs-script"
           src={`//js.hs-scripts.com/${process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID}.js`}

@@ -14,19 +14,21 @@ import { QuienesSomos } from "@/components/home/quienes-somos"
 import { productSchema } from "@/lib/schema"
 import { faq } from "@/content/faq"
 import { home } from "@/content/home"
-
-const { faqHome } = faq.es
-const { hero, faqSection, finalCta } = home.es
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /**
  * Home. Se cuenta desde quien decide: qué hacemos (manifiesto), dónde está su empresa hoy, qué contrata
  * (infraestructura, agentes y equipo), el proceso de punta a punta, agentes trabajando por rubro, el control
  * y quiénes somos. La plataforma aparece como la base, sin pantallas.
  */
-export default function Home() {
+export default async function Home() {
+  const locale = (await lang()) as Locale
+  const { faqHome } = faq[locale]
+  const { hero, faqSection, finalCta } = home[locale]
   return (
     <main>
-      <JsonLd data={productSchema} />
+      <JsonLd data={productSchema(locale)} />
       <Hero
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}

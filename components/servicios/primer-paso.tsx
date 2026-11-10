@@ -2,14 +2,16 @@ import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
 import { cn } from "@/lib/utils"
 import { servicios } from "@/content/servicios"
-
-const { primerPaso: c } = servicios.es
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /**
  * El primer paso, en banda oscura partida: la foto a un lado (se acerca al pasar el cursor) y, al otro, qué
  * se aprueba y qué riesgo baja. Los ítems entran escalonados, cada uno con su tilde.
  */
-export function PrimerPaso() {
+export async function PrimerPaso() {
+  const locale = (await lang()) as Locale
+  const { primerPaso: c } = servicios[locale]
   return (
     <section className="bg-ink text-paper">
       <div className="mx-auto grid max-w-7xl lg:grid-cols-[5fr_7fr]">

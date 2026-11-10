@@ -3,10 +3,10 @@ import { Linkedin } from "lucide-react"
 import { Logo } from "@/components/logo"
 import { global } from "@/content/global"
 import { footerContact } from "@/content/shared"
+import type { Locale } from "@/lib/i18n"
 
-const { footerColumns, footerInstitutional, footerContactLinks, footerLegal } = global.es
-
-export function Footer() {
+export function Footer({ locale }: { locale: Locale }) {
+  const { footerColumns, footerInstitutional, footerContactLinks, footerLegal } = global[locale]
   return (
     <footer className="border-t border-line bg-ink text-paper">
       <div className="mx-auto max-w-7xl px-6 py-16">

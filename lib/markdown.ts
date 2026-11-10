@@ -1,19 +1,19 @@
 import { home } from "@/content/home"
 import { footerContact } from "@/content/shared"
 import { seo } from "@/content/seo"
-
-const { hero, oferta, recorrido, agentes, control, trayectoria, quienesSomos } = home.es
+import type { Locale } from "@/lib/i18n"
 
 const baseUrl = "https://innov.as"
 
 const absolute = (href: string) => (href.startsWith("/") ? `${baseUrl}${href}` : href)
 
 /** Versión Markdown del home, para agentes que piden Accept: text/markdown. Sale del mismo contenido que la página. */
-export function buildHomeMarkdown(): string {
+export function buildHomeMarkdown(locale: Locale): string {
+  const { hero, oferta, recorrido, agentes, control, trayectoria, quienesSomos } = home[locale]
   const lines: string[] = [
     `# ${hero.posterTitle}`,
     "",
-    `> ${seo.es["/"].description}`,
+    `> ${seo[locale]["/"].description}`,
     "",
     hero.supportLine,
     "",
@@ -76,7 +76,7 @@ export function buildHomeMarkdown(): string {
 }
 
 /** Cuerpo Markdown del 404, con caminos para seguir. */
-export function buildNotFoundMarkdown(pathname: string): string {
+export function buildNotFoundMarkdown(pathname: string, locale: Locale): string {
   return [
     "# 404: página no encontrada",
     "",

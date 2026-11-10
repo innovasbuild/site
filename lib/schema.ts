@@ -2,17 +2,15 @@ import { proyectos } from "@/content/proyectos"
 import { global } from "@/content/global"
 import { footerContact } from "@/content/shared"
 import { seo } from "@/content/seo"
+import type { Locale } from "@/lib/i18n"
 
-const { solutionTypes } = proyectos.es
-const { footerInstitutional } = global.es
-
-export const organizationSchema = {
+export const organizationSchema = (locale: Locale) => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "INNOV.AS",
   url: "https://innov.as",
   logo: "https://innov.as/brand/png/innovas-horizontal-ink.png",
-  description: footerInstitutional.description,
+  description: global[locale].footerInstitutional.description,
   email: footerContact.email,
   address: {
     "@type": "PostalAddress",
@@ -29,20 +27,21 @@ export const organizationSchema = {
   },
   areaServed: { "@type": "Place", name: "Latinoamérica" },
   sameAs: [footerContact.linkedin],
-}
+})
 
-export const productSchema = {
+export const productSchema = (locale: Locale) => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Central IA",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
-  description: seo.es["/"].description,
+  description: seo[locale]["/"].description,
   provider: { "@type": "Organization", name: "INNOV.AS", url: "https://innov.as" },
   areaServed: "Latinoamérica",
-}
+})
 
-export function buildServiceCatalogSchema() {
+export function buildServiceCatalogSchema(locale: Locale) {
+  const { solutionTypes } = proyectos[locale]
   return {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",

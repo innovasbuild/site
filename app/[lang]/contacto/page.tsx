@@ -6,12 +6,17 @@ import { OrientationCard } from "@/components/orientation-card"
 import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { contacto } from "@/content/contacto"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
-const { hero, formTitle } = contacto.es
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await lang()) as Locale
+  return buildMetadata("/contacto", seo[locale]["/contacto"])
+}
 
-export const metadata: Metadata = buildMetadata("/contacto", seo.es["/contacto"])
-
-export default function ContactoPage() {
+export default async function ContactoPage() {
+  const locale = (await lang()) as Locale
+  const { hero, formTitle } = contacto[locale]
   return (
     <main>
       <section className="relative overflow-hidden border-b border-line bg-paper">

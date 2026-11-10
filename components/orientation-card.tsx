@@ -3,11 +3,12 @@
 import { ArrowList } from "@/components/arrow-list"
 import { contacto } from "@/content/contacto"
 import { meetingsUrl } from "@/content/shared"
-
-const { orientacion } = contacto.es
+import { useLocale } from "@/components/locale-provider"
 
 /** Tarjeta de la charla de orientación: explica para qué es y abre la agenda en una pestaña nueva. */
 export function OrientationCard() {
+  const locale = useLocale()
+  const { orientacion } = contacto[locale]
   return (
     <div className="rounded border border-ink bg-paper p-8">
       <p className="font-mono text-xs uppercase tracking-wider text-teal">{`// ${orientacion.kicker}`}</p>

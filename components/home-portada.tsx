@@ -1,8 +1,8 @@
 import Link from "next/link"
 import { home } from "@/content/home"
 import { HeroGrano } from "@/components/hero-grano"
-
-const { hero, dolores } = home.es
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /**
  * Hero y sección 01 de la home. El hero es oscuro, con Newsreader y la palabra destacada en itálica, botones en pill y
@@ -11,12 +11,11 @@ const { hero, dolores } = home.es
  * El copy sale de content/home.ts.
  */
 
-const eyebrow = hero.eyebrow.replace(/^\/\/\s*/, "")
-const [tituloAntes, tituloDespues] = hero.posterTitle.split(hero.posterAccent)
-const kicker = `${dolores.kicker.index} · ${dolores.kicker.label}`
-const [cierreAntes, cierreDespues] = dolores.closing.split(dolores.closingAccent)
-
-export function HomeHero() {
+export async function HomeHero() {
+  const locale = (await lang()) as Locale
+  const { hero } = home[locale]
+  const eyebrow = hero.eyebrow.replace(/^\/\/\s*/, "")
+  const [tituloAntes, tituloDespues] = hero.posterTitle.split(hero.posterAccent)
   return (
     <section className="bajo-nav relative overflow-hidden bg-ink text-paper">
       <HeroGrano />
@@ -42,7 +41,11 @@ export function HomeHero() {
   )
 }
 
-export function HomeDolores() {
+export async function HomeDolores() {
+  const locale = (await lang()) as Locale
+  const { dolores } = home[locale]
+  const kicker = `${dolores.kicker.index} · ${dolores.kicker.label}`
+  const [cierreAntes, cierreDespues] = dolores.closing.split(dolores.closingAccent)
   return (
     <div className="bg-ink">
       <section className="rounded-t-[24px] bg-paper text-ink">

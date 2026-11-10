@@ -7,8 +7,7 @@ import { CerebroRed } from "@/components/cerebro-red"
 import { PosterHeading } from "@/components/poster-heading"
 import { homeIllustrations as il } from "@/components/illustrations/home"
 import { servicios } from "@/content/servicios"
-
-const { olaCero: c } = servicios.es
+import { useLocale } from "@/components/locale-provider"
 
 /** Cuánto tarda en encenderse cada ítem, una vez que la lista entra en pantalla. */
 const PASO = 650
@@ -19,6 +18,8 @@ const PASO = 650
  * recién encendido brilla en lima un momento), la barra avanza y el contador sube hasta 5/5. Pasa una vez.
  */
 export function OlaCero() {
+  const locale = useLocale()
+  const { olaCero: c } = servicios[locale]
   const ref = useRef<HTMLDivElement>(null)
   const visto = useInView(ref, { once: true, amount: 0.4 })
   const reduce = useReducedMotion()

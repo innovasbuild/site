@@ -7,8 +7,7 @@ import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
 import { global } from "@/content/global"
-
-const { navLinks, navCta } = global.es
+import { useLocale } from "@/components/locale-provider"
 
 /** Cuánto hay que bajar antes de que la barra pueda esconderse, y cuánto movimiento cuenta como un gesto. */
 const BAJADA_MIN = 120
@@ -32,6 +31,8 @@ function fondoOscuro(barra: HTMLElement, pincel: CanvasRenderingContext2D) {
 }
 
 export function Navbar() {
+  const locale = useLocale()
+  const { navLinks, navCta } = global[locale]
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const headerRef = useRef<HTMLElement>(null)

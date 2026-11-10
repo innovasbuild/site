@@ -6,8 +6,7 @@ import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
 import { PosterHeading } from "@/components/poster-heading"
 import { servicios } from "@/content/servicios"
-
-const { dosFormas: c } = servicios.es
+import { useLocale } from "@/components/locale-provider"
 
 /**
  * Los dos diagnósticos comparados fila por fila. Cada uno lleva arriba su foto con el nombre encima; al pasar
@@ -15,6 +14,8 @@ const { dosFormas: c } = servicios.es
  * pantallas chicas cada diagnóstico se lee completo, uno debajo del otro.
  */
 export function DosFormas() {
+  const locale = useLocale()
+  const { dosFormas: c } = servicios[locale]
   const [mira, setMira] = useState<number | null>(null)
 
   return (
@@ -89,7 +90,7 @@ function Cabecera({
   activa,
   onEnter,
 }: {
-  opcion: (typeof c.opciones)[number]
+  opcion: (typeof servicios.es.dosFormas.opciones)[number]
   activa?: boolean
   onEnter?: () => void
 }) {

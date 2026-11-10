@@ -5,8 +5,7 @@ import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
 import { home } from "@/content/home"
-
-const { capas, recorrido: c } = home.es
+import { useLocale } from "@/components/locale-provider"
 
 /** Cuánto dura cada etapa en pantalla antes de pasar sola a la siguiente. */
 const DURACION = 7000
@@ -17,6 +16,8 @@ const DURACION = 7000
  * funcionando, que se van encendiendo de abajo hacia arriba: todo se construye sobre la misma base.
  */
 export function Recorrido() {
+  const locale = useLocale()
+  const { capas, recorrido: c } = home[locale]
   const [activa, setActiva] = useState(0)
   const [pausa, setPausa] = useState(false)
   const ref = useRef<HTMLElement>(null)

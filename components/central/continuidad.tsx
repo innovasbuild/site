@@ -5,8 +5,7 @@ import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
 import { centralIa } from "@/content/central-ia"
-
-const { continuidad: c } = centralIa.es
+import { useLocale } from "@/components/locale-provider"
 
 const DURACION = 8000
 
@@ -55,6 +54,8 @@ function Tramo({ fluye, cortado }: { fluye: boolean; cortado?: boolean }) {
  * encima o al elegir una). El esquema muestra a quien se va, el Brain del área y a quien llega.
  */
 export function Continuidad() {
+  const locale = useLocale()
+  const { continuidad: c } = centralIa[locale]
   const [fase, setFase] = useState(0)
   const [pausa, setPausa] = useState(false)
   const ref = useRef<HTMLElement>(null)

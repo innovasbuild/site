@@ -13,19 +13,24 @@ import { seo } from "@/content/seo"
 import { buildMetadata } from "@/lib/metadata"
 import { productSchema } from "@/lib/schema"
 import { centralIa } from "@/content/central-ia"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
-const { hero, control, conEquipo, sistemas, finalCta } = centralIa.es
-
-export const metadata: Metadata = buildMetadata("/central-ia", seo.es["/central-ia"])
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = (await lang()) as Locale
+  return buildMetadata("/central-ia", seo[locale]["/central-ia"])
+}
 
 /**
  * Central IA contada por sus componentes y lo que le dan a la empresa, sin pantallas ni demos del producto:
  * componentes, continuidad del conocimiento, control, el equipo que la implementa y el detalle para sistemas.
  */
-export default function CentralIaPage() {
+export default async function CentralIaPage() {
+  const locale = (await lang()) as Locale
+  const { hero, control, conEquipo, sistemas, finalCta } = centralIa[locale]
   return (
     <main>
-      <JsonLd data={productSchema} />
+      <JsonLd data={productSchema(locale)} />
       <HeroFoto
         eyebrow={hero.eyebrow}
         posterTitle={hero.posterTitle}
