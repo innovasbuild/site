@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server"
 import { negotiate } from "@/lib/negotiation"
 import { buildHomeMarkdown, buildNotFoundMarkdown } from "@/lib/markdown"
-import { LOCALE_COOKIE, counterpart, detectLocale, resolvePath, type Locale } from "@/lib/i18n"
+import { LOCALE_COOKIE, localeRedirect, resolvePath, type Locale } from "@/lib/i18n"
 
 const isCuentas = (pathname: string) => pathname === "/cuentas" || pathname.startsWith("/cuentas/")
 
@@ -14,8 +14,8 @@ const markdownHeaders = {
  * Las URLs públicas se reescriben a las internas bajo app/[lang] (/servicios → /es/servicios, /en/services →
  * /en/servicios). Además:
  * - /es/... y /en/<slug español> redirigen (308) a la URL canónica.
- * - Una URL en español se redirige (307) a su par en inglés si el visitante prefiere inglés (cookie, Accept-Language
- *   o país). Nunca al revés: una URL /en/... es una elección explícita. Los bots y los agentes no se redirigen.
+ * - Con EN_LIVE, una URL se redirige (307) a su par en el otro idioma si el visitante prefiere ese idioma (cookie,
+ *   Accept-Language o país). Sin EN_LIVE no se redirige a nadie. Los bots y los agentes nunca se redirigen.
  * - Con Accept: text/markdown, el home y los 404 responden en Markdown (acceptmarkdown.com); los navegadores
  *   siguen recibiendo el HTML.
  */
@@ -66,17 +66,17 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(url, { request: { headers } })
   }
 
-  if (resolved.locale === "es" && !isInternal) {
-    const detected = detectLocale({
+  if (!isInternal) {
+    const target = localeRedirect(pathname, {
       cookie: request.cookies.get(LOCALE_COOKIE)?.value,
       acceptLanguage: request.headers.get("accept-language"),
       country: request.headers.get("x-vercel-ip-country"),
       userAgent: request.headers.get("user-agent"),
       accept: request.headers.get("accept"),
     })
-    if (detected === "en") {
+    if (target) {
       const url = request.nextUrl.clone()
-      url.pathname = counterpart(pathname, "en")
+      url.pathname = target
       const response = NextResponse.redirect(url, 307)
       response.headers.set("Cache-Control", "private, no-store")
       return response
@@ -87,7 +87,10 @@ export function proxy(request: NextRequest) {
   // que se ponga acá o en next.config), así que Vary: Accept solo viaja en las respuestas Markdown y 406.
   const url = request.nextUrl.clone()
   url.pathname = `/${resolved.locale}${resolved.key === "/" ? "" : resolved.key}`
-  return NextResponse.rewrite(url)
+  // x-lang solo lo fija este proxy (para el 404 global): se descarta el que mande el cliente.
+  const headers = new Headers(request.headers)
+  headers.delete("x-lang")
+  return NextResponse.rewrite(url, { request: { headers } })
 }
 
 export const config = {

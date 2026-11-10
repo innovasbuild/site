@@ -78,3 +78,44 @@ test("el JSON-LD de Organization trae contactPoint y address", async () => {
   assert.equal(org.address["@type"], "PostalAddress")
   assert.equal(org.address.addressCountry, "AR")
 })
+
+const manual = (path, headers = {}) => fetch(`${base}${path}`, { redirect: "manual", headers })
+const htmlLang = (html) => html.match(/<html[^>]*\slang="([^"]*)"/)?.[1]
+
+test("/servicios responde 200 con lang es y /en/services con lang en", async () => {
+  const es = await manual("/servicios")
+  assert.equal(es.status, 200)
+  assert.equal(htmlLang(await es.text()), "es")
+  const en = await manual("/en/services")
+  assert.equal(en.status, 200)
+  assert.equal(htmlLang(await en.text()), "en")
+})
+
+test("las URLs no canónicas redirigen con 308", async () => {
+  const a = await manual("/es/servicios")
+  assert.equal(a.status, 308)
+  assert.equal(new URL(a.headers.get("location"), base).pathname, "/servicios")
+  const b = await manual("/en/servicios")
+  assert.equal(b.status, 308)
+  assert.equal(new URL(b.headers.get("location"), base).pathname, "/en/services")
+})
+
+test("el 404 usa el layout de su idioma", async () => {
+  const es = await manual("/foo")
+  assert.equal(es.status, 404)
+  assert.equal(htmlLang(await es.text()), "es")
+  const en = await manual("/en/foo")
+  assert.equal(en.status, 404)
+  assert.equal(htmlLang(await en.text()), "en")
+})
+
+test("404 en inglés con Accept: text/markdown devuelve Markdown", async () => {
+  const res = await manual("/en/foo", { Accept: "text/markdown" })
+  assert.equal(res.status, 404)
+  assert.match(res.headers.get("content-type"), /^text\/markdown/)
+})
+
+test("con EN_LIVE apagado, Accept-Language en-US no redirige", async () => {
+  const res = await manual("/servicios", { "Accept-Language": "en-US" })
+  assert.equal(res.status, 200)
+})

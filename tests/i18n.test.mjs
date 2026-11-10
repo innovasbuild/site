@@ -1,6 +1,6 @@
 import { test } from "node:test"
 import assert from "node:assert/strict"
-import { routes, resolvePath, pathFor, counterpart, detectLocale, EN_LIVE, LOCALE_COOKIE } from "../lib/i18n.ts"
+import { routes, resolvePath, pathFor, counterpart, detectLocale, localeRedirect, EN_LIVE, LOCALE_COOKIE } from "../lib/i18n.ts"
 
 test("resolvePath: URLs públicas a ruta interna", () => {
   assert.deepEqual(resolvePath("/servicios"), { locale: "es", key: "/servicios" })
@@ -82,4 +82,21 @@ test("detectLocale nunca redirige bots ni agentes", () => {
 test("detectLocale con enLive false siempre es es", () => {
   assert.equal(detectLocale({ enLive: false, acceptLanguage: "en-US", country: "US" }), "es")
   assert.equal(detectLocale({ enLive: false, cookie: "en" }), "es")
+})
+
+test("localeRedirect: sin EN_LIVE nunca redirige", () => {
+  const input = { enLive: false, cookie: "en", acceptLanguage: "en-US" }
+  assert.equal(localeRedirect("/servicios", input), null)
+  assert.equal(localeRedirect("/en/services", { enLive: false, cookie: "es" }), null)
+})
+
+test("localeRedirect: con EN_LIVE redirige en ambos sentidos", () => {
+  assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "en-US" }), "/en/services")
+  assert.equal(localeRedirect("/en/services", { enLive: true, cookie: "es" }), "/servicios")
+})
+
+test("localeRedirect: bots y mismo idioma no redirigen", () => {
+  assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "en-US", userAgent: "Googlebot/2.1" }), null)
+  assert.equal(localeRedirect("/servicios", { enLive: true, acceptLanguage: "es-AR" }), null)
+  assert.equal(localeRedirect("/foo", { enLive: true, acceptLanguage: "en-US" }), null)
 })

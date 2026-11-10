@@ -120,3 +120,15 @@ export function detectLocale(input: {
   if (input.country) return SPANISH_COUNTRIES.includes(input.country.toUpperCase()) ? "es" : "en"
   return "es"
 }
+
+/** Destino del redirect por idioma (307) para una URL pública conocida, o null. Sin EN_LIVE no se redirige a nadie. */
+export function localeRedirect(
+  pathname: string,
+  input: Parameters<typeof detectLocale>[0],
+): string | null {
+  if (!(input.enLive ?? EN_LIVE)) return null
+  const resolved = resolvePath(pathname)
+  if (!resolved || !("key" in resolved)) return null
+  const detected = detectLocale(input)
+  return detected && detected !== resolved.locale ? counterpart(pathname, detected) : null
+}
