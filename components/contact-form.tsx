@@ -11,6 +11,7 @@ import { global } from "@/content/global"
 import { directEmail, hubspotForm } from "@/content/shared"
 import { cn } from "@/lib/utils"
 import { useLocale } from "@/components/locale-provider"
+import { buildHubspotMessage } from "@/lib/hubspot-message"
 
 declare global {
   interface Window {
@@ -41,15 +42,7 @@ export function ContactForm() {
     // El formulario de HubSpot guarda email, nombre y mensaje. Empresa, país, tamaño y uso de IA
     // viajan dentro del mensaje: mandar la empresa como campo renombra la compañía ya asociada
     // al dominio del contacto en el CRM.
-    const message = [
-      `Empresa: ${data.empresa}`,
-      `País: ${data.pais}`,
-      `Tamaño: ${data.tamano}`,
-      `IA que usan hoy: ${data.usoIA}`,
-      data.consulta,
-    ]
-      .filter(Boolean)
-      .join("\n")
+    const message = buildHubspotMessage(data, locale)
     const fields = Object.entries({ email: data.email, firstname: data.nombre, message }).map(([name, value]) => ({
       objectTypeId: "0-1",
       name,
