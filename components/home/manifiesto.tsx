@@ -3,8 +3,9 @@
 import { useRef } from "react"
 import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { manifiesto as delHome } from "@/content/home"
+import { home } from "@/content/home"
 import type { Imagen } from "@/content/imagenes"
+import { useLocale } from "@/components/locale-provider"
 
 /**
  * Manifiesto del home: tres frases en grande que se encienden palabra por palabra al entrar en pantalla,
@@ -12,10 +13,13 @@ import type { Imagen } from "@/content/imagenes"
  * frases del home; otras páginas (nosotros) le pasan las suyas.
  */
 export function Manifiesto({
-  manifiesto = delHome,
+  manifiesto: propio,
 }: {
   manifiesto?: { kicker: { index: string; label: string }; frases: { texto: string; foto: Imagen }[] }
 }) {
+  const locale = useLocale()
+  const { manifiesto: delHome } = home[locale]
+  const manifiesto = propio ?? delHome
   const ref = useRef<HTMLParagraphElement>(null)
   const visto = useInView(ref, { once: true, amount: 0.35 })
   const reduce = useReducedMotion()

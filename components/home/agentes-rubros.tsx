@@ -5,7 +5,8 @@ import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Arrow } from "@/components/arrow"
 import { PosterHeading } from "@/components/poster-heading"
-import { agentes as c } from "@/content/home"
+import { home } from "@/content/home"
+import { useLocale } from "@/components/locale-provider"
 
 const DURACION = 6500
 
@@ -15,6 +16,8 @@ const DURACION = 6500
  * agente ──→ lo que decide la gente.
  */
 export function AgentesRubros() {
+  const locale = useLocale()
+  const { agentes: c } = home[locale]
   const [activo, setActivo] = useState(0)
   const [pausa, setPausa] = useState(false)
   const ref = useRef<HTMLElement>(null)
@@ -51,7 +54,7 @@ export function AgentesRubros() {
           onMouseLeave={() => setPausa(false)}
         >
           {/* Rubros */}
-          <div className="flex gap-x-6 gap-y-1 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0" role="tablist" aria-label="Rubros">
+          <div className="flex gap-x-6 gap-y-1 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:pb-0" role="tablist" aria-label={c.rubrosLabel}>
             {c.rubros.map((r, i) => {
               const on = i === activo
               return (

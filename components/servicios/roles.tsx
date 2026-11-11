@@ -2,14 +2,18 @@ import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
 import { PosterHeading } from "@/components/poster-heading"
 import { cn } from "@/lib/utils"
-import { roles as c } from "@/content/servicios"
+import { servicios } from "@/content/servicios"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /**
  * Quién se sienta en la mesa: los dos lados en dos columnas, cada uno encabezado por su foto (que se acerca
  * al pasar el cursor) y con sus roles en filas con filete que se corren apenas al pasarles por encima. La
  * gente de la empresa con su color (plum, lima sobre la foto), el equipo de INNOV.AS con teal.
  */
-export function Roles() {
+export async function Roles() {
+  const locale = (await lang()) as Locale
+  const { roles: c } = servicios[locale]
   return (
     <section className="mx-auto max-w-7xl px-6 py-20 md:px-20 md:py-28">
       <p className="font-mono text-[13px] tracking-[0.12em] text-teal uppercase">

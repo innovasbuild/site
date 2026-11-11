@@ -1,0 +1,20 @@
+import { Arrow } from "@/components/arrow"
+import Link from "next/link"
+import { global } from "@/content/global"
+import type { Locale } from "@/lib/i18n"
+
+export function NotFoundContent({ locale }: { locale: Locale }) {
+  const { notFoundContent } = global[locale]
+  return (
+    <main className="flex min-h-[60vh] flex-col items-center justify-center px-6 text-center">
+      <p className="font-mono text-xs uppercase tracking-wider text-teal">// 404 <Arrow /> ?</p>
+      <p className="mt-6 max-w-md text-lg text-ink-70">{notFoundContent.message}</p>
+      <Link
+        href={notFoundContent.cta.href}
+        className="mt-8 rounded-full bg-teal px-7 py-3 text-base font-bold text-on-brand transition-transform hover:-translate-y-0.5 hover:shadow-teal"
+      >
+        {notFoundContent.cta.label}
+      </Link>
+    </main>
+  )
+}

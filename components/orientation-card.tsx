@@ -1,10 +1,14 @@
 "use client"
 
 import { ArrowList } from "@/components/arrow-list"
-import { orientacion } from "@/content/contacto"
+import { contacto } from "@/content/contacto"
+import { meetingsUrl } from "@/content/shared"
+import { useLocale } from "@/components/locale-provider"
 
 /** Tarjeta de la charla de orientación: explica para qué es y abre la agenda en una pestaña nueva. */
 export function OrientationCard() {
+  const locale = useLocale()
+  const { orientacion } = contacto[locale]
   return (
     <div className="rounded border border-ink bg-paper p-8">
       <p className="font-mono text-xs uppercase tracking-wider text-teal">{`// ${orientacion.kicker}`}</p>
@@ -12,7 +16,7 @@ export function OrientationCard() {
       <p className="mt-3 font-medium text-ink">{orientacion.lead}</p>
       <ArrowList items={orientacion.items} className="mt-5" />
       <a
-        href={orientacion.url}
+        href={meetingsUrl}
         target="_blank"
         rel="noreferrer"
         onClick={() => window.gtag?.("event", "agenda_click", { method: "charla_orientacion" })}

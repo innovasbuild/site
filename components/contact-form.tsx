@@ -6,18 +6,12 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
-import {
-  contactFormSchema,
-  submitNote,
-  directEmailNote,
-  directEmail,
-  tamanos,
-  usosIA,
-  hubspotForm,
-  type ContactFormValues,
-} from "@/content/contacto"
-import { globalMicrocopy } from "@/content/global"
+import { contacto, contactFormSchema, type ContactFormValues } from "@/content/contacto"
+import { global } from "@/content/global"
+import { directEmail, hubspotForm } from "@/content/shared"
 import { cn } from "@/lib/utils"
+import { useLocale } from "@/components/locale-provider"
+import { buildHubspotMessage } from "@/lib/hubspot-message"
 
 declare global {
   interface Window {
@@ -28,6 +22,9 @@ declare global {
 const selectClass = "mt-2 block h-9 w-full rounded-md border border-input bg-transparent px-3 text-sm text-ink"
 
 export function ContactForm() {
+  const locale = useLocale()
+  const { submitNote, directEmailNote, tamanos, usosIA, fields } = contacto[locale]
+  const { globalMicrocopy } = global[locale]
   const [status, setStatus] = useState<{ type: "success" | "error"; message: string } | null>(null)
 
   const {
@@ -36,7 +33,7 @@ export function ContactForm() {
     reset,
     formState: { errors, isSubmitting },
   } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema),
+    resolver: zodResolver(contactFormSchema(locale)),
   })
 
   const onSubmit = async (data: ContactFormValues) => {
@@ -45,15 +42,7 @@ export function ContactForm() {
     // El formulario de HubSpot guarda email, nombre y mensaje. Empresa, país, tamaño y uso de IA
     // viajan dentro del mensaje: mandar la empresa como campo renombra la compañía ya asociada
     // al dominio del contacto en el CRM.
-    const message = [
-      `Empresa: ${data.empresa}`,
-      `País: ${data.pais}`,
-      `Tamaño: ${data.tamano}`,
-      `IA que usan hoy: ${data.usoIA}`,
-      data.consulta,
-    ]
-      .filter(Boolean)
-      .join("\n")
+    const message = buildHubspotMessage(data, locale)
     const fields = Object.entries({ email: data.email, firstname: data.nombre, message }).map(([name, value]) => ({
       objectTypeId: "0-1",
       name,
@@ -97,29 +86,29 @@ export function ContactForm() {
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div className="grid gap-5 sm:grid-cols-2">
           <div>
-            <Label htmlFor="nombre">Nombre</Label>
+            <Label htmlFor="nombre">{fields.nombre}</Label>
             <Input id="nombre" {...register("nombre")} className="mt-2" />
             {errors.nombre && <p className="mt-1 text-xs text-danger">{errors.nombre.message}</p>}
           </div>
           <div>
-            <Label htmlFor="email">Email laboral</Label>
+            <Label htmlFor="email">{fields.email}</Label>
             <Input id="email" type="email" {...register("email")} className="mt-2" />
             {errors.email && <p className="mt-1 text-xs text-danger">{errors.email.message}</p>}
           </div>
           <div>
-            <Label htmlFor="empresa">Empresa</Label>
+            <Label htmlFor="empresa">{fields.empresa}</Label>
             <Input id="empresa" {...register("empresa")} className="mt-2" />
             {errors.empresa && <p className="mt-1 text-xs text-danger">{errors.empresa.message}</p>}
           </div>
           <div>
-            <Label htmlFor="pais">País</Label>
+            <Label htmlFor="pais">{fields.pais}</Label>
             <Input id="pais" {...register("pais")} className="mt-2" />
             {errors.pais && <p className="mt-1 text-xs text-danger">{errors.pais.message}</p>}
           </div>
           <div>
-            <Label htmlFor="tamano">Cuántas personas son</Label>
+            <Label htmlFor="tamano">{fields.tamano}</Label>
             <select id="tamano" defaultValue="" {...register("tamano")} className={selectClass}>
-              <option value="" disabled>Elegí una opción</option>
+              <option value="" disabled>{fields.elige}</option>
               {tamanos.map((option) => (
                 <option key={option}>{option}</option>
               ))}
@@ -127,9 +116,9 @@ export function ContactForm() {
             {errors.tamano && <p className="mt-1 text-xs text-danger">{errors.tamano.message}</p>}
           </div>
           <div>
-            <Label htmlFor="usoIA">Qué IA usan hoy</Label>
+            <Label htmlFor="usoIA">{fields.usoIA}</Label>
             <select id="usoIA" defaultValue="" {...register("usoIA")} className={selectClass}>
-              <option value="" disabled>Elegí una opción</option>
+              <option value="" disabled>{fields.elige}</option>
               {usosIA.map((option) => (
                 <option key={option}>{option}</option>
               ))}
@@ -139,7 +128,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <Label htmlFor="consulta">Algo que quieras contarnos antes (opcional)</Label>
+          <Label htmlFor="consulta">{fields.consulta}</Label>
           <Textarea id="consulta" {...register("consulta")} className="mt-2" rows={3} />
           {errors.consulta && <p className="mt-1 text-xs text-danger">{errors.consulta.message}</p>}
         </div>
@@ -152,7 +141,7 @@ export function ContactForm() {
             "hover:-translate-y-0.5 hover:shadow-teal disabled:opacity-50"
           )}
         >
-          {isSubmitting ? "Enviando..." : globalMicrocopy.submitButton}
+          {isSubmitting ? fields.enviando : globalMicrocopy.submitButton}
         </button>
         <p className="text-center text-xs text-ink-40">{submitNote}</p>
 

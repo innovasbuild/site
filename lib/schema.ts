@@ -1,14 +1,16 @@
-import { solutionTypes } from "@/content/proyectos"
-import { footerInstitutional, footerContact } from "@/content/global"
+import { proyectos } from "@/content/proyectos"
+import { global } from "@/content/global"
+import { footerContact } from "@/content/shared"
 import { seo } from "@/content/seo"
+import { EN_LIVE, pathFor, type Locale } from "@/lib/i18n"
 
-export const organizationSchema = {
+export const organizationSchema = (locale: Locale) => ({
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "INNOV.AS",
   url: "https://innov.as",
   logo: "https://innov.as/brand/png/innovas-horizontal-ink.png",
-  description: footerInstitutional.description,
+  description: global[locale].footerInstitutional.description,
   email: footerContact.email,
   address: {
     "@type": "PostalAddress",
@@ -19,36 +21,37 @@ export const organizationSchema = {
     "@type": "ContactPoint",
     contactType: "sales",
     email: footerContact.email,
-    url: "https://innov.as/contacto",
-    availableLanguage: ["es"],
-    areaServed: "Latinoamérica",
+    url: `https://innov.as${pathFor("/contacto", locale)}`,
+    availableLanguage: EN_LIVE ? ["es", "en"] : ["es"],
+    areaServed: global[locale].schemaText.areaServed,
   },
-  areaServed: { "@type": "Place", name: "Latinoamérica" },
+  areaServed: { "@type": "Place", name: global[locale].schemaText.areaServed },
   sameAs: [footerContact.linkedin],
-}
+})
 
-export const productSchema = {
+export const productSchema = (locale: Locale) => ({
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "Central IA",
+  name: locale === "en" ? "AI Central" : "Central IA",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web",
-  description: seo["/"].description,
+  description: seo[locale]["/"].description,
   provider: { "@type": "Organization", name: "INNOV.AS", url: "https://innov.as" },
-  areaServed: "Latinoamérica",
-}
+  areaServed: global[locale].schemaText.areaServed,
+})
 
-export function buildServiceCatalogSchema() {
+export function buildServiceCatalogSchema(locale: Locale) {
+  const { solutionTypes } = proyectos[locale]
   return {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
-    name: "Proyectos a medida de INNOV.AS",
+    name: global[locale].schemaText.serviceCatalogName,
     itemListElement: solutionTypes.items.map((item) => ({
       "@type": "Service",
       name: item.title,
       description: item.description,
       provider: { "@type": "Organization", name: "INNOV.AS" },
-      areaServed: "Latinoamérica",
+      areaServed: global[locale].schemaText.areaServed,
     })),
   }
 }

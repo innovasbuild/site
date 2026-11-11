@@ -2,13 +2,17 @@ import Link from "next/link"
 import { ArrowText } from "@/components/arrow"
 import { PosterHeading } from "@/components/poster-heading"
 import { StatCounter } from "@/components/stat-counter"
-import { trayectoria as c } from "@/content/nosotros"
+import { nosotros } from "@/content/nosotros"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /**
  * De dónde venimos: el texto a la izquierda y, a la derecha, las tres cifras una por fila (cada una sola en
  * su fila, a escala póster), con su explicación al costado.
  */
-export function Trayectoria() {
+export async function Trayectoria() {
+  const locale = (await lang()) as Locale
+  const { trayectoria: c } = nosotros[locale]
   return (
     <section className="border-y border-line bg-paper-soft">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:px-20 md:py-28 lg:grid-cols-[5fr_7fr] lg:gap-20">

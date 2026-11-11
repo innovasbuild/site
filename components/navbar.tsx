@@ -6,7 +6,10 @@ import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Logo } from "@/components/logo"
-import { navLinks, navCta } from "@/content/global"
+import { global } from "@/content/global"
+import { useLocale } from "@/components/locale-provider"
+import { pathFor, publicPath } from "@/lib/i18n"
+import { LanguageSwitcher } from "@/components/language-switcher"
 
 /** Cuánto hay que bajar antes de que la barra pueda esconderse, y cuánto movimiento cuenta como un gesto. */
 const BAJADA_MIN = 120
@@ -30,6 +33,8 @@ function fondoOscuro(barra: HTMLElement, pincel: CanvasRenderingContext2D) {
 }
 
 export function Navbar() {
+  const locale = useLocale()
+  const { navLinks, navCta, chrome } = global[locale]
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const headerRef = useRef<HTMLElement>(null)
@@ -117,14 +122,14 @@ export function Navbar() {
               : "border-ink/10 bg-paper/55 shadow-[0_8px_24px_-16px_rgba(21,25,26,0.3)]"
           )}
         >
-          <Link href="/" aria-label="INNOV.AS">
+          <Link href={pathFor("/", locale)} aria-label="INNOV.AS">
             <Logo className="h-7 w-auto" surface={sobreOscuro ? "dark" : "light"} />
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden items-center gap-2 md:flex">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href
+              const isActive = publicPath(pathname) === link.href
               return (
                 <Link
                   key={link.href}
@@ -139,6 +144,7 @@ export function Navbar() {
                 </Link>
               )
             })}
+            <LanguageSwitcher onDark={sobreOscuro} className="ml-1" />
             <Link
               href={navCta.href}
               className={cn("ml-2 rounded-full px-5 py-2.5 text-sm font-bold text-on-brand transition-transform hover:-translate-y-0.5", sobreOscuro ? "bg-teal-ui-dark" : "bg-teal hover:shadow-teal")}
@@ -151,7 +157,7 @@ export function Navbar() {
           <button
             className={cn("mr-3 md:hidden", sobreOscuro ? "text-paper" : "text-ink")}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Abrir menú"
+            aria-label={chrome.openMenu}
           >
             {isMobileMenuOpen ? <X /> : <Menu />}
           </button>
@@ -170,6 +176,7 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <LanguageSwitcher className="text-sm" />
               <Link
                 href={navCta.href}
                 onClick={() => setIsMobileMenuOpen(false)}

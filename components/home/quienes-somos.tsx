@@ -3,10 +3,14 @@ import { ArrowText } from "@/components/arrow"
 import { SectionKicker } from "@/components/section-kicker"
 import { PosterHeading } from "@/components/poster-heading"
 import { StatCounter } from "@/components/stat-counter"
-import { quienesSomos as c, trayectoria } from "@/content/home"
+import { home } from "@/content/home"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /** Quiénes somos, con el armado anterior: texto, las cifras en una fila y el link. Sin foto. */
-export function QuienesSomos() {
+export async function QuienesSomos() {
+  const locale = (await lang()) as Locale
+  const { quienesSomos: c, trayectoria } = home[locale]
   return (
     <section className="mx-auto max-w-6xl px-6 py-20">
       <SectionKicker index={c.kicker.index} label={c.kicker.label} />

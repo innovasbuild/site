@@ -8,8 +8,8 @@
     "dev": "next dev -p 3300",
     "lint": "eslint .",
     "start": "next start",
-    "test": "node --test tests/negotiation.test.mjs tests/llms-txt.test.mjs",
-    "test:endpoints": "node --test tests/endpoints.test.mjs"
+    "test": "tsc --noEmit && node --test tests/*.test.mjs",
+    "test:endpoints": "node --test tests/endpoints.int.mjs"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

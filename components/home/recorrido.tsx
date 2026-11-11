@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react"
 import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
-import { capas, recorrido as c } from "@/content/home"
+import { home } from "@/content/home"
+import { useLocale } from "@/components/locale-provider"
 
 /** Cuánto dura cada etapa en pantalla antes de pasar sola a la siguiente. */
 const DURACION = 7000
@@ -15,6 +16,8 @@ const DURACION = 7000
  * funcionando, que se van encendiendo de abajo hacia arriba: todo se construye sobre la misma base.
  */
 export function Recorrido() {
+  const locale = useLocale()
+  const { capas, recorrido: c } = home[locale]
   const [activa, setActiva] = useState(0)
   const [pausa, setPausa] = useState(false)
   const ref = useRef<HTMLElement>(null)
@@ -51,7 +54,7 @@ export function Recorrido() {
           onMouseLeave={() => setPausa(false)}
         >
           {/* Etapas */}
-          <ol className="border-t border-ink" role="tablist" aria-label="Etapas del trabajo">
+          <ol className="border-t border-ink" role="tablist" aria-label={c.tablistLabel}>
             {c.etapas.map((e, i) => {
               const on = i === activa
               return (
@@ -104,7 +107,7 @@ export function Recorrido() {
             })}
           </ol>
 
-          {/* Qué te llevás, quiénes están y las capas que ya funcionan, todo a la vista junto a las etapas */}
+          {/* Qué te llevas, quiénes están y las capas que ya funcionan, todo a la vista junto a las etapas */}
           <div className="self-start rounded-[20px] border border-line bg-paper p-6 sm:p-8">
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
@@ -139,7 +142,7 @@ export function Recorrido() {
                     >
                       <span>{capa}</span>
                       <span className="ml-3 shrink-0 font-mono text-[11px] tracking-[0.08em] whitespace-nowrap uppercase">
-                        {encendida ? "funcionando" : planeada ? "en el plan" : ""}
+                        {encendida ? c.estados.encendida : planeada ? c.estados.planeada : ""}
                       </span>
                     </li>
                   )

@@ -19,7 +19,6 @@ export interface IllustrationAccent {
 }
 
 export interface Illustration {
-  label: string
   lines: string[]
   accents: IllustrationAccent[]
 }
@@ -38,7 +37,7 @@ const STYLE = `
 
 const toneFill = { teal: "var(--color-teal)", plum: "var(--color-plum)" }
 
-export function HandDrawn({ illustration, className }: { illustration: Illustration; className?: string }) {
+export function HandDrawn({ illustration, label, className }: { illustration: Illustration; label: string; className?: string }) {
   const ref = useRef<SVGSVGElement>(null)
   const filterId = useId()
   const [inView, setInView] = useState(false)
@@ -56,7 +55,7 @@ export function HandDrawn({ illustration, className }: { illustration: Illustrat
       ref={ref}
       viewBox="0 0 400 300"
       role="img"
-      aria-label={illustration.label}
+      aria-label={label}
       data-in={inView}
       className={cn("illus", className)}
       fill="none"

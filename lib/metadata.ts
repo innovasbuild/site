@@ -1,29 +1,35 @@
 import type { Metadata } from "next"
-import type { SeoMeta } from "@/content/types"
+import { seo } from "@/content/seo"
+import { EN_LIVE, hreflangFor, pathFor, type Locale, type RouteKey } from "@/lib/i18n"
 
 const siteName = "INNOV.AS"
 const defaultImage = "/images/home-hero.png"
+const ogLocale = { es: "es_419", en: "en_US" } as const
 
-export function buildMetadata(path: string, seo: SeoMeta, options?: { noindex?: boolean }): Metadata {
+export function buildMetadata(key: RouteKey, locale: Locale, options?: { noindex?: boolean }): Metadata {
+  const { title, description } = seo[locale][key]
+  const path = pathFor(key, locale)
+  const languages = hreflangFor(key)
+  const hidden = options?.noindex || (locale === "en" && !EN_LIVE)
   return {
-    title: seo.title,
-    description: seo.description,
-    alternates: { canonical: path },
+    title,
+    description,
+    alternates: { canonical: path, ...(languages ? { languages } : {}) },
     openGraph: {
-      title: seo.title,
-      description: seo.description,
+      title,
+      description,
       url: path,
       siteName,
-      locale: "es_AR",
+      locale: ogLocale[locale],
       type: "website",
-      images: [{ url: defaultImage, width: 1200, height: 630, alt: seo.title }],
+      images: [{ url: defaultImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
-      title: seo.title,
-      description: seo.description,
+      title,
+      description,
       images: [defaultImage],
     },
-    ...(options?.noindex ? { robots: { index: false, follow: false } } : {}),
+    ...(hidden ? { robots: { index: false, follow: false } } : {}),
   }
 }

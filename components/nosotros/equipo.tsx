@@ -1,13 +1,17 @@
 import { Aparece } from "@/components/aparece"
 import { Foto } from "@/components/foto"
-import { equipo as c } from "@/content/nosotros"
+import { nosotros } from "@/content/nosotros"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /**
  * El equipo, sobre una imagen a sangre en los colores de la paleta (en lugar del fondo oscuro liso). La
  * imagen es oscura del lado del texto y se enciende en lima hacia la derecha; un velo suave del lado izquierdo
  * asegura la lectura. Cuatro perfiles en filetes, entrando escalonados.
  */
-export function Equipo() {
+export async function Equipo() {
+  const locale = (await lang()) as Locale
+  const { equipo: c } = nosotros[locale]
   return (
     <section className="relative overflow-hidden bg-ink text-paper">
       <Foto imagen={c.foto} className="absolute inset-0" imgClassName="object-[50%_72%]" />

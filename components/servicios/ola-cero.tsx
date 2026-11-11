@@ -5,8 +5,9 @@ import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { CerebroRed } from "@/components/cerebro-red"
 import { PosterHeading } from "@/components/poster-heading"
-import { homeIllustrations as il } from "@/components/illustrations/home"
-import { olaCero as c } from "@/content/servicios"
+import { imagenes } from "@/content/imagenes"
+import { servicios } from "@/content/servicios"
+import { useLocale } from "@/components/locale-provider"
 
 /** Cuánto tarda en encenderse cada ítem, una vez que la lista entra en pantalla. */
 const PASO = 650
@@ -17,6 +18,8 @@ const PASO = 650
  * recién encendido brilla en lima un momento), la barra avanza y el contador sube hasta 5/5. Pasa una vez.
  */
 export function OlaCero() {
+  const locale = useLocale()
+  const { olaCero: c } = servicios[locale]
   const ref = useRef<HTMLDivElement>(null)
   const visto = useInView(ref, { once: true, amount: 0.4 })
   const reduce = useReducedMotion()
@@ -44,7 +47,7 @@ export function OlaCero() {
             <PosterHeading size="sm" accent={c.posterAccent}>{c.posterTitle}</PosterHeading>
           </div>
           <div className="mt-10 max-w-[340px] [&>*]:w-full">
-            <CerebroRed label={il.piezaBrain.label} className="serie-cerebro" />
+            <CerebroRed label={imagenes[locale].ilustraciones.piezaBrain} className="serie-cerebro" />
           </div>
         </div>
 

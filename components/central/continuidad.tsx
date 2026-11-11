@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react"
 import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
-import { continuidad as c } from "@/content/central-ia"
+import { centralIa } from "@/content/central-ia"
+import { useLocale } from "@/components/locale-provider"
 
 const DURACION = 8000
 
@@ -53,6 +54,8 @@ function Tramo({ fluye, cortado }: { fluye: boolean; cortado?: boolean }) {
  * encima o al elegir una). El esquema muestra a quien se va, el Brain del área y a quien llega.
  */
 export function Continuidad() {
+  const locale = useLocale()
+  const { continuidad: c } = centralIa[locale]
   const [fase, setFase] = useState(0)
   const [pausa, setPausa] = useState(false)
   const ref = useRef<HTMLElement>(null)
@@ -90,7 +93,7 @@ export function Continuidad() {
           onMouseLeave={() => setPausa(false)}
         >
           <div>
-            <div className="grid grid-cols-3 border-t border-ink" role="tablist" aria-label="Fases">
+            <div className="grid grid-cols-3 border-t border-ink" role="tablist" aria-label={c.tablistLabel}>
               {c.fases.map((f, i) => (
                 <button
                   key={f.nombre}
@@ -154,7 +157,7 @@ export function Continuidad() {
                   </div>
                 </div>
                 <p className="mt-2 text-center text-[12px] text-ink-70">
-                  {fase === 0 ? "Se completa mientras trabaja" : fase === 1 ? "Queda todo, con su historial" : "Disponible desde el primer día"}
+                  {c.captions[fase]}
                 </p>
               </div>
               <Tramo fluye={fase === 2} />

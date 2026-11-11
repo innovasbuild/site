@@ -4,7 +4,8 @@ import { useEffect, useRef, useState } from "react"
 import { useInView, useReducedMotion } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { PosterHeading } from "@/components/poster-heading"
-import { loUsamos as c } from "@/content/nosotros"
+import { nosotros } from "@/content/nosotros"
+import { useLocale } from "@/components/locale-provider"
 
 const DURACION = 3200
 
@@ -14,6 +15,8 @@ const DURACION = 3200
  * color de la gente.
  */
 export function LoUsamos() {
+  const locale = useLocale()
+  const { loUsamos: c } = nosotros[locale]
   const [paso, setPaso] = useState(0)
   const [pausa, setPausa] = useState(false)
   const ref = useRef<HTMLElement>(null)

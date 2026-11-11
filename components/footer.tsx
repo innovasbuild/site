@@ -1,15 +1,18 @@
 import Link from "next/link"
 import { Linkedin } from "lucide-react"
 import { Logo } from "@/components/logo"
-import { footerColumns, footerInstitutional, footerContact, footerContactLinks, footerLegal } from "@/content/global"
+import { global } from "@/content/global"
+import { footerContact } from "@/content/shared"
+import { pathFor, type Locale } from "@/lib/i18n"
 
-export function Footer() {
+export function Footer({ locale }: { locale: Locale }) {
+  const { footerColumns, footerInstitutional, footerContactLinks, footerLegal, chrome } = global[locale]
   return (
     <footer className="border-t border-line bg-ink text-paper">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
-            <Link href="/" aria-label={footerInstitutional.name}>
+            <Link href={pathFor("/", locale)} aria-label={footerInstitutional.name}>
               <Logo className="h-8 w-auto" surface="dark" />
             </Link>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/60">
@@ -35,7 +38,7 @@ export function Footer() {
             ))}
 
           <div id="contacto" className="scroll-mt-24">
-            <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">Contacto</h4>
+            <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">{chrome.contactHeading}</h4>
             <div className="mt-4 flex flex-col gap-3">
               {footerContactLinks.map((link) => (
                 <Link key={link.label} href={link.href} className="text-sm text-paper/70 hover:text-paper">
@@ -60,11 +63,11 @@ export function Footer() {
         <div className="mt-16 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
           <p>{footerLegal}</p>
           <div className="flex gap-4">
-            <Link href="/privacidad" className="hover:text-paper/70">
-              Privacidad
+            <Link href={pathFor("/privacidad", locale)} className="hover:text-paper/70">
+              {chrome.privacy}
             </Link>
-            <Link href="/terminos" className="hover:text-paper/70">
-              Términos y Condiciones
+            <Link href={pathFor("/terminos", locale)} className="hover:text-paper/70">
+              {chrome.terms}
             </Link>
           </div>
         </div>

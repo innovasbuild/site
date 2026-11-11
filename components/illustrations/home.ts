@@ -9,7 +9,6 @@ const emptyWindows = [0, 72, 144].flatMap((dy, i) => [
 ])
 
 export const dolorAdopcion: Illustration = {
-  label: "Una ventana de asistente llena de notas y tableros, y tres ventanas vacías que apuntan hacia ella",
   lines: [
     "M38 78 C36 70 42 64 50 64 L206 62 C215 62 220 67 220 76 L222 226 C222 235 217 240 208 240 L52 242 C43 242 38 237 38 228 Z",
     "M39 92 C90 90 160 91 221 90",
@@ -57,7 +56,6 @@ export const dolorAdopcion: Illustration = {
 }
 
 export const dolorEscritura: Illustration = {
-  label: "Un cuaderno abierto al que le llegan lápices desde todos lados, con renglones encimados y uno tachado",
   lines: [
     "M70 92 C110 82 160 84 200 98 C240 84 290 82 330 92 L332 232 C290 222 240 224 200 238 C160 224 110 222 68 232 Z",
     "M200 98 L200 238",
@@ -94,7 +92,6 @@ export const dolorEscritura: Illustration = {
 }
 
 export const dolorFuga: Illustration = {
-  label: "Un documento con el candado abierto sale de la empresa hacia burbujas de chat personales",
   lines: [
     // La empresa: un recinto con estantes, abierto a la derecha.
     "M150 40 L40 42 L40 262 L150 260",
@@ -142,7 +139,6 @@ export const dolorFuga: Illustration = {
 }
 
 export const piezaBrain: Illustration = {
-  label: "Un fichero con carpetas ordenadas del que salen dos hojas con un sello",
   lines: [
     "M82 152 L82 112 L96 112 L100 100 L138 100 L142 112 L318 112 L318 152",
     "M90 152 L90 126 L168 126 L172 114 L210 114 L214 126 L310 126 L310 152",
@@ -175,7 +171,6 @@ const checklistRows = [102, 142, 182].flatMap((y) => [
 ])
 
 export const piezaAgentes: Illustration = {
-  label: "Una lista de tareas que se va tildando sola, con la última esperando la firma de una persona",
   lines: [
     "M110 62 L290 60 C296 60 300 64 300 70 L300 250 C300 256 296 260 290 260 L110 262 C104 262 100 258 100 252 L100 72 C100 66 104 62 110 62 Z",
     "M170 61 L170 46 L230 46 L230 60",
@@ -202,7 +197,6 @@ const key = (x: number, y: number) => [
 ]
 
 export const piezaHerramientas: Illustration = {
-  label: "Tres ventanas, correo, contactos y planilla, enchufadas a un mismo tablero, cada enchufe con su llave",
   lines: [
     "M150 112 L250 110 C256 110 260 114 260 120 L260 192 C260 198 256 202 250 202 L150 204 C144 204 140 200 140 194 L140 122 C140 116 144 112 150 112 Z",
     "M200 204 L200 244",

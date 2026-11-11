@@ -1,12 +1,16 @@
 import { Aparece } from "@/components/aparece"
 import { PosterHeading } from "@/components/poster-heading"
-import { principios as c } from "@/content/nosotros"
+import { nosotros } from "@/content/nosotros"
+import { lang } from "next/root-params"
+import type { Locale } from "@/lib/i18n"
 
 /**
  * Cómo pensamos: cada principio como una frase grande en su fila, con la explicación al costado. Al pasar el
  * cursor la frase se corre apenas.
  */
-export function Principios() {
+export async function Principios() {
+  const locale = (await lang()) as Locale
+  const { principios: c } = nosotros[locale]
   return (
     <section className="border-y border-line bg-paper-soft">
       <div className="mx-auto max-w-7xl px-6 py-20 md:px-20 md:py-28">
