@@ -12,6 +12,11 @@ export const seo: Record<RouteKey, SeoMeta> = {
     description:
       "El conocimiento de la empresa, sus agentes y sus herramientas en un solo lugar, con permisos por persona. Se usa desde la plataforma o desde Claude y ChatGPT.",
   },
+  "/central-ia/presentacion": {
+    title: "Presentación de Central IA | INNOV.AS",
+    description:
+      "La presentación de Central IA en una página: el conocimiento, los agentes y las herramientas de la empresa con un mismo modelo de permisos, y el equipo que la implementa ola por ola.",
+  },
   "/servicios": {
     title: "Servicios: un equipo que implementa la IA de tu empresa de punta a punta | INNOV.AS",
     description:

@@ -16,6 +16,7 @@ export const routes = [
   { key: "/", es: "/", en: "/en" },
   { key: "/servicios", es: "/servicios", en: "/en/services" },
   { key: "/central-ia", es: "/central-ia", en: "/en/ai-central" },
+  { key: "/central-ia/presentacion", es: "/central-ia/presentacion", en: "/en/ai-central/overview" },
   { key: "/nosotros", es: "/nosotros", en: "/en/about" },
   { key: "/contacto", es: "/contacto", en: "/en/contact" },
   { key: "/proyectos", es: "/proyectos", en: "/en/projects" },
