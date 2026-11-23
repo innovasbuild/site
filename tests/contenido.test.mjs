@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from "node:fs"
 import { join } from "node:path"
 
 const ROOT = new URL("..", import.meta.url).pathname
-const modulos = ["central-ia", "contacto", "faq", "global", "home", "imagenes", "nosotros", "precios", "proyectos", "seo", "servicios"]
+const modulos = ["central-ia", "contacto", "faq", "global", "home", "imagenes", "nosotros", "precios", "presentacion", "proyectos", "seo", "servicios"]
 
 const hrefsInternos = (archivo) =>
   [...readFileSync(archivo, "utf8").matchAll(/href:\s*"(\/[^"]*)"/g)].map((m) => m[1])

@@ -12,6 +12,11 @@ export const seo: Record<RouteKey, SeoMeta> = {
     description:
       "Your company's knowledge, agents, and tools in one place, with permissions for each person. Use it from the platform or from Claude and ChatGPT.",
   },
+  "/central-ia/presentacion": {
+    title: "AI Central overview | INNOV.AS",
+    description:
+      "The AI Central overview on one page: your company's knowledge, agents, and tools under one permission model, plus the team that rolls it out wave by wave.",
+  },
   "/servicios": {
     title: "Services: a team that implements AI across your company, end to end | INNOV.AS",
     description:
