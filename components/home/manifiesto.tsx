@@ -44,7 +44,7 @@ export function Manifiesto({
                   key={i}
                   className="transition-colors duration-500"
                   style={{
-                    color: encendido ? undefined : "var(--color-line)",
+                    color: encendido ? undefined : "var(--color-ink-40)",
                     transitionDelay: reduce ? "0ms" : `${i * 45}ms`,
                   }}
                 >
@@ -62,7 +62,7 @@ export function Manifiesto({
               style={{ transitionDelay: reduce ? "0ms" : `${n * 45}ms` }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={frase.foto.src} alt="" loading="lazy" />
+              <img src={frase.foto.mini ?? frase.foto.src} alt="" loading="lazy" decoding="async" />
             </span>{" "}
           </span>
         ))}

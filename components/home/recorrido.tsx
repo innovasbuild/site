@@ -54,11 +54,11 @@ export function Recorrido() {
           onMouseLeave={() => setPausa(false)}
         >
           {/* Etapas */}
-          <ol className="border-t border-ink" role="tablist" aria-label={c.tablistLabel}>
+          <div className="border-t border-ink" role="tablist" aria-label={c.tablistLabel}>
             {c.etapas.map((e, i) => {
               const on = i === activa
               return (
-                <li key={e.nombre} className="border-b border-line">
+                <div key={e.nombre} className="border-b border-line">
                   <button
                     type="button"
                     role="tab"
@@ -102,10 +102,10 @@ export function Recorrido() {
                       />
                     )}
                   </span>
-                </li>
+                </div>
               )
             })}
-          </ol>
+          </div>
 
           {/* Qué te llevas, quiénes están y las capas que ya funcionan, todo a la vista junto a las etapas */}
           <div className="self-start rounded-[20px] border border-line bg-paper p-6 sm:p-8">
