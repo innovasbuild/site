@@ -8,15 +8,23 @@ export interface Imagen {
   src: string
   alt: string
   natural?: boolean
+  /** Versión chica (para fotos incrustadas en una línea de texto). */
+  mini?: string
 }
 
 const unsplash = (id: string, alt: string): Imagen => ({
   src: `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1600&q=75`,
+  mini: `https://images.unsplash.com/${id}?auto=format&fit=crop&h=180&q=70`,
   alt,
 })
 
 /** Fotos propias, en public/images. `natural`: ya vienen tratadas (color y grano), no se les aplica el filtro común. */
-const propia = (archivo: string, alt: string): Imagen => ({ src: `/images/${archivo}`, alt, natural: true })
+const propia = (archivo: string, alt: string): Imagen => ({
+  src: `/images/${archivo}`,
+  mini: `/images/mini/${archivo.replace(/\.jpg$/, ".webp")}`,
+  alt,
+  natural: true,
+})
 
 export const imagenes = {
   // Infraestructura: estructura y escala.

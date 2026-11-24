@@ -24,7 +24,7 @@ export function Footer({ locale }: { locale: Locale }) {
             .filter((col) => col.heading)
             .map((col) => (
               <div key={col.heading}>
-                <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">{col.heading}</h4>
+                <h2 className="font-mono text-xs uppercase tracking-wider text-paper/60">{col.heading}</h2>
                 <ul className="mt-4 space-y-3">
                   {col.links?.map((link) => (
                     <li key={link.label}>
@@ -38,7 +38,7 @@ export function Footer({ locale }: { locale: Locale }) {
             ))}
 
           <div id="contacto" className="scroll-mt-24">
-            <h4 className="font-mono text-xs uppercase tracking-wider text-paper/40">{chrome.contactHeading}</h4>
+            <h2 className="font-mono text-xs uppercase tracking-wider text-paper/60">{chrome.contactHeading}</h2>
             <div className="mt-4 flex flex-col gap-3">
               {footerContactLinks.map((link) => (
                 <Link key={link.label} href={link.href} className="text-sm text-paper/70 hover:text-paper">
@@ -60,7 +60,7 @@ export function Footer({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/40 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-paper/10 pt-8 text-xs text-paper/60 sm:flex-row sm:items-center sm:justify-between">
           <p>{footerLegal}</p>
           <div className="flex gap-4">
             <Link href={pathFor("/privacidad", locale)} className="hover:text-paper/70">
